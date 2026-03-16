@@ -1,4 +1,4 @@
-# Retro Game Ringtone Library
+# Retro Ringtone Library
 
 ![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-blue)
 ![Cloudflare R2](https://img.shields.io/badge/storage-Cloudflare%20R2-orange)
@@ -9,12 +9,11 @@ A **free web-based ringtone library** featuring music from classic computer game
 
 The goal of the project is to make it extremely easy to **discover, preview, and download retro ringtones directly from a mobile browser** — without requiring any apps.
 
-The project focuses primarily on music from:
+The project focuses primarily on game and demoscene music from:
 
 * Commodore 64
 * Amiga
 * DOS / early Windows PC
-* the demoscene
 
 ---
 
@@ -103,9 +102,9 @@ title-vX-platform-composer.mp3
 Example:
 
 ```
-cybernoid-theme-v1-c64-jeroen-tel.mp3
+cybernoid-v1-c64-jeroen-tel.mp3
 monty-on-the-run-theme-v1-c64-rob-hubbard.mp3
-hardwired-intro-v1-amiga-jesper-kyd.mp3
+hardwired-v1-amiga-jesper-kyd.mp3
 ```
 
 Rules:
@@ -133,7 +132,7 @@ Example structure:
 Example URL:
 
 ```
-https://yourbucket.r2.dev/ringtones/c64/cybernoid-theme-v1-c64-jeroen-tel.mp3
+https://yourbucket.r2.dev/ringtones/c64/cybernoid-v1-c64-jeroen-tel.mp3
 ```
 
 ---
@@ -147,7 +146,7 @@ The workflow is intentionally simple.
 Example:
 
 ```
-/ringtones/c64/cybernoid-theme-v3-c64-jeroen-tel.mp3
+/ringtones/c64/cybernoid-v3-c64-jeroen-tel.mp3
 ```
 
 ### 2. Add entry to the database
@@ -161,7 +160,7 @@ data/ringtones.csv
 Example entry:
 
 ```
-Cybernoid Theme,3,c64,Jeroen Tel,Cybernoid,1988
+Cybernoid,3,c64,Jeroen Tel,Cybernoid,1988
 ```
 
 ### 3. Generate JSON database
@@ -205,7 +204,7 @@ Examples include:
 * Jeroen Tel
 * Ben Daglish
 * Jesper Kyd
-* Alexander Brandon
+* Matthew Simmonds
 
 ---
 
