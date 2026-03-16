@@ -1,0 +1,26 @@
+body{
+font-family: Arial;
+margin:20px;
+max-width:700px;
+}
+
+h1{
+font-size:28px;
+}
+
+#search{
+width:100%;
+padding:10px;
+font-size:16px;
+margin-bottom:20px;
+}
+
+.ringtone{
+border-bottom:1px solid #ddd;
+padding:10px 0;
+}
+
+audio{
+width:100%;
+margin-top:5px;
+}
