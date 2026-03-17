@@ -20,13 +20,11 @@
 
  "tags": [
     "amiga",
-   group,company,,a500,retro
     "tracker",
     "aryx",
     "karsten-koch",
-    "thalamus",
-    "8bit",
-    "philip-glass"
+    "a500",
+    "amiga",   
   ],
   
   "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v1-karsten-koch.mp3"
@@ -52,6 +50,15 @@
     "year": -
   },
 
+"tags": [
+    "amiga",
+    "tracker",
+    "aryx",
+    "karsten-koch",
+    "a500",
+    "amiga",
+  ],
+
   "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v2-karsten-koch.mp3"
 }
 
@@ -75,5 +82,14 @@
     "year": -
   },
 
+"tags": [
+    "amiga",
+    "tracker",
+    "aryx",
+    "karsten-koch",
+    "a500",
+    "amiga",
+  ],
+  
   "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v3-karsten-koch.mp3"
 }
