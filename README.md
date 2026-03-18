@@ -65,7 +65,7 @@ Example:
   "production": "Hardwired",
   "category": "Demo",
   "year": 1991,
-  "publisher": "Crionics & Silents"
+  "publisher": "Crionics & Silents",
   "sampling": {
     "title": "Panther",
     "artist": "David Whittaker",
@@ -80,9 +80,9 @@ Example:
     "crionics",
     "panther",
     "david",
-    "whittaker"
-    "amiga"
-    "a500"
+    "whittaker",
+    "amiga",
+    "a500",
     "demoscene"
   ],
   "file": "https://bucket.r2.dev/ringtones/a500/hardwired-a500-v6-jesper-kyd.mp3"
