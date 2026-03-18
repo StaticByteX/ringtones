@@ -4,7 +4,11 @@
     "title": "Delta",
     "variant": 1,
     "platform": "Commodore 64",
-    "composer": "Rob Hubbard",
+    "composer": {
+      "handle": "-",
+      "name": "Rob Hubbard",
+      "group": "-"
+    },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
@@ -33,7 +37,11 @@
     "title": "Delta",
     "variant": 1,
     "platform": "Commodore 64",
-    "composer": "Rob Hubbard",
+    "composer": {
+      "handle": "-",
+      "name": "Rob Hubbard",
+      "group": "-"
+    },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
@@ -62,7 +70,11 @@
     "title": "Delta",
     "variant": 1,
     "platform": "Commodore 64",
-    "composer": "Rob Hubbard",
+    "composer": {
+      "handle": "-",
+      "name": "Rob Hubbard",
+      "group": "-"
+    },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
@@ -85,4 +97,6 @@
     ],
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
   },
+
+  
 ]
