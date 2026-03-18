@@ -1,104 +1,88 @@
-{
-  "id": "delta-c64-v1",
-
-  "title": "Delta",
-  "variant": 1,
-
-  "platform": "Commodore 64",
-  "composer": "Rob Hubbard",
-
-  "production": "Delta",
-  "category": "Game",
-  "year": 1987,
-  "publisher": "Thalamus",
-
-  "sampling": {
-    "title": "Koyaanisqatsi",
-    "artist": "Philip Glass",
-    "year": 1983
+[
+  {
+    "id": "delta-c64-v1",
+    "title": "Delta",
+    "variant": 1,
+    "platform": "Commodore 64",
+    "composer": "Rob Hubbard",
+    "production": "Delta",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Thalamus",
+    "sampling": {
+      "title": "Koyaanisqatsi",
+      "artist": "Philip Glass",
+      "year": 1983
+    },
+    "tags": [
+      "c64",
+      "sid",
+      "chiptune",
+      "retrogaming",
+      "rob-hubbard",
+      "delta",
+      "thalamus",
+      "8bit",
+      "philip-glass"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
+  },
+  
+  {
+    "id": "delta-c64-v1",
+    "title": "Delta",
+    "variant": 1,
+    "platform": "Commodore 64",
+    "composer": "Rob Hubbard",
+    "production": "Delta",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Thalamus",
+    "sampling": {
+      "title": "Koyaanisqatsi",
+      "artist": "Philip Glass",
+      "year": 1983
+    },
+    "tags": [
+      "c64",
+      "sid",
+      "chiptune",
+      "retrogaming",
+      "rob-hubbard",
+      "delta",
+      "thalamus",
+      "8bit",
+      "philip-glass"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
   },
 
-  "tags": [
-    "c64",
-    "sid",
-    "chiptune",
-    "retrogaming",
-    "rob-hubbard",
-    "delta",
-    "thalamus",
-    "8bit",
-    "philip-glass"
-  ],
-  
-  "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
-}
-
-{
-  "id": "delta-c64-v2",
-
-  "title": "Delta",
-  "variant": 2,
-
-  "platform": "Commodore 64",
-  "composer": "Rob Hubbard",
-
-  "production": "Delta",
-  "category": "Game",
-  "year": 1987,
-  "publisher": "Thalamus",
-
-  "sampling": {
-    "title": "Koyaanisqatsi",
-    "artist": "Philip Glass",
-    "year": 1983
+  {
+    "id": "delta-c64-v1",
+    "title": "Delta",
+    "variant": 1,
+    "platform": "Commodore 64",
+    "composer": "Rob Hubbard",
+    "production": "Delta",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Thalamus",
+    "sampling": {
+      "title": "Koyaanisqatsi",
+      "artist": "Philip Glass",
+      "year": 1983
+    },
+    "tags": [
+      "c64",
+      "sid",
+      "chiptune",
+      "retrogaming",
+      "rob-hubbard",
+      "delta",
+      "thalamus",
+      "8bit",
+      "philip-glass"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
   },
-
-  "tags": [
-    "c64",
-    "sid",
-    "chiptune",
-    "retrogaming",
-    "rob-hubbard",
-    "delta",
-    "thalamus",
-    "8bit",
-    "philip-glass"
-  ],
-  
-  "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v2-rob-hubbard.mp3"
-}
-
-{
-  "id": "delta-c64-v3",
-
-  "title": "Delta",
-  "variant": 3,
-
-  "platform": "Commodore 64",
-  "composer": "Rob Hubbard",
-
-  "production": "Delta",
-  "category": "Game",
-  "year": 1987,
-  "publisher": "Thalamus",
-
-  "sampling": {
-    "title": "Koyaanisqatsi",
-    "artist": "Philip Glass",
-    "year": 1983
-  },
-
-  "tags": [
-    "c64",
-    "sid",
-    "chiptune",
-    "retrogaming",
-    "rob-hubbard",
-    "delta",
-    "thalamus",
-    "8bit",
-    "philip-glass"
-  ],
-  
-  "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v3-rob-hubbard.mp3"
-}
+]
