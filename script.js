@@ -1,76 +1,125 @@
 let allRingtones = []
+let filteredRingtones = []
 
-fetch("data/ringtones.json")
-.then(res => res.json())
-.then(data => {
+let itemsPerLoad = 30
+let currentIndex = 0
+let isLoading = false
 
-    allRingtones = data
-    renderRingtones(data)
+
+// Load JSON
+Promise.all([
+  fetch("data/ringtones-c64.json").then(res => res.json()),
+  fetch("data/ringtones-amiga.json").then(res => res.json()),
+  fetch("data/ringtones-pc.json").then(res => res.json())
+])
+.then(([c64, amiga, pc]) => {
+
+  allRingtones = [...c64, ...amiga, ...pc]
+  filteredRingtones = allRingtones
+
+  renderNextBatch()
 
 })
 
+
+// Search
 document.getElementById("search").addEventListener("input", e => {
 
-    const term = e.target.value.toLowerCase()
+  const term = e.target.value.toLowerCase()
 
-    const filtered = allRingtones.filter(r =>
-        r.title.toLowerCase().includes(term) ||
-        r.composer.toLowerCase().includes(term) ||
-        r.game.toLowerCase().includes(term) ||
-        r.platform.toLowerCase().includes(term)
+  filteredRingtones = allRingtones.filter(r => {
+
+    const composerHandle = r.composer?.handle?.toLowerCase() || ""
+    const composerName = r.composer?.name?.toLowerCase() || ""
+    const composerGroup = r.composer?.group?.toLowerCase() || ""
+
+    return (
+      r.title.toLowerCase().includes(term) ||
+      r.platform.toLowerCase().includes(term) ||
+      (r.production || "").toLowerCase().includes(term) ||
+      composerHandle.includes(term) ||
+      composerName.includes(term) ||
+      composerGroup.includes(term)
     )
 
-    renderRingtones(filtered)
+  })
+
+  currentIndex = 0
+  document.getElementById("ringtones").innerHTML = ""
+
+  renderNextBatch()
 
 })
 
-function renderRingtones(list){
 
-    const container = document.getElementById("ringtones")
-    container.innerHTML = ""
+// Render batch
+function renderNextBatch(){
 
-    const grouped = {}
+  if(isLoading) return
+  isLoading = true
 
-    list.forEach(r => {
+  const container = document.getElementById("ringtones")
 
-        if(!grouped[r.platform]){
-            grouped[r.platform] = []
-        }
+  const slice = filteredRingtones.slice(currentIndex, currentIndex + itemsPerLoad)
 
-        grouped[r.platform].push(r)
+  slice.forEach(r => {
 
-    })
+    const item = document.createElement("div")
+    item.className = "ringtone"
 
-    for(const platform in grouped){
+    const composerHandle = r.composer?.handle || ""
+    const composerName = r.composer?.name || ""
+    const composerGroup = r.composer?.group || ""
 
-        const section = document.createElement("div")
+    let composerDisplay = composerHandle
 
-        section.innerHTML = `<h2>${platform}</h2>`
-
-        grouped[platform].forEach(r => {
-
-            const item = document.createElement("div")
-
-            item.className = "ringtone"
-
-            item.innerHTML = `
-            <h3>${r.title}</h3>
-
-            <p>${r.game} • ${r.composer}</p>
-
-            <audio controls src="${r.file}"></audio>
-
-            <br>
-
-            <a href="${r.file}" download>Download</a>
-            `
-
-            section.appendChild(item)
-
-        })
-
-        container.appendChild(section)
-
+    if(composerName){
+      composerDisplay += ` (${composerName})`
     }
 
+    if(composerGroup){
+      composerDisplay += ` - ${composerGroup}`
+    }
+
+    item.innerHTML = `
+      <h3>${r.title}</h3>
+
+      <p>
+        ${r.production || ""} • ${composerDisplay}
+      </p>
+
+      <audio controls preload="none" src="${r.file}"></audio>
+
+      <br>
+
+      <a href="${r.file}" download>Download</a>
+    `
+
+    container.appendChild(item)
+
+  })
+
+  currentIndex += itemsPerLoad
+  isLoading = false
+
 }
+
+
+// Infinite scroll (Intersection Observer)
+const sentinel = document.getElementById("scroll-sentinel")
+
+const observer = new IntersectionObserver(entries => {
+
+  if(entries[0].isIntersecting){
+
+    if(currentIndex < filteredRingtones.length){
+      renderNextBatch()
+    }
+
+  }
+
+}, {
+  rootMargin: "200px"
+})
+
+observer.observe(sentinel)
