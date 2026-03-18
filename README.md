@@ -53,26 +53,39 @@ Example:
 
 ```id="m2k7wq"
 {
-  "id": "delta-theme-c64-v1",
-  "title": "Delta Theme",
-  "variant": 1,
-  "platform": "Commodore 64",
+  "id": "global-trash-3-v2-a500-v6",
+  "title": "Global Trash 3 v2",
+  "variant": 6,
+  "platform": "Amiga 500",
   "composer": {
-    "handle": "Rob Hubbard",
-    "name": "Rob Hubbard",
-    "group": ""
+    "handle": "Jesper Kyd",
+    "name": "Jesper Kyd",
+    "group": "Silents"
   },
-  "production": "Delta",
-  "category": "Game",
-  "year": 1987,
-  "publisher": "Thalamus",
+  "production": "Hardwired",
+  "category": "Demo",
+  "year": 1991,
+  "publisher": "Crionics & Silents"
+  "sampling": {
+    "title": "Panther",
+    "artist": "David Whittaker",
+    "year": 1986
+  },
   "tags": [
-    "c64",
-    "sid",
-    "chiptune",
-    "retrogaming"
+    "hardwired",
+    "global",
+    "trash",
+    "jesper-kyd",
+    "silents",
+    "crionics",
+    "panther",
+    "david",
+    "whittaker"
+    "amiga"
+    "a500"
+    "demoscene"
   ],
-  "file": "https://bucket.r2.dev/ringtones/c64/delta-theme-c64-v1-rob-hubbard.mp3"
+  "file": "https://bucket.r2.dev/ringtones/a500/hardwired-a500-v6-jesper-kyd.mp3"
 }
 ```
 
@@ -86,8 +99,8 @@ style.css
 script.js
 
 data/
-  ringtones-c64.json
   ringtones-amiga.json
+  ringtones-c64.json
   ringtones-pc.json
 ```
 
@@ -112,7 +125,7 @@ title-platform-vX-composer.mp3
 Example:
 
 ```id="3q3r4j"
-cybernoid-theme-c64-v1-jeroen-tel.mp3
+delta-c64-v1-rob-hubbard.mp3
 ```
 
 ---
