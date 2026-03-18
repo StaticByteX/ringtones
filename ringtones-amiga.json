@@ -4,7 +4,11 @@
     "title": "Aryx",
     "variant": 1,
     "platform": "Amiga 500",
-    "composer": "Karsten Koch",
+    "composer": {
+      "handle": "-",
+      "name": "Karsten Koch",
+      "group": "-"
+    },
     "production": "-",
     "category": "-",
     "year": 1995,
@@ -30,7 +34,11 @@
     "title": "Aryx",
     "variant": 2,
     "platform": "Amiga 500",
-    "composer": "Karsten Koch",
+    "composer": {
+      "handle": "-",
+      "name": "Karsten Koch",
+      "group": "-"
+    },
     "production": "-",
     "category": "-",
     "year": 1995,
@@ -56,7 +64,11 @@
     "title": "Aryx",
     "variant": 3,
     "platform": "Amiga 500",
-    "composer": "Karsten Koch",
+    "composer": {
+      "handle": "-",
+      "name": "Karsten Koch",
+      "group": "-"
+    },
     "production": "-",
     "category": "-",
     "year": 1995,
