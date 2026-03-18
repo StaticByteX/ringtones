@@ -1,226 +1,153 @@
-# Retro Ringtone Library
+# Free Retro Game and Demoscene Ringtone Library
 
 ![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-blue)
 ![Cloudflare R2](https://img.shields.io/badge/storage-Cloudflare%20R2-orange)
 ![Static Site](https://img.shields.io/badge/site-static-brightgreen)
 ![License](https://img.shields.io/badge/license-metadata%20only-lightgrey)
 
-A **free web-based ringtone library** featuring music from classic computer games and the demoscene.
+A free web-based ringtone library focused on **retro game music and demoscene classics**.
 
-The goal of the project is to make it extremely easy to **discover, preview, and download retro ringtones directly from a mobile browser** — without requiring any apps.
-
-The project focuses primarily on game and demoscene music from:
-
-* Commodore 64
-* Amiga
-* DOS / early Windows PC
+Users can **search, preview, and download ringtones directly in their browser** — no apps required.
 
 ---
 
 # Live Demo
 
-Example site:
-
-```
 https://yourusername.github.io/retro-ringtones
-```
-
-Users can:
-
-* preview ringtones directly in the browser
-* download them instantly
-* search by composer, game or platform
-
----
-
-# Screenshots
-
-*(Optional section – add screenshots later)*
-
-Example layout:
-
-```
-Homepage with ringtone search
-Ringtone player and download buttons
-Platform categories (C64, Amiga, PC)
-```
-
----
-
-# Project Architecture
-
-The site is **100% static**.
-
-This makes it extremely fast, free to host, and easy to maintain.
-
-```
-GitHub Pages (website)
-        ↓
-ringtones.json (metadata)
-        ↓
-MP3 files hosted on Cloudflare R2
-```
-
-Advantages:
-
-* unlimited scalability
-* very fast page loads
-* no backend required
-* minimal maintenance
-
----
-
-# Repository Structure
-
-```
-retro-ringtones
-│
-├── index.html
-├── script.js
-├── style.css
-│
-├── data
-│   ├── ringtones.csv
-│   └── ringtones.json
-│
-├── scripts
-│   └── generate.js
-│
-└── README.md
-```
-
----
-
-# Ringtone File Naming
-
-Ringtones follow a consistent and SEO-friendly naming scheme.
-
-```
-title-vX-platform-composer.mp3
-```
-
-Example:
-
-```
-cybernoid-v1-c64-jeroen-tel.mp3
-monty-on-the-run-theme-v1-c64-rob-hubbard.mp3
-hardwired-v1-amiga-jesper-kyd.mp3
-```
-
-Rules:
-
-* lowercase only
-* hyphen-separated words
-* ASCII characters only
-* no spaces
-
----
-
-# Cloudflare R2 Storage
-
-Ringtone audio files are stored in Cloudflare R2 instead of the GitHub repository.
-
-Example structure:
-
-```
-/ringtones
-    /c64
-    /amiga
-    /pc
-```
-
-Example URL:
-
-```
-https://yourbucket.r2.dev/ringtones/c64/cybernoid-v1-c64-jeroen-tel.mp3
-```
-
----
-
-# Adding a New Ringtone
-
-The workflow is intentionally simple.
-
-### 1. Upload ringtone to Cloudflare R2
-
-Example:
-
-```
-/ringtones/c64/cybernoid-v3-c64-jeroen-tel.mp3
-```
-
-### 2. Add entry to the database
-
-Edit:
-
-```
-data/ringtones.csv
-```
-
-Example entry:
-
-```
-Cybernoid,3,c64,Jeroen Tel,Cybernoid,1988
-```
-
-### 3. Generate JSON database
-
-Run:
-
-```
-node scripts/generate.js
-```
-
-This updates:
-
-```
-data/ringtones.json
-```
-
-### 4. Commit to GitHub
-
-GitHub Pages will automatically deploy the update.
 
 ---
 
 # Features
 
-* mobile-friendly ringtone player
-* direct ringtone downloads
-* simple browser search
-* automatic platform grouping
-* scalable architecture
-* SEO-friendly structure
+* mobile-friendly design
+* instant audio preview
+* direct download
+* fast search
+* infinite scroll (auto loading)
+* scalable to thousands of ringtones
 
 ---
 
-# Content Focus
+# Architecture
 
-The archive focuses on iconic retro music from game composers and demoscene musicians.
+The project is fully static:
 
-Examples include:
+GitHub Pages hosts the website
+Cloudflare R2 hosts the audio files
 
-* Rob Hubbard
-* Jeroen Tel
-* Ben Daglish
-* Jesper Kyd
-* Matthew Simmonds
+```id="8m0h8d"
+GitHub Pages
+     ↓
+JSON database
+     ↓
+Cloudflare R2 (MP3 files)
+```
 
 ---
 
-# Long-Term Goals
+# Data Structure
 
-* build a large searchable archive of retro ringtones
+Each ringtone is stored as a JSON object.
+
+Example:
+
+```id="m2k7wq"
+{
+  "id": "delta-theme-c64-v1",
+
+  "title": "Delta Theme",
+  "variant": 1,
+
+  "platform": "Commodore 64",
+
+  "composer": {
+    "handle": "Rob Hubbard",
+    "name": "Rob Hubbard",
+    "group": ""
+  },
+
+  "production": "Delta",
+  "category": "Game",
+  "year": 1987,
+  "publisher": "Thalamus",
+
+  "tags": [
+    "c64",
+    "sid",
+    "chiptune",
+    "retrogaming"
+  ],
+
+  "file": "https://bucket.r2.dev/ringtones/c64/delta-theme-c64-v1-rob-hubbard.mp3"
+}
+```
+
+---
+
+# File Structure
+
+```id="qk6f9u"
+index.html
+style.css
+script.js
+
+data/
+  ringtones-c64.json
+  ringtones-amiga.json
+  ringtones-pc.json
+```
+
+---
+
+# Adding a Ringtone
+
+1. Upload MP3 to Cloudflare R2
+
+2. Add entry to the correct JSON file
+
+3. Commit to GitHub
+
+Done.
+
+---
+
+# Naming Convention
+
+```id="tnu1g4"
+title-platform-vX-composer.mp3
+```
+
+Example:
+
+```id="3q3r4j"
+cybernoid-theme-c64-v1-jeroen-tel.mp3
+```
+
+---
+
+# Performance
+
+The site uses:
+
+* lazy loading (infinite scroll)
+* audio preload disabled
+* split JSON files
+
+This ensures fast performance even with **1000+ ringtones**.
+
+---
+
+# Goals
+
+* build a large retro ringtone archive
 * preserve classic game music
-* make installation simple for mobile users
-* create a fast and open ringtone resource
+* make installation simple
+* provide a fast and open alternative to ringtone apps
 
 ---
 
 # License
 
-This repository contains **website code and metadata only**.
+Metadata and website code only.
 
-Audio files are hosted separately.
-
-Music copyrights remain with their respective composers and rights holders.
+Audio rights belong to original composers and publishers.
