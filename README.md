@@ -1,4 +1,4 @@
-# Free Retro Game and Demoscene Ringtone Library
+# StaticByteX | Free Retro Game and Demoscene Ringtone Library
 
 ![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-blue)
 ![Cloudflare R2](https://img.shields.io/badge/storage-Cloudflare%20R2-orange)
@@ -54,30 +54,24 @@ Example:
 ```id="m2k7wq"
 {
   "id": "delta-theme-c64-v1",
-
   "title": "Delta Theme",
   "variant": 1,
-
   "platform": "Commodore 64",
-
   "composer": {
     "handle": "Rob Hubbard",
     "name": "Rob Hubbard",
     "group": ""
   },
-
   "production": "Delta",
   "category": "Game",
   "year": 1987,
   "publisher": "Thalamus",
-
   "tags": [
     "c64",
     "sid",
     "chiptune",
     "retrogaming"
   ],
-
   "file": "https://bucket.r2.dev/ringtones/c64/delta-theme-c64-v1-rob-hubbard.mp3"
 }
 ```
@@ -102,9 +96,7 @@ data/
 # Adding a Ringtone
 
 1. Upload MP3 to Cloudflare R2
-
 2. Add entry to the correct JSON file
-
 3. Commit to GitHub
 
 Done.
