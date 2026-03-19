@@ -93,5 +93,37 @@
       "demoscene"
     ],
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/pc/iam-way-one-son-pc-v3-hunz.mp3"
+  },
+  
+  {
+    "id": "iam-way-one-son-pc-v4",
+    "title": "Iam Way One Son",
+    "variant": 4,
+    "platform": "PC",
+    "composer": {
+      "handle": "Hunz",
+      "name": "Johannes van Vliet",
+      "group": "Five Musicians"
+    },
+    "production": "Groove Pack #2",
+    "category": "Musicdisk",
+    "year": 1997,
+    "publisher": "Analogue",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "iam-way-one-son",
+      "hunz",
+      "five-musicians",
+      "groove-pack",
+      "analogue",
+      "pc",
+      "tracker",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/pc/iam-way-one-son-pc-v4-hunz.mp3"
   }
 ]
