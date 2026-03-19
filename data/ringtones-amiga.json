@@ -5,18 +5,18 @@
     "variant": 1,
     "platform": "Amiga 500",
     "composer": {
-      "handle": "-",
+      "handle": null,
       "name": "Karsten Koch",
-      "group": "-"
+      "group": null
     },
-    "production": "-",
-    "category": "-",
+    "production": null,
+    "category": null,
     "year": 1995,
-    "publisher": "-",
+    "publisher": null,
     "sampling": {
-      "title": "-",
-      "artist": "-",
-      "year": 
+      "title": null,
+      "artist": null,
+      "year": null
     },
     "tags": [
       "aryx",
@@ -26,7 +26,7 @@
       "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v1-karsten-koch.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v1-karsten-koch.mp3"
   },
 
   {
@@ -35,18 +35,18 @@
     "variant": 2,
     "platform": "Amiga 500",
     "composer": {
-      "handle": "-",
+      "handle": null,
       "name": "Karsten Koch",
-      "group": "-"
+      "group": null
     },
-    "production": "-",
-    "category": "-",
+    "production": null,
+    "category": null,
     "year": 1995,
-    "publisher": "-",
+    "publisher": null,
     "sampling": {
-      "title": "-",
-      "artist": "-",
-      "year": 
+      "title": null,
+      "artist": null,
+      "year": null
     },
     "tags": [
       "aryx",
@@ -56,7 +56,7 @@
       "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v2-karsten-koch.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v2-karsten-koch.mp3"
   },
 
   {
@@ -65,18 +65,18 @@
     "variant": 3,
     "platform": "Amiga 500",
     "composer": {
-      "handle": "-",
+      "handle": null,
       "name": "Karsten Koch",
-      "group": "-"
+      "group": null
     },
-    "production": "-",
-    "category": "-",
+    "production": null,
+    "category": null,
     "year": 1995,
-    "publisher": "-",
+    "publisher": null,
     "sampling": {
-      "title": "-",
-      "artist": "-",
-      "year": 
+      "title": null,
+      "artist": null,
+      "year": null
     },
     "tags": [
       "aryx",
@@ -86,6 +86,6 @@
       "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-a500-v3-karsten-koch.mp3"
-  },
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.mp3"
+  }
 ]
