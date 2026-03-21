@@ -51,8 +51,8 @@ function render() {
       <div class="track-extra">
         ${track.production.category} – ${track.production.year} – ${track.production.publisher}<br>
         ${track.sampling.title ? 
-          `Sample: ${track.sampling.title} – ${track.sampling.artist} (${track.sampling.year})` 
-          : "Sample: None"}
+          `Contains samples: ${track.sampling.title} – ${track.sampling.artist} (${track.sampling.year})` 
+          : "Contains samples: None"}
       </div>
     `;
 
