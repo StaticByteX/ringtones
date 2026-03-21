@@ -174,4 +174,47 @@ h1 {
     font-size: 28px;
   }
 
+/* =========================
+   Filters
+   ========================= */
+
+.filters {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  background: none;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 6px 12px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  border-color: #fff;
+}
+
+/* =========================
+   Audio player
+   ========================= */
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* =========================
+   App feel
+   ========================= */
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.track {
+  border-radius: 6px;
+}
+
 }
