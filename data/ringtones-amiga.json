@@ -3,7 +3,7 @@
     "id": "aryx-amiga-v1",
     "title": "Aryx",
     "variant": 1,
-    "platform": "Amiga 500",
+    "platform": "A500",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
@@ -33,7 +33,7 @@
     "id": "aryx-amiga-v2",
     "title": "Aryx",
     "variant": 2,
-    "platform": "Amiga 500",
+    "platform": "A500",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
@@ -63,7 +63,7 @@
     "id": "aryx-amiga-v3",
     "title": "Aryx",
     "variant": 3,
-    "platform": "Amiga 500",
+    "platform": "A500",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
