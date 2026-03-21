@@ -2,8 +2,17 @@ let tracks = [];
 let currentFilter = "all";
 
 async function loadData() {
-  const res = await fetch("data.json");
-  tracks = await res.json();
+  const sources = [
+    "data/ringtones-c64.json",
+    "data/ringtones-amiga.json",
+    "data/ringtones-pc.json"
+  ];
+
+  const results = await Promise.all(
+    sources.map(src => fetch(src).then(res => res.json()))
+  );
+
+  tracks = results.flat(); // merges all arrays into one
   render();
 }
 
