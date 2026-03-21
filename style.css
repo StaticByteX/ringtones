@@ -1,73 +1,177 @@
-body{
-  font-family: 'IBM Plex Mono', monospace;
+/* =========================
+   Reset
+   ========================= */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  background: #f5f5f5;
-  color: #222;
+  padding: 0;
 }
 
-header{
-  position: sticky;
-  top: 0;
-  background: white;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  z-index: 10;
-}
+/* =========================
+   Base
+   ========================= */
 
-h1{
-  margin: 0 0 10px 0;
-  font-size: 22px;
-}
-
-#search{
-  width: 100%;
-  padding: 10px;
+body {
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
+  line-height: 1.6;
+  background-color: #0a0a0a;
+  color: #ffffff;
 }
 
-main{
+/* =========================
+   Layout
+   ========================= */
+
+main {
   max-width: 700px;
-  margin: auto;
-  padding: 15px;
-}
-
-.ringtone{
-  background: white;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.ringtone h3{
-  margin: 0 0 5px 0;
-  font-size: 18px;
-}
-
-.ringtone p{
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  color: #666;
-}
-
-audio{
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-a{
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-footer{
-  text-align: center;
+  margin: 0 auto;
   padding: 20px;
-  font-size: 12px;
-  color: #777;
 }
 
-#scroll-sentinel{
-  height: 50px;
+section {
+  margin-bottom: 30px;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+header img {
+  width: 120px;
+  height: auto;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Track box
+   ========================= */
+
+.track {
+  background-color: #111111;
+  border: 1px solid #222222;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* Title */
+
+.track-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Meta */
+
+.track-meta {
+  font-size: 14px;
+  color: #bbbbbb;
+  margin-bottom: 10px;
+}
+
+/* Toggle */
+
+.track-toggle {
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  border-bottom: 1px solid #444444;
+  margin-top: 8px;
+}
+
+.track-toggle:hover {
+  border-color: #ffffff;
+}
+
+/* Extra */
+
+.track-extra {
+  font-size: 13px;
+  color: #888888;
+  margin-top: 10px;
+  display: none;
+}
+
+.track.open .track-extra {
+  display: block;
+}
+
+/* =========================
+   C64 Theme
+   ========================= */
+
+.track.c64 {
+  border-color: #14a3fd;
+}
+
+.track.c64 .track-title {
+  color: #f2f540;
+}
+
+.track.c64 .track-toggle {
+  color: #48cc31;
+}
+
+/* =========================
+   Amiga Theme
+   ========================= */
+
+.track.a500 {
+  border-color: #00828f;
+}
+
+.track.a500 .track-title {
+  color: #fcc100;
+}
+
+.track.a500 .track-toggle {
+  color: #f26b00;
+}
+
+/* =========================
+   DOS Theme
+   ========================= */
+
+.track.dos {
+  border-color: #808080;
+}
+
+.track.dos .track-title {
+  color: #ffff00;
+}
+
+.track.dos .track-toggle {
+  color: #ff00ff;
+}
+
+/* =========================
+   Desktop
+   ========================= */
+
+@media (min-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
 }
