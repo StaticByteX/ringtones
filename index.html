@@ -7,7 +7,7 @@
 
 <title>StaticByteX | Retro Ringtones</title>
 
-<link rel="icon" type="image/png" sizes="64x64" href="/ringtones/assets/staticbytex-favicon.png">
+<link rel="icon" type="image/png" href="/ringtones/assets/staticbytex-favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -17,92 +17,28 @@
 <body>
 
 <header>
-  <img src="/ringtones/assets/staticbytex-logo.png" alt="StaticByteX logo">
+  <img src="/ringtones/assets/staticbytex-logo.png" alt="StaticByteX logo" style="width:120px; height:auto;">
 </header>
 
 <main>
 
   <h1>Retro Ringtones & Notification Sounds</h1>
+  <h2>Commodore 64 • Amiga 500 • DOS PC</h2>
 
-  <!-- C64 -->
-  <section>
+  <!-- FILTER -->
+  <div class="filters">
+    <button onclick="setFilter('all')">All</button>
+    <button onclick="setFilter('c64')">C64</button>
+    <button onclick="setFilter('a500')">Amiga</button>
+    <button onclick="setFilter('dos')">DOS</button>
+  </div>
 
-    <div class="track c64">
-
-      <div class="track-title">
-        Monty on the Run – C64 – v1
-      </div>
-
-      <div class="track-meta">
-        Rob Hubbard – Gremlin Graphics
-      </div>
-
-      <div class="track-toggle" onclick="this.parentElement.classList.toggle('open')">
-        more...
-      </div>
-
-      <div class="track-extra">
-        Game – 1985 – Gremlin Graphics<br>
-        Sample: None
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- AMIGA -->
-  <section>
-
-    <div class="track a500">
-
-      <div class="track-title">
-        Daisy Chain 2 – A500 – v1
-      </div>
-
-      <div class="track-meta">
-        Rhesus Minus (Trond Hasse Lie) – Cryptoburners
-      </div>
-
-      <div class="track-toggle" onclick="this.parentElement.classList.toggle('open')">
-        more...
-      </div>
-
-      <div class="track-extra">
-        Demo – 1992 – Cryptoburners<br>
-        Sample: None
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- DOS -->
-  <section>
-
-    <div class="track dos">
-
-      <div class="track-title">
-        Doom E1M1 – DOS PC – v1
-      </div>
-
-      <div class="track-meta">
-        Bobby Prince – id Software
-      </div>
-
-      <div class="track-toggle" onclick="this.parentElement.classList.toggle('open')">
-        more...
-      </div>
-
-      <div class="track-extra">
-        Game – 1993 – id Software<br>
-        Sample: Metal inspiration
-      </div>
-
-    </div>
-
-  </section>
+  <!-- TRACK LIST -->
+  <div id="tracklist"></div>
 
 </main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
