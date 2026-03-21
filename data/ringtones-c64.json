@@ -3,7 +3,7 @@
     "id": "delta-c64-v1",
     "title": "Delta",
     "variant": 1,
-    "platform": "Commodore 64",
+    "platform": "C64",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -36,7 +36,7 @@
     "id": "delta-c64-v2",
     "title": "Delta",
     "variant": 2,
-    "platform": "Commodore 64",
+    "platform": "C64",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -69,7 +69,7 @@
     "id": "delta-c64-v3",
     "title": "Delta",
     "variant": 3,
-    "platform": "Commodore 64",
+    "platform": "C64",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
