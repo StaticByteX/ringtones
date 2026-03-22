@@ -76,7 +76,7 @@ function render() {
 
     /* Sampling */
     const sampling = track.sampling?.title
-      ? `Sample: ${track.sampling.title} (${track.sampling.artist}, (${track.sampling.year}))`
+      ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
       : "";
 
     div.innerHTML = `
