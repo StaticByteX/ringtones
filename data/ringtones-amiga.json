@@ -1,5 +1,236 @@
 [
   {
+    "id": "astaroth-ingame-amiga-v1",
+    "title": "Astaroth Ingame",
+    "variant": 1,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v2",
+    "title": "Astaroth Ingame",
+    "variant": 2,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v2-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v3",
+    "title": "Astaroth Ingame",
+    "variant": 3,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v3-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v4",
+    "title": "Astaroth Ingame",
+    "variant": 4,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v4-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v5",
+    "title": "Astaroth Ingame",
+    "variant": 5,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v5-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v6",
+    "title": "Astaroth Ingame",
+    "variant": 6,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v6-jochen-hippel.mp3"
+  },
+  
+  {
+    "id": "astaroth-ingame-amiga-v7",
+    "title": "Astaroth Ingame",
+    "variant": 7,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Jochen Hippel",
+      "group": null
+    },
+    "production": "Astaroth: The Angel Of Death",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Hewson",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "astaroth",
+      "jochen-hippel",
+      "mad-max",
+      "amiga",
+      "a500",
+      "amiga",
+      "future-composer",
+      "chiptune",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v7-jochen-hippel.mp3"
+  },
+  
+  {
     "id": "aryx-amiga-v1",
     "title": "Aryx",
     "variant": 1,
