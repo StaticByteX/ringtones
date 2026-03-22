@@ -5,6 +5,7 @@ const safe = v => v ?? "";
 
 /* LOAD JSON */
 async function loadData() {
+  setFilter("all");
   const sources = [
     "data/ringtones-c64.json",
     "data/ringtones-amiga.json",
@@ -22,6 +23,13 @@ async function loadData() {
 /* FILTER */
 function setFilter(filter) {
   currentFilter = filter;
+
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  document.getElementById(`btn-${filter}`).classList.add("active");
+
   render();
 }
 
