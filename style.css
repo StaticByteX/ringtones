@@ -18,6 +18,8 @@ body {
   line-height: 1.6;
   background-color: #0a0a0a;
   color: #ffffff;
+  justify-content: center;
+  display: flex;
 }
 
 /* =========================
@@ -25,6 +27,7 @@ body {
    ========================= */
 
 main {
+  width: 100%;
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
