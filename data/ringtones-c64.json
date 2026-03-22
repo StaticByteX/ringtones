@@ -29,7 +29,7 @@
       "8bit",
       "philip-glass"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
+    "audio": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
   },
   
   {
@@ -62,7 +62,7 @@
       "8bit",
       "philip-glass"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v2-rob-hubbard.mp3"
+    "audio": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v2-rob-hubbard.mp3"
   },
   
   {
@@ -95,6 +95,6 @@
       "8bit",
       "philip-glass"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v3-rob-hubbard.mp3"
+    "audio": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v3-rob-hubbard.mp3"
   }  
 ]
