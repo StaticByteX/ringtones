@@ -95,7 +95,7 @@ function render() {
       </div>
 
       <div class="track-extra">
-        ${safe(track.production)} – ${safe(track.year)} – ${safe(track.publisher)}<br>
+        ${safe(track.production)} (${safe(track.publisher)}, ${safe(track.year)})<br>
         ${sampling}
       </div>
     `;
