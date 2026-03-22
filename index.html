@@ -17,29 +17,28 @@
 <body>
 
 <header>
-  <img src="/ringtones/assets/staticbytex-logo.png" alt="StaticByteX logo" style="width:320px; height:auto;">
+  <img src="/ringtones/assets/staticbytex-logo.png" alt="StaticByteX logo">
 </header>
 
 <main>
 
   <h1>Retro Ringtones & Notification Sounds</h1>
-  <p>Commodore 64 • Amiga 500 • DOS PC</p>
-  <br>
-  
+  <p class="subtitle">Commodore 64 • Amiga 500 • DOS PC</p>
+
   <!-- SEARCH -->
   <input 
     type="text" 
     id="search" 
-    placeholder="Search title, composer, group..."
+    placeholder="Search title, composer, name, group, production, year, publisher..."
     oninput="render()"
   >
 
   <!-- FILTER -->
   <div class="filters">
-    <button onclick="setFilter('all')">All</button>
-    <button onclick="setFilter('C64')">C64</button>
-    <button onclick="setFilter('A500')">Amiga</button>
-    <button onclick="setFilter('PC')">PC</button>
+    <button onclick="setFilter('all')" id="btn-all">All</button>
+    <button onclick="setFilter('C64')" id="btn-C64">C64</button>
+    <button onclick="setFilter('A500')" id="btn-A500">Amiga</button>
+    <button onclick="setFilter('PC')" id="btn-PC">PC</button>
   </div>
 
   <!-- TRACKS -->
@@ -48,10 +47,10 @@
 </main>
 
 <footer>
-  <img src="/ringtones/assets/staticbytex-qr-code.png" alt="StaticByteX QR code" width="240">
-  <p style="font-size:12px">Free retro ringtones • C64/A500/PC • 100% free • No app required</p>
+  <img src="/ringtones/assets/staticbytex-qr-code.png" alt="StaticByteX QR code">
+  <p>Retro ringtones • C64/A500/PC • 100% free • No app required</p>
 </footer>
-  
+
 <script src="script.js"></script>
 
 </body>
