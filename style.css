@@ -1,4 +1,112 @@
-/* =========================
+/* Base */
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background: #0a0a0a;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+header img {
+  width: 120px;
+}
+
+/* Search */
+
+#search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+/* Filters */
+
+.filters {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  background: none;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 6px 12px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+/* Track */
+
+.track {
+  background: #111;
+  border: 1px solid #222;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.track-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.track-meta {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.track-extra {
+  font-size: 13px;
+  color: #888;
+  display: none;
+  margin-top: 10px;
+}
+
+.track.open .track-extra {
+  display: block;
+}
+
+.track-toggle {
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+  font-size: 13px;
+}
+
+/* Platform colors */
+
+.track.C64 { border-color: #14a3fd; }
+.track.C64 .track-title { color: #f2f540; }
+
+.track.A500 { border-color: #00828f; }
+.track.A500 .track-title { color: #fcc100; }
+
+.track.PC { border-color: #808080; }
+.track.PC .track-title { color: #ffff00; }
+
+/* Audio */
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}/* =========================
    Reset
    ========================= */
 
@@ -148,18 +256,18 @@ h1 {
 }
 
 /* =========================
-   DOS Theme
+   PC Theme
    ========================= */
 
-.track.dos {
+.track.pc {
   border-color: #808080;
 }
 
-.track.dos .track-title {
+.track.pc .track-title {
   color: #ffff00;
 }
 
-.track.dos .track-toggle {
+.track.pc .track-toggle {
   color: #ff00ff;
 }
 
