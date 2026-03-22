@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>StaticByteX | Retro Ringtones</title>
+<title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
 
 <link rel="icon" type="image/png" href="/ringtones/assets/staticbytex-favicon.png">
 
@@ -25,23 +25,24 @@
   <h1>Retro Ringtones & Notification Sounds</h1>
   <p>Commodore 64 • Amiga 500 • DOS PC</p>
   <br>
-
-<input 
-  type="text" 
-  id="search" 
-  placeholder="Search title, composer, group..."
-  oninput="render()"
->
   
+  <!-- SEARCH -->
+  <input 
+    type="text" 
+    id="search" 
+    placeholder="Search title, composer, group..."
+    oninput="render()"
+  >
+
   <!-- FILTER -->
   <div class="filters">
     <button onclick="setFilter('all')">All</button>
-    <button onclick="setFilter('c64')">C64</button>
-    <button onclick="setFilter('a500')">Amiga</button>
-    <button onclick="setFilter('pc')">PC</button>
+    <button onclick="setFilter('C64')">C64</button>
+    <button onclick="setFilter('A500')">Amiga</button>
+    <button onclick="setFilter('PC')">PC</button>
   </div>
 
-  <!-- TRACK LIST -->
+  <!-- TRACKS -->
   <div id="tracklist"></div>
 
 </main>
@@ -51,7 +52,7 @@
   <p style="font-size:12px">Free retro ringtones • C64/A500/PC • 100% free • No app required</p>
 </footer>
   
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
