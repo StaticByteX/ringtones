@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
+  
+  assets/staticbytex-favicon.png
 
-<title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
-
-<link rel="icon" type="image/png" href="/ringtones/assets/staticbytex-favicon.png">
-
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
+  https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap
+  style.css
 </head>
 
 <body>
 
-<header>
-  <img src="/ringtones/assets/staticbytex-logo.png" alt="StaticByteX logo">
-</header>
+  <header>
+    assets/staticbytex-logo.png
+  </header>
 
-<main>
+  <main>
 
-  <h1>Retro Ringtones & Notification Sounds</h1>
-  <p class="subtitle">Commodore 64 • Amiga 500 • DOS PC</p>
+    <h1>Retro Ringtones &amp; Notification Sounds</h1>
+    <p class="subtitle">Commodore 64 • Amiga 500 • DOS PC</p>
 
-  <!-- SEARCH -->
-  <input 
-    type="text" 
-    id="search" 
-    placeholder="Search title, composer, name, group, production, year, publisher..."
-    oninput="render()"
-  >
+    <!-- SEARCH -->
+    <input
+      type="text"
+      id="search"
+      placeholder="Search title, composer, name, group, production, year, publisher..."
+    >
 
-  <!-- FILTER -->
-  <div class="filters">
-    <button onclick="setFilter('all')" id="btn-all">All</button>
-    <button onclick="setFilter('C64')" id="btn-C64">C64</button>
-    <button onclick="setFilter('A500')" id="btn-A500">Amiga</button>
-    <button onclick="setFilter('PC')" id="btn-PC">PC</button>
-  </div>
+    <!-- FILTER -->
+    <div class="filters">
+      <button id="btn-all" class="active" data-filter="all">All</button>
+      <button id="btn-c64" data-filter="c64">C64</button>
+      <button id="btn-a500" data-filter="a500">Amiga</button>
+      <button id="btn-pc" data-filter="pc">PC</button>
+    </div>
 
-  <!-- TRACKS -->
-  <div id="tracklist"></div>
+    <!-- TRACKS -->
+    <div id="tracklist"></div>
 
-</main>
+  </main>
 
-<footer>
-  <img src="/ringtones/assets/staticbytex-qr-code.png" alt="StaticByteX QR code" style="width:240px; height:auto;">
-  <p class="subtitle">Retro ringtones • C64/A500/PC • 100% free • No app required</p>
-</footer>
+  <footer>
+    assets/staticbytex-qr-code.png
+    <p class="subtitle">
+      Retro ringtones • C64/A500/PC • 100% free • No app required
+    </p>
+  </footer>
 
-<script src="script.js"></script>
-
+  script.js</script>
 </body>
 </html>
