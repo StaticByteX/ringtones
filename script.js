@@ -71,6 +71,7 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
+  // 🔹 Sorter alfabetisk efter titel, dernæst variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
     const titleB = (b.title || "").toLowerCase();
@@ -78,13 +79,11 @@ function render() {
     if (titleA < titleB) return -1;
     if (titleA > titleB) return 1;
 
-  // Identical titles – sort by variant
-  const varA = Number(a.variant) || 0;
-  const varB = Number(b.variant) || 0;
-  return varA - varB;
-});
-``
-  
+    const varA = Number(a.variant) || 0;
+    const varB = Number(b.variant) || 0;
+    return varA - varB;
+  });
+
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
@@ -107,6 +106,11 @@ function render() {
       ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
       : "";
 
+    /* Category (Game, Musicdisk, etc.) */
+    const category = track.category
+      ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
+      : "";
+
     div.innerHTML = `
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
@@ -122,10 +126,6 @@ function render() {
         more...
       </div>
 
-      const category = track.category
-        ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
-        : "";
-
       <div class="track-extra">
         ${safe(track.production)} (${safe(track.publisher)}, ${safe(track.year)})${category}<br>
         ${sampling}
@@ -135,7 +135,7 @@ function render() {
     container.appendChild(div);
   });
 
-  // Toggle "more..." (event delegation)
+  // Toggle "more..."
   container.querySelectorAll(".track-toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
       toggle.parentElement.classList.toggle("open");
