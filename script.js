@@ -71,7 +71,7 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
-  // 🔹 Sorter alfabetisk efter titel, dernæst variant
+  // 🔹 Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
     const titleB = (b.title || "").toLowerCase();
