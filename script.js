@@ -71,6 +71,20 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
+  filtered.sort((a, b) => {
+    const titleA = (a.title || "").toLowerCase();
+    const titleB = (b.title || "").toLowerCase();
+
+    if (titleA < titleB) return -1;
+    if (titleA > titleB) return 1;
+
+  // Identical titles – sort by variant
+  const varA = Number(a.variant) || 0;
+  const varB = Number(b.variant) || 0;
+  return varA - varB;
+});
+``
+  
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
@@ -102,14 +116,18 @@ function render() {
         ${safe(composerLine)}
       </div>
 
-      ${safe(track.file)}</audio>
+      <audio controls src="${track.file}"></audio>
 
       <div class="track-toggle">
         more...
       </div>
 
+      const category = track.category
+        ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
+        : "";
+
       <div class="track-extra">
-        ${safe(track.production)} (${safe(track.publisher)}, ${safe(track.year)})<br>
+        ${safe(track.production)} (${safe(track.publisher)}, ${safe(track.year)})${category}<br>
         ${sampling}
       </div>
     `;
