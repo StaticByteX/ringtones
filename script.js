@@ -5,19 +5,24 @@ const safe = v => v ?? "";
 
 /* LOAD JSON */
 async function loadData() {
-  setFilter("all");
   const sources = [
     "data/ringtones-c64.json",
     "data/ringtones-amiga.json",
     "data/ringtones-pc.json"
   ];
 
-  const results = await Promise.all(
-    sources.map(src => fetch(src).then(res => res.json()))
-  );
+  try {
+    const results = await Promise.all(
+      sources.map(src => fetch(src).then(res => res.json()))
+    );
 
-  tracks = results.flat();
-  render();
+    tracks = results.flat();
+    render();
+  } catch (err) {
+    console.error("Error loading data:", err);
+    const container = document.getElementById("tracklist");
+    container.innerHTML = `<p style="color:#f66;">Failed to load tracks. Please try again later.</p>`;
+  }
 }
 
 /* FILTER */
@@ -28,23 +33,25 @@ function setFilter(filter) {
     btn.classList.remove("active");
   });
 
-  document.getElementById(`btn-${filter}`).classList.add("active");
+  const activeBtn = document.querySelector(`.filters button[data-filter="${filter}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add("active");
+  }
 
   render();
 }
 
 /* RENDER */
 function render() {
-
   const container = document.getElementById("tracklist");
-  const query = document.getElementById("search").value.toLowerCase();
+  const searchInput = document.getElementById("search");
+  const query = (searchInput?.value || "").toLowerCase();
 
   container.innerHTML = "";
 
   const filtered = tracks.filter(t => {
-
     const matchesFilter =
-      currentFilter === "all" || t.platform === currentFilter;
+      currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
 
     const searchableText = `
       ${safe(t.title)}
@@ -65,9 +72,8 @@ function render() {
   });
 
   filtered.forEach(track => {
-
     const div = document.createElement("div");
-    div.className = `track ${track.platform}`;
+    div.className = `track ${track.platform.toLowerCase()}`;
 
     /* Composer logic */
     let composerLine = "";
@@ -89,16 +95,16 @@ function render() {
 
     div.innerHTML = `
       <div class="track-title">
-        ${track.title} – ${track.platform} – ${track.variant || ""}
+        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
       </div>
 
       <div class="track-meta">
-        ${composerLine}
+        ${safe(composerLine)}
       </div>
 
-      <audio controls src="${track.file}"></audio>
+      ${safe(track.file)}</audio>
 
-      <div class="track-toggle" onclick="this.parentElement.classList.toggle('open')">
+      <div class="track-toggle">
         more...
       </div>
 
@@ -111,10 +117,18 @@ function render() {
     container.appendChild(div);
   });
 
-  /* Only one audio at a time */
-  document.querySelectorAll("audio").forEach(audio => {
+  // Toggle "more..." (event delegation)
+  container.querySelectorAll(".track-toggle").forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      toggle.parentElement.classList.toggle("open");
+    });
+  });
+
+  // Only one audio at a time
+  const audios = container.querySelectorAll("audio");
+  audios.forEach(audio => {
     audio.addEventListener("play", () => {
-      document.querySelectorAll("audio").forEach(a => {
+      audios.forEach(a => {
         if (a !== audio) a.pause();
       });
     });
@@ -122,4 +136,21 @@ function render() {
 }
 
 /* INIT */
-loadData();
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Search input live update
+  const searchInput = document.getElementById("search");
+  if (searchInput) {
+    searchInput.addEventListener("input", () => render());
+  }
+
+  // Filter buttons
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      setFilter(filter);
+    });
+  });
+
+  loadData();
+});
