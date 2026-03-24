@@ -71,7 +71,7 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
-  // 🔹 Sort alphabetically by title, then variant
+// 🔹 Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
     const titleB = (b.title || "").toLowerCase();
@@ -84,6 +84,20 @@ function render() {
     return varA - varB;
   });
 
+  // Result info text
+  const resultsInfo = document.getElementById("results-info");
+  if (resultsInfo) {
+    const count = filtered.length;
+    const trackWord = count === 1 ? "track" : "tracks";
+
+    let filterLabel = "All";
+    if (currentFilter === "c64") filterLabel = "C64";
+    else if (currentFilter === "a500") filterLabel = "Amiga";
+    else if (currentFilter === "pc") filterLabel = "PC";
+
+    resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel})`;
+  }
+  
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
@@ -106,24 +120,26 @@ function render() {
       ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
       : "";
 
-    /* Category (Game, Musicdisk, etc.) */
-    const category = track.category
-      ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
+    /* Category label */
+    const categoryLabel = track.category
+      ? `<span class="track-category">[${track.category}]</span>`
       : "";
-
+    
     div.innerHTML = `
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
       </div>
-
+    
       <div class="track-meta">
-        ${safe(composerLine)}
+        ${safe(composerLine)} ${categoryLabel}
       </div>
+      ...
+    `;
 
       <audio controls src="${track.file}"></audio>
 
       <div class="track-toggle">
-        more...
+        more ▾
       </div>
 
       <div class="track-extra">
@@ -135,10 +151,12 @@ function render() {
     container.appendChild(div);
   });
 
-  // Toggle "more..."
+  // Toggle "more ▾"
   container.querySelectorAll(".track-toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
-      toggle.parentElement.classList.toggle("open");
+      const trackDiv = toggle.parentElement;
+      const isOpen = trackDiv.classList.toggle("open");
+      toggle.textContent = isOpen ? "more ▴" : "more ▾";
     });
   });
 
