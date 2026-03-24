@@ -359,10 +359,10 @@
       "name": null,
       "group": null
     },
-    "production": "Bulldog",
-    "category": "Game",
+    "production": null,
+    "category": null,
     "year": 2022,
-    "publisher": "Gremlin Graphics",
+    "publisher": null,
     "sampling": {
       "title": "Bulldog",
       "artist": "Ben Daglish",
@@ -381,7 +381,7 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.mp3"
   },
   
   {
