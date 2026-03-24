@@ -102,19 +102,35 @@ function render() {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
 
-    // Composer logic
+    /* Composer logic (avoid showing "null") */
     let composerLine = "";
-
-    if (track.composer?.handle) {
-      composerLine = `${track.composer.handle} (${track.composer.name})`;
+    const comp = track.composer || {};
+    const handle = comp.handle || "";
+    const name = comp.name || "";
+    const group = comp.group || "";
+    
+    // Case 1: handle + name
+    if (handle && name) {
+      composerLine = `${handle} (${name})`;
+    }
+    // Case 2: only handle
+    else if (handle && !name) {
+      composerLine = handle;
+    }
+    // Case 3: only name
+    else if (!handle && name) {
+      composerLine = name;
     } else {
-      composerLine = `${track.composer?.name || ""}`;
+      composerLine = "";
     }
-
-    if (track.composer?.group) {
-      composerLine += ` – ${track.composer.group}`;
+    
+    // Optional: group
+    if (group) {
+      // If there is already something, add it " – "
+      composerLine = composerLine
+        ? `${composerLine} – ${group}`
+        : group;
     }
-
     // Sampling
     const sampling = track.sampling?.title
       ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
