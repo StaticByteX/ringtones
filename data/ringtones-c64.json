@@ -1,4 +1,109 @@
 [
+    {
+    "id": "gauntlet-2-c64-v1",
+    "title": "Gauntlet 2",
+    "variant": 1,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Ben Daglish",
+      "group": null
+    },
+    "production": "Gauntlet 2",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Mindscape",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "gauntlet-2",
+      "ben-daglish",
+      "mindscape",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-2-c64-v1-ben-daglish.mp3"
+  },
+  
+  {
+    "id": "gauntlet-c64-v1",
+    "title": "Gauntlet",
+    "variant": 1,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Ben Daglish",
+      "group": null
+    },
+    "production": "Gauntlet",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Gremlin Graphics",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "gauntlet",
+      "ben-daglish",
+      "gremlin-graphics",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v1-ben-daglish.mp3"
+  },
+  
+  {
+    "id": "gauntlet-c64-v2",
+    "title": "Gauntlet",
+    "variant": 2,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Ben Daglish",
+      "group": null
+    },
+    "production": "Gauntlet",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Gremlin Graphics",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "gauntlet",
+      "ben-daglish",
+      "gremlin-graphics",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v2-ben-daglish.mp3"
+  },
+  
   {
     "id": "bombo-c64-v1",
     "title": "Bombo",
