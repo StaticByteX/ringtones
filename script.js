@@ -71,7 +71,7 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
-  // 🔹 Sort alphabetically by title, then variant
+  // Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
     const titleB = (b.title || "").toLowerCase();
@@ -102,7 +102,7 @@ function render() {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
 
-    /* Composer logic */
+    // Composer logic
     let composerLine = "";
 
     if (track.composer?.handle) {
@@ -115,17 +115,17 @@ function render() {
       composerLine += ` – ${track.composer.group}`;
     }
 
-    /* Sampling */
+    // Sampling
     const sampling = track.sampling?.title
       ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
       : "";
 
-    /* Category label (meta) */
+    // Category label
     const categoryLabel = track.category
       ? `<span class="track-category">[${track.category}]</span>`
       : "";
 
-    /* Category text (more...) */
+    // Category for "more…"
     const category = track.category
       ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
       : "";
@@ -139,7 +139,7 @@ function render() {
         ${safe(composerLine)} ${categoryLabel}
       </div>
 
-      ${track.file}</audio>
+      <audio controls src="${track.file}"></audio>
 
       <div class="track-toggle">
         more ▾
@@ -154,7 +154,7 @@ function render() {
     container.appendChild(div);
   });
 
-  // Toggle "more ▾/▴"
+  // Toggle details
   container.querySelectorAll(".track-toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
       const trackDiv = toggle.parentElement;
@@ -175,15 +175,12 @@ function render() {
 }
 
 /* INIT */
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Search input live update
   const searchInput = document.getElementById("search");
   if (searchInput) {
     searchInput.addEventListener("input", () => render());
   }
 
-  // Filter buttons
   document.querySelectorAll(".filters button").forEach(btn => {
     btn.addEventListener("click", () => {
       const filter = btn.getAttribute("data-filter");
