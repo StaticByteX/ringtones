@@ -71,7 +71,7 @@ function render() {
     return matchesFilter && matchesSearch;
   });
 
-// 🔹 Sort alphabetically by title, then variant
+  // 🔹 Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
     const titleB = (b.title || "").toLowerCase();
@@ -97,7 +97,7 @@ function render() {
 
     resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel})`;
   }
-  
+
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
@@ -120,23 +120,26 @@ function render() {
       ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
       : "";
 
-    /* Category label */
+    /* Category label (meta) */
     const categoryLabel = track.category
       ? `<span class="track-category">[${track.category}]</span>`
       : "";
-    
+
+    /* Category text (more...) */
+    const category = track.category
+      ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
+      : "";
+
     div.innerHTML = `
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
       </div>
-    
+
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
       </div>
-      ...
-    `;
 
-      <audio controls src="${track.file}"></audio>
+      ${track.file}</audio>
 
       <div class="track-toggle">
         more ▾
@@ -151,7 +154,7 @@ function render() {
     container.appendChild(div);
   });
 
-  // Toggle "more ▾"
+  // Toggle "more ▾/▴"
   container.querySelectorAll(".track-toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
       const trackDiv = toggle.parentElement;
