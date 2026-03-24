@@ -315,9 +315,9 @@
   },
   
 {
-    "id": "bulldog-c64-v1",
+    "id": "bulldog-c64-v2",
     "title": "Bulldog",
-    "variant": 1,
+    "variant": 2,
     "platform": "C64",
     "composer": {
       "handle": null,
@@ -346,7 +346,7 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3"
   },
   
   {
@@ -381,7 +381,7 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish.mp3"
   },
   
   {
