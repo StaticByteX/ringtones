@@ -11,7 +11,7 @@
     },
     "production": "Game/Demo etc. Title",
     "category": "Game|Demo|Intro|Cracktro|Musicdisk",
-    "year": 0000,
+    "year": 1900,
     "publisher": "Group|Software House",
     "sampling": {
       "title": null,
@@ -40,34 +40,42 @@
   },
   
   {
-    "id": "iam-way-one-son-pc-v4",
-    "title": "Iam Way One Son",
-    "variant": 4,
-    "platform": "PC",
+    "id": "title-platform-vX",
+    "title": "Track Title",
+    "variant": 1,
+    "platform": "C64|A500|PC",
     "composer": {
-      "handle": "Hunz",
-      "name": "Johannes van Vliet",
-      "group": "Five Musicians"
+      "handle": "Handle",
+      "name": "Real Name",
+      "group": "Group"
     },
-    "production": "Groove Pack #2",
-    "category": "Musicdisk",
-    "year": 1997,
-    "publisher": "Analogue",
+    "production": "Game/Demo etc. Title",
+    "category": "Game|Demo|Intro|Cracktro|Musicdisk",
+    "year": 1900,
+    "publisher": "Group|Software House",
     "sampling": {
       "title": null,
       "artist": null,
       "year": null
     },
     "tags": [
-      "iam-way-one-son",
-      "hunz",
-      "five-musicians",
-      "groove-pack",
-      "analogue",
-      "pc",
+      "title",
+      "handle",
+      "group",
+      "production",
+      "publisher",
+      "platform",
       "tracker",
-      "demoscene"
+      "demoscene",
+      "cracktro",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/pc/iam-way-one-son-pc-v4-hunz.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/pc/title-platform-vX-handle.mp3"
   }
 ]
