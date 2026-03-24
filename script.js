@@ -131,11 +131,29 @@ function render() {
         ? `${composerLine} – ${group}`
         : group;
     }
-    // Sampling
-    const sampling = track.sampling?.title
-      ? `Sample: ${track.sampling.title} (${track.sampling.artist}, ${track.sampling.year})`
-      : "";
-
+   
+    /* Sampling (null-safe) */
+    let sampling = "";
+    if (track.sampling) {
+      const s = track.sampling;
+      const title = s.title || "";
+      const artist = s.artist || "";
+      const year = s.year || "";
+    
+      if (title) {
+        // Build a list of the parts that actually exist
+        const details = [];
+        if (artist) details.push(artist);
+        if (year) details.push(year);
+    
+        if (details.length > 0) {
+          sampling = `Sample: ${title} (${details.join(", ")})`;
+        } else {
+          sampling = `Sample: ${title}`;
+        }
+      }
+    }
+    
     // Category label
     const categoryLabel = track.category
       ? `<span class="track-category">[${track.category}]</span>`
