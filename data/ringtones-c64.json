@@ -279,7 +279,147 @@
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3"
   },
   
-      {
+  {
+    "id": "commando-c64-v1",
+    "title": "Commando",
+    "variant": 1,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Rob Hubbard",
+      "group": null
+    },
+    "production": "Delta",
+    "category": "Game",
+    "year": 1985,
+    "publisher": "Elite Systems",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "commando",
+      "rob-hubbard",
+      "elite-systems",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"      
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v1-rob-hubbard.mp3"
+  },
+  
+ {
+    "id": "commando-c64-v2",
+    "title": "Commando",
+    "variant": 2,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Rob Hubbard",
+      "group": null
+    },
+    "production": "Delta",
+    "category": "Game",
+    "year": 1985,
+    "publisher": "Elite Systems",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "commando",
+      "rob-hubbard",
+      "elite-systems",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"      
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v2-rob-hubbard.mp3"
+  },
+  
+ {
+    "id": "commando-c64-v3",
+    "title": "Commando",
+    "variant": 3,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Rob Hubbard",
+      "group": null
+    },
+    "production": "Delta",
+    "category": "Game",
+    "year": 1985,
+    "publisher": "Elite Systems",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "commando",
+      "rob-hubbard",
+      "elite-systems",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"      
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v3-rob-hubbard.mp3"
+  },
+  
+ {
+    "id": "commando-c64-v4",
+    "title": "Commando",
+    "variant": 4,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Rob Hubbard",
+      "group": null
+    },
+    "production": "Delta",
+    "category": "Game",
+    "year": 1985,
+    "publisher": "Elite Systems",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "commando",
+      "rob-hubbard",
+      "elite-systems",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "c64",
+      "retro",
+      "retrogaming"      
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v4-rob-hubbard.mp3"
+  },
+  
+ {
     "id": "delta-c64-v1",
     "title": "Delta",
     "variant": 1,
