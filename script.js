@@ -180,17 +180,17 @@ function render() {
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
       </div>
-
+    
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
       </div>
-
-      ${track.file}</audio>
-
+    
+      <audio controls src="${track.file}"></audio>
+    
       <div class="track-toggle">
         more ▾
       </div>
-
+    
       <div class="track-extra">
         ${safe(extraMain)}${category}<br>
         ${safe(sampling)}
