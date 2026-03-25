@@ -273,6 +273,58 @@ h1 {
 }
 
 /* =========================
+   Hover effects per platform
+   ========================= */
+
+/* --- C64 --- */
+.track.c64:hover {
+  border-color: #48cc31; /* lidt grønnere, retro friskhed */
+  background-color: #0f0f0f; /* subtil tone-skift */
+}
+
+.track.c64:hover .track-title {
+  color: #f2f540; /* samme farve, men vi tilføjer glow */
+  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
+}
+
+.track.c64:hover .track-toggle {
+  color: #48cc31;
+  text-shadow: 0 0 4px rgba(72, 204, 49, 0.4);
+}
+
+/* --- Amiga A500 --- */
+.track.a500:hover {
+  border-color: #f26b00; /* Amiga-orange accent */
+  background-color: #0f0f0f;
+}
+
+.track.a500:hover .track-title {
+  color: #fcc100;
+  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
+}
+
+.track.a500:hover .track-toggle {
+  color: #f26b00;
+  text-shadow: 0 0 4px rgba(242, 107, 0, 0.4);
+}
+
+/* --- PC --- */
+.track.pc:hover {
+  border-color: #ff0000; /* VGA-rød accent */
+  background-color: #0f0f0f;
+}
+
+.track.pc:hover .track-title {
+  color: #ff0000;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.5);
+}
+
+.track.pc:hover .track-toggle {
+  color: #ffff00;
+  text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
+}
+
+/* =========================
    Audio player
    ========================= */
 
