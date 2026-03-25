@@ -102,94 +102,105 @@ function render() {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
 
-    /* Composer logic (avoid showing "null") */
+    // ==== Composer logic (null-safe, no "(null)") ====
     let composerLine = "";
     const comp = track.composer || {};
     const handle = comp.handle || "";
     const name = comp.name || "";
     const group = comp.group || "";
-    
-    // Case 1: handle + name
+
     if (handle && name) {
       composerLine = `${handle} (${name})`;
-    }
-    // Case 2: only handle
-    else if (handle && !name) {
+    } else if (handle && !name) {
       composerLine = handle;
-    }
-    // Case 3: only name
-    else if (!handle && name) {
+    } else if (!handle && name) {
       composerLine = name;
     } else {
       composerLine = "";
     }
-    
-    // Optional: group
+
     if (group) {
-      // If there is already something, add it " – "
-      composerLine = composerLine
-        ? `${composerLine} – ${group}`
-        : group;
+      composerLine = composerLine ? `${composerLine} – ${group}` : group;
     }
-   
-  /* Production/publisher/year (null-safe) */
-  let extraMain = "";
-  {
-    const prod = track.production || "";
-    const pub = track.publisher || "";
-    const year = track.year || "";
-  
-    // Build a list of the parts that actually exist
-    const meta = [];
-    if (pub) meta.push(pub);
-    if (year) meta.push(year);
-  
-    if (prod && meta.length > 0) {
-      extraMain = `${prod} (${meta.join(", ")})`;
-    } else if (prod) {
-      extraMain = prod;
-    } else if (meta.length > 0) {
-      extraMain = meta.join(", ");
-    } else {
-      extraMain = "";
+
+    // ==== Sampling (null-safe) ====
+    let sampling = "";
+    if (track.sampling) {
+      const s = track.sampling;
+      const sTitle = s.title || "";
+      const sArtist = s.artist || "";
+      const sYear = s.year || "";
+
+      if (sTitle) {
+        const details = [];
+        if (sArtist) details.push(sArtist);
+        if (sYear) details.push(sYear);
+
+        if (details.length > 0) {
+          sampling = `Sample: ${sTitle} (${details.join(", ")})`;
+        } else {
+          sampling = `Sample: ${sTitle}`;
+        }
+      }
     }
-  }
-    
-    // Category label
+
+    // ==== Production / publisher / year (null-safe) ====
+    let extraMain = "";
+    {
+      const prod = track.production || "";
+      const pub = track.publisher || "";
+      const year = track.year || "";
+
+      const meta = [];
+      if (pub) meta.push(pub);
+      if (year) meta.push(year);
+
+      if (prod && meta.length > 0) {
+        extraMain = `${prod} (${meta.join(", ")})`;
+      } else if (prod) {
+        extraMain = prod;
+      } else if (meta.length > 0) {
+        extraMain = meta.join(", ");
+      } else {
+        extraMain = "";
+      }
+    }
+
+    // ==== Category: label + text ====
     const categoryLabel = track.category
       ? `<span class="track-category">[${track.category}]</span>`
       : "";
 
-    // Category for "more…"
     const category = track.category
       ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
       : "";
 
-    <div class="track-extra">
-      ${extraMain}${category}<br>
-      ${sampling}
-    </div>
+    // ==== Build track HTML ====
+    div.innerHTML = `
+      <div class="track-title">
+        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
+      </div>
 
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
       </div>
 
-      <audio controls src="${track.file}"></audio>
+      ${track.file}</audio>
 
       <div class="track-toggle">
         more ▾
       </div>
 
       <div class="track-extra">
-        ${safe(track.production)} (${safe(track.publisher)}, ${safe(track.year)})${category}<br>
-        ${sampling}
+        ${safe(extraMain)}${category}<br>
+        ${safe(sampling)}
       </div>
     `;
 
     container.appendChild(div);
   });
 
-  // Toggle details
+  // Toggle "more ▾/▴"
   container.querySelectorAll(".track-toggle").forEach(toggle => {
     toggle.addEventListener("click", () => {
       const trackDiv = toggle.parentElement;
