@@ -132,27 +132,28 @@ function render() {
         : group;
     }
    
-    /* Sampling (null-safe) */
-    let sampling = "";
-    if (track.sampling) {
-      const s = track.sampling;
-      const title = s.title || "";
-      const artist = s.artist || "";
-      const year = s.year || "";
-    
-      if (title) {
-        // Build a list of the parts that actually exist
-        const details = [];
-        if (artist) details.push(artist);
-        if (year) details.push(year);
-    
-        if (details.length > 0) {
-          sampling = `Sample: ${title} (${details.join(", ")})`;
-        } else {
-          sampling = `Sample: ${title}`;
-        }
-      }
+  /* Production/publisher/year (null-safe) */
+  let extraMain = "";
+  {
+    const prod = track.production || "";
+    const pub = track.publisher || "";
+    const year = track.year || "";
+  
+    // Build a list of the parts that actually exist
+    const meta = [];
+    if (pub) meta.push(pub);
+    if (year) meta.push(year);
+  
+    if (prod && meta.length > 0) {
+      extraMain = `${prod} (${meta.join(", ")})`;
+    } else if (prod) {
+      extraMain = prod;
+    } else if (meta.length > 0) {
+      extraMain = meta.join(", ");
+    } else {
+      extraMain = "";
     }
+  }
     
     // Category label
     const categoryLabel = track.category
@@ -164,10 +165,10 @@ function render() {
       ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
       : "";
 
-    div.innerHTML = `
-      <div class="track-title">
-        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
-      </div>
+    <div class="track-extra">
+      ${extraMain}${category}<br>
+      ${sampling}
+    </div>
 
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
