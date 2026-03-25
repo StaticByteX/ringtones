@@ -340,9 +340,9 @@
   },
     
   {
-    "id": "arkanoid-c64-v1",
+    "id": "arkanoid-c64-v11",
     "title": "Arkanoid",
-    "variant": 1,
+    "variant": 11,
     "platform": "C64",
     "composer": {
       "handle": null,
@@ -370,7 +370,7 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v11-martin-galway.mp3"
   },
     
   {
