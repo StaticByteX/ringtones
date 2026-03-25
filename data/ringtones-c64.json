@@ -1,8 +1,382 @@
 [
-    {
-    "id": "bombo-c64-v1",
-    "title": "Bombo",
+  {
+    "id": "arkanoid-c64-v1",
+    "title": "Arkanoid",
     "variant": 1,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v1-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v2",
+    "title": "Arkanoid",
+    "variant": 2,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v2-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v3",
+    "title": "Arkanoid",
+    "variant": 3,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v3-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v4",
+    "title": "Arkanoid",
+    "variant": 4,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v4-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v5",
+    "title": "Arkanoid",
+    "variant": 5,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v5-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v6",
+    "title": "Arkanoid",
+    "variant": 6,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v6-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v7",
+    "title": "Arkanoid",
+    "variant": 7,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v7-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v8",
+    "title": "Arkanoid",
+    "variant": 8,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v8-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v9",
+    "title": "Arkanoid",
+    "variant": 9,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v9-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v10",
+    "title": "Arkanoid",
+    "variant": 10,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.mp3"
+  },
+    
+  {
+    "id": "arkanoid-c64-v1",
+    "title": "Arkanoid",
+    "variant": 1,
+    "platform": "C64",
+    "composer": {
+      "handle": null,
+      "name": "Martin Galway",
+      "group": null
+    },
+    "production": "Arkanoid",
+    "category": "Game",
+    "year": 1987,
+    "publisher": "Imagine",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "arkanoid",
+      "martin-galway",
+      "imagine",
+      "c64",
+      "8bit",
+      "chipmusic",
+      "chiptune",
+      "sidmusic",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.mp3"
+  },
+    
+  {
+    "id": "bombo-c64-v11",
+    "title": "Bombo",
+    "variant": 11,
     "platform": "C64",
     "composer": {
       "handle": null,
@@ -31,7 +405,7 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v11-ben-daglish.mp3"
   },
   
   {
