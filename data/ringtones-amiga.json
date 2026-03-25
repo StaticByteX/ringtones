@@ -342,10 +342,11 @@
     "tags": [
       "blood-money",
       "ray-norrish",
-      "amiga",
+      "psygnosis",
       "a500",
       "amiga",
-      "demoscene"
+      "retro",
+      "retrogaming"
     ],
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v1-ray-norrish.mp3"
   },
@@ -372,10 +373,11 @@
     "tags": [
       "blood-money",
       "ray-norrish",
-      "amiga",
+      "psygnosis",
       "a500",
       "amiga",
-      "demoscene"
+      "retro",
+      "retrogaming"
     ],
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v2-ray-norrish.mp3"
   },
@@ -402,12 +404,112 @@
     "tags": [
       "blood-money",
       "ray-norrish",
-      "amiga",
+      "psygnosis",
       "a500",
       "amiga",
-      "demoscene"
+      "retro",
+      "retrogaming"
     ],
     "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v3-ray-norrish.mp3"
-  }
+  },
+
+    {
+    "id": "classic-amiga-v1",
+    "title": "Classic",
+    "variant": 1,
+    "platform": "A500",
+    "composer": {
+      "handle": "Estrayk",
+      "name": "Carlos del Alamo",
+      "group": "Paradox"
+    },
+    "production": null,
+    "category": "Various cracktros",
+    "year": 2000,
+    "publisher": null,
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "classic",
+      "estrayk",
+      "carlos-del-alamo",
+      "paradox",
+      "amiga",
+      "cracktro",
+      "future-composer",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v1-estrayk.mp3"
+  },
   
+{
+    "id": "classic-amiga-v2",
+    "title": "Classic",
+    "variant": 2,
+    "platform": "A500",
+    "composer": {
+      "handle": "Estrayk",
+      "name": "Carlos del Alamo",
+      "group": "Paradox"
+    },
+    "production": null,
+    "category": "Various cracktros",
+    "year": 2000,
+    "publisher": null,
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "classic",
+      "estrayk",
+      "carlos-del-alamo",
+      "paradox",
+      "amiga",
+      "cracktro",
+      "future-composer",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v3-estrayk.mp3"
+  },
+
+  {
+    "id": "classic-amiga-v3",
+    "title": "Classic",
+    "variant": 3,
+    "platform": "A500",
+    "composer": {
+      "handle": "Estrayk",
+      "name": "Carlos del Alamo",
+      "group": "Paradox"
+    },
+    "production": null,
+    "category": "Various cracktros",
+    "year": 2000,
+    "publisher": null,
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "classic",
+      "estrayk",
+      "carlos-del-alamo",
+      "paradox",
+      "amiga",
+      "cracktro",
+      "future-composer",
+      "retro",
+      "retrogaming"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v3-estrayk.mp3"
+  }
+    
 ]
