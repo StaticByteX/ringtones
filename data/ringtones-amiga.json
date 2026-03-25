@@ -1,5 +1,95 @@
 [
   {
+    "id": "aryx-amiga-v1",
+    "title": "Aryx",
+    "variant": 1,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Karsten Koch",
+      "group": null
+    },
+    "production": null,
+    "category": null,
+    "year": 1995,
+    "publisher": "Karsten Koch",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "aryx",
+      "karsten-koch",
+      "a500",
+      "amiga",
+      "tracker",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v1-karsten-koch.mp3"
+  },
+
+  {
+    "id": "aryx-amiga-v2",
+    "title": "Aryx",
+    "variant": 2,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Karsten Koch",
+      "group": null
+    },
+    "production": null,
+    "category": null,
+    "year": 1995,
+    "publisher": "Karsten Koch",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "aryx",
+      "karsten-koch",
+      "a500",
+      "amiga",
+      "tracker",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v2-karsten-koch.mp3"
+  },
+
+  {
+    "id": "aryx-amiga-v3",
+    "title": "Aryx",
+    "variant": 3,
+    "platform": "A500",
+    "composer": {
+      "handle": null,
+      "name": "Karsten Koch",
+      "group": null
+    },
+    "production": null,
+    "category": null,
+    "year": 1995,
+    "publisher": "Karsten Koch",
+    "sampling": {
+      "title": null,
+      "artist": null,
+      "year": null
+    },
+    "tags": [
+      "aryx",
+      "karsten-koch",
+      "a500",
+      "amiga",
+      "tracker",
+      "demoscene"
+    ],
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.mp3"
+  },
+  
+  {
     "id": "astaroth-ingame-amiga-v1",
     "title": "Astaroth Ingame",
     "variant": 1,
@@ -231,92 +321,93 @@
   },
   
   {
-    "id": "aryx-amiga-v1",
-    "title": "Aryx",
+    "id": "blood-money-amiga-v1",
+    "title": "Blood Money",
     "variant": 1,
     "platform": "A500",
     "composer": {
       "handle": null,
-      "name": "Karsten Koch",
+      "name": "Ray Norrish",
       "group": null
     },
-    "production": null,
-    "category": null,
-    "year": 1995,
-    "publisher": "Karsten Koch",
+    "production": "Blood Money",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Psygnosis",
     "sampling": {
       "title": null,
       "artist": null,
       "year": null
     },
     "tags": [
-      "aryx",
-      "karsten-koch",
+      "blood-money",
+      "ray-norrish",
+      "amiga",
       "a500",
       "amiga",
-      "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v1-karsten-koch.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v1-ray-norrish.mp3"
   },
-
+  
   {
-    "id": "aryx-amiga-v2",
-    "title": "Aryx",
+    "id": "blood-money-amiga-v2",
+    "title": "Blood Money",
     "variant": 2,
     "platform": "A500",
     "composer": {
       "handle": null,
-      "name": "Karsten Koch",
+      "name": "Ray Norrish",
       "group": null
     },
-    "production": null,
-    "category": null,
-    "year": 1995,
-    "publisher": "Karsten Koch",
+    "production": "Blood Money",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Psygnosis",
     "sampling": {
       "title": null,
       "artist": null,
       "year": null
     },
     "tags": [
-      "aryx",
-      "karsten-koch",
+      "blood-money",
+      "ray-norrish",
+      "amiga",
       "a500",
       "amiga",
-      "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v2-karsten-koch.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v2-ray-norrish.mp3"
   },
-
+  
   {
-    "id": "aryx-amiga-v3",
-    "title": "Aryx",
+    "id": "blood-money-amiga-v3",
+    "title": "Blood Money",
     "variant": 3,
     "platform": "A500",
     "composer": {
       "handle": null,
-      "name": "Karsten Koch",
+      "name": "Ray Norrish",
       "group": null
     },
-    "production": null,
-    "category": null,
-    "year": 1995,
-    "publisher": "Karsten Koch",
+    "production": "Blood Money",
+    "category": "Game",
+    "year": 1989,
+    "publisher": "Psygnosis",
     "sampling": {
       "title": null,
       "artist": null,
       "year": null
     },
     "tags": [
-      "aryx",
-      "karsten-koch",
+      "blood-money",
+      "ray-norrish",
+      "amiga",
       "a500",
       "amiga",
-      "tracker",
       "demoscene"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v3-ray-norrish.mp3"
   }
+  
 ]
