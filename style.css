@@ -217,43 +217,59 @@ h1 {
 }
 
 /* =========================
-   Platform themes (match JS: c64, a500, pc)
+   Platform themes
    ========================= */
 
+/* C64 */
 .track.c64 {
   border-color: #14a3fd;
 }
-
 .track.c64 .track-title {
   color: #f2f540;
 }
-
 .track.c64 .track-toggle {
   color: #48cc31;
 }
 
+/* Amiga A500 */
 .track.a500 {
   border-color: #00828f;
 }
-
 .track.a500 .track-title {
   color: #fcc100;
 }
-
 .track.a500 .track-toggle {
   color: #f26b00;
 }
 
+/* DOS PC */
 .track.pc {
   border-color: #808080;
 }
-
 .track.pc .track-title {
+  color: #ff0000;
+}
+.track.pc .track-toggle {
   color: #ffff00;
 }
 
-.track.pc .track-toggle {
-  color: #ff00ff;
+/* =========================
+   Filter button active colors
+   ========================= */
+
+#btn-c64.active {
+  background-color: #14a3fd;
+  color: #f2f540;
+}
+
+#btn-a500.active {
+  background-color: #00828f;
+  color: #fcc100;
+}
+
+#btn-pc.active {
+  background-color: #808080;
+  color: #ff0000;
 }
 
 /* =========================
