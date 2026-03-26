@@ -4,6 +4,7 @@
     "title": "Aryx",
     "variant": 1,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
@@ -34,6 +35,7 @@
     "title": "Aryx",
     "variant": 2,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
@@ -64,6 +66,7 @@
     "title": "Aryx",
     "variant": 3,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Karsten Koch",
@@ -94,6 +97,7 @@
     "title": "Astaroth Ingame",
     "variant": 1,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -127,6 +131,7 @@
     "title": "Astaroth Ingame",
     "variant": 2,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -160,6 +165,7 @@
     "title": "Astaroth Ingame",
     "variant": 3,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -193,6 +199,7 @@
     "title": "Astaroth Ingame",
     "variant": 4,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -226,6 +233,7 @@
     "title": "Astaroth Ingame",
     "variant": 5,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -259,6 +267,7 @@
     "title": "Astaroth Ingame",
     "variant": 6,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -292,6 +301,7 @@
     "title": "Astaroth Ingame",
     "variant": 7,
     "platform": "A500",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Jochen Hippel",
@@ -325,6 +335,7 @@
     "title": "Blood Money",
     "variant": 1,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ray Norrish",
@@ -356,6 +367,7 @@
     "title": "Blood Money",
     "variant": 2,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ray Norrish",
@@ -387,6 +399,7 @@
     "title": "Blood Money",
     "variant": 3,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ray Norrish",
@@ -418,6 +431,7 @@
     "title": "Classic",
     "variant": 1,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": "Estrayk",
       "name": "Carlos del Alamo",
@@ -451,6 +465,7 @@
     "title": "Classic",
     "variant": 2,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": "Estrayk",
       "name": "Carlos del Alamo",
@@ -484,6 +499,7 @@
     "title": "Classic",
     "variant": 3,
     "platform": "A500",
+    "type": "Ringtone",
     "composer": {
       "handle": "Estrayk",
       "name": "Carlos del Alamo",
