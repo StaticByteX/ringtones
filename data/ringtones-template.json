@@ -4,6 +4,7 @@
     "title": "Track Title",
     "variant": 1,
     "platform": "C64|A500|PC",
+    "type": "Ringtone|Notification",
     "composer": {
       "handle": "Handle",
       "name": "Real Name",
@@ -44,6 +45,7 @@
     "title": "Track Title",
     "variant": 1,
     "platform": "C64|A500|PC",
+    "type": "Ringtone|Notification",
     "composer": {
       "handle": "Handle",
       "name": "Real Name",
