@@ -282,12 +282,12 @@ h1 {
 
 /* --- C64 --- */
 .track.c64:hover {
-  border-color: #48cc31; /* lidt grønnere, retro friskhed */
-  background-color: #0f0f0f; /* subtil tone-skift */
+  border-color: #48cc31;
+  background-color: #0f0f0f;
 }
 
 .track.c64:hover .track-title {
-  color: #f2f540; /* samme farve, men vi tilføjer glow */
+  color: #f2f540;
   text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
 }
 
@@ -298,7 +298,7 @@ h1 {
 
 /* --- Amiga A500 --- */
 .track.a500:hover {
-  border-color: #f26b00; /* Amiga-orange accent */
+  border-color: #f26b00;
   background-color: #0f0f0f;
 }
 
@@ -326,6 +326,36 @@ h1 {
 .track.pc:hover .track-toggle {
   color: #ffff00;
   text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
+}
+
+/* Track type badge */
+.track-type {
+  float: right;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  margin-left: 8px;
+  border: 1px solid #444;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* C64 */
+.track.c64 .track-type {
+  border-color: #48cc31;
+  color: #48cc31;
+}
+
+/* A500 */
+.track.a500 .track-type {
+  border-color: #f26b00;
+  color: #f26b00;
+}
+
+/* PC */
+.track.pc .track-type {
+  border-color: #ffff00;
+  color: #ffff00;
 }
 
 /* =========================
