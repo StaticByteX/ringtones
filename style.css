@@ -243,14 +243,18 @@ h1 {
 }
 
 /* DOS PC */
+
 .track.pc {
-  border-color: #808080;
+  border-color: #808080; /* dark gray */
 }
+
 .track.pc .track-title {
-  color: #ff0000;
+  color: #ff00ff; /* magenta title */
 }
+
 .track.pc .track-toggle {
-  color: #ffff00;
+  color: #ffff00; /* yellow accent */
+
 }
 
 /* =========================
@@ -269,7 +273,7 @@ h1 {
 
 #btn-pc.active {
   background-color: #808080;
-  color: #ff0000;
+  color: #ff00ff;
 }
 
 /* =========================
@@ -310,13 +314,13 @@ h1 {
 
 /* --- PC --- */
 .track.pc:hover {
-  border-color: #ff0000; /* VGA-rød accent */
+  border-color: #ff00ff; /* magenta kant på hover */
   background-color: #0f0f0f;
 }
 
 .track.pc:hover .track-title {
-  color: #ff0000;
-  text-shadow: 0 0 6px rgba(255, 0, 0, 0.5);
+  color: #ff00ff;
+  text-shadow: 0 0 6px rgba(255, 0, 255, 0.5);
 }
 
 .track.pc:hover .track-toggle {
@@ -331,6 +335,20 @@ h1 {
 audio {
   width: 100%;
   margin-top: 10px;
+}
+
+/* =========================
+   Platform fade-in animation
+   ========================= */
+
+.track {
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), 
+              border-color 0.15s ease, 
+              background-color 0.15s ease;
+}
+
+.track:hover {
+  transform: scale(1.01);
 }
 
 /* =========================
