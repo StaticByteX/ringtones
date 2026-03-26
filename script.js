@@ -181,10 +181,10 @@ function render() {
       : "";
         
     // ==== Build track HTML ====
-    div.innerHTML = `
-      <div class="track-title">
-        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
-      </div>
+    <div class="track-title">
+      ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
+      ${typeBadge}
+    </div>
     
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
