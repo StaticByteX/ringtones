@@ -224,26 +224,27 @@ const filtered = tracks.filter(t => {
     }
         
     // ==== Build track HTML ====
+    div.innerHTML = `
     <div class="track-title">
       ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
       ${typeBadge}
     </div>
-    
-      <div class="track-meta">
-        ${safe(composerLine)} ${categoryLabel}
-      </div>
-    
-      <audio controls src="${track.file}"></audio>
-    
-      <div class="track-toggle">
-        more ▾
-      </div>
-    
-      <div class="track-extra">
-        ${safe(extraMain)}${category}<br>
-        ${safe(sampling)}
-      </div>
-    `;
+  
+    <div class="track-meta">
+      ${safe(composerLine)} ${categoryLabel}
+    </div>
+  
+    ${track.file}</audio>
+  
+    <div class="track-toggle">
+      more ▾
+    </div>
+  
+    <div class="track-extra">
+      ${safe(extraMain)}${category}<br>
+      ${safe(sampling)}
+    </div>
+  `;
 
     container.appendChild(div);
   });
