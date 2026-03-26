@@ -26,7 +26,7 @@ async function loadData() {
   }
 }
 
-/* FILTER */
+/* PLATFORM FILTER */
 function setFilter(filter) {
   currentFilter = filter;
 
@@ -38,6 +38,9 @@ function setFilter(filter) {
   if (activeBtn) {
     activeBtn.classList.add("active");
   }
+
+  render();
+}
 
 /* TYPE FILTER */
 function setTypeFilter(typeFilter) {
@@ -54,9 +57,6 @@ function setTypeFilter(typeFilter) {
 
   render();
 }
-  
-  render();
-}
 
 /* RENDER */
 function render() {
@@ -66,32 +66,32 @@ function render() {
 
   container.innerHTML = "";
 
-const filtered = tracks.filter(t => {
-  const matchesPlatform =
-    currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
+  const filtered = tracks.filter(t => {
+    const matchesPlatform =
+      currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
 
-  const matchesType =
-    currentTypeFilter === "all" || (t.type && t.type === currentTypeFilter);
+    const matchesType =
+      currentTypeFilter === "all" || (t.type && t.type === currentTypeFilter);
 
-  const searchableText = `
-    ${safe(t.title)}
-    ${safe(t.composer?.handle)}
-    ${safe(t.composer?.name)}
-    ${safe(t.composer?.group)}
-    ${safe(t.production)}
-    ${safe(t.year)}
-    ${safe(t.publisher)}
-    ${safe(t.sampling?.title)}
-    ${safe(t.sampling?.artist)}
-    ${safe(t.sampling?.year)}
-    ${safe(t.type)}
-  `.toLowerCase();
+    const searchableText = `
+      ${safe(t.title)}
+      ${safe(t.composer?.handle)}
+      ${safe(t.composer?.name)}
+      ${safe(t.composer?.group)}
+      ${safe(t.production)}
+      ${safe(t.year)}
+      ${safe(t.publisher)}
+      ${safe(t.sampling?.title)}
+      ${safe(t.sampling?.artist)}
+      ${safe(t.sampling?.year)}
+      ${safe(t.type)}
+    `.toLowerCase();
 
-  const matchesSearch = searchableText.includes(query);
+    const matchesSearch = searchableText.includes(query);
 
-  return matchesPlatform && matchesType && matchesSearch;
-});
-  
+    return matchesPlatform && matchesType && matchesSearch;
+  });
+
   // Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
@@ -116,7 +116,11 @@ const filtered = tracks.filter(t => {
     else if (currentFilter === "a500") filterLabel = "Amiga";
     else if (currentFilter === "pc") filterLabel = "PC";
 
-    resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel})`;
+    let typeLabel = "all types";
+    if (currentTypeFilter === "Ringtone") typeLabel = "ringtones";
+    else if (currentTypeFilter === "Notification") typeLabel = "notifications";
+
+    resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel}, ${typeLabel})`;
   }
 
   filtered.forEach(track => {
@@ -196,55 +200,46 @@ const filtered = tracks.filter(t => {
       ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
       : "";
 
-    /* Type badge (null-safe) */
-    const typeBadge = track.type
-      ? `<span class="track-type">${track.type}</span>`
-      : "";
-
     // ==== Type badge (with icon) ====
     let typeBadge = "";
     if (track.type) {
       const type = track.type;
       let icon = "";
       let typeClass = "";
-    
+
       if (type === "Ringtone") {
         icon = "🔔";
         typeClass = "ringtone";
       } else if (type === "Notification") {
         icon = "✉️";
         typeClass = "notification";
-      } else {
-        // fallback – hvis du senere tilføjer andre typer
-        icon = "";
-        typeClass = "";
       }
-    
+
       typeBadge = `<span class="track-type ${typeClass}">${icon} ${type}</span>`;
     }
-        
+
     // ==== Build track HTML ====
     div.innerHTML = `
-    <div class="track-title">
-      ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
-      ${typeBadge}
-    </div>
-  
-    <div class="track-meta">
-      ${safe(composerLine)} ${categoryLabel}
-    </div>
-  
-    ${track.file}</audio>
-  
-    <div class="track-toggle">
-      more ▾
-    </div>
-  
-    <div class="track-extra">
-      ${safe(extraMain)}${category}<br>
-      ${safe(sampling)}
-    </div>
-  `;
+      <div class="track-title">
+        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
+        ${typeBadge}
+      </div>
+
+      <div class="track-meta">
+        ${safe(composerLine)} ${categoryLabel}
+      </div>
+
+      ${track.file}</audio>
+
+      <div class="track-toggle">
+        more ▾
+      </div>
+
+      <div class="track-extra">
+        ${safe(extraMain)}${category}<br>
+        ${safe(sampling)}
+      </div>
+    `;
 
     container.appendChild(div);
   });
