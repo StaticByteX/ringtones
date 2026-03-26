@@ -200,6 +200,28 @@ const filtered = tracks.filter(t => {
     const typeBadge = track.type
       ? `<span class="track-type">${track.type}</span>`
       : "";
+
+    // ==== Type badge (with icon) ====
+    let typeBadge = "";
+    if (track.type) {
+      const type = track.type;
+      let icon = "";
+      let typeClass = "";
+    
+      if (type === "Ringtone") {
+        icon = "🔔";
+        typeClass = "ringtone";
+      } else if (type === "Notification") {
+        icon = "✉️";
+        typeClass = "notification";
+      } else {
+        // fallback – hvis du senere tilføjer andre typer
+        icon = "";
+        typeClass = "";
+      }
+    
+      typeBadge = `<span class="track-type ${typeClass}">${icon} ${type}</span>`;
+    }
         
     // ==== Build track HTML ====
     <div class="track-title">
