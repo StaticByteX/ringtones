@@ -1,5 +1,6 @@
 let tracks = [];
 let currentFilter = "all";
+let currentTypeFilter = "all";
 
 const safe = v => v ?? "";
 
