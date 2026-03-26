@@ -129,6 +129,22 @@ h1 {
   background-color: #333;
 }
 
+/* Type filters */
+.filters-type {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.filters-type button {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.filters-type button.active {
+  border-color: #fff;
+  background-color: #222;
+}
+
 /* Platform specific active colours */
 
 #btn-c64.active {
@@ -214,6 +230,29 @@ h1 {
   border: 1px solid #444;
   font-size: 11px;
   color: #ccc;
+}
+
+/* Track type badge */
+.track-type {
+  float: right;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  margin-left: 8px;
+  border: 1px solid #444;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Base type colors (can be overridden per platform) */
+.track-type.ringtone {
+  border-color: #48cc31; /* grøn */
+  color: #48cc31;
+}
+
+.track-type.notification {
+  border-color: #0074c0; /* blå/turkis */
+  color: #0074c0;
 }
 
 /* =========================
