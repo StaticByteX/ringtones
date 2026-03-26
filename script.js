@@ -276,10 +276,23 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("input", () => render());
   }
 
+  // Platform filter buttons
   document.querySelectorAll(".filters button").forEach(btn => {
+    const platformFilter = btn.getAttribute("data-filter");
+    if (!platformFilter) return;
+
     btn.addEventListener("click", () => {
-      const filter = btn.getAttribute("data-filter");
-      setFilter(filter);
+      setFilter(platformFilter);
+    });
+  });
+
+  // Type filter buttons
+  document.querySelectorAll(".filters-type button").forEach(btn => {
+    const typeFilter = btn.getAttribute("data-type-filter");
+    if (!typeFilter) return;
+
+    btn.addEventListener("click", () => {
+      setTypeFilter(typeFilter);
     });
   });
 
