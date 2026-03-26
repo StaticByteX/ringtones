@@ -66,28 +66,32 @@ function render() {
 
   container.innerHTML = "";
 
-  const filtered = tracks.filter(t => {
-    const matchesFilter =
-      currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
+const filtered = tracks.filter(t => {
+  const matchesPlatform =
+    currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
 
-    const searchableText = `
-      ${safe(t.title)}
-      ${safe(t.composer?.handle)}
-      ${safe(t.composer?.name)}
-      ${safe(t.composer?.group)}
-      ${safe(t.production)}
-      ${safe(t.year)}
-      ${safe(t.publisher)}
-      ${safe(t.sampling?.title)}
-      ${safe(t.sampling?.artist)}
-      ${safe(t.sampling?.year)}
-    `.toLowerCase();
+  const matchesType =
+    currentTypeFilter === "all" || (t.type && t.type === currentTypeFilter);
 
-    const matchesSearch = searchableText.includes(query);
+  const searchableText = `
+    ${safe(t.title)}
+    ${safe(t.composer?.handle)}
+    ${safe(t.composer?.name)}
+    ${safe(t.composer?.group)}
+    ${safe(t.production)}
+    ${safe(t.year)}
+    ${safe(t.publisher)}
+    ${safe(t.sampling?.title)}
+    ${safe(t.sampling?.artist)}
+    ${safe(t.sampling?.year)}
+    ${safe(t.type)}
+  `.toLowerCase();
 
-    return matchesFilter && matchesSearch;
-  });
+  const matchesSearch = searchableText.includes(query);
 
+  return matchesPlatform && matchesType && matchesSearch;
+});
+  
   // Sort alphabetically by title, then variant
   filtered.sort((a, b) => {
     const titleA = (a.title || "").toLowerCase();
