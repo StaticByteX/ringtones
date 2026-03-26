@@ -272,8 +272,8 @@ h1 {
 }
 
 #btn-pc.active {
-  background-color: #808080;
-  color: #ff00ff;
+  background-color: #0000ff;
+  color: #ff0000;
 }
 
 /* =========================
@@ -324,7 +324,7 @@ h1 {
 }
 
 .track.pc:hover .track-toggle {
-  color: #ffff00;
+  color: #ff0000;
   text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
 }
 
