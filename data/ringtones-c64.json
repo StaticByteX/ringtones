@@ -4,6 +4,7 @@
     "title": "Arkanoid",
     "variant": 1,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -38,6 +39,7 @@
     "title": "Arkanoid",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -72,6 +74,7 @@
     "title": "Arkanoid",
     "variant": 3,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -106,6 +109,7 @@
     "title": "Arkanoid",
     "variant": 4,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -140,6 +144,7 @@
     "title": "Arkanoid",
     "variant": 5,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -174,6 +179,7 @@
     "title": "Arkanoid",
     "variant": 6,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -208,6 +214,7 @@
     "title": "Arkanoid",
     "variant": 7,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -242,6 +249,7 @@
     "title": "Arkanoid",
     "variant": 8,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -276,6 +284,7 @@
     "title": "Arkanoid",
     "variant": 9,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -310,6 +319,7 @@
     "title": "Arkanoid",
     "variant": 10,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -344,6 +354,7 @@
     "title": "Arkanoid",
     "variant": 11,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Martin Galway",
@@ -378,6 +389,7 @@
     "title": "Bombo",
     "variant": 11,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -413,6 +425,7 @@
     "title": "Bombo",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -448,6 +461,7 @@
     "title": "Bombo",
     "variant": 3,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -483,6 +497,7 @@
     "title": "Bombo",
     "variant": 4,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -518,6 +533,7 @@
     "title": "Bombo",
     "variant": 5,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -553,6 +569,7 @@
     "title": "Bulldog",
     "variant": 1,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -588,6 +605,7 @@
     "title": "Bulldog",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -623,6 +641,7 @@
     "title": "Bulldog",
     "variant": 3,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": "Retro Music Retracked",
       "name": null,
@@ -658,6 +677,7 @@
     "title": "Commando",
     "variant": 1,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -693,6 +713,7 @@
     "title": "Commando",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -728,6 +749,7 @@
     "title": "Commando",
     "variant": 3,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -763,6 +785,7 @@
     "title": "Commando",
     "variant": 4,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -798,6 +821,7 @@
     "title": "Delta",
     "variant": 1,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -831,6 +855,7 @@
     "title": "Delta",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -864,6 +889,7 @@
     "title": "Delta",
     "variant": 3,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Rob Hubbard",
@@ -897,6 +923,7 @@
     "title": "Gauntlet",
     "variant": 1,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -932,6 +959,7 @@
     "title": "Gauntlet",
     "variant": 2,
     "platform": "C64",
+    "type": "Ringtone",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
@@ -967,6 +995,7 @@
     "title": "Gauntlet 2",
     "variant": 1,
     "platform": "C64",
+    "type": "Notification",
     "composer": {
       "handle": null,
       "name": "Ben Daglish",
