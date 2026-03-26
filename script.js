@@ -39,6 +39,22 @@ function setFilter(filter) {
     activeBtn.classList.add("active");
   }
 
+/* TYPE FILTER */
+function setTypeFilter(typeFilter) {
+  currentTypeFilter = typeFilter;
+
+  document.querySelectorAll(".filters-type button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  const activeBtn = document.querySelector(`.filters-type button[data-type-filter="${typeFilter}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add("active");
+  }
+
+  render();
+}
+  
   render();
 }
 
