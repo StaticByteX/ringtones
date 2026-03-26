@@ -4,6 +4,7 @@
     "title": "Iam Way One Son",
     "variant": 1,
     "platform": "PC",
+    "type": "Ringtone",
     "composer": {
       "handle": "Hunz",
       "name": "Johannes van Vliet",
@@ -36,6 +37,7 @@
     "title": "Iam Way One Son",
     "variant": 2,
     "platform": "PC",
+    "type": "Ringtone",
     "composer": {
       "handle": "Hunz",
       "name": "Johannes van Vliet",
@@ -68,6 +70,7 @@
     "title": "Iam Way One Son",
     "variant": 3,
     "platform": "PC",
+    "type": "Ringtone",
     "composer": {
       "handle": "Hunz",
       "name": "Johannes van Vliet",
@@ -100,6 +103,7 @@
     "title": "Iam Way One Son",
     "variant": 4,
     "platform": "PC",
+    "type": "Ringtone",
     "composer": {
       "handle": "Hunz",
       "name": "Johannes van Vliet",
