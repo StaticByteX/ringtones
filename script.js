@@ -175,6 +175,11 @@ function render() {
       ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
       : "";
 
+    /* Type badge (null-safe) */
+    const typeBadge = track.type
+      ? `<span class="track-type">${track.type}</span>`
+      : "";
+        
     // ==== Build track HTML ====
     div.innerHTML = `
       <div class="track-title">
