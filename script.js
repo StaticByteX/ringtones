@@ -4,6 +4,10 @@ let currentTypeFilter = "all";
 
 const safe = v => v ?? "";
 
+/* Simple device detection */
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+const isAndroid = /Android/.test(navigator.userAgent);
+
 /* LOAD JSON */
 async function loadData() {
   const sources = [
@@ -123,6 +127,16 @@ function render() {
     resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel}, ${typeLabel})`;
   }
 
+  // iOS hint text (global)
+  const iosHint = document.getElementById("ios-hint");
+  if (iosHint) {
+    if (isIOS) {
+      iosHint.textContent = 'On iPhone: Use the "M4R (iPhone)" download, then open it in GarageBand to install the ringtone.';
+    } else {
+      iosHint.textContent = "";
+    }
+  }
+
   filtered.forEach(track => {
     const div = document.createElement("div");
     div.className = `track ${track.platform.toLowerCase()}`;
@@ -218,23 +232,48 @@ function render() {
       typeBadge = `<span class="track-type ${typeClass}">${icon} ${type}</span>`;
     }
 
+    // ==== Download buttons (MP3 / M4R) ====
+    const hasMp3 = !!track.file_mp3;
+    const hasM4r = !!track.file_m4r;
+
+    let downloadsHtml = "";
+
+    // Default: vis begge, men juster efter platform
+    if (hasMp3 || hasM4r) {
+      downloadsHtml += `<div class="track-actions">`;
+
+      if (hasMp3 && !isIOS) {
+        downloadsHtml += `<a class="download-link" href="${track.file_mp3}" download>⬇️ MP3 {
+        downloadsHtml += `${track.file_m4r}🍏 M4R (iPhone)</a>`;
+      }
+
+      // Hvis du vil tillade begge på desktop:
+      if (!isIOS && hasM4r) {
+        downloadsHtml += `${track.file_m4r}🍏 M4R</a>`;
+      }
+
+      downloadsHtml += `</div>`;
+    }
+
     // ==== Build track HTML ====
     div.innerHTML = `
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
         ${typeBadge}
       </div>
-    
+
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
       </div>
-    
-      <audio controls src="${track.file}"></audio>
-    
+
+      ${track.file}</audio>
+
+      ${downloadsHtml}
+
       <div class="track-toggle">
         more ▾
       </div>
-    
+
       <div class="track-extra">
         ${safe(extraMain)}${category}<br>
         ${safe(sampling)}
