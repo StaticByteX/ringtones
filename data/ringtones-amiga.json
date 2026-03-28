@@ -318,5 +318,102 @@
     "tags": ["crying-spy","t.u.s.c.","tusc","jesper-jakobsen","total-destruction","crionics","a500","tracker","demoscene","retro"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/crying-spy-amiga-v3-tusc.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/crying-spy-amiga-v3-tusc.m4r"
-  }
+  },
+  {
+    "id": "cthulhu-amiga-v1",
+    "title": "Cthulhu",
+    "variant": 1,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v1-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v1-mad-freak.m4r"
+  },
+  {
+    "id": "cthulhu-amiga-v2",
+    "title": "Cthulhu",
+    "variant": 2,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v2-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v2-mad-freak.m4r"
+  },
+  {
+    "id": "cthulhu-amiga-v3",
+    "title": "Cthulhu",
+    "variant": 3,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v3-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v3-mad-freak.m4r"
+  },
+  {
+    "id": "cthulhu-amiga-v4",
+    "title": "Cthulhu",
+    "variant": 4,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v4-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v4-mad-freak.m4r"
+  },
+  {
+    "id": "cthulhu-amiga-v5",
+    "title": "Cthulhu",
+    "variant": 5,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v5-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v5-mad-freak.m4r"
+  },
+  {
+    "id": "cthulhu-amiga-v6",
+    "title": "Cthulhu",
+    "variant": 6,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Mad Freak", "name": "Martin Schioeler", "group": "Deadlock" },
+    "production": "Summit 1991 - Music From The Competition"
+	  "category": "Demo",
+    "year": 1990,
+    "publisher": "Prologic & Static Bytes",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cthulhu","mad-freak","martin-schioeler","summit-1991-music-from-the-competition","prologic-static-bytes","a500","tracker","demoscene","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v6-mad-freak.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/cthulhu-amiga-v6-mad-freak.m4r"
+  },
+  
 ]
