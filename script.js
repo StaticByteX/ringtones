@@ -260,32 +260,32 @@ function render() {
       downloadsHtml += `</div>`;
     }
 
-    // ==== Audio source (fallback to .file if you still have that field) ====
-    const audioSrc = track.file_mp3 || track.file || "";
-    
-    div.innerHTML = `
-      <div class="track-title">
-        ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
-        ${typeBadge}
-      </div>
-    
-      <div class="track-meta">
-        ${safe(composerLine)} ${categoryLabel}
-      </div>
-    
-      ${audioSrc}</audio>
-    
-      ${downloadsHtml}
-    
-      <div class="track-toggle">
-        more ▾
-      </div>
-    
-      <div class="track-extra">
-        ${safe(extraMain)}${category}<br>
-        ${safe(sampling)}
-      </div>
-    `;
+      // ==== Audio source (fallback to .file if you still have that field) ====
+      const audioSrc = track.file_mp3 || track.file || "";
+      
+      div.innerHTML = `
+        <div class="track-title">
+          ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
+          ${typeBadge}
+        </div>
+      
+        <div class="track-meta">
+          ${safe(composerLine)} ${categoryLabel}
+        </div>
+      
+        ${audioSrc}</audio>
+      
+        ${downloadsHtml}
+      
+        <div class="track-toggle">
+          more ▾
+        </div>
+      
+        <div class="track-extra">
+          ${safe(extraMain)}${category}<br>
+          ${safe(sampling)}
+        </div>
+      `;
 
     container.appendChild(div);
   });
