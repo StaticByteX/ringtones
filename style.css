@@ -70,7 +70,7 @@ main {
   text-align: center;
 }
 
-/* Prevent margin-collapsing by spacing via padding + gaps */
+/* Avoid collapsing margins and keep consistent spacing */
 main > * + * {
   margin-top: 16px;
 }
@@ -105,9 +105,16 @@ h1 {
   font-size: 12px;
 }
 
-#results-info,
-#ios-hint {
-  margin-top: 4px;
+.platform-line {
+  font-size: 13px;
+}
+
+.results-info {
+  font-size: 13px;
+}
+
+.submit-line {
+  font-size: 13px;
 }
 
 /* ===================================
@@ -122,10 +129,10 @@ h1 {
   color: var(--text);
 
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 
   outline: none;
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
@@ -151,14 +158,10 @@ h1 {
   gap: 8px;
 }
 
-.filters-type {
-  margin-top: 0;
-}
-
 .filters button {
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px; /* one size bigger */
+  font-weight: 800;
 
   text-transform: uppercase;
   letter-spacing: 0.09em;
@@ -172,7 +175,7 @@ h1 {
 
   cursor: pointer;
 
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
@@ -193,7 +196,7 @@ h1 {
   border-color: #ffffff;
 }
 
-/* Active filter colors */
+/* Platform active filter colors */
 #btn-c64.active {
   background-color: var(--c64-border);
   color: var(--c64-title);
@@ -212,6 +215,19 @@ h1 {
   border-color: var(--pc-border);
 }
 
+/* Type active filter colors (match songbox badge colors) */
+#btn-type-ringtone.active {
+  background-color: var(--type-ringtone);
+  border-color: var(--type-ringtone);
+  color: #0a0a0a;
+}
+
+#btn-type-notification.active {
+  background-color: var(--type-notification);
+  border-color: var(--type-notification);
+  color: #0a0a0a;
+}
+
 /* ===================================
    TRACK CARDS
 =================================== */
@@ -228,7 +244,7 @@ h1 {
   padding: 16px;
   margin-bottom: 20px;
 
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
@@ -327,6 +343,10 @@ h1 {
   font-size: 11px;
   opacity: 0.95;
   white-space: nowrap;
+
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
 
 .track-type.ringtone {
@@ -364,7 +384,7 @@ audio {
 
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -375,7 +395,7 @@ audio {
   color: #d4d4d4;
   border: 1px solid #444444;
 
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
@@ -399,26 +419,49 @@ audio {
   background: none;
   border: none;
 
-  color: var(--muted);
   cursor: pointer;
 
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
   padding: 6px 0;
 
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
 
+/* MORE colors must match border colors (static + hover) */
+.track.c64 .track-toggle {
+  color: var(--c64-border);
+}
+.track.c64:hover .track-toggle {
+  color: var(--c64-toggle);
+  text-shadow: 0 0 6px rgba(72, 204, 49, 0.35);
+}
+
+.track.a500 .track-toggle {
+  color: var(--a500-border);
+}
+.track.a500:hover .track-toggle {
+  color: var(--a500-toggle);
+  text-shadow: 0 0 6px rgba(242, 107, 0, 0.35);
+}
+
+.track.pc .track-toggle {
+  color: var(--pc-border);
+}
+.track.pc:hover .track-toggle {
+  color: var(--pc-title);
+  text-shadow: 0 0 6px rgba(255, 102, 255, 0.35);
+}
+
 .track-toggle:hover {
   transform: scale(1.01);
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.16);
 }
 
 .track-extra {
@@ -483,7 +526,7 @@ audio {
 .tooltip-close {
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -497,7 +540,7 @@ audio {
 
   cursor: pointer;
 
-  transition: transform 0.15s var(--ease-retro),
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.15s ease,
               background-color 0.15s ease;
 }
