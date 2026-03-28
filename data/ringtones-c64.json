@@ -396,9 +396,9 @@
   },
     
   {
-    "id": "bombo-c64-v11",
+    "id": "bombo-c64-v1",
     "title": "Bombo",
-    "variant": 11,
+    "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
     "composer": {
@@ -428,7 +428,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v11-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.m4r"
   },
   
   {
@@ -464,7 +465,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.m4r"
   },
   
     {
@@ -500,7 +502,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.m4r"
   },
   
     {
@@ -536,7 +539,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.m4r"
   },
   
     {
@@ -572,7 +576,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.m4r"
   },
   
 {
@@ -608,7 +613,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.m4r"
   },
   
 {
@@ -644,7 +650,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3"
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.m4r"
   },
   
   {
@@ -680,7 +687,8 @@
       "retro",
       "retrogaming"
     ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.mp3"             
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.mp3",
+    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.m4r"
   },
   
   {
