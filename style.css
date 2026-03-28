@@ -1,16 +1,15 @@
-/* =========================
-   Reset
-   ========================= */
+/* ===================================
+   RESET
+=================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* =========================
-   Base layout
-   ========================= */
-
+/* ===================================
+   BASE LAYOUT
+=================================== */
 body {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
@@ -33,10 +32,9 @@ main {
   text-align: center;
 }
 
-/* =========================
-   Header
-   ========================= */
-
+/* ===================================
+   HEADER
+=================================== */
 header {
   width: 100%;
   text-align: center;
@@ -50,10 +48,9 @@ header img {
   margin: 0 auto;
 }
 
-/* =========================
-   Footer
-   ========================= */
-
+/* ===================================
+   FOOTER
+=================================== */
 footer {
   margin-top: auto;
   text-align: center;
@@ -72,10 +69,9 @@ footer p {
   color: #aaa;
 }
 
-/* =========================
-   Typography
-   ========================= */
-
+/* ===================================
+   TYPOGRAPHY
+=================================== */
 h1 {
   font-size: 24px;
   font-weight: 600;
@@ -87,10 +83,9 @@ h1 {
   margin-bottom: 15px;
 }
 
-/* =========================
-   Search
-   ========================= */
-
+/* ===================================
+   SEARCH
+=================================== */
 #search {
   width: 100%;
   padding: 10px;
@@ -100,10 +95,9 @@ h1 {
   color: #fff;
 }
 
-/* =========================
-   Filters
-   ========================= */
-
+/* ===================================
+   FILTERS
+=================================== */
 .filters {
   text-align: center;
   margin-bottom: 20px;
@@ -145,27 +139,9 @@ h1 {
   background-color: #222;
 }
 
-/* Platform specific active colours */
-
-#btn-c64.active {
-  background-color: #002684;
-  color: #f2f540;
-}
-
-#btn-a500.active {
-  background-color: #00828f;
-  color: #fcc100;
-}
-
-#btn-pc.active {
-  background-color: #0000ff;
-  color: #ffff00;
-}
-
-/* =========================
-   Track boxes
-   ========================= */
-
+/* ===================================
+   TRACK BOXES
+=================================== */
 .track {
   background-color: #111111;
   border: 1px solid #222222;
@@ -173,10 +149,19 @@ h1 {
   margin-bottom: 20px;
   border-radius: 6px;
   text-align: left;
+
+  /* hover grow + transitions */
+  transition:
+    transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.track:hover {
+  transform: scale(1.01);
 }
 
 /* Title */
-
 .track-title {
   font-size: 16px;
   font-weight: 600;
@@ -184,7 +169,6 @@ h1 {
 }
 
 /* Meta */
-
 .track-meta {
   font-size: 14px;
   color: #bbbbbb;
@@ -192,26 +176,24 @@ h1 {
 }
 
 /* Toggle */
-
 .track-toggle {
   font-size: 13px;
   cursor: pointer;
   display: inline-block;
-  border-bottom: 1px solid #444444;
+  border-bottom: 1px solid #444;
   margin-top: 8px;
   padding-bottom: 2px;
   color: #aaa;
 }
 
 .track-toggle:hover {
-  border-color: #ffffff;
+  border-color: #fff;
 }
 
 /* Extra info */
-
 .track-extra {
   font-size: 13px;
-  color: #888888;
+  color: #888;
   margin-top: 10px;
   display: none;
 }
@@ -220,8 +202,7 @@ h1 {
   display: block;
 }
 
-/* Track category */
-
+/* Category tag */
 .track-category {
   display: inline-block;
   margin-left: 8px;
@@ -232,10 +213,34 @@ h1 {
   color: #ccc;
 }
 
-/* =========================
-   Download actions
-   ========================= */
+/* ===================================
+   TYPE BADGE (Ringtone/Notification)
+=================================== */
+.track-type {
+  float: right;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  margin-left: 8px;
+  border: 1px solid #444;
+  opacity: 0.9;
+}
 
+/* Type: Ringtone */
+.track-type.ringtone {
+  border-color: #48cc31;
+  color: #48cc31;
+}
+
+/* Type: Notification */
+.track-type.notification {
+  border-color: #0074c0;
+  color: #0074c0;
+}
+
+/* ===================================
+   DOWNLOAD BUTTONS
+=================================== */
 .track-actions {
   margin-top: 8px;
   margin-bottom: 6px;
@@ -261,7 +266,7 @@ h1 {
   color: #fff;
 }
 
-/* iOS hint text */
+/* iOS hint */
 #ios-hint {
   font-size: 11px;
   color: #888;
@@ -269,34 +274,11 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Track type badge */
-.track-type {
-  float: right;
-  padding: 2px 6px;
-  font-size: 11px;
-  border-radius: 4px;
-  margin-left: 8px;
-  border: 1px solid #444;
-  color: #fff;
-  opacity: 0.9;
-}
+/* ===================================
+   PLATFORM COLOR THEMES
+=================================== */
 
-/* Base type colors (can be overridden per platform) */
-.track-type.ringtone {
-  border-color: #48cc31; /* grøn */
-  color: #48cc31;
-}
-
-.track-type.notification {
-  border-color: #0074c0; /* blå/turkis */
-  color: #0074c0;
-}
-
-/* =========================
-   Platform themes
-   ========================= */
-
-/* C64 */
+/* ===== C64 ===== */
 .track.c64 {
   border-color: #14a3fd;
 }
@@ -306,8 +288,18 @@ h1 {
 .track.c64 .track-toggle {
   color: #48cc31;
 }
+.track.c64:hover {
+  border-color: #48cc31;
+  background-color: #0f0f0f;
+}
+.track.c64:hover .track-title {
+  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
+}
+.track.c64:hover .track-toggle {
+  text-shadow: 0 0 4px rgba(72, 204, 49, 0.4);
+}
 
-/* Amiga A500 */
+/* ===== Amiga A500 ===== */
 .track.a500 {
   border-color: #00828f;
 }
@@ -317,26 +309,41 @@ h1 {
 .track.a500 .track-toggle {
   color: #f26b00;
 }
+.track.a500:hover {
+  border-color: #f26b00;
+  background-color: #0f0f0f;
+}
+.track.a500:hover .track-title {
+  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
+}
+.track.a500:hover .track-toggle {
+  text-shadow: 0 0 4px rgba(242, 107, 0, 0.4);
+}
 
-/* DOS PC */
-
+/* ===== PC ===== */
 .track.pc {
-  border-color: #808080; /* dark gray */
+  border-color: #808080;
 }
-
 .track.pc .track-title {
-  color: #ff66ff; /* magenta title */
+  color: #ff66ff;
 }
-
 .track.pc .track-toggle {
-  color: #ffff00; /* yellow accent */
-
+  color: #ffff00;
+}
+.track.pc:hover {
+  border-color: #ff66ff;
+  background-color: #0f0f0f;
+}
+.track.pc:hover .track-title {
+  text-shadow: 0 0 6px rgba(255, 102, 255, 0.5);
+}
+.track.pc:hover .track-toggle {
+  text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
 }
 
-/* =========================
-   Filter button active colors
-   ========================= */
-
+/* ===================================
+   ACTIVE FILTER BUTTON COLORS
+=================================== */
 #btn-c64.active {
   background-color: #14a3fd;
   color: #f2f540;
@@ -352,136 +359,24 @@ h1 {
   color: #ff66ff;
 }
 
-/* =========================
-   Hover effects per platform
-   ========================= */
-
-/* --- C64 --- */
-.track.c64:hover {
-  border-color: #48cc31;
-  background-color: #0f0f0f;
-}
-
-.track.c64:hover .track-title {
-  color: #f2f540;
-  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
-}
-
-.track.c64:hover .track-toggle {
-  color: #48cc31;
-  text-shadow: 0 0 4px rgba(72, 204, 49, 0.4);
-}
-
-/* --- Amiga A500 --- */
-.track.a500:hover {
-  border-color: #f26b00;
-  background-color: #0f0f0f;
-}
-
-.track.a500:hover .track-title {
-  color: #fcc100;
-  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
-}
-
-.track.a500:hover .track-toggle {
-  color: #f26b00;
-  text-shadow: 0 0 4px rgba(242, 107, 0, 0.4);
-}
-
-/* --- PC --- */
-.track.pc:hover {
-  border-color: #ffff00;
-  background-color: #0f0f0f;
-}
-
-.track.pc:hover .track-title {
-  color: #ff66ff;
-  text-shadow: 0 0 6px rgba(255, 0, 255, 0.5);
-}
-
-.track.pc:hover .track-toggle {
-  color: #ffff00;
-  text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
-}
-
-/* Track type badge */
-.track-type {
-  float: right;
-  padding: 2px 6px;
-  font-size: 11px;
-  border-radius: 4px;
-  margin-left: 8px;
-  border: 1px solid #444;
-  color: #fff;
-  opacity: 0.9;
-}
-
-/* C64 */
-.track.c64 .track-type {
-  border-color: #48cc31;
-  color: #48cc31;
-}
-
-/* A500 */
-.track.a500 .track-type {
-  border-color: #f26b00;
-  color: #f26b00;
-}
-
-/* PC */
-.track.pc .track-type {
-  border-color: #ffff00;
-  color: #ffff00;
-}
-
-/* =========================
-   Audio player
-   ========================= */
-
+/* ===================================
+   AUDIO PLAYER
+=================================== */
 audio {
   width: 100%;
   margin-top: 10px;
 }
 
-/* =========================
-   Platform fade-in animation
-   ========================= */
-
-.track {
-  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), 
-              border-color 0.15s ease, 
-              background-color 0.15s ease;
-}
-
-.track:hover {
-  transform: scale(1.01);
-}
-
-/* =========================
-   Desktop adjustments
-   ========================= */
-
+/* ===================================
+   RESPONSIVE
+=================================== */
 @media (min-width: 768px) {
-  body {
-    font-size: 15px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
+  body { font-size: 15px; }
+  h1 { font-size: 28px; }
 }
 
 @media (max-width: 480px) {
-  main {
-    padding: 16px;
-  }
-
-  .track {
-    padding: 14px;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
+  main { padding: 16px; }
+  .track { padding: 14px; margin-bottom: 16px; }
+  h1 { font-size: 20px; }
 }
