@@ -304,22 +304,6 @@
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/crying-spy-amiga-v2-tusc.m4r"
   },
   {
-    "id": "crying-spy-amiga-v3",
-    "title": "Crying Spy",
-    "variant": 3,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": "T.U.S.C.", "name": "Jesper Jakobsen", "group": "Crionics" },
-    "production": "Total Destruction",
-    "category": "Demo",
-    "year": 1990,
-    "publisher": "Crionics",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["crying-spy","t.u.s.c.","tusc","jesper-jakobsen","total-destruction","crionics","a500","tracker","demoscene","retro"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/crying-spy-amiga-v3-tusc.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/crying-spy-amiga-v3-tusc.m4r"
-  },
-  {
     "id": "cthulhu-amiga-v1",
     "title": "Cthulhu",
     "variant": 1,
