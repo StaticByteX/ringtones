@@ -6,12 +6,9 @@ let currentTypeFilter = "all";
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 const isAndroid = /Android/.test(navigator.userAgent);
 
-/* Small helpers */
+/* Helpers */
 const safeText = (v) => (v === null || v === undefined ? "" : String(v));
-
-function normalize(s) {
-  return safeText(s).toLowerCase();
-}
+const normalize = (s) => safeText(s).toLowerCase();
 
 function platformToKey(platform) {
   return normalize(platform);
@@ -73,7 +70,7 @@ function setTypeFilter(typeFilter) {
   render();
 }
 
-/* TOOLTIP */
+/* TOOLTIP (per-button, auto-hide, fade in/out) */
 function showTooltip(anchor, kind) {
   const actions = anchor.closest(".track-actions");
   if (!actions) return;
@@ -173,7 +170,7 @@ function render() {
     return va - vb;
   });
 
-  /* Results info */
+  /* Results info (bigger, bold count, line breaks before/after) */
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
     const count = filtered.length;
@@ -188,7 +185,7 @@ function render() {
     if (currentTypeFilter === "Ringtone") typeLabel = "ringtones";
     else if (currentTypeFilter === "Notification") typeLabel = "notifications";
 
-    resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel}, ${typeLabel})`;
+    resultsInfo.innerHTML = `<br><strong>${count} ${trackWord} found</strong> (filter: ${filterLabel}, ${typeLabel})<br>`;
   }
 
   /* iOS hint */
@@ -222,23 +219,29 @@ function render() {
     titleRow.appendChild(titleMain);
     titleRow.appendChild(titleSub);
 
-    /* Type badge */
+    /* Type badge (Segoe UI + CAPITAL letters) */
     if (track.type) {
       const typeBadge = document.createElement("span");
       const type = safeText(track.type);
 
       let icon = "";
       let cls = "";
+      let label = "";
+
       if (type === "Ringtone") {
         icon = "🔔";
         cls = "ringtone";
+        label = "RINGTONE";
       } else if (type === "Notification") {
         icon = "✉️";
         cls = "notification";
+        label = "NOTIFICATION";
+      } else {
+        label = type.toUpperCase();
       }
 
       typeBadge.className = `track-type ${cls}`;
-      typeBadge.textContent = `${icon} ${type}`.trim();
+      typeBadge.textContent = `${icon} ${label}`.trim();
       titleRow.appendChild(typeBadge);
     }
 
@@ -267,7 +270,7 @@ function render() {
       meta.appendChild(cat);
     }
 
-    /* Audio player (prefer mp3, fallback to m4r) */
+    /* Audio playbar (prefer MP3; fallback M4R) */
     const audioSrc = safeText(track.file_mp3) || safeText(track.file_m4r);
     let audioEl = null;
     if (audioSrc) {
@@ -278,13 +281,14 @@ function render() {
       audios.push(audioEl);
     }
 
-    /* Downloads */
+    /* Download buttons (device logic per master prompt) */
     const actions = document.createElement("div");
     actions.className = "track-actions";
 
     const hasMp3 = !!safeText(track.file_mp3);
     const hasM4r = !!safeText(track.file_m4r);
 
+    /* Android/Desktop: show MP3 + M4R */
     if (hasMp3 && !isIOS) {
       const a = document.createElement("a");
       a.className = "download-btn";
@@ -296,6 +300,7 @@ function render() {
       actions.appendChild(a);
     }
 
+    /* iOS: hide MP3 button, show M4R (still also show M4R on non-iOS) */
     if (hasM4r) {
       const a = document.createElement("a");
       a.className = "download-btn";
@@ -318,7 +323,7 @@ function render() {
     extra.className = "track-extra";
     extra.setAttribute("aria-hidden", "true");
 
-    /* Extra: production / publisher / year */
+    /* Extra: production / publisher / year (null-safe) */
     const prod = safeText(track.production);
     const pub = safeText(track.publisher);
     const year = safeText(track.year);
