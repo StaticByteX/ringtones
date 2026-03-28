@@ -2,11 +2,20 @@ let tracks = [];
 let currentFilter = "all";
 let currentTypeFilter = "all";
 
-const safe = v => v ?? "";
-
 /* Simple device detection */
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 const isAndroid = /Android/.test(navigator.userAgent);
+
+/* Small helpers */
+const safeText = (v) => (v === null || v === undefined ? "" : String(v));
+
+function normalize(s) {
+  return safeText(s).toLowerCase();
+}
+
+function platformToKey(platform) {
+  return normalize(platform);
+}
 
 /* LOAD JSON */
 async function loadData() {
@@ -18,7 +27,7 @@ async function loadData() {
 
   try {
     const results = await Promise.all(
-      sources.map(src => fetch(src).then(res => res.json()))
+      sources.map((src) => fetch(src).then((res) => res.json()))
     );
 
     tracks = results.flat();
@@ -26,7 +35,13 @@ async function loadData() {
   } catch (err) {
     console.error("Error loading data:", err);
     const container = document.getElementById("tracklist");
-    container.innerHTML = `<p style="color:#f66;">Failed to load tracks. Please try again later.</p>`;
+    if (container) {
+      container.textContent = "";
+      const p = document.createElement("p");
+      p.className = "error";
+      p.textContent = "Failed to load tracks. Please try again later.";
+      container.appendChild(p);
+    }
   }
 }
 
@@ -34,14 +49,12 @@ async function loadData() {
 function setFilter(filter) {
   currentFilter = filter;
 
-  document.querySelectorAll(".filters button").forEach(btn => {
+  document.querySelectorAll(".filters button").forEach((btn) => {
     btn.classList.remove("active");
   });
 
   const activeBtn = document.querySelector(`.filters button[data-filter="${filter}"]`);
-  if (activeBtn) {
-    activeBtn.classList.add("active");
-  }
+  if (activeBtn) activeBtn.classList.add("active");
 
   render();
 }
@@ -50,66 +63,117 @@ function setFilter(filter) {
 function setTypeFilter(typeFilter) {
   currentTypeFilter = typeFilter;
 
-  document.querySelectorAll(".filters-type button").forEach(btn => {
+  document.querySelectorAll(".filters-type button").forEach((btn) => {
     btn.classList.remove("active");
   });
 
   const activeBtn = document.querySelector(`.filters-type button[data-type-filter="${typeFilter}"]`);
-  if (activeBtn) {
-    activeBtn.classList.add("active");
-  }
+  if (activeBtn) activeBtn.classList.add("active");
 
   render();
+}
+
+/* TOOLTIP */
+function showTooltip(anchor, kind) {
+  const actions = anchor.closest(".track-actions");
+  if (!actions) return;
+
+  actions.querySelectorAll(".tooltip").forEach((t) => t.remove());
+
+  const tip = document.createElement("div");
+  tip.className = "tooltip";
+
+  const text = document.createElement("div");
+  text.className = "tooltip-text";
+
+  const line1 = document.createElement("div");
+  const line2 = document.createElement("div");
+
+  if (kind === "ios") {
+    line1.textContent = "🍏 iPhone tip:";
+    line2.textContent = "Open in GarageBand → Share → Ringtone → Use as ringtone";
+  } else {
+    line1.textContent = "⬇️ Android tip:";
+    line2.textContent = "Open the file → Set as ringtone";
+  }
+
+  text.appendChild(line1);
+  text.appendChild(line2);
+
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "tooltip-close";
+  close.textContent = "Got it";
+
+  tip.appendChild(text);
+  tip.appendChild(close);
+  actions.appendChild(tip);
+
+  requestAnimationFrame(() => tip.classList.add("visible"));
+
+  const hide = () => {
+    tip.classList.remove("visible");
+    window.setTimeout(() => tip.remove(), 220);
+  };
+
+  const timer = window.setTimeout(hide, 4000);
+
+  close.addEventListener("click", () => {
+    window.clearTimeout(timer);
+    hide();
+  });
 }
 
 /* RENDER */
 function render() {
   const container = document.getElementById("tracklist");
+  if (!container) return;
+
   const searchInput = document.getElementById("search");
-  const query = (searchInput?.value || "").toLowerCase();
+  const query = normalize(searchInput ? searchInput.value : "");
 
-  container.innerHTML = "";
+  container.textContent = "";
 
-  const filtered = tracks.filter(t => {
-    const matchesPlatform =
-      currentFilter === "all" || t.platform.toLowerCase() === currentFilter;
+  const filtered = tracks.filter((t) => {
+    const platformKey = platformToKey(t.platform);
+    const matchesPlatform = currentFilter === "all" || platformKey === currentFilter;
 
     const matchesType =
-      currentTypeFilter === "all" || (t.type && t.type === currentTypeFilter);
+      currentTypeFilter === "all" || safeText(t.type) === currentTypeFilter;
 
-    const searchableText = `
-      ${safe(t.title)}
-      ${safe(t.composer?.handle)}
-      ${safe(t.composer?.name)}
-      ${safe(t.composer?.group)}
-      ${safe(t.production)}
-      ${safe(t.year)}
-      ${safe(t.publisher)}
-      ${safe(t.sampling?.title)}
-      ${safe(t.sampling?.artist)}
-      ${safe(t.sampling?.year)}
-      ${safe(t.type)}
-    `.toLowerCase();
+    const searchable = [
+      safeText(t.title),
+      safeText(t.composer && t.composer.handle),
+      safeText(t.composer && t.composer.name),
+      safeText(t.composer && t.composer.group),
+      safeText(t.production),
+      safeText(t.year),
+      safeText(t.publisher),
+      safeText(t.sampling && t.sampling.title),
+      safeText(t.sampling && t.sampling.artist),
+      safeText(t.sampling && t.sampling.year),
+      safeText(t.type)
+    ]
+      .join(" ")
+      .toLowerCase();
 
-    const matchesSearch = searchableText.includes(query);
+    const matchesSearch = searchable.includes(query);
 
     return matchesPlatform && matchesType && matchesSearch;
   });
 
-  // Sort alphabetically by title, then variant
+  /* Sort: title (alpha), then variant (numeric asc) */
   filtered.sort((a, b) => {
-    const titleA = (a.title || "").toLowerCase();
-    const titleB = (b.title || "").toLowerCase();
-
-    if (titleA < titleB) return -1;
-    if (titleA > titleB) return 1;
-
-    const varA = Number(a.variant) || 0;
-    const varB = Number(b.variant) || 0;
-    return varA - varB;
+    const ta = normalize(a.title);
+    const tb = normalize(b.title);
+    if (ta < tb) return -1;
+    if (ta > tb) return 1;
+    const va = Number(a.variant) || 0;
+    const vb = Number(b.variant) || 0;
+    return va - vb;
   });
 
-  // Result info text
+  /* Results info */
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
     const count = filtered.length;
@@ -127,183 +191,195 @@ function render() {
     resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel}, ${typeLabel})`;
   }
 
-  // iOS hint text
+  /* iOS hint */
   const iosHint = document.getElementById("ios-hint");
   if (iosHint) {
-    if (isIOS) {
-      iosHint.textContent =
-        'On iPhone: Use the "M4R (iPhone)" download, then open it in GarageBand to install the ringtone.';
-    } else {
-      iosHint.textContent = "";
-    }
+    iosHint.textContent = isIOS
+      ? 'On iPhone: Use the "M4R (iPhone)" download, then open it in GarageBand to install the ringtone.'
+      : "";
   }
 
-  filtered.forEach(track => {
-    const div = document.createElement("div");
-    div.className = `track ${track.platform.toLowerCase()}`;
+  /* Build cards */
+  const audios = [];
 
-    // ==== Composer logic (null-safe, no "(null)") ====
-    let composerLine = "";
-    const comp = track.composer || {};
-    const handle = comp.handle || "";
-    const name = comp.name || "";
-    const group = comp.group || "";
+  filtered.forEach((track) => {
+    const card = document.createElement("div");
+    const platformKey = platformToKey(track.platform);
+    card.className = `track ${platformKey}`;
 
-    if (handle && name) {
-      composerLine = `${handle} (${name})`;
-    } else if (handle && !name) {
-      composerLine = handle;
-    } else if (!handle && name) {
-      composerLine = name;
-    } else {
-      composerLine = "";
-    }
+    /* Title row */
+    const titleRow = document.createElement("div");
+    titleRow.className = "track-title";
 
-    if (group) {
-      composerLine = composerLine ? `${composerLine} – ${group}` : group;
-    }
+    const titleMain = document.createElement("div");
+    titleMain.className = "track-title-main";
+    titleMain.textContent = safeText(track.title);
 
-    // ==== Sampling (null-safe) ====
-    let sampling = "";
-    if (track.sampling) {
-      const s = track.sampling;
-      const sTitle = s.title || "";
-      const sArtist = s.artist || "";
-      const sYear = s.year || "";
+    const titleSub = document.createElement("div");
+    titleSub.className = "track-title-sub";
+    titleSub.textContent = `${safeText(track.platform)} • ${safeText(track.variant)}`;
 
-      if (sTitle) {
-        const details = [];
-        if (sArtist) details.push(sArtist);
-        if (sYear) details.push(sYear);
+    titleRow.appendChild(titleMain);
+    titleRow.appendChild(titleSub);
 
-        if (details.length > 0) {
-          sampling = `Sample: ${sTitle} (${details.join(", ")})`;
-        } else {
-          sampling = `Sample: ${sTitle}`;
-        }
-      }
-    }
-
-    // ==== Production / publisher / year (null-safe) ====
-    let extraMain = "";
-    {
-      const prod = track.production || "";
-      const pub = track.publisher || "";
-      const year = track.year || "";
-
-      const meta = [];
-      if (pub) meta.push(pub);
-      if (year) meta.push(year);
-
-      if (prod && meta.length > 0) {
-        extraMain = `${prod} (${meta.join(", ")})`;
-      } else if (prod) {
-        extraMain = prod;
-      } else if (meta.length > 0) {
-        extraMain = meta.join(", ");
-      } else {
-        extraMain = "";
-      }
-    }
-
-    // ==== Category: label + text ====
-    const categoryLabel = track.category
-      ? `<span class="track-category">[${track.category}]</span>`
-      : "";
-
-    const category = track.category
-      ? ` – ${track.category.charAt(0).toUpperCase()}${track.category.slice(1)}`
-      : "";
-
-    // ==== Type badge (with icon) ====
-    let typeBadge = "";
+    /* Type badge */
     if (track.type) {
-      const type = track.type;
-      let icon = "";
-      let typeClass = "";
+      const typeBadge = document.createElement("span");
+      const type = safeText(track.type);
 
+      let icon = "";
+      let cls = "";
       if (type === "Ringtone") {
         icon = "🔔";
-        typeClass = "ringtone";
+        cls = "ringtone";
       } else if (type === "Notification") {
         icon = "✉️";
-        typeClass = "notification";
+        cls = "notification";
       }
 
-      typeBadge = `<span class="track-type ${typeClass}">${icon} ${type}</span>`;
+      typeBadge.className = `track-type ${cls}`;
+      typeBadge.textContent = `${icon} ${type}`.trim();
+      titleRow.appendChild(typeBadge);
     }
 
-    // ==== Download buttons (MP3 / M4R) ====
-    const hasMp3 = !!track.file_mp3;
-    const hasM4r = !!track.file_m4r;
+    /* Meta line: composer + category */
+    const meta = document.createElement("div");
+    meta.className = "track-meta";
 
-    let downloadsHtml = "";
+    const comp = track.composer || { handle: "", name: "", group: "" };
+    const handle = safeText(comp.handle);
+    const name = safeText(comp.name);
+    const group = safeText(comp.group);
 
-    if (hasMp3 || hasM4r) {
-      downloadsHtml += `<div class="track-actions">`;
+    let composerLine = "";
+    if (handle && name) composerLine = `${handle} (${name})`;
+    else if (handle) composerLine = handle;
+    else if (name) composerLine = name;
 
-      // MP3: only if we are not on iOS
-      if (hasMp3 && !isIOS) {
-        downloadsHtml += `${track.file_mp3}⬇️ MP3</a>`;
-      }
+    if (group) composerLine = composerLine ? `${composerLine} – ${group}` : group;
 
-      // M4R (iPhone): only if  iOS
-      if (hasM4r && isIOS) {
-        downloadsHtml += `${track.file_m4r}🍏 M4R (iPhone)</a>`;
-      }
+    meta.textContent = composerLine;
 
-      // M4R on desktop (optional)
-      if (!isIOS && hasM4r) {
-        downloadsHtml += `${track.file_m4r}🍏 M4R</a>`;
-      }
-
-      downloadsHtml += `</div>`;
+    if (track.category) {
+      const cat = document.createElement("span");
+      cat.className = "track-category";
+      cat.textContent = `[${safeText(track.category)}]`;
+      meta.appendChild(cat);
     }
 
-      // ==== Audio source (fallback to .file if you still have that field) ====
-      const audioSrc = track.file_mp3 || track.file || "";
-      
-      div.innerHTML = `
-        <div class="track-title">
-          ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
-          ${typeBadge}
-        </div>
-      
-        <div class="track-meta">
-          ${safe(composerLine)} ${categoryLabel}
-        </div>
-      
-        ${audioSrc}</audio>
-      
-        ${downloadsHtml}
-      
-        <div class="track-toggle">
-          more ▾
-        </div>
-      
-        <div class="track-extra">
-          ${safe(extraMain)}${category}<br>
-          ${safe(sampling)}
-        </div>
-      `;
+    /* Audio player (prefer mp3, fallback to m4r) */
+    const audioSrc = safeText(track.file_mp3) || safeText(track.file_m4r);
+    let audioEl = null;
+    if (audioSrc) {
+      audioEl = document.createElement("audio");
+      audioEl.controls = true;
+      audioEl.preload = "none";
+      audioEl.src = audioSrc;
+      audios.push(audioEl);
+    }
 
-    container.appendChild(div);
-  });
+    /* Downloads */
+    const actions = document.createElement("div");
+    actions.className = "track-actions";
 
-  // Toggle "more ▾/▴"
-  container.querySelectorAll(".track-toggle").forEach(toggle => {
+    const hasMp3 = !!safeText(track.file_mp3);
+    const hasM4r = !!safeText(track.file_m4r);
+
+    if (hasMp3 && !isIOS) {
+      const a = document.createElement("a");
+      a.className = "download-btn";
+      a.href = safeText(track.file_mp3);
+      a.setAttribute("download", "");
+      a.dataset.tip = "android";
+      a.textContent = "⬇️ MP3";
+      a.addEventListener("click", () => showTooltip(a, "android"));
+      actions.appendChild(a);
+    }
+
+    if (hasM4r) {
+      const a = document.createElement("a");
+      a.className = "download-btn";
+      a.href = safeText(track.file_m4r);
+      a.setAttribute("download", "");
+      a.dataset.tip = "ios";
+      a.textContent = isIOS ? "🍏 M4R (iPhone)" : "🍏 M4R";
+      a.addEventListener("click", () => showTooltip(a, "ios"));
+      actions.appendChild(a);
+    }
+
+    /* More toggle + extra */
+    const toggle = document.createElement("button");
+    toggle.className = "track-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "More ▾";
+
+    const extra = document.createElement("div");
+    extra.className = "track-extra";
+    extra.setAttribute("aria-hidden", "true");
+
+    /* Extra: production / publisher / year */
+    const prod = safeText(track.production);
+    const pub = safeText(track.publisher);
+    const year = safeText(track.year);
+
+    const metaBits = [];
+    if (pub) metaBits.push(pub);
+    if (year) metaBits.push(year);
+
+    let extraMain = "";
+    if (prod && metaBits.length) extraMain = `${prod} (${metaBits.join(", ")})`;
+    else if (prod) extraMain = prod;
+    else if (metaBits.length) extraMain = metaBits.join(", ");
+
+    if (extraMain) {
+      const line = document.createElement("div");
+      line.textContent = extraMain;
+      extra.appendChild(line);
+    }
+
+    /* Sampling (null-safe) */
+    if (track.sampling) {
+      const s = track.sampling;
+      const sTitle = safeText(s.title);
+      const sArtist = safeText(s.artist);
+      const sYear = safeText(s.year);
+
+      if (sTitle) {
+        const parts = [];
+        if (sArtist) parts.push(sArtist);
+        if (sYear) parts.push(sYear);
+
+        const line = document.createElement("div");
+        line.textContent = parts.length
+          ? `Sample: ${sTitle} (${parts.join(", ")})`
+          : `Sample: ${sTitle}`;
+        extra.appendChild(line);
+      }
+    }
+
     toggle.addEventListener("click", () => {
-      const trackDiv = toggle.parentElement;
-      const isOpen = trackDiv.classList.toggle("open");
-      toggle.textContent = isOpen ? "more ▴" : "more ▾";
+      const isOpen = card.classList.toggle("open");
+      toggle.textContent = isOpen ? "More ▴" : "More ▾";
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      extra.setAttribute("aria-hidden", String(!isOpen));
     });
+
+    /* Assemble */
+    card.appendChild(titleRow);
+    card.appendChild(meta);
+    if (audioEl) card.appendChild(audioEl);
+    if (actions.childElementCount > 0) card.appendChild(actions);
+    card.appendChild(toggle);
+    card.appendChild(extra);
+
+    container.appendChild(card);
   });
 
-  // Only one audio at a time
-  const audios = container.querySelectorAll("audio");
-  audios.forEach(audio => {
+  /* Only one audio plays at a time */
+  audios.forEach((audio) => {
     audio.addEventListener("play", () => {
-      audios.forEach(a => {
+      audios.forEach((a) => {
         if (a !== audio) a.pause();
       });
     });
@@ -317,24 +393,16 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("input", () => render());
   }
 
-  // Platform filter buttons
-  document.querySelectorAll(".filters button").forEach(btn => {
-    const platformFilter = btn.getAttribute("data-filter");
-    if (!platformFilter) return;
-
-    btn.addEventListener("click", () => {
-      setFilter(platformFilter);
-    });
+  document.querySelectorAll(".filters button").forEach((btn) => {
+    const filter = btn.getAttribute("data-filter");
+    if (!filter) return;
+    btn.addEventListener("click", () => setFilter(filter));
   });
 
-  // Type filter buttons
-  document.querySelectorAll(".filters-type button").forEach(btn => {
+  document.querySelectorAll(".filters-type button").forEach((btn) => {
     const typeFilter = btn.getAttribute("data-type-filter");
     if (!typeFilter) return;
-
-    btn.addEventListener("click", () => {
-      setTypeFilter(typeFilter);
-    });
+    btn.addEventListener("click", () => setTypeFilter(typeFilter));
   });
 
   loadData();
