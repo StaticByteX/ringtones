@@ -5,93 +5,76 @@
     "variant": 1,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Karsten Koch",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Karsten Koch", "group": null },
     "production": null,
     "category": null,
     "year": 1995,
     "publisher": "Karsten Koch",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["aryx","karsten-koch","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v1-karsten-koch.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v1-karsten-koch.m4r"
   },
-  {
+  {    
     "id": "aryx-amiga-v2",
     "title": "Aryx",
     "variant": 2,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Karsten Koch",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Karsten Koch", "group": null },
     "production": null,
     "category": null,
     "year": 1995,
     "publisher": "Karsten Koch",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["aryx","karsten-koch","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v2-karsten-koch.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v2-karsten-koch.m4r"
   },
-  {
+  {    
     "id": "aryx-amiga-v3",
     "title": "Aryx",
     "variant": 3,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Karsten Koch",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Karsten Koch", "group": null },
     "production": null,
     "category": null,
     "year": 1995,
     "publisher": "Karsten Koch",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["aryx","karsten-koch","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.m4r"
   },
-
+  {    
+    "id": "aryx-amiga-v4",
+    "title": "Aryx",
+    "variant": 4,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Karsten Koch", "group": null },
+    "production": null,
+    "category": null,
+    "year": 1995,
+    "publisher": "Karsten Koch",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["aryx","karsten-koch","a500","amiga","tracker","demoscene"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.m4r"
+  },
   {
     "id": "astaroth-ingame-amiga-v1",
     "title": "Astaroth Ingame",
     "variant": 1,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.m4r"
@@ -102,20 +85,12 @@
     "variant": 2,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v2-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v2-jochen-hippel.m4r"
@@ -126,20 +101,12 @@
     "variant": 3,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v3-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v3-jochen-hippel.m4r"
@@ -150,20 +117,12 @@
     "variant": 4,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v4-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v4-jochen-hippel.m4r"
@@ -174,20 +133,12 @@
     "variant": 5,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v5-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v5-jochen-hippel.m4r"
@@ -198,20 +149,12 @@
     "variant": 6,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v6-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v6-jochen-hippel.m4r"
@@ -221,46 +164,29 @@
     "title": "Astaroth Ingame",
     "variant": 7,
     "platform": "A500",
-    "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Jochen Hippel",
-      "group": null
-    },
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
     "production": "Astaroth: The Angel Of Death",
     "category": "Game",
     "year": 1989,
     "publisher": "Hewson",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["astaroth","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v7-jochen-hippel.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v7-jochen-hippel.m4r"
   },
-
   {
     "id": "blood-money-amiga-v1",
     "title": "Blood Money",
     "variant": 1,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ray Norrish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ray Norrish", "group": null },
     "production": "Blood Money",
     "category": "Game",
     "year": 1989,
     "publisher": "Psygnosis",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["blood-money","ray-norrish","psygnosis","a500","amiga","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v1-ray-norrish.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v1-ray-norrish.m4r"
@@ -271,20 +197,12 @@
     "variant": 2,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ray Norrish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ray Norrish", "group": null },
     "production": "Blood Money",
     "category": "Game",
     "year": 1989,
     "publisher": "Psygnosis",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["blood-money","ray-norrish","psygnosis","a500","amiga","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v2-ray-norrish.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v2-ray-norrish.m4r"
@@ -295,45 +213,28 @@
     "variant": 3,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ray Norrish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ray Norrish", "group": null },
     "production": "Blood Money",
     "category": "Game",
     "year": 1989,
     "publisher": "Psygnosis",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["blood-money","ray-norrish","psygnosis","a500","amiga","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v3-ray-norrish.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/blood-money-amiga-v3-ray-norrish.m4r"
   },
-
   {
     "id": "classic-amiga-v1",
     "title": "Classic",
     "variant": 1,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": "Estrayk",
-      "name": "Carlos del Alamo",
-      "group": "Paradox"
-    },
+    "composer": { "handle": "Estrayk", "name": "Carlos del Alamo", "group": "Paradox" },
     "production": null,
     "category": "Various cracktros",
     "year": 2000,
     "publisher": null,
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["classic","estrayk","carlos-del-alamo","paradox","amiga","cracktro","future-composer","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v1-estrayk.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v1-estrayk.m4r"
@@ -344,20 +245,12 @@
     "variant": 2,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": "Estrayk",
-      "name": "Carlos del Alamo",
-      "group": "Paradox"
-    },
+    "composer": { "handle": "Estrayk", "name": "Carlos del Alamo", "group": "Paradox" },
     "production": null,
     "category": "Various cracktros",
     "year": 2000,
     "publisher": null,
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["classic","estrayk","carlos-del-alamo","paradox","amiga","cracktro","future-composer","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v2-estrayk.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v2-estrayk.m4r"
@@ -368,22 +261,15 @@
     "variant": 3,
     "platform": "A500",
     "type": "Ringtone",
-    "composer": {
-      "handle": "Estrayk",
-      "name": "Carlos del Alamo",
-      "group": "Paradox"
-    },
+    "composer": { "handle": "Estrayk", "name": "Carlos del Alamo", "group": "Paradox" },
     "production": null,
     "category": "Various cracktros",
     "year": 2000,
     "publisher": null,
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
+    "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["classic","estrayk","carlos-del-alamo","paradox","amiga","cracktro","future-composer","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v3-estrayk.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/classic-amiga-v3-estrayk.m4r"
   }
+  
 ]
