@@ -1,6 +1,6 @@
-/* ===================================
+/* ================================
    RESET
-=================================== */
+================================ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,8 +14,6 @@
   --text: #ffffff;
   --muted: #aaaaaa;
   --muted-2: #888888;
-  --border: #222222;
-  --border-2: #333333;
 
   /* Platform colors (strict) */
   --c64-border: #14a3fd;
@@ -35,17 +33,22 @@
   --type-ringtone: #48cc31;
   --type-notification: #00828f;
 
-  --ease-retro: cubic-bezier(0.22, 1, 0.36, 1);
+  --border: #222222;
+  --border-2: #333333;
+
+  --transition-retro: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.15s ease,
+    background-color 0.15s ease;
 }
 
-/* ===================================
+/* ================================
    BASE LAYOUT
-=================================== */
+================================ */
 body {
   font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   line-height: 1.6;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
 
   display: flex;
@@ -55,14 +58,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-header,
-footer {
-  width: 100%;
+.site-header,
+.site-footer {
   text-align: center;
   padding: 20px;
 }
 
-main {
+.site-main {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
@@ -70,14 +72,14 @@ main {
   text-align: center;
 }
 
-/* Keep consistent spacing without margin-collapsing */
-main > * + * {
+/* consistent spacing without margin collapse */
+.site-main > * + * {
   margin-top: 16px;
 }
 
-/* ===================================
+/* ================================
    BRANDING
-=================================== */
+================================ */
 .logo {
   width: 220px;
   height: auto;
@@ -92,9 +94,9 @@ main > * + * {
   margin: 10px auto 0;
 }
 
-/* ===================================
+/* ================================
    TYPOGRAPHY
-=================================== */
+================================ */
 h1 {
   font-size: 24px;
   font-weight: 600;
@@ -105,13 +107,17 @@ h1 {
   font-size: 12px;
 }
 
-/* Bigger lines (kept as in previous tuning) */
 .platform-line {
   font-size: 14px;
 }
 
 .results-info {
   font-size: 14px;
+}
+
+.ios-hint {
+  font-size: 12px;
+  color: var(--muted-2);
 }
 
 .submit-line {
@@ -122,9 +128,13 @@ h1 {
   font-size: 13px;
 }
 
-/* ===================================
+.footer-link {
+  display: inline-block;
+}
+
+/* ================================
    SEARCH
-=================================== */
+================================ */
 #search {
   width: 100%;
   padding: 12px 14px;
@@ -137,9 +147,7 @@ h1 {
   font-size: 15px;
 
   outline: none;
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
 #search::placeholder {
@@ -153,9 +161,9 @@ h1 {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.04);
 }
 
-/* ===================================
-   FILTERS
-=================================== */
+/* ================================
+   FILTER BUTTONS
+================================ */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -164,32 +172,27 @@ h1 {
 }
 
 .filters button {
+  background: #0e0e0e;
+  border: 1px solid #444444;
+  color: #f5f5f5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 13px;
-  font-weight: 400; /* regular per request */
-
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.09em;
 
-  padding: 10px 12px;
-  border-radius: 10px;
-
-  background: #0e0e0e;
-  color: #f5f5f5;
-  border: 1px solid #444444;
-
-  cursor: pointer;
-
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
 .filters button:hover {
   transform: scale(1.01);
   border-color: #ffffff;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
 .filters button:focus-visible {
@@ -201,7 +204,7 @@ h1 {
   border-color: #ffffff;
 }
 
-/* Platform active colors */
+/* platform active colors */
 #btn-c64.active {
   background-color: var(--c64-border);
   color: var(--c64-title);
@@ -220,7 +223,7 @@ h1 {
   border-color: var(--pc-border);
 }
 
-/* Type active colors (match songbox badge colors) */
+/* type active colors match songbox badge colors */
 #btn-type-ringtone.active {
   background-color: var(--type-ringtone);
   border-color: var(--type-ringtone);
@@ -233,35 +236,32 @@ h1 {
   color: #0a0a0a;
 }
 
-/* ===================================
-   TRACK CARDS
-=================================== */
+/* ================================
+   TRACK LIST + CARDS
+================================ */
 #tracklist {
   margin-top: 4px;
   text-align: left;
 }
 
 .track {
-  background-color: var(--panel);
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 10px;
-
   padding: 16px;
   margin-bottom: 20px;
-
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
 .track:hover {
   transform: scale(1.01);
+  background-color: var(--panel-2);
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.35),
     0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
-/* Platform themes */
+/* platform borders + title colors */
 .track.c64 {
   border-color: var(--c64-border);
 }
@@ -270,7 +270,6 @@ h1 {
 }
 .track.c64:hover {
   border-color: var(--c64-toggle);
-  background-color: var(--panel-2);
 }
 .track.c64:hover .track-title-main {
   text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
@@ -284,7 +283,6 @@ h1 {
 }
 .track.a500:hover {
   border-color: var(--a500-toggle);
-  background-color: var(--panel-2);
 }
 .track.a500:hover .track-title-main {
   text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
@@ -298,13 +296,12 @@ h1 {
 }
 .track.pc:hover {
   border-color: var(--pc-title);
-  background-color: var(--panel-2);
 }
 .track.pc:hover .track-title-main {
   text-shadow: 0 0 6px rgba(255, 102, 255, 0.5);
 }
 
-/* Title / meta */
+/* title row */
 .track-title {
   display: flex;
   align-items: center;
@@ -323,6 +320,32 @@ h1 {
   font-size: 13px;
 }
 
+/* type badge (Segoe UI, uppercase, regular) */
+.track-type {
+  margin-left: auto;
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid #444444;
+  font-size: 11px;
+  opacity: 0.95;
+  white-space: nowrap;
+
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.track-type.ringtone {
+  border-color: var(--type-ringtone);
+  color: var(--type-ringtone);
+}
+
+.track-type.notification {
+  border-color: var(--type-notification);
+  color: var(--type-notification);
+}
+
 .track-meta {
   font-size: 14px;
   color: #bbbbbb;
@@ -339,39 +362,21 @@ h1 {
   font-size: 11px;
 }
 
-/* Type badge (Segoe UI + uppercase, REGULAR weight per request) */
-.track-type {
-  margin-left: auto;
-  padding: 3px 8px;
-  border-radius: 8px;
-  border: 1px solid #444444;
-  font-size: 11px;
-  opacity: 0.95;
-  white-space: nowrap;
-
+/* duration label */
+.track-duration {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted-2);
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-weight: 400; /* regular */
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
-.track-type.ringtone {
-  border-color: var(--type-ringtone);
-  color: var(--type-ringtone);
-}
-
-.track-type.notification {
-  border-color: var(--type-notification);
-  color: var(--type-notification);
-}
-
-/* Audio playbar */
+/* audio */
 audio {
   width: 100%;
   margin-top: 10px;
 }
 
-/* Download buttons (MP3 ⬇️, M4R 🍏) */
+/* downloads */
 .track-actions {
   position: relative;
   display: flex;
@@ -390,8 +395,7 @@ audio {
 
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 800;
-
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
@@ -401,9 +405,7 @@ audio {
   color: #d4d4d4;
   border: 1px solid #444444;
 
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
 .download-btn:hover {
@@ -418,29 +420,23 @@ audio {
   outline-offset: 2px;
 }
 
-/* More toggle (regular weight per request) */
+/* more toggle (color matches border static + hover) */
 .track-toggle {
   margin-top: 10px;
-
   background: none;
   border: none;
-
   cursor: pointer;
 
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 400; /* regular per request */
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
   padding: 6px 0;
-
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
-/* MORE colors must match border colors (static + hover) */
 .track.c64 .track-toggle {
   color: var(--c64-border);
 }
@@ -480,29 +476,20 @@ audio {
   display: block;
 }
 
-/* Error message */
-.error {
-  color: #ff6b6b;
-  font-size: 13px;
-  padding: 16px;
-  text-align: center;
-}
-
-/* ===================================
-   TOOLTIPS
-=================================== */
+/* tooltip */
 .tooltip {
   position: absolute;
   left: 0;
   bottom: calc(100% + 10px);
 
-  width: min(320px, 100%);
+  width: min(340px, 100%);
   background: #0e0e0e;
 
   border: 1px solid #444444;
   border-radius: 10px;
 
   padding: 10px 12px;
+
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.02);
@@ -531,8 +518,7 @@ audio {
 .tooltip-close {
   font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   font-size: 12px;
-  font-weight: 800;
-
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
@@ -544,10 +530,7 @@ audio {
   border: 1px solid #444444;
 
   cursor: pointer;
-
-  transition: transform 0.15s var(--ease-retro),
-              border-color 0.15s ease,
-              background-color 0.15s ease;
+  transition: var(--transition-retro);
 }
 
 .tooltip-close:hover {
@@ -556,41 +539,49 @@ audio {
   background-color: #151515;
 }
 
-/* ===================================
+/* error */
+.error {
+  color: #ff6b6b;
+  font-size: 13px;
+  padding: 16px;
+  text-align: center;
+}
+
+/* sentinel (invisible) */
+#scroll-sentinel {
+  height: 1px;
+}
+
+/* ================================
    RESPONSIVE
-=================================== */
+================================ */
 @media (min-width: 768px) {
   h1 {
     font-size: 28px;
   }
 
-  /* Logo 50% larger on desktop */
+  /* logo = 50% larger on desktop */
   .logo {
     width: 330px;
   }
 
-  /* Footer QR 15% larger on desktop */
+  /* footer QR = 15% larger on desktop */
   .qr {
     width: 184px;
   }
 }
 
 @media (max-width: 480px) {
-  main {
+  .site-main {
     padding: 16px;
   }
 
   .track {
-    padding: 16px;
     margin-bottom: 16px;
   }
 
   h1 {
     font-size: 20px;
-  }
-
-  .track-title {
-    gap: 8px;
   }
 
   .track-type {
