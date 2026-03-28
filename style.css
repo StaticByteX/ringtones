@@ -7,21 +7,59 @@
   padding: 0;
 }
 
+:root {
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --panel-2: #0f0f0f;
+  --text: #ffffff;
+  --muted: #aaaaaa;
+  --muted-2: #888888;
+  --border: #222222;
+  --border-2: #333333;
+
+  /* Platform colors (strict) */
+  --c64-border: #14a3fd;
+  --c64-title: #f2f540;
+  --c64-toggle: #48cc31;
+
+  --a500-border: #00828f;
+  --a500-title: #fcc100;
+  --a500-toggle: #f26b00;
+
+  --pc-border: #808080;
+  --pc-title: #ff66ff;
+  --pc-toggle: #ffff00;
+  --pc-active: #505050;
+
+  /* Type badge borders */
+  --type-ringtone: #48cc31;
+  --type-notification: #00828f;
+
+  --ease-retro: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* ===================================
    BASE LAYOUT
 =================================== */
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--bg);
+  color: var(--text);
 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   -webkit-font-smoothing: antialiased;
+}
+
+header,
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
 }
 
 main {
@@ -32,41 +70,26 @@ main {
   text-align: center;
 }
 
-/* ===================================
-   HEADER
-=================================== */
-header {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
+/* Prevent margin-collapsing by spacing via padding + gaps */
+main > * + * {
+  margin-top: 16px;
 }
 
-header img {
-  width: 240px;
+/* ===================================
+   BRANDING
+=================================== */
+.logo {
+  width: 220px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* ===================================
-   FOOTER
-=================================== */
-footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 20px;
-}
-
-footer img {
-  display: block;
-  margin: 0 auto 10px auto;
+.qr {
   width: 160px;
   height: auto;
-}
-
-footer p {
-  font-size: 12px;
-  color: #aaa;
+  display: block;
+  margin: 10px auto 0;
 }
 
 /* ===================================
@@ -75,12 +98,16 @@ footer p {
 h1 {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
 .subtitle {
-  color: #aaa;
-  margin-bottom: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#results-info,
+#ios-hint {
+  margin-top: 4px;
 }
 
 /* ===================================
@@ -88,295 +115,437 @@ h1 {
 =================================== */
 #search {
   width: 100%;
-  padding: 10px;
-  margin: 15px 0;
-  background: #111;
-  border: 1px solid #333;
-  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #101010;
+  border: 1px solid var(--border-2);
+  color: var(--text);
+
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 14px;
+
+  outline: none;
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
+}
+
+#search::placeholder {
+  color: #7a7a7a;
+}
+
+#search:focus {
+  border-color: #666666;
+  background-color: #0f0f0f;
+  transform: scale(1.01);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.04);
 }
 
 /* ===================================
    FILTERS
 =================================== */
 .filters {
-  text-align: center;
-  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filters-type {
+  margin-top: 0;
 }
 
 .filters button {
-  background: none;
-  border: 1px solid #444;
-  color: #fff;
-  padding: 6px 12px;
-  margin: 4px;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  background: #0e0e0e;
+  color: #f5f5f5;
+  border: 1px solid #444444;
+
   cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
+
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
 }
 
 .filters button:hover {
-  border-color: #fff;
+  transform: scale(1.01);
+  border-color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.filters button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.25);
+  outline-offset: 2px;
 }
 
 .filters button.active {
-  border-color: #fff;
-  background-color: #333;
+  border-color: #ffffff;
 }
 
-/* Type filters */
-.filters-type {
-  margin-top: -10px;
-  margin-bottom: 20px;
+/* Active filter colors */
+#btn-c64.active {
+  background-color: var(--c64-border);
+  color: var(--c64-title);
+  border-color: var(--c64-border);
 }
 
-.filters-type button {
-  font-size: 12px;
-  opacity: 0.9;
+#btn-a500.active {
+  background-color: var(--a500-border);
+  color: var(--a500-title);
+  border-color: var(--a500-border);
 }
 
-.filters-type button.active {
-  border-color: #fff;
-  background-color: #222;
+#btn-pc.active {
+  background-color: var(--pc-active);
+  color: var(--pc-title);
+  border-color: var(--pc-border);
 }
 
 /* ===================================
-   TRACK BOXES
+   TRACK CARDS
 =================================== */
+#tracklist {
+  margin-top: 4px;
+  text-align: left;
+}
+
 .track {
-  background-color: #111111;
-  border: 1px solid #222222;
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
   padding: 16px;
   margin-bottom: 20px;
-  border-radius: 6px;
-  text-align: left;
 
-  /* hover grow + transitions */
-  transition:
-    transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.15s ease,
-    background-color 0.15s ease;
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
 }
 
 .track:hover {
   transform: scale(1.01);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
-/* Title */
+/* Platform themes */
+.track.c64 {
+  border-color: var(--c64-border);
+}
+.track.c64 .track-title-main {
+  color: var(--c64-title);
+}
+.track.c64:hover {
+  border-color: var(--c64-toggle);
+  background-color: var(--panel-2);
+}
+.track.c64:hover .track-title-main {
+  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
+}
+
+.track.a500 {
+  border-color: var(--a500-border);
+}
+.track.a500 .track-title-main {
+  color: var(--a500-title);
+}
+.track.a500:hover {
+  border-color: var(--a500-toggle);
+  background-color: var(--panel-2);
+}
+.track.a500:hover .track-title-main {
+  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
+}
+
+.track.pc {
+  border-color: var(--pc-border);
+}
+.track.pc .track-title-main {
+  color: var(--pc-title);
+}
+.track.pc:hover {
+  border-color: var(--pc-title);
+  background-color: var(--panel-2);
+}
+.track.pc:hover .track-title-main {
+  text-shadow: 0 0 6px rgba(255, 102, 255, 0.5);
+}
+
+/* Title / meta */
 .track-title {
-  font-size: 16px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 6px;
 }
 
-/* Meta */
+.track-title-main {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.track-title-sub {
+  color: #bdbdbd;
+  font-size: 13px;
+}
+
 .track-meta {
   font-size: 14px;
   color: #bbbbbb;
   margin-bottom: 10px;
 }
 
-/* Toggle */
-.track-toggle {
-  font-size: 13px;
-  cursor: pointer;
+.track-category {
   display: inline-block;
-  border-bottom: 1px solid #444;
-  margin-top: 8px;
-  padding-bottom: 2px;
-  color: #aaa;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #444444;
+  color: #cccccc;
+  font-size: 11px;
+}
+
+/* Type badge */
+.track-type {
+  margin-left: auto;
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid #444444;
+  font-size: 11px;
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.track-type.ringtone {
+  border-color: var(--type-ringtone);
+  color: var(--type-ringtone);
+}
+
+.track-type.notification {
+  border-color: var(--type-notification);
+  color: var(--type-notification);
+}
+
+/* Audio */
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Download buttons */
+.track-actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+
+  background-color: #101010;
+  color: #d4d4d4;
+  border: 1px solid #444444;
+
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.01);
+  border-color: #ffffff;
+  background-color: #141414;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.18);
+}
+
+.download-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.25);
+  outline-offset: 2px;
+}
+
+/* More toggle */
+.track-toggle {
+  margin-top: 10px;
+
+  background: none;
+  border: none;
+
+  color: var(--muted);
+  cursor: pointer;
+
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  padding: 6px 0;
+
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
 }
 
 .track-toggle:hover {
-  border-color: #fff;
+  transform: scale(1.01);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.16);
 }
 
-/* Extra info */
 .track-extra {
-  font-size: 13px;
-  color: #888;
-  margin-top: 10px;
   display: none;
+  margin-top: 8px;
+  color: var(--muted-2);
+  font-size: 13px;
 }
 
 .track.open .track-extra {
   display: block;
 }
 
-/* Category tag */
-.track-category {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 1px 6px;
-  border-radius: 4px;
-  border: 1px solid #444;
-  font-size: 11px;
-  color: #ccc;
+/* Error message */
+.error {
+  color: #ff6b6b;
+  font-size: 13px;
+  padding: 16px;
+  text-align: center;
 }
 
 /* ===================================
-   TYPE BADGE (Ringtone/Notification)
+   TOOLTIPS
 =================================== */
-.track-type {
-  float: right;
-  padding: 2px 6px;
-  font-size: 11px;
-  border-radius: 4px;
-  margin-left: 8px;
-  border: 1px solid #444;
-  opacity: 0.9;
+.tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+
+  width: min(320px, 100%);
+  background: #0e0e0e;
+
+  border: 1px solid #444444;
+  border-radius: 10px;
+
+  padding: 10px 12px;
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 20;
 }
 
-/* Type: Ringtone */
-.track-type.ringtone {
-  border-color: #48cc31;
-  color: #48cc31;
+.tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* Type: Notification */
-.track-type.notification {
-  border-color: #0074c0;
-  color: #0074c0;
-}
-
-/* ===================================
-   DOWNLOAD BUTTONS
-=================================== */
-.track-actions {
-  margin-top: 8px;
-  margin-bottom: 6px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.download-link,
-.download-link-ios {
+.tooltip-text {
+  color: #e8e8e8;
   font-size: 12px;
-  padding: 4px 8px;
-  border: 1px solid #444;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #ccc;
-  background-color: #111;
-}
-
-.download-link:hover,
-.download-link-ios:hover {
-  border-color: #fff;
-  color: #fff;
-}
-
-/* iOS hint */
-#ios-hint {
-  font-size: 11px;
-  color: #888;
-  margin-top: -8px;
+  line-height: 1.45;
   margin-bottom: 10px;
 }
 
-/* ===================================
-   PLATFORM COLOR THEMES
-=================================== */
+.tooltip-close {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
 
-/* ===== C64 ===== */
-.track.c64 {
-  border-color: #14a3fd;
-}
-.track.c64 .track-title {
-  color: #f2f540;
-}
-.track.c64 .track-toggle {
-  color: #48cc31;
-}
-.track.c64:hover {
-  border-color: #48cc31;
-  background-color: #0f0f0f;
-}
-.track.c64:hover .track-title {
-  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
-}
-.track.c64:hover .track-toggle {
-  text-shadow: 0 0 4px rgba(72, 204, 49, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  background: #121212;
+  color: #f0f0f0;
+  border: 1px solid #444444;
+
+  cursor: pointer;
+
+  transition: transform 0.15s var(--ease-retro),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
 }
 
-/* ===== Amiga A500 ===== */
-.track.a500 {
-  border-color: #00828f;
-}
-.track.a500 .track-title {
-  color: #fcc100;
-}
-.track.a500 .track-toggle {
-  color: #f26b00;
-}
-.track.a500:hover {
-  border-color: #f26b00;
-  background-color: #0f0f0f;
-}
-.track.a500:hover .track-title {
-  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
-}
-.track.a500:hover .track-toggle {
-  text-shadow: 0 0 4px rgba(242, 107, 0, 0.4);
-}
-
-/* ===== PC ===== */
-.track.pc {
-  border-color: #808080;
-}
-.track.pc .track-title {
-  color: #ff66ff;
-}
-.track.pc .track-toggle {
-  color: #ffff00;
-}
-.track.pc:hover {
-  border-color: #ff66ff;
-  background-color: #0f0f0f;
-}
-.track.pc:hover .track-title {
-  text-shadow: 0 0 6px rgba(255, 102, 255, 0.5);
-}
-.track.pc:hover .track-toggle {
-  text-shadow: 0 0 4px rgba(255, 255, 0, 0.5);
-}
-
-/* ===================================
-   ACTIVE FILTER BUTTON COLORS
-=================================== */
-#btn-c64.active {
-  background-color: #14a3fd;
-  color: #f2f540;
-}
-
-#btn-a500.active {
-  background-color: #00828f;
-  color: #fcc100;
-}
-
-#btn-pc.active {
-  background-color: #505050;
-  color: #ff66ff;
-}
-
-/* ===================================
-   AUDIO PLAYER
-=================================== */
-audio {
-  width: 100%;
-  margin-top: 10px;
+.tooltip-close:hover {
+  transform: scale(1.01);
+  border-color: #ffffff;
+  background-color: #151515;
 }
 
 /* ===================================
    RESPONSIVE
 =================================== */
 @media (min-width: 768px) {
-  body { font-size: 15px; }
-  h1 { font-size: 28px; }
+  h1 {
+    font-size: 28px;
+  }
+
+  /* Logo 50% larger on desktop */
+  .logo {
+    width: 330px;
+  }
+
+  /* Footer QR 15% larger on desktop */
+  .qr {
+    width: 184px;
+  }
 }
 
 @media (max-width: 480px) {
-  main { padding: 16px; }
-  .track { padding: 14px; margin-bottom: 16px; }
-  h1 { font-size: 20px; }
+  main {
+    padding: 16px;
+  }
+
+  .track {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .track-title {
+    gap: 8px;
+  }
+
+  .track-type {
+    margin-left: 0;
+  }
 }
