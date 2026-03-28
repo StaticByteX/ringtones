@@ -242,17 +242,17 @@ function render() {
     if (hasMp3 || hasM4r) {
       downloadsHtml += `<div class="track-actions">`;
 
-      // MP3: kun hvis vi ikke er på iOS
+      // MP3: only if we are not on iOS
       if (hasMp3 && !isIOS) {
         downloadsHtml += `${track.file_mp3}⬇️ MP3</a>`;
       }
 
-      // M4R (iPhone): kun hvis iOS
+      // M4R (iPhone): only if  iOS
       if (hasM4r && isIOS) {
         downloadsHtml += `${track.file_m4r}🍏 M4R (iPhone)</a>`;
       }
 
-      // M4R på desktop (valgfrit)
+      // M4R on desktop (optional)
       if (!isIOS && hasM4r) {
         downloadsHtml += `${track.file_m4r}🍏 M4R</a>`;
       }
@@ -260,28 +260,27 @@ function render() {
       downloadsHtml += `</div>`;
     }
 
-    // ==== Audio source (fallback til .file hvis du stadig har det felt) ====
+    // ==== Audio source (fallback to .file if you still have that field) ====
     const audioSrc = track.file_mp3 || track.file || "";
-
-    // ==== Build track HTML ====
+    
     div.innerHTML = `
       <div class="track-title">
         ${safe(track.title)} – ${safe(track.platform)} – ${safe(track.variant)}
         ${typeBadge}
       </div>
-
+    
       <div class="track-meta">
         ${safe(composerLine)} ${categoryLabel}
       </div>
-
+    
       ${audioSrc}</audio>
-
+    
       ${downloadsHtml}
-
+    
       <div class="track-toggle">
         more ▾
       </div>
-
+    
       <div class="track-extra">
         ${safe(extraMain)}${category}<br>
         ${safe(sampling)}
