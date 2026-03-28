@@ -119,6 +119,35 @@ function showTooltip(anchor, kind) {
   });
 }
 
+function buildAudioElement(track) {
+  const mp3Url = safeText(track.file_mp3);
+  const m4rUrl = safeText(track.file_m4r);
+
+  const audio = document.createElement("audio");
+  audio.controls = true;
+  audio.preload = "none";
+
+  /* Ensure a playable source exists:
+     - Prefer MP3 for widest playback support
+     - Fall back to M4R if MP3 missing (some browsers may not play M4R)
+     - Use <source> elements so the browser can select */
+  if (mp3Url) {
+    const s = document.createElement("source");
+    s.src = mp3Url;
+    s.type = "audio/mpeg";
+    audio.appendChild(s);
+  }
+
+  if (m4rUrl) {
+    const s = document.createElement("source");
+    s.src = m4rUrl;
+    s.type = "audio/mp4";
+    audio.appendChild(s);
+  }
+
+  return audio;
+}
+
 /* RENDER */
 function render() {
   const container = document.getElementById("tracklist");
@@ -166,8 +195,7 @@ function render() {
     return va - vb;
   });
 
-  /* Results info: bigger text via CSS, bold only "XX tracks found".
-     Remove extra line break ABOVE (keep only a trailing break). */
+  /* Results info: bold only "XX tracks found" */
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
     const count = filtered.length;
@@ -193,7 +221,6 @@ function render() {
       : "";
   }
 
-  /* Build cards */
   const audios = [];
 
   filtered.forEach((track) => {
@@ -216,7 +243,7 @@ function render() {
     titleRow.appendChild(titleMain);
     titleRow.appendChild(titleSub);
 
-    /* Type badge (Segoe UI + uppercase, REGULAR weight) */
+    /* Type badge (uppercase, regular weight via CSS) */
     if (track.type) {
       const typeBadge = document.createElement("span");
       const type = safeText(track.type);
@@ -265,23 +292,18 @@ function render() {
       meta.appendChild(cat);
     }
 
-    /* Playbar in each songbox:
-       Use MP3 for playback when available; otherwise use M4R. */
-    const playSrc = safeText(track.file_mp3) || safeText(track.file_m4r);
-    const audioEl = document.createElement("audio");
-    audioEl.controls = true;
-    audioEl.preload = "none";
-    if (playSrc) audioEl.src = playSrc;
+    /* Audio playbar (fixed: actual playable sources) */
+    const audioEl = buildAudioElement(track);
     audios.push(audioEl);
 
-    /* Download buttons (device logic) */
+    /* Download buttons for iOS and Android/Desktop (device logic) */
     const actions = document.createElement("div");
     actions.className = "track-actions";
 
     const mp3Url = safeText(track.file_mp3);
     const m4rUrl = safeText(track.file_m4r);
 
-    /* iOS: hide MP3, show M4R */
+    /* Android/Desktop: show MP3 + M4R */
     if (!isIOS && mp3Url) {
       const a = document.createElement("a");
       a.className = "download-btn";
@@ -292,7 +314,7 @@ function render() {
       actions.appendChild(a);
     }
 
-    /* Android/Desktop: show M4R too; iOS: show M4R */
+    /* iOS: hide MP3, show M4R (also show M4R on non-iOS) */
     if (m4rUrl) {
       const a = document.createElement("a");
       a.className = "download-btn";
@@ -314,7 +336,7 @@ function render() {
     extra.className = "track-extra";
     extra.setAttribute("aria-hidden", "true");
 
-    /* Extra: production / publisher / year (null-safe) */
+    /* Extra: production / publisher / year */
     const prod = safeText(track.production);
     const pub = safeText(track.publisher);
     const year = safeText(track.year);
