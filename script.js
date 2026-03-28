@@ -127,11 +127,12 @@ function render() {
     resultsInfo.textContent = `${count} ${trackWord} found (filter: ${filterLabel}, ${typeLabel})`;
   }
 
-  // iOS hint text (global)
+  // iOS hint text
   const iosHint = document.getElementById("ios-hint");
   if (iosHint) {
     if (isIOS) {
-      iosHint.textContent = 'On iPhone: Use the "M4R (iPhone)" download, then open it in GarageBand to install the ringtone.';
+      iosHint.textContent =
+        'On iPhone: Use the "M4R (iPhone)" download, then open it in GarageBand to install the ringtone.';
     } else {
       iosHint.textContent = "";
     }
@@ -238,25 +239,29 @@ function render() {
 
     let downloadsHtml = "";
 
-    // Default: vis begge, men juster efter platform
     if (hasMp3 || hasM4r) {
       downloadsHtml += `<div class="track-actions">`;
 
+      // MP3: kun hvis vi ikke er på iOS
       if (hasMp3 && !isIOS) {
         downloadsHtml += `${track.file_mp3}⬇️ MP3</a>`;
       }
 
+      // M4R (iPhone): kun hvis iOS
       if (hasM4r && isIOS) {
         downloadsHtml += `${track.file_m4r}🍏 M4R (iPhone)</a>`;
       }
 
-      // Hvis du vil tillade begge på desktop:
+      // M4R på desktop (valgfrit)
       if (!isIOS && hasM4r) {
         downloadsHtml += `${track.file_m4r}🍏 M4R</a>`;
       }
 
       downloadsHtml += `</div>`;
     }
+
+    // ==== Audio source (fallback til .file hvis du stadig har det felt) ====
+    const audioSrc = track.file_mp3 || track.file || "";
 
     // ==== Build track HTML ====
     div.innerHTML = `
@@ -269,7 +274,7 @@ function render() {
         ${safe(composerLine)} ${categoryLabel}
       </div>
 
-      ${track.file}</audio>
+      ${audioSrc}</audio>
 
       ${downloadsHtml}
 
