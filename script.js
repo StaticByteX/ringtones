@@ -9,10 +9,7 @@ const isAndroid = /Android/.test(navigator.userAgent);
 /* Helpers */
 const safeText = (v) => (v === null || v === undefined ? "" : String(v));
 const normalize = (s) => safeText(s).toLowerCase();
-
-function platformToKey(platform) {
-  return normalize(platform);
-}
+const platformToKey = (platform) => normalize(platform);
 
 /* LOAD JSON */
 async function loadData() {
@@ -26,7 +23,6 @@ async function loadData() {
     const results = await Promise.all(
       sources.map((src) => fetch(src).then((res) => res.json()))
     );
-
     tracks = results.flat();
     render();
   } catch (err) {
@@ -64,13 +60,15 @@ function setTypeFilter(typeFilter) {
     btn.classList.remove("active");
   });
 
-  const activeBtn = document.querySelector(`.filters-type button[data-type-filter="${typeFilter}"]`);
+  const activeBtn = document.querySelector(
+    `.filters-type button[data-type-filter="${typeFilter}"]`
+  );
   if (activeBtn) activeBtn.classList.add("active");
 
   render();
 }
 
-/* TOOLTIP (per-button, auto-hide, fade in/out) */
+/* TOOLTIP (per-button, auto-hide, fade in/out, non-blocking layout) */
 function showTooltip(anchor, kind) {
   const actions = anchor.closest(".track-actions");
   if (!actions) return;
@@ -154,9 +152,7 @@ function render() {
       .join(" ")
       .toLowerCase();
 
-    const matchesSearch = searchable.includes(query);
-
-    return matchesPlatform && matchesType && matchesSearch;
+    return matchesPlatform && matchesType && searchable.includes(query);
   });
 
   /* Sort: title (alpha), then variant (numeric asc) */
@@ -170,7 +166,8 @@ function render() {
     return va - vb;
   });
 
-  /* Results info (bigger, bold count, line breaks before/after) */
+  /* Results info: bigger text via CSS, bold only "XX tracks found".
+     Remove extra line break ABOVE (keep only a trailing break). */
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
     const count = filtered.length;
@@ -185,7 +182,7 @@ function render() {
     if (currentTypeFilter === "Ringtone") typeLabel = "ringtones";
     else if (currentTypeFilter === "Notification") typeLabel = "notifications";
 
-    resultsInfo.innerHTML = `<br><strong>${count} ${trackWord} found</strong> (filter: ${filterLabel}, ${typeLabel})<br>`;
+    resultsInfo.innerHTML = `<strong>${count} ${trackWord} found</strong> (filter: ${filterLabel}, ${typeLabel})<br>`;
   }
 
   /* iOS hint */
@@ -219,14 +216,14 @@ function render() {
     titleRow.appendChild(titleMain);
     titleRow.appendChild(titleSub);
 
-    /* Type badge (Segoe UI + CAPITAL letters) */
+    /* Type badge (Segoe UI + uppercase, REGULAR weight) */
     if (track.type) {
       const typeBadge = document.createElement("span");
       const type = safeText(track.type);
 
       let icon = "";
       let cls = "";
-      let label = "";
+      let label = type.toUpperCase();
 
       if (type === "Ringtone") {
         icon = "🔔";
@@ -236,8 +233,6 @@ function render() {
         icon = "✉️";
         cls = "notification";
         label = "NOTIFICATION";
-      } else {
-        label = type.toUpperCase();
       }
 
       typeBadge.className = `track-type ${cls}`;
@@ -245,7 +240,7 @@ function render() {
       titleRow.appendChild(typeBadge);
     }
 
-    /* Meta line: composer + category */
+    /* Meta line */
     const meta = document.createElement("div");
     meta.className = "track-meta";
 
@@ -270,49 +265,45 @@ function render() {
       meta.appendChild(cat);
     }
 
-    /* Audio playbar (prefer MP3; fallback M4R) */
-    const audioSrc = safeText(track.file_mp3) || safeText(track.file_m4r);
-    let audioEl = null;
-    if (audioSrc) {
-      audioEl = document.createElement("audio");
-      audioEl.controls = true;
-      audioEl.preload = "none";
-      audioEl.src = audioSrc;
-      audios.push(audioEl);
-    }
+    /* Playbar in each songbox:
+       Use MP3 for playback when available; otherwise use M4R. */
+    const playSrc = safeText(track.file_mp3) || safeText(track.file_m4r);
+    const audioEl = document.createElement("audio");
+    audioEl.controls = true;
+    audioEl.preload = "none";
+    if (playSrc) audioEl.src = playSrc;
+    audios.push(audioEl);
 
-    /* Download buttons (device logic per master prompt) */
+    /* Download buttons (device logic) */
     const actions = document.createElement("div");
     actions.className = "track-actions";
 
-    const hasMp3 = !!safeText(track.file_mp3);
-    const hasM4r = !!safeText(track.file_m4r);
+    const mp3Url = safeText(track.file_mp3);
+    const m4rUrl = safeText(track.file_m4r);
 
-    /* Android/Desktop: show MP3 + M4R */
-    if (hasMp3 && !isIOS) {
+    /* iOS: hide MP3, show M4R */
+    if (!isIOS && mp3Url) {
       const a = document.createElement("a");
       a.className = "download-btn";
-      a.href = safeText(track.file_mp3);
+      a.href = mp3Url;
       a.setAttribute("download", "");
-      a.dataset.tip = "android";
       a.textContent = "⬇️ MP3";
       a.addEventListener("click", () => showTooltip(a, "android"));
       actions.appendChild(a);
     }
 
-    /* iOS: hide MP3 button, show M4R (still also show M4R on non-iOS) */
-    if (hasM4r) {
+    /* Android/Desktop: show M4R too; iOS: show M4R */
+    if (m4rUrl) {
       const a = document.createElement("a");
       a.className = "download-btn";
-      a.href = safeText(track.file_m4r);
+      a.href = m4rUrl;
       a.setAttribute("download", "");
-      a.dataset.tip = "ios";
       a.textContent = isIOS ? "🍏 M4R (iPhone)" : "🍏 M4R";
       a.addEventListener("click", () => showTooltip(a, "ios"));
       actions.appendChild(a);
     }
 
-    /* More toggle + extra */
+    /* More toggle */
     const toggle = document.createElement("button");
     toggle.className = "track-toggle";
     toggle.type = "button";
@@ -328,14 +319,14 @@ function render() {
     const pub = safeText(track.publisher);
     const year = safeText(track.year);
 
-    const metaBits = [];
-    if (pub) metaBits.push(pub);
-    if (year) metaBits.push(year);
+    const bits = [];
+    if (pub) bits.push(pub);
+    if (year) bits.push(year);
 
     let extraMain = "";
-    if (prod && metaBits.length) extraMain = `${prod} (${metaBits.join(", ")})`;
+    if (prod && bits.length) extraMain = `${prod} (${bits.join(", ")})`;
     else if (prod) extraMain = prod;
-    else if (metaBits.length) extraMain = metaBits.join(", ");
+    else if (bits.length) extraMain = bits.join(", ");
 
     if (extraMain) {
       const line = document.createElement("div");
@@ -373,7 +364,7 @@ function render() {
     /* Assemble */
     card.appendChild(titleRow);
     card.appendChild(meta);
-    if (audioEl) card.appendChild(audioEl);
+    card.appendChild(audioEl);
     if (actions.childElementCount > 0) card.appendChild(actions);
     card.appendChild(toggle);
     card.appendChild(extra);
@@ -394,9 +385,7 @@ function render() {
 /* INIT */
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search");
-  if (searchInput) {
-    searchInput.addEventListener("input", () => render());
-  }
+  if (searchInput) searchInput.addEventListener("input", render);
 
   document.querySelectorAll(".filters button").forEach((btn) => {
     const filter = btn.getAttribute("data-filter");
