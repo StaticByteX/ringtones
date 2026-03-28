@@ -5,1044 +5,494 @@
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v1-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v1-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v1-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v1-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v2",
     "title": "Arkanoid",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v2-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v2-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v2-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v2-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v3",
     "title": "Arkanoid",
     "variant": 3,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v3-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v3-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v3-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v3-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v4",
     "title": "Arkanoid",
     "variant": 4,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v4-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v4-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v4-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v4-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v5",
     "title": "Arkanoid",
     "variant": 5,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v5-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v5-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v5-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v5-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v6",
     "title": "Arkanoid",
     "variant": 6,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v6-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v6-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v6-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v6-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v7",
     "title": "Arkanoid",
     "variant": 7,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v7-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v7-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v7-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v7-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v8",
     "title": "Arkanoid",
     "variant": 8,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v8-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v8-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v8-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v8-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v9",
     "title": "Arkanoid",
     "variant": 9,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v9-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v9-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v9-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v9-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v10",
     "title": "Arkanoid",
     "variant": 10,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v10-martin-galway.m4r"
   },
-    
   {
     "id": "arkanoid-c64-v11",
     "title": "Arkanoid",
     "variant": 11,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Martin Galway",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Martin Galway", "group": null },
     "production": "Arkanoid",
     "category": "Game",
     "year": 1987,
     "publisher": "Imagine",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "arkanoid",
-      "martin-galway",
-      "imagine",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v11-martin-galway.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v11-martin-galway.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["arkanoid","martin-galway","imagine","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v11-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/arkanoid-c64-v11-martin-galway.m4r"
   },
-    
   {
     "id": "bombo-c64-v1",
     "title": "Bombo",
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bombo",
     "category": "Game",
     "year": 1986,
     "publisher": "Rino Software",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bombo","ben-daglish","rino-software","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v1-ben-daglish.m4r"
   },
-  
   {
     "id": "bombo-c64-v2",
     "title": "Bombo",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bombo",
     "category": "Game",
     "year": 1986,
     "publisher": "Rino Software",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bombo","ben-daglish","rino-software","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v2-ben-daglish.m4r"
   },
-  
-    {
+  {
     "id": "bombo-c64-v3",
     "title": "Bombo",
     "variant": 3,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bombo",
     "category": "Game",
     "year": 1986,
     "publisher": "Rino Software",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bombo","ben-daglish","rino-software","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v3-ben-daglish.m4r"
   },
-  
-    {
+  {
     "id": "bombo-c64-v4",
     "title": "Bombo",
     "variant": 4,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bombo",
     "category": "Game",
     "year": 1986,
     "publisher": "Rino Software",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bombo","ben-daglish","rino-software","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v4-ben-daglish.m4r"
   },
-  
-    {
+  {
     "id": "bombo-c64-v5",
     "title": "Bombo",
     "variant": 5,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bombo",
     "category": "Game",
     "year": 1986,
     "publisher": "Rino Software",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bombo","ben-daglish","rino-software","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bombo-c64-v5-ben-daglish.m4r"
   },
-  
-{
+  {
     "id": "bulldog-c64-v1",
     "title": "Bulldog",
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bulldog",
     "category": "Game",
     "year": 1987,
     "publisher": "Gremlin Graphics",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bulldog","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v1-ben-daglish.m4r"
   },
-  
-{
+  {
     "id": "bulldog-c64-v2",
     "title": "Bulldog",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Bulldog",
     "category": "Game",
     "year": 1987,
     "publisher": "Gremlin Graphics",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.m4r"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["bulldog","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v2-ben-daglish.m4r"
   },
-  
   {
     "id": "bulldog-c64-v3",
     "title": "Bulldog",
     "variant": 3,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": "Retro Music Retracked",
-      "name": null,
-      "group": null
-    },
+    "composer": { "handle": "Retro Music Retracked", "name": null, "group": null },
     "production": null,
     "category": null,
     "year": 2022,
     "publisher": null,
-    "sampling": {
-      "title": "Bulldog",
-      "artist": "Ben Daglish",
-      "year": 1987
-    },
-    "tags": [
-      "bombo",
-      "ben-daglish",
-      "rino-software",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.mp3",
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.m4r"
+    "sampling": { "title": "Bulldog", "artist": "Ben Daglish", "year": 1987 },
+    "tags": ["bulldog","ben-daglish","retro-music-retracked","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.m4r"
   },
-  
   {
     "id": "commando-c64-v1",
     "title": "Commando",
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1985,
     "publisher": "Elite Systems",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "commando",
-      "rob-hubbard",
-      "elite-systems",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"      
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v1-rob-hubbard.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["commando","rob-hubbard","elite-systems","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v1-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
- {
+  {
     "id": "commando-c64-v2",
     "title": "Commando",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1985,
     "publisher": "Elite Systems",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "commando",
-      "rob-hubbard",
-      "elite-systems",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"      
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v2-rob-hubbard.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["commando","rob-hubbard","elite-systems","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v2-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
- {
+  {
     "id": "commando-c64-v3",
     "title": "Commando",
     "variant": 3,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1985,
     "publisher": "Elite Systems",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "commando",
-      "rob-hubbard",
-      "elite-systems",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"      
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v3-rob-hubbard.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["commando","rob-hubbard","elite-systems","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v3-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
- {
+  {
     "id": "commando-c64-v4",
     "title": "Commando",
     "variant": 4,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1985,
     "publisher": "Elite Systems",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "commando",
-      "rob-hubbard",
-      "elite-systems",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"      
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v4-rob-hubbard.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["commando","rob-hubbard","elite-systems","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/commando-c64-v4-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
- {
+  {
     "id": "delta-c64-v1",
     "title": "Delta",
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
     "publisher": "Thalamus",
-    "sampling": {
-      "title": "Koyaanisqatsi",
-      "artist": "Philip Glass",
-      "year": 1983
-    },
-    "tags": [
-      "c64",
-      "sid",
-      "chiptune",
-      "retrogaming",
-      "rob-hubbard",
-      "delta",
-      "thalamus",
-      "8bit",
-      "philip-glass"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3"
+    "sampling": { "title": "Koyaanisqatsi", "artist": "Philip Glass", "year": 1983 },
+    "tags": ["c64","sid","chiptune","retrogaming","rob-hubbard","delta","thalamus","8bit","philip-glass"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v1-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
   {
     "id": "delta-c64-v2",
     "title": "Delta",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
     "publisher": "Thalamus",
-    "sampling": {
-      "title": "Koyaanisqatsi",
-      "artist": "Philip Glass",
-      "year": 1983
-    },
-    "tags": [
-      "c64",
-      "sid",
-      "chiptune",
-      "retrogaming",
-      "rob-hubbard",
-      "delta",
-      "thalamus",
-      "8bit",
-      "philip-glass"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v2-rob-hubbard.mp3"
+    "sampling": { "title": "Koyaanisqatsi", "artist": "Philip Glass", "year": 1983 },
+    "tags": ["c64","sid","chiptune","retrogaming","rob-hubbard","delta","thalamus","8bit","philip-glass"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v2-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
   {
     "id": "delta-c64-v3",
     "title": "Delta",
     "variant": 3,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Rob Hubbard",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Rob Hubbard", "group": null },
     "production": "Delta",
     "category": "Game",
     "year": 1987,
     "publisher": "Thalamus",
-    "sampling": {
-      "title": "Koyaanisqatsi",
-      "artist": "Philip Glass",
-      "year": 1983
-    },
-    "tags": [
-      "c64",
-      "sid",
-      "chiptune",
-      "retrogaming",
-      "rob-hubbard",
-      "delta",
-      "thalamus",
-      "8bit",
-      "philip-glass"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v3-rob-hubbard.mp3"
+    "sampling": { "title": "Koyaanisqatsi", "artist": "Philip Glass", "year": 1983 },
+    "tags": ["c64","sid","chiptune","retrogaming","rob-hubbard","delta","thalamus","8bit","philip-glass"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/delta-c64-v3-rob-hubbard.mp3",
+    "file_m4r": null
   },
-  
   {
     "id": "gauntlet-c64-v1",
     "title": "Gauntlet",
     "variant": 1,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Gauntlet",
     "category": "Game",
     "year": 1986,
     "publisher": "Gremlin Graphics",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "gauntlet",
-      "ben-daglish",
-      "gremlin-graphics",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v1-ben-daglish.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["gauntlet","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v1-ben-daglish.mp3",
+    "file_m4r": null
   },
-  
   {
     "id": "gauntlet-c64-v2",
     "title": "Gauntlet",
     "variant": 2,
     "platform": "C64",
     "type": "Ringtone",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Gauntlet",
     "category": "Game",
     "year": 1986,
     "publisher": "Gremlin Graphics",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "gauntlet",
-      "ben-daglish",
-      "gremlin-graphics",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v2-ben-daglish.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["gauntlet","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v2-ben-daglish.mp3",
+    "file_m4r": null
   },
-  
   {
     "id": "gauntlet-2-c64-v1",
     "title": "Gauntlet 2",
     "variant": 1,
     "platform": "C64",
     "type": "Notification",
-    "composer": {
-      "handle": null,
-      "name": "Ben Daglish",
-      "group": null
-    },
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Gauntlet 2",
     "category": "Game",
     "year": 1989,
     "publisher": "Mindscape",
-    "sampling": {
-      "title": null,
-      "artist": null,
-      "year": null
-    },
-    "tags": [
-      "gauntlet-2",
-      "ben-daglish",
-      "mindscape",
-      "c64",
-      "8bit",
-      "chipmusic",
-      "chiptune",
-      "sidmusic",
-      "c64",
-      "retro",
-      "retrogaming"
-    ],
-    "file": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-2-c64-v1-ben-daglish.mp3"
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["gauntlet-2","ben-daglish","mindscape","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-2-c64-v1-ben-daglish.mp3",
+    "file_m4r": null
+  },
+  {
+    "id": "gauntlet-c64-v2",
+    "title": "Gauntlet",
+    "variant": 2,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Gauntlet",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Gremlin Graphics",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["gauntlet","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-c64-v2-ben-daglish.mp3",
+    "file_m4r": null
+  },
+  {
+    "id": "gauntlet-2-c64-v1",
+    "title": "Gauntlet 2",
+    "variant": 1,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Gauntlet",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Gremlin Graphics",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["gauntlet","ben-daglish","gremlin-graphics","c64","8bit","chipmusic","chiptune","sidmusic","c64","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/gauntlet-2-c64-v1-ben-daglish.mp3",
+    "file_m4r": null
   }
-    
 ]
