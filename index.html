@@ -7,19 +7,22 @@
   <title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
 
   <!-- Favicon -->
-  assets/staticbytex-favicon.png
+  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png">
 
   <!-- Google Font -->
-  https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- Main CSS -->
-  style.css
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <header>
-    assets/staticbytex-logo.png
+    <img src="assets/staticbytex-logo.png" alt="StaticByteX logo">
   </header>
 
   <main>
@@ -64,8 +67,8 @@
       Submit your ringtone suggestions on Instagram ↓
     </p>
   
-    https://www.instagram.com/staticbytex/
-      assets/staticbytex-qr-code.png
+    <a href="https://www.instagram.com/staticbytex/" target="_blank" rel="noopener noreferrer">
+      <img src="assets/staticbytex-qr-code.png" alt="StaticByteX QR code">
     </a>
   
     <p class="subtitle">
@@ -75,83 +78,6 @@
   </footer>
 
   <!-- Main JS -->
-  script.jsscript>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <header>
-    <img src="assets/staticbytex-logo.png" alt="StaticByteX logo">
-  </header>
-
-  <main>
-
-    <h1>Retro Ringtones & Notification Sounds</h1>
-    <p class="subtitle">Commodore 64 • Amiga 500 • DOS/Windows PC</p>
-
-    <!-- Search -->
-    <input
-      type="text"
-      id="search"
-      placeholder="Search title, composer, name, group, production, year, publisher..."
-    >
-
-    <!-- Platform Filters -->
-    <div class="filters">
-      <button id="btn-all" class="active"iga</button>
-      <button id="btn-pc" data-filter="pc">PC</button>
-    </div>
-
-    <!-- Type Filters -->
-    <div class="filters filters-type">
-      <button id="btn-type-all" class="active" data-type-filter="all">All types</button>
-      <button id="btn-type-ringtone" data-type-filter="Ringtone">Ringtones</button>
-      <button id="btn-type-notification" data-type-filter="Notification">Notifications</button>
-    </div>
-
-    <!-- Tracks Info -->
-    <p id="results-info" class="subtitle"></p>
-    <p id="ios-hint" class="subtitle"></p>
-
-    <!-- Tracks -->
-    <div id="tracklist"></div>
-
-  </main>
-
-  <footer>
-
-    <p class="subtitle">
-      Submit your ringtone suggestions on Instagram ↓
-    </p>
-
-    https://www.instagram.com/staticbytex/
-      assets/staticbytex-qr-code.png
-    </a>
-
-    <p class="subtitle">
-      Retro ringtones • C64/A500/PC • 100% free • No app required
-    </p>
-
-  </footer>
-
-  <!-- Main JS -->
-  script.jsscript>
+  <script src="script.js"></script>
 </body>
 </html>
