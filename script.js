@@ -243,7 +243,10 @@ function render() {
       downloadsHtml += `<div class="track-actions">`;
 
       if (hasMp3 && !isIOS) {
-        downloadsHtml += `<a class="download-link" href="${track.file_mp3}" download>⬇️ MP3 {
+        downloadsHtml += `${track.file_mp3}⬇️ MP3</a>`;
+      }
+
+      if (hasM4r && isIOS) {
         downloadsHtml += `${track.file_m4r}🍏 M4R (iPhone)</a>`;
       }
 
