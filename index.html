@@ -29,14 +29,25 @@
       Commodore 64 • Amiga 500 • DOS/Windows PC
     </p>
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Search title, composer, name, group, production, year, publisher..."
-      autocomplete="off"
-      spellcheck="false"
-      aria-label="Search tracks"
-    />
+    <!-- Search with clear button -->
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search title, composer, name, group, production, year, publisher..."
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search tracks"
+      />
+      <button
+        type="button"
+        id="search-clear"
+        class="search-clear"
+        aria-label="Clear search"
+      >
+        ×
+      </button>
+    </div>
 
     <!-- Platform + Type filters on same row -->
     <div class="filters-row">
@@ -56,7 +67,7 @@
 
     <!-- Sort bar -->
     <div class="sort-row" aria-label="Sort options">
-      <span class="sort-label">Sort by:</span>
+      <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
         <button class="active" data-sort="title">TITLE</button>
         <button data-sort="handle">HANDLE</button>
