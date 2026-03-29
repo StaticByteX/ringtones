@@ -635,9 +635,9 @@
     "year": 1991,
     "publisher": null,
     "sampling": { "title": "Delta", "artist": "Rob Hubbard", "year": 1987 },
-    "tags": ["walkman","delta","rob-hubbard","future-composer","thalamus","chiptune","8bit","retro","retrogaming","koyaanisqatsi","philip-glass"],
+    "tags": ["walkman","delta","rob-hubbard","thalamus","a500","amiga","future-composer","chiptune","8bit","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.m4r"
-  },
+  }
 
 ]
