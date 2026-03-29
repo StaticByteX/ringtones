@@ -1,27 +1,26 @@
 let tracks = [];
 let currentFilter = "all";
 let currentTypeFilter = "all";
+let currentSortKey = "title";
 
 const CHUNK_SIZE = 50;
 let renderIndex = 0;
 let currentFilteredTracks = [];
 let observer = null;
 
-/* ================================
-   HELPERS
-================================ */
 const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 
+const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
+
+/* PLATFORM COLORS FOR FIRST LINE */
 function platformColor(platform) {
   if (platform === "C64") return "#f2f540";
-  if (platform === "A500") return "#0074bf";
+  if (platform === "A500") return "#0094ff";
   return "#ff66ff";
 }
 
-/* ================================
-   LOAD DATA
-================================ */
+/* LOAD DATA */
 async function loadData() {
   const sources = [
     "data/ringtones-c64.json",
@@ -37,14 +36,14 @@ async function loadData() {
   render();
 }
 
-/* ================================
-   FILTERS
-================================ */
+/* FILTERS */
 function setFilter(f) {
   currentFilter = f;
   document
-    .querySelectorAll(".filters button[data-filter]")
-    .forEach((b) => b.classList.toggle("active", b.dataset.filter === f));
+    .querySelectorAll(".filters-platform button[data-filter]")
+    .forEach((b) =>
+      b.classList.toggle("active", b.dataset.filter === f)
+    );
   render();
 }
 
@@ -58,9 +57,38 @@ function setTypeFilter(t) {
   render();
 }
 
-/* ================================
-   RENDER
-================================ */
+/* SORT */
+function setSort(key) {
+  currentSortKey = key;
+  document
+    .querySelectorAll(".sort-buttons button[data-sort]")
+    .forEach((b) =>
+      b.classList.toggle("active", b.dataset.sort === key)
+    );
+  render();
+}
+
+function sortValue(track) {
+  const c = track.composer || {};
+  switch (currentSortKey) {
+    case "title":
+      return norm(track.title);
+    case "handle":
+      return norm(c.handle);
+    case "name":
+      return norm(c.name);
+    case "group":
+      return norm(c.group);
+    case "production":
+      return norm(track.production);
+    case "publisher":
+      return norm(track.publisher);
+    default:
+      return norm(track.title);
+  }
+}
+
+/* RENDER */
 function render() {
   const container = document.getElementById("tracklist");
   container.innerHTML = "";
@@ -83,6 +111,9 @@ function render() {
       t.platform,
       t.variant,
       t.type,
+      safe(t.composer?.handle),
+      safe(t.composer?.name),
+      safe(t.composer?.group),
       ...(t.tags || [])
     ]
       .join(" ")
@@ -91,17 +122,28 @@ function render() {
     return matchesPlatform && matchesType && blob.includes(q);
   });
 
-  document.getElementById(
-    "results-info"
-  ).textContent = `${currentFilteredTracks.length} tracks found`;
+  /* SORT ACCORDING TO CURRENT SORT KEY */
+  currentFilteredTracks.sort((a, b) => {
+    const av = sortValue(a);
+    const bv = sortValue(b);
+    if (av < bv) return -1;
+    if (av > bv) return 1;
+    /* tie-breaker by title */
+    const at = norm(a.title);
+    const bt = norm(b.title);
+    if (at < bt) return -1;
+    if (at > bt) return 1;
+    return 0;
+  });
+
+  document.getElementById("results-info").textContent =
+    `${currentFilteredTracks.length} tracks found`;
 
   renderNextChunk();
   setupObserver();
 }
 
-/* ================================
-   CHUNK RENDERING
-================================ */
+/* CHUNKED RENDERING */
 function renderNextChunk() {
   const container = document.getElementById("tracklist");
 
@@ -112,19 +154,18 @@ function renderNextChunk() {
   renderIndex += CHUNK_SIZE;
 }
 
-/* ================================
-   OBSERVER
-================================ */
+/* OBSERVER FOR LAZY LOAD */
 function setupObserver() {
   if (observer) observer.disconnect();
 
+  const container = document.getElementById("tracklist");
   const sentinel = document.createElement("div");
   sentinel.style.height = "1px";
-  document.getElementById("tracklist").appendChild(sentinel);
+  container.appendChild(sentinel);
 
   observer = new IntersectionObserver(
-    (e) => {
-      if (!e[0].isIntersecting) return;
+    (entries) => {
+      if (!entries[0].isIntersecting) return;
       if (renderIndex >= currentFilteredTracks.length) return;
       renderNextChunk();
     },
@@ -134,9 +175,7 @@ function setupObserver() {
   observer.observe(sentinel);
 }
 
-/* ================================
-   BUILD TRACK
-================================ */
+/* BUILD TRACK CARD */
 function buildTrack(t) {
   const color = platformColor(t.platform);
 
@@ -164,17 +203,37 @@ function buildTrack(t) {
   /* LINE 2: COMPOSER */
   const line2 = document.createElement("div");
   line2.className = "track-line";
-  line2.textContent =
-    `${safe(t.composer?.handle)} (${safe(t.composer?.name)})` +
-    (t.composer?.group ? ` – ${t.composer.group}` : "");
 
-  /* LINE 3: PRODUCTION */
+  const comp = t.composer || {};
+  const handle = safe(comp.handle);
+  const name = safe(comp.name);
+  const group = safe(comp.group);
+
+  if (handle && name && group) {
+    line2.textContent = `${handle} (${name}) – ${group}`;
+  } else if (handle && name && !group) {
+    line2.textContent = `${handle} (${name})`;
+  } else if (!handle && name && group) {
+    line2.textContent = `${name} – ${group}`;
+  } else if (!handle && name && !group) {
+    line2.textContent = name;
+  } else if (handle && !name && group) {
+    line2.textContent = `${handle} – ${group}`;
+  } else if (handle && !name && !group) {
+    line2.textContent = handle;
+  } else if (!handle && !name && group) {
+    line2.textContent = group;
+  } else {
+    line2.textContent = "";
+  }
+
+  /* LINE 3: PRODUCTION (publisher, year) */
   const line3 = document.createElement("div");
   line3.className = "track-line";
   line3.textContent =
-    `${safe(t.production)} – ${safe(t.publisher)}, ${safe(t.year)}`;
+    `${safe(t.production)} (${safe(t.publisher)}, ${safe(t.year)})`;
 
-  /* LINE 4: SAMPLING (conditional) */
+  /* LINE 4: SAMPLING (optional) */
   let line4 = null;
   if (
     t.sampling &&
@@ -183,7 +242,7 @@ function buildTrack(t) {
     line4 = document.createElement("div");
     line4.className = "track-line";
     line4.textContent =
-      `${safe(t.sampling.title)} (${safe(t.sampling.artist)}, ${safe(t.sampling.year)})`;
+      `Contains elements from ${safe(t.sampling.title)} (${safe(t.sampling.artist)}, ${safe(t.sampling.year)})`;
   }
 
   /* AUDIO */
@@ -204,6 +263,13 @@ function buildTrack(t) {
     audio.appendChild(s);
   }
 
+  /* only one audio at a time */
+  audio.addEventListener("play", () => {
+    document.querySelectorAll("#tracklist audio").forEach((a) => {
+      if (a !== audio) a.pause();
+    });
+  });
+
   /* ACTIONS */
   const actions = document.createElement("div");
   actions.className = "track-actions";
@@ -211,8 +277,17 @@ function buildTrack(t) {
   const left = document.createElement("div");
   left.className = "actions-left";
 
-  if (t.file_mp3) left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
-  if (t.file_m4r) left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
+  /* On iOS, hide MP3 button entirely */
+  if (!isIOS && t.file_mp3) {
+    left.appendChild(
+      dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3")
+    );
+  }
+  if (t.file_m4r) {
+    left.appendChild(
+      dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R")
+    );
+  }
 
   const type = document.createElement("div");
   type.className = `track-type ${t.type.toLowerCase()}`;
@@ -220,7 +295,7 @@ function buildTrack(t) {
 
   actions.append(left, type);
 
-  /* ASSEMBLE */
+  /* ASSEMBLE CARD */
   card.append(titleRow, line2, line3);
   if (line4) card.append(line4);
   card.append(audio, actions);
@@ -228,9 +303,7 @@ function buildTrack(t) {
   return card;
 }
 
-/* ================================
-   SMALL HELPERS
-================================ */
+/* SMALL HELPERS */
 function inlineBox(text) {
   const b = document.createElement("span");
   b.className = "inline-box";
@@ -252,14 +325,14 @@ function dlBtn(url, icon, label) {
   return a;
 }
 
-/* ================================
-   INIT
-================================ */
+/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("search").addEventListener("input", render);
+  document
+    .getElementById("search")
+    .addEventListener("input", render);
 
   document
-    .querySelectorAll(".filters button[data-filter]")
+    .querySelectorAll(".filters-platform button[data-filter]")
     .forEach((b) =>
       b.addEventListener("click", () => setFilter(b.dataset.filter))
     );
@@ -270,6 +343,12 @@ document.addEventListener("DOMContentLoaded", () => {
       b.addEventListener("click", () =>
         setTypeFilter(b.dataset.typeFilter)
       )
+    );
+
+  document
+    .querySelectorAll(".sort-buttons button[data-sort]")
+    .forEach((b) =>
+      b.addEventListener("click", () => setSort(b.dataset.sort))
     );
 
   loadData();
