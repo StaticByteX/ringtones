@@ -1,590 +1,182 @@
-/* ================================
-   RESET
-================================ */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
-  --bg: #0a0a0a;
-  --panel: #111111;
-  --panel-2: #0f0f0f;
-  --text: #ffffff;
-  --muted: #aaaaaa;
-  --muted-2: #888888;
+  --bg:#0a0a0a;
+  --panel:#111;
+  --panel-2:#0f0f0f;
+  --text:#fff;
+  --muted:#aaa;
+  --border:#222;
 
-  /* Platform colors (strict) */
-  --c64-border: #14a3fd;
-  --c64-title: #f2f540;
-  --c64-toggle: #48cc31;
+  --c64:#f2f540;
+  --a500:#fcc100;
+  --pc:#ff66ff;
 
-  --a500-border: #00828f;
-  --a500-title: #fcc100;
-  --a500-toggle: #f26b00;
-
-  --pc-border: #808080;
-  --pc-title: #ff66ff;
-  --pc-toggle: #ffff00;
-  --pc-active: #505050;
-
-  /* Type badge borders */
-  --type-ringtone: #48cc31;
-  --type-notification: #00828f;
-
-  --border: #222222;
-  --border-2: #333333;
-
-  --transition-retro: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.15s ease,
-    background-color 0.15s ease;
+  --ringtone:#48cc31;
+  --notification:#fd7801;
 }
 
-/* ================================
-   BASE LAYOUT
-================================ */
+/* Base */
+* { box-sizing:border-box; margin:0; padding:0; }
+
 body {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
-  line-height: 1.6;
-  background: var(--bg);
-  color: var(--text);
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  -webkit-font-smoothing: antialiased;
+  font-family:"IBM Plex Mono", monospace;
+  background:var(--bg);
+  color:var(--text);
 }
 
-.site-header,
-.site-footer {
-  text-align: center;
-  padding: 20px;
+.site-header,.site-footer {
+  text-align:center;
+  padding:20px;
 }
 
 .site-main {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  max-width:700px;
+  margin:0 auto;
+  padding:20px;
 }
 
-/* consistent spacing without margin collapse */
-.site-main > * + * {
-  margin-top: 16px;
-}
+.site-main > * + * { margin-top:16px; }
 
-/* ================================
-   BRANDING
-================================ */
-.logo {
-  width: 220px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+.logo { width:220px; }
+.qr { width:160px; margin-top:10px; }
 
-.qr {
-  width: 160px;
-  height: auto;
-  display: block;
-  margin: 10px auto 0;
-}
+h1 { font-size:24px; font-weight:600; }
+.subtitle { color:var(--muted); font-size:12px; }
 
-/* ================================
-   TYPOGRAPHY
-================================ */
-h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
+.platform-line { font-size:14px; }
+.results-info { font-size:14px; color:#fff; }
 
-.subtitle {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.platform-line {
-  font-size: 14px;
-}
-
-.results-info {
-  font-size: 14px;
-}
-
-.ios-hint {
-  font-size: 12px;
-  color: var(--muted-2);
-}
-
-.submit-line {
-  font-size: 13px;
-}
-
-.footer-line {
-  font-size: 13px;
-}
-
-.footer-link {
-  display: inline-block;
-}
-
-/* ================================
-   SEARCH
-================================ */
 #search {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: #101010;
-  border: 1px solid var(--border-2);
-  color: var(--text);
-
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 15px;
-
-  outline: none;
-  transition: var(--transition-retro);
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  background:#101010;
+  border:1px solid #333;
+  color:#fff;
+  font-family:"Segoe UI",system-ui;
 }
 
-#search::placeholder {
-  color: #7a7a7a;
-}
-
-#search:focus {
-  border-color: #666666;
-  background-color: #0f0f0f;
-  transform: scale(1.01);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.04);
-}
-
-/* ================================
-   FILTER BUTTONS
-================================ */
+/* Filters */
 .filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
 }
 
 .filters button {
-  background: #0e0e0e;
-  border: 1px solid #444444;
-  color: #f5f5f5;
-  padding: 10px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-
-  transition: var(--transition-retro);
+  background:#0e0e0e;
+  border:1px solid #444;
+  color:#f5f5f5;
+  padding:10px 12px;
+  border-radius:10px;
+  font-family:"Segoe UI",system-ui;
+  font-size:13px;
+  font-weight:400;
+  text-transform:uppercase;
+  cursor:pointer;
 }
 
-.filters button:hover {
-  transform: scale(1.01);
-  border-color: #ffffff;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.18);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-}
+.filters button.active { border-color:#fff; }
 
-.filters button:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.25);
-  outline-offset: 2px;
-}
-
-.filters button.active {
-  border-color: #ffffff;
-}
-
-/* platform active colors */
-#btn-c64.active {
-  background-color: var(--c64-border);
-  color: var(--c64-title);
-  border-color: var(--c64-border);
-}
-
-#btn-a500.active {
-  background-color: var(--a500-border);
-  color: var(--a500-title);
-  border-color: var(--a500-border);
-}
-
-#btn-pc.active {
-  background-color: var(--pc-active);
-  color: var(--pc-title);
-  border-color: var(--pc-border);
-}
-
-/* type active colors match songbox badge colors */
-#btn-type-ringtone.active {
-  background-color: var(--type-ringtone);
-  border-color: var(--type-ringtone);
-  color: #0a0a0a;
-}
-
-#btn-type-notification.active {
-  background-color: var(--type-notification);
-  border-color: var(--type-notification);
-  color: #0a0a0a;
-}
-
-/* ================================
-   TRACK LIST + CARDS
-================================ */
-#tracklist {
-  margin-top: 4px;
-  text-align: left;
-}
-
+/* Track card */
 .track {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-  margin-bottom: 20px;
-  transition: var(--transition-retro);
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:16px;
+  transition:transform .15s ease;
 }
 
-.track:hover {
-  transform: scale(1.01);
-  background-color: var(--panel-2);
-  box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-}
+.track:hover { transform:scale(1.005); }
 
-/* platform borders + title colors */
-.track.c64 {
-  border-color: var(--c64-border);
-}
-.track.c64 .track-title-main {
-  color: var(--c64-title);
-}
-.track.c64:hover {
-  border-color: var(--c64-toggle);
-}
-.track.c64:hover .track-title-main {
-  text-shadow: 0 0 6px rgba(242, 245, 64, 0.5);
-}
-
-.track.a500 {
-  border-color: var(--a500-border);
-}
-.track.a500 .track-title-main {
-  color: var(--a500-title);
-}
-.track.a500:hover {
-  border-color: var(--a500-toggle);
-}
-.track.a500:hover .track-title-main {
-  text-shadow: 0 0 6px rgba(252, 193, 0, 0.5);
-}
-
-.track.pc {
-  border-color: var(--pc-border);
-}
-.track.pc .track-title-main {
-  color: var(--pc-title);
-}
-.track.pc:hover {
-  border-color: var(--pc-title);
-}
-.track.pc:hover .track-title-main {
-  text-shadow: 0 0 6px rgba(255, 102, 255, 0.5);
-}
-
-/* title row */
+/* Title row */
 .track-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 6px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .track-title-main {
-  font-size: 16px;
-  font-weight: 600;
+  font-size:16px;
+  font-weight:600;
 }
 
-.track-title-sub {
-  color: #bdbdbd;
-  font-size: 13px;
+.track-inline-meta {
+  display:flex;
+  gap:6px;
+  margin-left:8px;
 }
 
-/* type badge (Segoe UI, uppercase, regular) */
-.track-type {
-  margin-left: auto;
-  padding: 3px 8px;
-  border-radius: 8px;
-  border: 1px solid #444444;
-  font-size: 11px;
-  opacity: 0.95;
-  white-space: nowrap;
-
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.inline-box {
+  border:1px solid currentColor;
+  padding:1px 6px;
+  border-radius:6px;
+  font-family:"Segoe UI",system-ui;
+  font-size:11px;
+  font-weight:400;
 }
 
-.track-type.ringtone {
-  border-color: var(--type-ringtone);
-  color: var(--type-ringtone);
+/* Lines */
+.track-line {
+  font-size:13px;
+  color:#bbb;
+  margin-top:4px;
 }
 
-.track-type.notification {
-  border-color: var(--type-notification);
-  color: var(--type-notification);
-}
+/* Audio */
+audio { width:100%; margin-top:10px; }
 
-.track-meta {
-  font-size: 14px;
-  color: #bbbbbb;
-  margin-bottom: 10px;
-}
-
-.track-category {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 2px 8px;
-  border-radius: 6px;
-  border: 1px solid #444444;
-  color: #cccccc;
-  font-size: 11px;
-}
-
-/* duration label */
-.track-duration {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--muted-2);
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-}
-
-/* audio */
-audio {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* downloads */
+/* Actions row */
 .track-actions {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:8px;
+}
+
+.actions-left {
+  display:flex;
+  gap:8px;
 }
 
 .download-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 6px 10px;
-  border-radius: 8px;
-
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  text-decoration: none;
-
-  background-color: #101010;
-  color: #d4d4d4;
-  border: 1px solid #444444;
-
-  transition: var(--transition-retro);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border:1px solid #444;
+  border-radius:8px;
+  background:#101010;
+  color:#ddd;
+  text-decoration:none;
+  font-family:"Segoe UI",system-ui;
+  font-size:12px;
 }
 
-.download-btn:hover {
-  transform: scale(1.01);
-  border-color: #ffffff;
-  background-color: #141414;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.18);
+.download-btn img {
+  width:14px;
+  height:14px;
 }
 
-.download-btn:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.25);
-  outline-offset: 2px;
+/* Type badge */
+.track-type {
+  border:1px solid;
+  padding:3px 8px;
+  border-radius:8px;
+  font-family:"Segoe UI",system-ui;
+  font-size:11px;
+  font-weight:400;
+  text-transform:uppercase;
 }
 
-/* more toggle (color matches border static + hover) */
-.track-toggle {
-  margin-top: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  padding: 6px 0;
-  transition: var(--transition-retro);
+.track-type.ringtone {
+  color:var(--ringtone);
+  border-color:var(--ringtone);
 }
 
-.track.c64 .track-toggle {
-  color: var(--c64-border);
-}
-.track.c64:hover .track-toggle {
-  color: var(--c64-toggle);
-  text-shadow: 0 0 6px rgba(72, 204, 49, 0.35);
-}
-
-.track.a500 .track-toggle {
-  color: var(--a500-border);
-}
-.track.a500:hover .track-toggle {
-  color: var(--a500-toggle);
-  text-shadow: 0 0 6px rgba(242, 107, 0, 0.35);
-}
-
-.track.pc .track-toggle {
-  color: var(--pc-border);
-}
-.track.pc:hover .track-toggle {
-  color: var(--pc-title);
-  text-shadow: 0 0 6px rgba(255, 102, 255, 0.35);
-}
-
-.track-toggle:hover {
-  transform: scale(1.01);
-}
-
-.track-extra {
-  display: none;
-  margin-top: 8px;
-  color: var(--muted-2);
-  font-size: 13px;
-}
-
-.track.open .track-extra {
-  display: block;
-}
-
-/* tooltip */
-.tooltip {
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + 10px);
-
-  width: min(340px, 100%);
-  background: #0e0e0e;
-
-  border: 1px solid #444444;
-  border-radius: 10px;
-
-  padding: 10px 12px;
-
-  box-shadow:
-    0 14px 40px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-  opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
-
-  transition: opacity 0.18s ease, transform 0.18s ease;
-  z-index: 20;
-}
-
-.tooltip.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.tooltip-text {
-  color: #e8e8e8;
-  font-size: 12px;
-  line-height: 1.45;
-  margin-bottom: 10px;
-}
-
-.tooltip-close {
-  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  padding: 6px 10px;
-  border-radius: 8px;
-
-  background: #121212;
-  color: #f0f0f0;
-  border: 1px solid #444444;
-
-  cursor: pointer;
-  transition: var(--transition-retro);
-}
-
-.tooltip-close:hover {
-  transform: scale(1.01);
-  border-color: #ffffff;
-  background-color: #151515;
-}
-
-/* error */
-.error {
-  color: #ff6b6b;
-  font-size: 13px;
-  padding: 16px;
-  text-align: center;
-}
-
-/* sentinel (invisible) */
-#scroll-sentinel {
-  height: 1px;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  /* logo = 50% larger on desktop */
-  .logo {
-    width: 330px;
-  }
-
-  /* footer QR = 15% larger on desktop */
-  .qr {
-    width: 184px;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-main {
-    padding: 16px;
-  }
-
-  .track {
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  .track-type {
-    margin-left: 0;
-  }
+.track-type.notification {
+  color:var(--notification);
+  border-color:var(--notification);
 }
