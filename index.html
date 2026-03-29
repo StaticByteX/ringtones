@@ -38,17 +38,33 @@
       aria-label="Search tracks"
     />
 
-    <div class="filters" aria-label="Platform filters">
-      <button class="active" data-filter="all">ALL</button>
-      <button data-filter="c64">C64</button>
-      <button data-filter="a500">AMIGA</button>
-      <button data-filter="pc">PC</button>
+    <!-- Platform + Type filters on same row -->
+    <div class="filters-row">
+      <div class="filters filters-platform" aria-label="Platform filters">
+        <button class="active" data-filter="all">ALL</button>
+        <button data-filter="c64">C64</button>
+        <button data-filter="a500">AMIGA</button>
+        <button data-filter="pc">PC</button>
+      </div>
+
+      <div class="filters filters-type" aria-label="Type filters">
+        <button class="active" data-type-filter="all">ALL TYPES</button>
+        <button data-type-filter="Ringtone">RINGTONES</button>
+        <button data-type-filter="Notification">NOTIFICATIONS</button>
+      </div>
     </div>
 
-    <div class="filters filters-type" aria-label="Type filters">
-      <button class="active" data-type-filter="all">ALL TYPES</button>
-      <button data-type-filter="Ringtone">RINGTONES</button>
-      <button data-type-filter="Notification">NOTIFICATIONS</button>
+    <!-- Sort bar -->
+    <div class="sort-row" aria-label="Sort options">
+      <span class="sort-label">Sort by:</span>
+      <div class="sort-buttons">
+        <button class="active" data-sort="title">TITLE</button>
+        <button data-sort="handle">HANDLE</button>
+        <button data-sort="name">NAME</button>
+        <button data-sort="group">GROUP</button>
+        <button data-sort="production">PRODUCTION</button>
+        <button data-sort="publisher">PUBLISHER</button>
+      </div>
     </div>
 
     <p id="results-info" class="results-info"></p>
