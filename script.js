@@ -7,19 +7,16 @@ let renderIndex = 0;
 let currentFilteredTracks = [];
 let observer = null;
 
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
 /* ================================
    HELPERS
 ================================ */
 const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 
-function formatDuration(seconds) {
-  if (!isFinite(seconds)) return "–:––";
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${String(s).padStart(2, "0")}`;
+function platformColor(platform) {
+  if (platform === "C64") return "#f2f540";
+  if (platform === "A500") return "#0074bf";
+  return "#ff66ff";
 }
 
 /* ================================
@@ -103,7 +100,7 @@ function render() {
 }
 
 /* ================================
-   CHUNKED RENDERING
+   CHUNK RENDERING
 ================================ */
 function renderNextChunk() {
   const container = document.getElementById("tracklist");
@@ -138,15 +135,18 @@ function setupObserver() {
 }
 
 /* ================================
-   BUILD SONGBOX
+   BUILD TRACK
 ================================ */
 function buildTrack(t) {
+  const color = platformColor(t.platform);
+
   const card = document.createElement("div");
   card.className = "track";
 
-  /* Title row */
+  /* LINE 1: TITLE + INLINE META */
   const titleRow = document.createElement("div");
   titleRow.className = "track-title";
+  titleRow.style.color = color;
 
   const title = document.createElement("div");
   title.className = "track-title-main";
@@ -154,7 +154,6 @@ function buildTrack(t) {
 
   const meta = document.createElement("div");
   meta.className = "track-inline-meta";
-  meta.style.color = getComputedStyle(title).color;
 
   if (t.category) meta.appendChild(inlineBox(t.category));
   meta.appendChild(inlineBox(t.platform));
@@ -162,32 +161,50 @@ function buildTrack(t) {
 
   titleRow.append(title, meta);
 
-  /* Line 2 */
+  /* LINE 2: COMPOSER */
   const line2 = document.createElement("div");
   line2.className = "track-line";
-  line2.textContent = `${safe(t.production)} (${[t.publisher, t.year]
-    .filter(Boolean)
-    .join(", ")})`;
+  line2.textContent =
+    `${safe(t.composer?.handle)} (${safe(t.composer?.name)})` +
+    (t.composer?.group ? ` – ${t.composer.group}` : "");
 
-  /* Line 3 (sampling) */
-  let line3 = null;
-  if (t.sampling && t.sampling.title) {
-    line3 = document.createElement("div");
-    line3.className = "track-line";
-    line3.textContent = `Sample: ${t.sampling.title} (${[t.sampling.artist, t.sampling.year]
-      .filter(Boolean)
-      .join(", ")})`;
+  /* LINE 3: PRODUCTION */
+  const line3 = document.createElement("div");
+  line3.className = "track-line";
+  line3.textContent =
+    `${safe(t.production)} – ${safe(t.publisher)}, ${safe(t.year)}`;
+
+  /* LINE 4: SAMPLING (conditional) */
+  let line4 = null;
+  if (
+    t.sampling &&
+    (t.sampling.title || t.sampling.artist || t.sampling.year)
+  ) {
+    line4 = document.createElement("div");
+    line4.className = "track-line";
+    line4.textContent =
+      `${safe(t.sampling.title)} (${safe(t.sampling.artist)}, ${safe(t.sampling.year)})`;
   }
 
-  /* Audio */
+  /* AUDIO */
   const audio = document.createElement("audio");
   audio.controls = true;
   audio.preload = "metadata";
 
-  if (t.file_mp3) audio.innerHTML += `${t.file_mp3}`;
-  if (t.file_m4r) audio.innerHTML += `${t.file_m4r}`;
+  if (t.file_mp3) {
+    const s = document.createElement("source");
+    s.src = t.file_mp3;
+    s.type = "audio/mpeg";
+    audio.appendChild(s);
+  }
+  if (t.file_m4r) {
+    const s = document.createElement("source");
+    s.src = t.file_m4r;
+    s.type = "audio/mp4";
+    audio.appendChild(s);
+  }
 
-  /* Actions */
+  /* ACTIONS */
   const actions = document.createElement("div");
   actions.className = "track-actions";
 
@@ -203,8 +220,9 @@ function buildTrack(t) {
 
   actions.append(left, type);
 
-  card.append(titleRow, line2);
-  if (line3) card.append(line3);
+  /* ASSEMBLE */
+  card.append(titleRow, line2, line3);
+  if (line4) card.append(line4);
   card.append(audio, actions);
 
   return card;
