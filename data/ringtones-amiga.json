@@ -622,6 +622,22 @@
     "tags": ["defender-of-the-crown","jim-cuomo","cinemaware","a500","amiga","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v4-jim-cuomo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v4-jim-cuomo.m4r"
-  }
+  },
+  {
+    "id": "delta-c64-v4",
+    "title": "Delta",
+    "variant": 1,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": "Walkman", "name": "Tor Gausen", "group": null },
+    "production": null,
+    "category": "VARIOUS CRACKTROS",
+    "year": 1991,
+    "publisher": null,
+    "sampling": { "title": "Delta", "artist": "Rob Hubbard", "year": 1987 },
+    "tags": ["walkman","delta","rob-hubbard","future-composer","thalamus","chiptune","8bit","retro","retrogaming","koyaanisqatsi","philip-glass"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.m4r"
+  },
 
 ]
