@@ -15,7 +15,7 @@
   --muted: #aaaaaa;
 
   --c64: #f2f540;
-  --a500: #0094ff; /* updated */
+  --a500: #0094ff;
   --pc: #ff66ff;
 
   --ringtone: #48cc31;
@@ -29,6 +29,7 @@ body {
   font-family: "IBM Plex Mono", monospace;
   background: var(--bg);
   color: var(--text);
+  min-height: 100vh;
 }
 
 .site-header,
@@ -47,6 +48,30 @@ body {
   margin-top: 16px;
 }
 
+/* Logo & QR scaling */
+.logo {
+  max-width: 150px; /* mobile default (max 150 or screen width) */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.qr {
+  max-width: 150px; /* desktop + mobile */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto 0;
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  .logo {
+    max-width: 360px; /* max 360 on desktop */
+  }
+}
+
 /* ================================
    HEADERS
 ================================ */
@@ -57,7 +82,7 @@ h1 {
 }
 
 .platform-line {
-  font-size: 14px;
+  font-size: 16px; /* one increment bigger than before */
   text-align: center;
 }
 
@@ -84,14 +109,37 @@ h1 {
 /* ================================
    SEARCH
 ================================ */
+.search-wrapper {
+  position: relative;
+}
+
 #search {
   width: 100%;
-  padding: 12px;
+  padding: 12px 32px 12px 12px; /* room for clear button */
   border-radius: 10px;
   background: #101010;
   border: 1px solid #333333;
   color: #ffffff;
   font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #777777;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.search-clear.hidden {
+  display: none;
 }
 
 /* ================================
@@ -142,18 +190,31 @@ h1 {
   color: var(--pc);
 }
 
+/* type filter colors when active */
+.filters-type button[data-type-filter="Ringtone"].active {
+  color: var(--ringtone);
+}
+
+.filters-type button[data-type-filter="Notification"].active {
+  color: var(--notification);
+}
+
 /* ================================
    SORT ROW
 ================================ */
 .sort-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
   align-items: center;
   gap: 8px;
 }
 
 .sort-label {
-  font-size: 12px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--muted);
 }
 
