@@ -626,7 +626,7 @@
   {
     "id": "delta-c64-v4",
     "title": "Delta",
-    "variant": 1,
+    "variant": 4,
     "platform": "C64",
     "type": "Ringtone",
     "composer": { "handle": "Walkman", "name": "Tor Gausen", "group": null },
@@ -638,6 +638,38 @@
     "tags": ["walkman","delta","rob-hubbard","thalamus","a500","amiga","future-composer","chiptune","8bit","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v4-walkman-rob-hubbard.m4r"
+  },
+  {
+    "id": "delta-c64-v5",
+    "title": "Delta",
+    "variant": 5,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": "Walkman", "name": "Tor Gausen", "group": null },
+    "production": null,
+    "category": "VARIOUS CRACKTROS",
+    "year": 1991,
+    "publisher": null,
+    "sampling": { "title": "Delta", "artist": "Rob Hubbard", "year": 1987 },
+    "tags": ["walkman","delta","rob-hubbard","thalamus","a500","amiga","future-composer","chiptune","8bit","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v5-walkman-rob-hubbard.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v5-walkman-rob-hubbard.m4r"
+  },
+  {
+    "id": "delta-c64-v6",
+    "title": "Delta",
+    "variant": 6,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": "Walkman", "name": "Tor Gausen", "group": null },
+    "production": null,
+    "category": "VARIOUS CRACKTROS",
+    "year": 1991,
+    "publisher": null,
+    "sampling": { "title": "Delta", "artist": "Rob Hubbard", "year": 1987 },
+    "tags": ["walkman","delta","rob-hubbard","thalamus","a500","amiga","future-composer","chiptune","8bit","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v6-walkman-rob-hubbard.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/delta-a500-v6-walkman-rob-hubbard.m4r"
   }
 
 ]
