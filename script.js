@@ -94,7 +94,14 @@ function render() {
   container.innerHTML = "";
   renderIndex = 0;
 
-  const q = norm(document.getElementById("search").value);
+  const searchInput = document.getElementById("search");
+  const q = norm(searchInput.value);
+
+  /* show/hide clear button */
+  const clearBtn = document.getElementById("search-clear");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !q);
+  }
 
   currentFilteredTracks = tracks.filter((t) => {
     const matchesPlatform =
@@ -128,7 +135,6 @@ function render() {
     const bv = sortValue(b);
     if (av < bv) return -1;
     if (av > bv) return 1;
-    /* tie-breaker by title */
     const at = norm(a.title);
     const bt = norm(b.title);
     if (at < bt) return -1;
@@ -136,8 +142,24 @@ function render() {
     return 0;
   });
 
-  document.getElementById("results-info").textContent =
-    `${currentFilteredTracks.length} tracks found`;
+  /* RESULTS INFO + FILTER NOTE */
+  const resultsInfo = document.getElementById("results-info");
+  if (resultsInfo) {
+    const count = currentFilteredTracks.length;
+    const word = count === 1 ? "track" : "tracks";
+
+    let platformLabel = "ALL";
+    if (currentFilter === "c64") platformLabel = "C64";
+    else if (currentFilter === "a500") platformLabel = "AMIGA";
+    else if (currentFilter === "pc") platformLabel = "PC";
+
+    let typeLabel = "ALL TYPES";
+    if (currentTypeFilter === "Ringtone") typeLabel = "RINGTONES";
+    else if (currentTypeFilter === "Notification") typeLabel = "NOTIFICATIONS";
+
+    resultsInfo.textContent =
+      `${count} ${word} found (filter: ${platformLabel}, ${typeLabel})`;
+  }
 
   renderNextChunk();
   setupObserver();
@@ -200,7 +222,7 @@ function buildTrack(t) {
 
   titleRow.append(title, meta);
 
-  /* LINE 2: COMPOSER */
+  /* LINE 2: COMPOSER LINE (cases a & b) */
   const line2 = document.createElement("div");
   line2.className = "track-line";
 
@@ -208,41 +230,68 @@ function buildTrack(t) {
   const handle = safe(comp.handle);
   const name = safe(comp.name);
   const group = safe(comp.group);
+  const year = t.year != null ? String(t.year) : "";
 
-  if (handle && name && group) {
-    line2.textContent = `${handle} (${name}) – ${group}`;
-  } else if (handle && name && !group) {
-    line2.textContent = `${handle} (${name})`;
-  } else if (!handle && name && group) {
-    line2.textContent = `${name} – ${group}`;
-  } else if (!handle && name && !group) {
-    line2.textContent = name;
-  } else if (handle && !name && group) {
-    line2.textContent = `${handle} – ${group}`;
-  } else if (handle && !name && !group) {
-    line2.textContent = handle;
-  } else if (!handle && !name && group) {
-    line2.textContent = group;
-  } else {
+  const hasSampling =
+    t.sampling &&
+    (t.sampling.title || t.sampling.artist || t.sampling.year);
+
+  if (!handle && !name && !group && !year) {
     line2.textContent = "";
+  } else if (!hasSampling) {
+    /* Case (a): no sampling → handle (name) – group */
+    const bits = [];
+    if (handle || name) {
+      bits.push(handle && name ? `${handle} (${name})` : handle || name);
+    }
+    if (group) {
+      bits.push(`– ${group}`);
+    }
+    /* no year here per your example for case (a) */
+    line2.textContent = bits.join(" ");
+  } else {
+    /* Case (b): sampling exists → handle (name), year */
+    const bits = [];
+    if (handle || name) {
+      bits.push(handle && name ? `${handle} (${name})` : handle || name);
+    }
+    if (year) bits.push(year);
+    line2.textContent = bits.join(", ");
   }
 
   /* LINE 3: PRODUCTION (publisher, year) */
   const line3 = document.createElement("div");
   line3.className = "track-line";
   line3.textContent =
-    `${safe(t.production)} (${safe(t.publisher)}, ${safe(t.year)})`;
+    `${safe(t.production)} (${safe(t.publisher)}, ${year})`;
 
-  /* LINE 4: SAMPLING (optional) */
+  /* LINE 4: SAMPLING (if any) */
   let line4 = null;
-  if (
-    t.sampling &&
-    (t.sampling.title || t.sampling.artist || t.sampling.year)
-  ) {
+  if (hasSampling) {
     line4 = document.createElement("div");
     line4.className = "track-line";
+
+    const sTitle = safe(t.sampling.title);
+    const sArtist = safe(t.sampling.artist);
+    const sYear = t.sampling.year != null ? String(t.sampling.year) : "";
+
+    let sampleText = "";
+    if (sTitle) {
+      if (sArtist || sYear) {
+        const inner = [sArtist, sYear].filter(Boolean).join(", ");
+        sampleText = `${sTitle}${inner ? ` (${inner})` : ""}`;
+      } else {
+        sampleText = sTitle;
+      }
+    } else {
+      const inner = [sArtist, sYear].filter(Boolean).join(", ");
+      sampleText = inner ? inner : "";
+    }
+
     line4.textContent =
-      `Contains elements from ${safe(t.sampling.title)} (${safe(t.sampling.artist)}, ${safe(t.sampling.year)})`;
+      sampleText ?
+      `Contains elements from: ${sampleText}` :
+      "";
   }
 
   /* AUDIO */
@@ -297,7 +346,9 @@ function buildTrack(t) {
 
   /* ASSEMBLE CARD */
   card.append(titleRow, line2, line3);
-  if (line4) card.append(line4);
+  if (hasSampling && line4 && line4.textContent.trim()) {
+    card.append(line4);
+  }
   card.append(audio, actions);
 
   return card;
@@ -327,9 +378,19 @@ function dlBtn(url, icon, label) {
 
 /* INIT */
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .getElementById("search")
-    .addEventListener("input", render);
+  const searchInput = document.getElementById("search");
+  const clearBtn = document.getElementById("search-clear");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", render);
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      render();
+    });
+  }
 
   document
     .querySelectorAll(".filters-platform button[data-filter]")
