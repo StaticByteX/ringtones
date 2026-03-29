@@ -47,22 +47,6 @@
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/aryx-amiga-v3-karsten-koch.m4r"
   },
-  {    
-    "id": "aryx-amiga-v4",
-    "title": "Aryx",
-    "variant": 4,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": null, "name": "Karsten Koch", "group": null },
-    "production": null,
-    "category": null,
-    "year": 1995,
-    "publisher": "Karsten Koch",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["aryx","karsten-koch","a500","amiga","tracker","demoscene"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.m4r"
-  },
   {
     "id": "astaroth-ingame-amiga-v1",
     "title": "Astaroth Ingame",
