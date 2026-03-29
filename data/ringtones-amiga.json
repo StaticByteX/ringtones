@@ -558,6 +558,70 @@
     "tags": ["daisy-chain-2","rhesus-minus","martin-schioeler","third-dimension","cryptoburners","a500","tracker","demoscene","retro"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-2-amiga-v7-rhesus-minus.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-2-amiga-v7-rhesus-minus.m4r"
+  },
+  {
+    "id": "defender-of-the-crown-amiga-v1",
+    "title": "Defender of the Crown",
+    "variant": 1,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jim Cuomo", "group": null },
+    "production": "Defender of the Crown",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Cinemaware",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["defender-of-the-crown","jim-cuomo","cinemaware","a500","amiga","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v1-jim-cuomo.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v1-jim-cuomo.m4r"
+  },
+  {
+    "id": "defender-of-the-crown-amiga-v2",
+    "title": "Defender of the Crown",
+    "variant": 2,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jim Cuomo", "group": null },
+    "production": "Defender of the Crown",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Cinemaware",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["defender-of-the-crown","jim-cuomo","cinemaware","a500","amiga","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v2-jim-cuomo.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v2-jim-cuomo.m4r"
+  },
+  {
+    "id": "defender-of-the-crown-amiga-v3",
+    "title": "Defender of the Crown",
+    "variant": 3,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jim Cuomo", "group": null },
+    "production": "Defender of the Crown",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Cinemaware",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["defender-of-the-crown","jim-cuomo","cinemaware","a500","amiga","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v3-jim-cuomo.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v3-jim-cuomo.m4r"
+  },
+  {
+    "id": "defender-of-the-crown-amiga-v4",
+    "title": "Defender of the Crown",
+    "variant": 4,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jim Cuomo", "group": null },
+    "production": "Defender of the Crown",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Cinemaware",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["defender-of-the-crown","jim-cuomo","cinemaware","a500","amiga","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v4-jim-cuomo.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/defender-of-the-crown-amiga-v4-jim-cuomo.m4r"
   }
-   
+
 ]
