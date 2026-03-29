@@ -7,29 +7,27 @@
   <title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
 
   <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
-
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header class="site-header">
     <img
-      class="logo"
       src="assets/staticbytex-logo.png"
       alt="StaticByteX logo"
-      width="330"
-      height="auto"
+      class="logo"
     />
   </header>
 
   <main class="site-main">
     <h1>Retro Ringtones &amp; Notification Sounds</h1>
-    <p class="subtitle platform-line">Commodore 64 • Amiga 500 • DOS/Windows PC</p>
+    <p class="subtitle platform-line">
+      Commodore 64 • Amiga 500 • DOS/Windows PC
+    </p>
 
     <input
       type="text"
@@ -41,43 +39,45 @@
     />
 
     <div class="filters" aria-label="Platform filters">
-      <button id="btn-all" class="active" type="button" data-filter="all">ALL</button>
-      <button id="btn-c64" type="button" data-filter="c64">C64</button>
-      <button id="btn-a500" type="button" data-filter="a500">AMIGA</button>
-      <button id="btn-pc" type="button" data-filter="pc">PC</button>
+      <button class="active" data-filter="all">ALL</button>
+      <button data-filter="c64">C64</button>
+      <button data-filter="a500">AMIGA</button>
+      <button data-filter="pc">PC</button>
     </div>
 
     <div class="filters filters-type" aria-label="Type filters">
-      <button id="btn-type-all" class="active" type="button" data-type-filter="all">ALL TYPES</button>
-      <button id="btn-type-ringtone" type="button" data-type-filter="Ringtone">RINGTONES</button>
-      <button id="btn-type-notification" type="button" data-type-filter="Notification">NOTIFICATIONS</button>
+      <button class="active" data-type-filter="all">ALL TYPES</button>
+      <button data-type-filter="Ringtone">RINGTONES</button>
+      <button data-type-filter="Notification">NOTIFICATIONS</button>
     </div>
 
-    <p id="results-info" class="subtitle results-info" aria-live="polite"></p>
-    <p id="ios-hint" class="subtitle ios-hint" aria-live="polite"></p>
+    <p id="results-info" class="results-info"></p>
+    <p id="ios-hint" class="subtitle ios-hint"></p>
 
     <div id="tracklist" aria-label="Track list"></div>
   </main>
 
   <footer class="site-footer">
-    <p class="subtitle submit-line">Submit your ringtone suggestions on Instagram ↓</p>
+    <p class="subtitle submit-line">
+      Submit your ringtone suggestions on Instagram ↓
+    </p>
+
     <a
-      class="footer-link"
       href="https://www.instagram.com/staticbytex/"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="StaticByteX on Instagram"
+      class="footer-link"
     >
       <img
-        class="qr"
         src="assets/staticbytex-qr-code.png"
-        alt="StaticByteX QR code"
-        width="184"
-        height="auto"
+        alt="StaticByteX Instagram QR code"
+        class="qr"
       />
     </a>
 
-    <p class="subtitle footer-line">Retro ringtones • C64/A500/PC • 100% free • No app required</p>
+    <p class="subtitle footer-line">
+      Retro ringtones • C64/A500/PC • 100% free • Always
+    </p>
   </footer>
 
   <script src="script.js"></script>
