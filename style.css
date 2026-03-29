@@ -1,182 +1,242 @@
+/* ================================
+   RESET & VARIABLES
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  --bg:#0a0a0a;
-  --panel:#111;
-  --panel-2:#0f0f0f;
-  --text:#fff;
-  --muted:#aaa;
-  --border:#222;
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --panel-2: #0f0f0f;
+  --text: #ffffff;
+  --muted: #aaaaaa;
+  --border: #222222;
 
-  --c64:#f2f540;
-  --a500:#fcc100;
-  --pc:#ff66ff;
+  --c64: #f2f540;
+  --a500: #fcc100;
+  --pc: #ff66ff;
 
-  --ringtone:#48cc31;
-  --notification:#fd7801;
+  --ringtone: #48cc31;
+  --notification: #fd7801;
 }
 
-/* Base */
-* { box-sizing:border-box; margin:0; padding:0; }
-
+/* ================================
+   BASE LAYOUT
+================================ */
 body {
-  font-family:"IBM Plex Mono", monospace;
-  background:var(--bg);
-  color:var(--text);
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-.site-header,.site-footer {
-  text-align:center;
-  padding:20px;
+.site-header,
+.site-footer {
+  text-align: center;
+  padding: 20px;
 }
 
 .site-main {
-  max-width:700px;
-  margin:0 auto;
-  padding:20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.site-main > * + * { margin-top:16px; }
+.site-main > * + * {
+  margin-top: 16px;
+}
 
-.logo { width:220px; }
-.qr { width:160px; margin-top:10px; }
+/* ================================
+   TYPOGRAPHY
+================================ */
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
 
-h1 { font-size:24px; font-weight:600; }
-.subtitle { color:var(--muted); font-size:12px; }
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
 
-.platform-line { font-size:14px; }
-.results-info { font-size:14px; color:#fff; }
+.platform-line {
+  font-size: 14px;
+}
 
+.results-info {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* ================================
+   SEARCH
+================================ */
 #search {
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  background:#101010;
-  border:1px solid #333;
-  color:#fff;
-  font-family:"Segoe UI",system-ui;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: #101010;
+  border: 1px solid #333333;
+  color: #ffffff;
+  font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-/* Filters */
+/* ================================
+   FILTERS
+================================ */
 .filters {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .filters button {
-  background:#0e0e0e;
-  border:1px solid #444;
-  color:#f5f5f5;
-  padding:10px 12px;
-  border-radius:10px;
-  font-family:"Segoe UI",system-ui;
-  font-size:13px;
-  font-weight:400;
-  text-transform:uppercase;
-  cursor:pointer;
+  background: #0e0e0e;
+  border: 1px solid #444444;
+  color: #f5f5f5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
-.filters button.active { border-color:#fff; }
+.filters button.active {
+  border-color: #ffffff;
+}
 
-/* Track card */
+/* ================================
+   TRACK LIST
+================================ */
+#tracklist {
+  margin-top: 4px;
+  text-align: left;
+}
+
 .track {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:14px;
-  margin-bottom:16px;
-  transition:transform .15s ease;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  transition: transform 0.15s ease;
 }
 
-.track:hover { transform:scale(1.005); }
+.track:hover {
+  transform: scale(1.005);
+}
 
-/* Title row */
+/* ================================
+   TITLE ROW
+================================ */
 .track-title {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .track-title-main {
-  font-size:16px;
-  font-weight:600;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .track-inline-meta {
-  display:flex;
-  gap:6px;
-  margin-left:8px;
+  display: flex;
+  gap: 6px;
+  margin-left: 8px;
 }
 
 .inline-box {
-  border:1px solid currentColor;
-  padding:1px 6px;
-  border-radius:6px;
-  font-family:"Segoe UI",system-ui;
-  font-size:11px;
-  font-weight:400;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 1px 6px;
+
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
 }
 
-/* Lines */
+/* ================================
+   META LINES
+================================ */
 .track-line {
-  font-size:13px;
-  color:#bbb;
-  margin-top:4px;
+  font-size: 13px;
+  color: #bbbbbb;
+  margin-top: 4px;
 }
 
-/* Audio */
-audio { width:100%; margin-top:10px; }
+/* ================================
+   AUDIO
+================================ */
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
 
-/* Actions row */
+/* ================================
+   ACTIONS ROW
+================================ */
 .track-actions {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
 }
 
 .actions-left {
-  display:flex;
-  gap:8px;
+  display: flex;
+  gap: 8px;
 }
 
 .download-btn {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:6px 10px;
-  border:1px solid #444;
-  border-radius:8px;
-  background:#101010;
-  color:#ddd;
-  text-decoration:none;
-  font-family:"Segoe UI",system-ui;
-  font-size:12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #101010;
+  border: 1px solid #444444;
+  color: #dddddd;
+  text-decoration: none;
+
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
 }
 
 .download-btn img {
-  width:14px;
-  height:14px;
+  width: 14px;
+  height: 14px;
 }
 
-/* Type badge */
+/* ================================
+   TYPE BADGE
+================================ */
 .track-type {
-  border:1px solid;
-  padding:3px 8px;
-  border-radius:8px;
-  font-family:"Segoe UI",system-ui;
-  font-size:11px;
-  font-weight:400;
-  text-transform:uppercase;
+  border: 1px solid;
+  padding: 3px 8px;
+  border-radius: 8px;
+
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .track-type.ringtone {
-  color:var(--ringtone);
-  border-color:var(--ringtone);
+  color: var(--ringtone);
+  border-color: var(--ringtone);
 }
 
 .track-type.notification {
-  color:var(--notification);
-  border-color:var(--notification);
+  color: var(--notification);
+  border-color: var(--notification);
 }
