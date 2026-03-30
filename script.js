@@ -142,7 +142,7 @@ function render() {
     return 0;
   });
 
-  /* RESULTS INFO + FILTER NOTE */
+  /* RESULTS INFO + FILTER NOTE + ACCENT COLOR */
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
     const count = currentFilteredTracks.length;
@@ -155,10 +155,17 @@ function render() {
 
     let typeLabel = "ALL TYPES";
     if (currentTypeFilter === "Ringtone") typeLabel = "RINGTONES";
-    else if (currentTypeFilter === "Notification") typeLabel = "NOTIFICATIONS";
+    else if (currentTypeFilter === "Notification")
+      typeLabel = "NOTIFICATIONS";
 
-    resultsInfo.textContent =
-      `${count} ${word} found (filter: ${platformLabel}, ${typeLabel})`;
+    let accentColor = "#ffffff";
+    if (currentFilter === "c64") accentColor = "#f2f540";
+    else if (currentFilter === "a500") accentColor = "#fcc100"; // golden yellow
+    else if (currentFilter === "pc") accentColor = "#ff66ff";
+
+    resultsInfo.innerHTML =
+      `<span class="count-accent" style="color:${accentColor}">${count}</span> ` +
+      `${word} found (filter: ${platformLabel}, ${typeLabel})`;
   }
 
   renderNextChunk();
@@ -202,7 +209,7 @@ function buildTrack(t) {
   const color = platformColor(t.platform);
 
   const card = document.createElement("div");
-  card.className = "track";
+  card.className = `track ${t.platform.toLowerCase()}`;
 
   /* LINE 1: TITLE + INLINE META */
   const titleRow = document.createElement("div");
@@ -216,13 +223,13 @@ function buildTrack(t) {
   const meta = document.createElement("div");
   meta.className = "track-inline-meta";
 
-  if (t.category) meta.appendChild(inlineBox(t.category));
+  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
   meta.appendChild(inlineBox(t.platform));
   meta.appendChild(inlineBox(`v${t.variant}`));
 
   titleRow.append(title, meta);
 
-  /* LINE 2: COMPOSER LINE (cases a & b) */
+  /* LINE 2: COMPOSER LINE (your rule a & b) */
   const line2 = document.createElement("div");
   line2.className = "track-line";
 
@@ -239,31 +246,42 @@ function buildTrack(t) {
   if (!handle && !name && !group && !year) {
     line2.textContent = "";
   } else if (!hasSampling) {
-    /* Case (a): no sampling → handle (name) – group */
-    const bits = [];
+    // Case (a): all sampling fields null → "handle (name) – group"
+    const parts = [];
     if (handle || name) {
-      bits.push(handle && name ? `${handle} (${name})` : handle || name);
+      parts.push(handle && name ? `${handle} (${name})` : handle || name);
     }
     if (group) {
-      bits.push(`– ${group}`);
+      parts.push(`– ${group}`);
     }
-    /* no year here per your example for case (a) */
-    line2.textContent = bits.join(" ");
+    line2.textContent = parts.join(" ");
   } else {
-    /* Case (b): sampling exists → handle (name), year */
-    const bits = [];
+    // Case (b): at least one sampling field non-null → "handle (name), year"
+    const parts = [];
     if (handle || name) {
-      bits.push(handle && name ? `${handle} (${name})` : handle || name);
+      parts.push(handle && name ? `${handle} (${name})` : handle || name);
     }
-    if (year) bits.push(year);
-    line2.textContent = bits.join(", ");
+    if (year) {
+      parts.push(year);
+    }
+    line2.textContent = parts.join(", ");
   }
 
-  /* LINE 3: PRODUCTION (publisher, year) */
+  /* LINE 3: PRODUCTION (publisher, year) robust */
   const line3 = document.createElement("div");
   line3.className = "track-line";
-  line3.textContent =
-    `${safe(t.production)} (${safe(t.publisher)}, ${year})`;
+
+  const prod = safe(t.production);
+  const pub = safe(t.publisher);
+  const metaBits = [];
+  if (pub) metaBits.push(pub);
+  if (year) metaBits.push(year);
+
+  let prodText = prod;
+  if (metaBits.length) {
+    prodText += (prodText ? " " : "") + `(${metaBits.join(", ")})`;
+  }
+  line3.textContent = prodText;
 
   /* LINE 4: SAMPLING (if any) */
   let line4 = null;
@@ -289,9 +307,7 @@ function buildTrack(t) {
     }
 
     line4.textContent =
-      sampleText ?
-      `Contains elements from: ${sampleText}` :
-      "";
+      sampleText ? `Contains elements from: ${sampleText}` : "";
   }
 
   /* AUDIO */
@@ -326,7 +342,7 @@ function buildTrack(t) {
   const left = document.createElement("div");
   left.className = "actions-left";
 
-  /* On iOS, hide MP3 button entirely */
+  // On iOS, hide MP3 button entirely
   if (!isIOS && t.file_mp3) {
     left.appendChild(
       dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3")
