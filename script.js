@@ -160,7 +160,7 @@ function render() {
 
     let accentColor = "#ffffff";
     if (currentFilter === "c64") accentColor = "#f2f540";
-    else if (currentFilter === "a500") accentColor = "#fcc100"; // golden yellow
+    else if (currentFilter === "a500") accentColor = "#0094ff";
     else if (currentFilter === "pc") accentColor = "#ff66ff";
 
     resultsInfo.innerHTML =
@@ -229,6 +229,21 @@ function buildTrack(t) {
 
   titleRow.append(title, meta);
 
+  /* PLATFORM LOGO */
+  const logo = document.createElement("img");
+  logo.className = "track-platform-logo";
+  if (t.platform === "C64") {
+    logo.src = "assets/c64-logo.png";
+    logo.alt = "C64 logo";
+  } else if (t.platform === "A500") {
+    logo.src = "assets/a500-logo.png";
+    logo.alt = "Amiga logo";
+  } else if (t.platform === "PC") {
+    logo.src = "assets/pc-logo.png";
+    logo.alt = "PC logo";
+  }
+  card.appendChild(logo);
+
   /* LINE 2: COMPOSER LINE (your rule a & b) */
   const line2 = document.createElement("div");
   line2.className = "track-line";
@@ -256,15 +271,12 @@ function buildTrack(t) {
     }
     line2.textContent = parts.join(" ");
   } else {
-    // Case (b): at least one sampling field non-null → "handle (name), year"
+    // Case (b): at least one sampling field non-null → "handle (name)" (no year)
     const parts = [];
     if (handle || name) {
       parts.push(handle && name ? `${handle} (${name})` : handle || name);
     }
-    if (year) {
-      parts.push(year);
-    }
-    line2.textContent = parts.join(", ");
+    line2.textContent = parts.join(" ");
   }
 
   /* LINE 3: PRODUCTION (publisher, year) robust */
