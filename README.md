@@ -1,158 +1,76 @@
-# StaticByteX | Free Retro Game and Demoscene Ringtone Library
+# 📢 **StaticByteX — Retro Ringtones Reloaded**
 
-![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-blue)
-![Cloudflare R2](https://img.shields.io/badge/storage-Cloudflare%20R2-orange)
-![Static Site](https://img.shields.io/badge/site-static-brightgreen)
-![License](https://img.shields.io/badge/license-metadata%20only-lightgrey)
+Bring the sound of the Commodore 64, Amiga 500, and early PC demos straight to your modern phone.
 
-A free web-based ringtone library focused on **retro game music and demoscene classics**.
+StaticByteX is a curated collection of **ringtones and notification sounds** inspired by the legendary game, demoscene, and tracker era — lovingly remade for today’s devices.
 
-Users can **search, preview, and download ringtones directly in their browser** — no apps required.
+***
 
----
+## 🎶 What You Get
 
-# Live Demo
+*   Authentic **C64 SID‑style**, **Amiga Paula‑style**, and **AdLib/Sound Blaster‑style** tones
+*   Clean UI for browsing **Hundreds of tracks**
+*   Instant **MP3** (Android) and **M4R** (iPhone) downloads
+*   Platform‑correct colors + tiny retro **C64 / A500 / PC logos**
+*   Always free. No ads. No nonsense.
 
-https://staticbytex.github.io/ringtones/
+***
 
----
+## 🔍 Find Your Sound Fast
 
-# Features
+*   **Search** across titles, composers, productions, groups, publishers, and tags
+*   **Filter** by platform (C64, AMIGA, PC)
+*   **Filter** by type (Ringtones / Notifications)
+*   **Sort** by title, composer, production, or publisher
 
-* mobile-friendly design
-* instant audio preview
-* direct download
-* fast search
-* infinite scroll (auto loading)
-* scalable to thousands of ringtones
+Everything is optimized for quick scanning.
 
----
+***
 
-# Architecture
+## 📱 Designed for Mobile
 
-The project is fully static:
+*   Centered, touch‑friendly filter buttons
+*   Larger logo & QR code on mobile
+*   Only **M4R** is shown on iOS (to avoid Safari auto‑playing MP3s)
+*   Both MP3 + M4R shown on Android/desktop
 
-GitHub Pages hosts the website
-Cloudflare R2 hosts the audio files
+***
 
-```id="8m0h8d"
-GitHub Pages
-     ↓
-JSON database
-     ↓
-Cloudflare R2 (MP3 files)
-```
+## 🎼 Smart Metadata Formatting
 
----
+*   Composer + group automatically structured
+*   Production line cleaned to remove empty fields
+*   Sampling credits shown only when present:
+        Contains elements from: <Title> (Artist, Year)
 
-# Data Structure
+***
 
-Each ringtone is stored as a JSON object.
+## 📦 Technology
 
-Example:
+*   Static front‑end (HTML, CSS, JavaScript)
+*   Lazy‑loading for seamless scrolling
+*   JSON‑driven track data
+*   Pure client‑side
+*   No frameworks required
 
-```id="m2k7wq"
-{
-  "id": "global-trash-3-v2-a500-v6",
-  "title": "Global Trash 3 v2",
-  "variant": 6,
-  "platform": "Amiga 500",
-  "composer": {
-    "handle": "Jesper Kyd",
-    "name": "Jesper Kyd",
-    "group": "Silents"
-  },
-  "production": "Hardwired",
-  "category": "Demo",
-  "year": 1991,
-  "publisher": "Crionics & Silents",
-  "sampling": {
-    "title": "Panther",
-    "artist": "David Whittaker",
-    "year": 1986
-  },
-  "tags": [
-    "hardwired",
-    "global",
-    "trash",
-    "jesper-kyd",
-    "silents",
-    "crionics",
-    "panther",
-    "david",
-    "whittaker",
-    "amiga",
-    "a500",
-    "demoscene"
-  ],
-  "file": "https://bucket.r2.dev/ringtones/a500/hardwired-a500-v6-jesper-kyd.mp3"
-}
-```
+***
 
----
+## 💡 Inspiration
 
-# File Structure
+StaticByteX celebrates the artists who shaped the sound of home computing:  
+Ben Daglish, Rob Hubbard, Chris Hülsbeck, Martin Galway, David Whittaker, Jesper Kyd, Matthew Simmonds (4mat), Jeroen Tel (WAVE), Jonne Valtonen (Purple Motion), Peter Hajba (Skaven), and many more.
 
-```id="qk6f9u"
-index.html
-style.css
-script.js
+***
 
-data/
-  ringtones-amiga.json
-  ringtones-c64.json
-  ringtones-pc.json
-```
+## 📲 Try It
 
----
+Scan the QR code in the footer or visit the website to explore the full library.
 
-# Adding a Ringtone
+***
 
-1. Upload MP3 to Cloudflare R2
-2. Add entry to the correct JSON file
-3. Commit to GitHub
+## 🤝 Contribute
 
-Done.
+Got a ringtone suggestion? Send it on Instagram:  
+**<https://instagram.com/staticbytex>**
 
----
-
-# Naming Convention
-
-```id="tnu1g4"
-title-platform-vX-composer.mp3
-```
-
-Example:
-
-```id="3q3r4j"
-delta-c64-v1-rob-hubbard.mp3
-```
-
----
-
-# Performance
-
-The site uses:
-
-* lazy loading (infinite scroll)
-* audio preload disabled
-* split JSON files
-
-This ensures fast performance even with **1000+ ringtones**.
-
----
-
-# Goals
-
-* build a large retro ringtone archive
-* preserve classic game music
-* make installation simple
-* provide a fast and open alternative to ringtone apps
-
----
-
-# License
-
-Metadata and website code only.
-
-Audio rights belong to original composers and publishers.
+***
