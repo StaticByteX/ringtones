@@ -10,7 +10,7 @@ StaticByteX is a curated collection of **ringtones and notification sounds** ins
 
 *   Authentic **C64 SID‑style**, **Amiga Paula‑style**, and **AdLib/Sound Blaster‑style** tones
 *   Clean UI for browsing **Hundreds of tracks**
-*   Instant **MP3** (Android) and **M4R** (iPhone) downloads
+*   Instant **MP3** (Android) and **M4R** (iOS) downloads
 *   Platform‑correct colors + tiny retro **C64 / A500 / PC logos**
 *   Always free. No ads. No nonsense.
 
@@ -58,7 +58,7 @@ Everything is optimized for quick scanning.
 ## 💡 Inspiration
 
 StaticByteX celebrates the artists who shaped the sound of home computing:  
-Ben Daglish, Rob Hubbard, Chris Hülsbeck, Martin Galway, David Whittaker, Jesper Kyd, Matthew Simmonds (4mat), Jeroen Tel (WAVE), Jonne Valtonen (Purple Motion), Peter Hajba (Skaven), and many more.
+Ben Daglish, Rob Hubbard, Chris Hülsbeck, Martin Galway, David Whittaker, Jesper Kyd, Matthew Simmonds (4mat), Jeroen Tel (WAVE), Tor Gausen (Walkman), Jimmy Fredriksson (Firefox), Jonne Valtonen (Purple Motion), Peter Hajba (Skaven), Nicolas Louis Vuillier (NHP), and many more.
 
 ***
 
