@@ -58,7 +58,7 @@ Everything is optimized for quick scanning.
 ## 💡 Inspiration
 
 StaticByteX celebrates the artists who shaped the sound of home computing:  
-Ben Daglish, Rob Hubbard, Chris Hülsbeck, Martin Galway, David Whittaker, Jesper Kyd, Matthew Simmonds (4mat), Jeroen Tel (WAVE), Tor Gausen (Walkman), Jimmy Fredriksson (Firefox), Jonne Valtonen (Purple Motion), Peter Hajba (Skaven), Nicolas Louis Vuillier (NHP), and many more.
+Ben Daglish, Rob Hubbard, Chris Hülsbeck, Martin Galway, David Whittaker, Jesper Kyd, Matthew Simmonds (4mat), Jochen Feldkötter (Virgill), Volker Tripp (Jester), Jeroen Tel (WAVE), Tor Gausen (Walkman), Jimmy Fredriksson (Firefox), Jonne Valtonen (Purple Motion), Peter Hajba (Skaven), Nicolas Louis Vuillier (NHP), and many more.
 
 ***
 
