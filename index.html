@@ -2,15 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewportByteX – Retro Ringtones</title>  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>StaticByteX | Retro Ringtones for C64/A500/PC</title>
-
-  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="icon" href="assets/staticbytex-favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,55 +12,47 @@
   <header class="site-header">
     <img
       src="assets/staticbytex-logo.png"
-      alt="StaticByteX logo"
+      alt="StaticByteX"
       class="logo"
     />
   </header>
 
   <main class="site-main">
-    <h1>Retro Ringtones &amp; Notification Sounds</h1>
-    <p class="subtitle platform-line">
+    <h1>Retro Ringtones & Notification Sounds</h1>
+
+    <p class="platform-line">
       Commodore 64 • Amiga 500 • DOS/Windows PC
     </p>
 
-    <!-- Search with clear button -->
+    <!-- Search -->
     <div class="search-wrapper">
       <input
         type="text"
         id="search"
-        placeholder="Search title, composer, name, group, production, year, publisher..."
-        autocomplete="off"
-        spellcheck="false"
-        aria-label="Search tracks"
+        placeholder="Search title, composer, production, publisher…"
       />
-      <button
-        type="button"
-        id="search-clear"
-        class="search-clear"
-        aria-label="Clear search"
-      >
-        ×
-      </button>
+      <button id="search-clear" class="search-clear hidden">×</button>
     </div>
 
-    <!-- Platform + Type filters on same row -->
+    <!-- FILTERS -->
     <div class="filters-row">
-      <div class="filters filters-platform" aria-label="Platform filters">
+      <div class="filters filters-platform">
         <button class="active" data-filter="all">ALL</button>
         <button data-filter="c64">C64</button>
         <button data-filter="a500">AMIGA</button>
-        <button data-filter="pc">PC</button>
+        <button data-filter="dos">DOS</button>
+        <button data-filter="win">WIN</button>
       </div>
 
-      <div class="filters filters-type" aria-label="Type filters">
+      <div class="filters filters-type">
         <button class="active" data-type-filter="all">ALL TYPES</button>
         <button data-type-filter="Ringtone">RINGTONES</button>
         <button data-type-filter="Notification">NOTIFICATIONS</button>
       </div>
     </div>
 
-    <!-- Sort bar -->
-    <div class="sort-row" aria-label="Sort options">
+    <!-- SORT -->
+    <div class="sort-row">
       <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
         <button class="active" data-sort="title">TITLE</button>
@@ -79,31 +65,18 @@
     </div>
 
     <p id="results-info" class="results-info"></p>
-    <p id="ios-hint" class="subtitle ios-hint"></p>
 
-    <div id="tracklist" aria-label="Track list"></div>
+    <div id="tracklist"></div>
   </main>
 
   <footer class="site-footer">
-    <p class="subtitle submit-line">
-      Submit your ringtone suggestions on Instagram ↓
-    </p>
-
-    <a
-      href="https://www.instagram.com/staticbytex/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="footer-link"
-    >
-      <img
-        src="assets/staticbytex-qr-code.png"
-        alt="StaticByteX Instagram QR code"
-        class="qr"
-      />
-    </a>
-
-    <p class="subtitle footer-line">
-        Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX
+    <img
+      src="assets/staticbytex-qr-code.png"
+      alt="StaticByteX QR"
+      class="qr"
+    />
+    <p class="subtitle">
+      Submit your ringtone ideas on Instagram
     </p>
   </footer>
 
