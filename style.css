@@ -16,10 +16,10 @@
 
   --c64: #f2f540;
   --a500: #0094ff;
-  --dos: #ff66ff;
-  --win: #66c656;
+  --dos: #ff66ff;     /* DOS = magenta (same as old PC) */
+  --win: #66c656;     /* WIN = green */
 
-  --ringtone: #00818e;
+  --ringtone: #00818e;       /* requested */
   --notification: #fd7801;
 }
 
@@ -68,10 +68,6 @@ body {
   margin: 10px auto 0;
 }
 
-.qr-link {
-  display: inline-block; /* ✅ only QR is clickable */
-}
-
 /* ================================
    HEADERS
 ================================ */
@@ -82,7 +78,7 @@ h1 {
 }
 
 .platform-line {
-  font-size: 19px; /* ✅ one size bigger than 18 */
+  font-size: 18px; /* 1 size larger on desktop + mobile */
   text-align: center;
 }
 
@@ -95,22 +91,6 @@ h1 {
   font-size: 14px;
   color: #ffffff;
   text-align: center;
-}
-
-/* Footer text requested: same font/color/size as platform line */
-.footer-text {
-  font-size: 19px;
-  color: var(--muted);
-  text-align: center;
-  margin-top: 10px;
-}
-
-.footer-text-top {
-  margin-top: 0;
-}
-
-.footer-text-bottom {
-  margin-top: 12px;
 }
 
 /* ================================
@@ -159,6 +139,7 @@ h1 {
   gap: 12px;
 }
 
+/* separator between platform group and type group */
 .filters-sep {
   width: 1px;
   height: 28px;
@@ -180,6 +161,7 @@ h1 {
   padding: 10px 12px;
   border-radius: 10px;
   cursor: pointer;
+
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -213,20 +195,15 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center; /* ✅ vertical centering */
   gap: 8px;
+  align-items: center;
 }
 
-/* ✅ Segoe UI & vertically centered */
 .sort-label {
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center; /* ✅ vertical centering */
-  height: 28px; /* match button height visually */
 }
 
 .sort-buttons {
@@ -243,6 +220,7 @@ h1 {
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
+
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
@@ -254,7 +232,7 @@ h1 {
 }
 
 /* ================================
-   TRACK CARD
+   TRACK LIST & CARD
 ================================ */
 #tracklist {
   margin-top: 4px;
@@ -268,8 +246,14 @@ h1 {
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 16px;
+  transition: transform 0.15s ease;
 }
 
+.track:hover {
+  transform: scale(1.005);
+}
+
+/* title row */
 .track-title {
   display: flex;
   flex-wrap: wrap;
@@ -285,6 +269,7 @@ h1 {
 .track-inline-meta {
   display: flex;
   gap: 6px;
+  margin-left: 10px;
 }
 
 .inline-box {
@@ -294,24 +279,27 @@ h1 {
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
-/* platform logo */
+/* platform logo in card */
 .track-platform-logo {
   position: absolute;
   top: 8px;
   right: 8px;
   width: 26px;
+  height: auto;
   opacity: 0.85;
+  pointer-events: none;
 }
 
+/* meta lines */
 .track-line {
   font-size: 13px;
-  color: #bbb;
+  color: #bbbbbb;
   margin-top: 6px;
 }
 
+/* audio */
 audio {
   width: 100%;
   margin-top: 10px;
@@ -330,7 +318,6 @@ audio {
   gap: 8px;
 }
 
-/* ✅ MP3/M4R font fixed to Segoe UI */
 .download-btn {
   display: inline-flex;
   align-items: center;
@@ -341,7 +328,7 @@ audio {
   border: 1px solid #444;
   color: #ddd;
   text-decoration: none;
-  font-family: "Segoe UI", system-ui, sans-serif; /* ✅ */
+  font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 12px;
 }
 
@@ -350,20 +337,15 @@ audio {
   height: 14px;
 }
 
-/* ✅ RINGTONE/NOTIFICATION badge: Segoe UI + vertically centered */
+/* type badge */
 .track-type {
   border: 1px solid;
   padding: 3px 8px;
   border-radius: 8px;
-  font-family: "Segoe UI", system-ui, sans-serif; /* ✅ */
+  font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
-  display: inline-flex;          /* ✅ */
-  align-items: center;           /* ✅ vertical centering */
-  justify-content: center;
-  line-height: 1;                /* ✅ prevents “top aligned” look */
-  min-height: 22px;              /* ✅ stable vertical centering */
 }
 
 .track-type.ringtone {
@@ -377,7 +359,7 @@ audio {
 }
 
 /* ================================
-   MOBILE
+   MOBILE: center all 14 boxes (5 platform + 3 type + 6 sort)
 ================================ */
 @media (max-width: 700px) {
   .filters-row {
@@ -387,5 +369,10 @@ audio {
   .filters-sep {
     width: 40px;
     height: 1px;
+  }
+
+  .filters,
+  .sort-buttons {
+    justify-content: center;
   }
 }
