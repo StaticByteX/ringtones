@@ -25,24 +25,33 @@
 
   <main class="site-main">
     <h1>Retro Ringtones &amp; Notification Sounds</h1>
-
     <p class="subtitle platform-line">
       Commodore 64 • Amiga 500 • DOS • Windows
     </p>
 
+    <!-- Search with clear button -->
     <div class="search-wrapper">
       <input
         type="text"
         id="search"
-        placeholder="Search title, composer, production, publisher…"
+        placeholder="Search title, composer, name, group, production, year, publisher..."
         autocomplete="off"
         spellcheck="false"
+        aria-label="Search tracks"
       />
-      <button id="search-clear" class="search-clear">×</button>
+      <button
+        type="button"
+        id="search-clear"
+        class="search-clear hidden"
+        aria-label="Clear search"
+      >
+        ×
+      </button>
     </div>
 
+    <!-- Platform + Type filters on same row -->
     <div class="filters-row">
-      <div class="filters filters-platform">
+      <div class="filters filters-platform" aria-label="Platform filters">
         <button class="active" data-filter="all">ALL</button>
         <button data-filter="c64">C64</button>
         <button data-filter="a500">AMIGA</button>
@@ -50,14 +59,17 @@
         <button data-filter="win">WIN</button>
       </div>
 
-      <div class="filters filters-type">
+      <div class="filters-sep" aria-hidden="true"></div>
+
+      <div class="filters filters-type" aria-label="Type filters">
         <button class="active" data-type-filter="all">ALL TYPES</button>
         <button data-type-filter="Ringtone">RINGTONES</button>
         <button data-type-filter="Notification">NOTIFICATIONS</button>
       </div>
     </div>
 
-    <div class="sort-row">
+    <!-- Sort bar -->
+    <div class="sort-row" aria-label="Sort options">
       <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
         <button class="active" data-sort="title">TITLE</button>
@@ -71,15 +83,22 @@
 
     <p id="results-info" class="results-info"></p>
 
-    <div id="tracklist"></div>
+    <div id="tracklist" aria-label="Track list"></div>
   </main>
 
   <footer class="site-footer">
-    <img
-      src="assets/staticbytex-qr-code.png"
-      alt="StaticByteX Instagram QR"
-      class="qr"
-    />
+    <a
+      href="https://www.instagram.com/staticbytex/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-link"
+    >
+      <img
+        src="assets/staticbytex-qr-code.png"
+        alt="StaticByteX Instagram QR code"
+        class="qr"
+      />
+    </a>
   </footer>
 
   <script src="script.js"></script>
