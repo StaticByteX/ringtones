@@ -23,7 +23,6 @@
       Commodore 64 • Amiga 500 • DOS • Windows
     </p>
 
-    <!-- Search with clear button -->
     <div class="search-wrapper">
       <input
         type="text"
@@ -31,21 +30,12 @@
         placeholder="Search title, composer, name, group, production, year, publisher..."
         autocomplete="off"
         spellcheck="false"
-        aria-label="Search tracks"
       />
-      <button
-        type="button"
-        id="search-clear"
-        class="search-clear hidden"
-        aria-label="Clear search"
-      >
-        ×
-      </button>
+      <button id="search-clear" class="search-clear hidden">×</button>
     </div>
 
-    <!-- Platform + Type filters on same row -->
     <div class="filters-row">
-      <div class="filters filters-platform" aria-label="Platform filters">
+      <div class="filters filters-platform">
         <button class="active" data-filter="all">ALL</button>
         <button data-filter="c64">C64</button>
         <button data-filter="a500">AMIGA</button>
@@ -53,17 +43,14 @@
         <button data-filter="win">WIN</button>
       </div>
 
-      <div class="filters-sep" aria-hidden="true"></div>
-
-      <div class="filters filters-type" aria-label="Type filters">
+      <div class="filters filters-type">
         <button class="active" data-type-filter="all">ALL TYPES</button>
         <button data-type-filter="Ringtone">RINGTONES</button>
         <button data-type-filter="Notification">NOTIFICATIONS</button>
       </div>
     </div>
 
-    <!-- Sort bar -->
-    <div class="sort-row" aria-label="Sort options">
+    <div class="sort-row">
       <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
         <button class="active" data-sort="title">TITLE</button>
@@ -77,20 +64,19 @@
 
     <p id="results-info" class="results-info"></p>
 
-    <div id="tracklist" aria-label="Track list"></div>
+    <div id="tracklist"></div>
   </main>
 
   <footer class="site-footer">
-    <p class="footer-text footer-text-top">
+    <p class="subtitle submit-line">
       Submit your ringtone suggestions on Instagram ↓
     </p>
 
-    <!-- ✅ Only the QR itself is clickable -->
     https://www.instagram.com/staticbytex/
       assets/staticbytex-qr-code.png
     </a>
 
-    <p class="footer-text footer-text-bottom">
+    <p class="subtitle footer-line">
       Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX
     </p>
   </footer>
