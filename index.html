@@ -7,90 +7,99 @@
  Retro Ringtones for C64 / Amiga / DOS / Windows</title>
  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
  <link
- href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
- rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+  rel="stylesheet"
  />
  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
  <header class="site-header">
- <img
- src="assets/staticbytex-logo.png"
- alt="StaticByteX logo"
- class="logo"
- />
+  <img
+   src="assets/staticbytex-logo.png"
+   alt="StaticByteX logo"
+   class="logo"
+  />
  </header>
+
  <main class="site-main">
- <h1>Retro Ringtones & Notification Sounds</h1>
- <p class="subtitle platform-line">
- Commodore 64 • Amiga 500 • DOS • Windows
- </p>
- <!-- Search with clear button -->
- <div class="search-wrapper">
- <input
- type="text"
- id="search"
- placeholder="Search title, composer, name, group, production, year, publisher..."
- autocomplete="off"
- spellcheck="false"
- aria-label="Search tracks"
- />
- <button
- type="button"
- id="search-clear"
- class="search-clear hidden"
- aria-label="Clear search"
- >
- ×
- </button>
- </div>
- <!-- Platform + Type filters on same row -->
- <div class="filters-row">
- <div class="filters filters-platform" aria-label="Platform filters">
- <button class="active" data-filter="all">ALL</button>
- <button data-filter="c64">C64</button>
- <button data-filter="a500">AMIGA</button>
- <button data-filter="dos">DOS</button>
- <button data-filter="win">WIN</button>
- </div>
- <div class="filters-sep" aria-hidden="true"></div>
- <div class="filters filters-type" aria-label="Type filters">
- <button class="active" data-type-filter="all">ALL TYPES</button>
- <button data-type-filter="Ringtone">RINGTONES</button>
- <button data-type-filter="Notification">NOTIFICATIONS</button>
- </div>
- </div>
- <!-- Sort bar -->
- <div class="sort-row" aria-label="Sort options">
- <span class="sort-label">SORT BY:</span>
- <div class="sort-buttons">
- <button class="active" data-sort="title">TITLE</button>
- <button data-sort="handle">HANDLE</button>
- <button data-sort="name">NAME</button>
- <button data-sort="group">GROUP</button>
- <button data-sort="production">PRODUCTION</button>
- <button data-sort="publisher">PUBLISHER</button>
- </div>
- </div>
- <p id="results-info" class="results-info"></p>
- <div id="tracklist" aria-label="Track list"></div>
+  <h1>Retro Ringtones & Notification Sounds</h1>
+  <p class="subtitle platform-line">
+   Commodore 64 • Amiga 500 • DOS • Windows
+  </p>
+
+  <!-- Search with clear button -->
+  <div class="search-wrapper">
+   <input
+    type="text"
+    id="search"
+    placeholder="Search title, composer, name, group, production, year, publisher..."
+    autocomplete="off"
+    spellcheck="false"
+    aria-label="Search tracks"
+   />
+   <button
+    type="button"
+    id="search-clear"
+    class="search-clear hidden"
+    aria-label="Clear search"
+   >
+    ×
+   </button>
+  </div>
+
+  <!-- Platform + Type filters on same row -->
+  <div class="filters-row">
+   <div class="filters filters-platform" aria-label="Platform filters">
+    <button class="active" data-filter="all">ALL</button>
+    <button data-filter="c64">C64</button>
+    <button data-filter="a500">AMIGA</button>
+    <button data-filter="dos">DOS</button>
+    <button data-filter="win">WIN</button>
+   </div>
+   <div class="filters-sep" aria-hidden="true"></div>
+   <div class="filters filters-type" aria-label="Type filters">
+    <button class="active" data-type-filter="all">ALL TYPES</button>
+    <button data-type-filter="Ringtone">RINGTONES</button>
+    <button data-type-filter="Notification">NOTIFICATIONS</button>
+   </div>
+  </div>
+
+  <!-- Sort bar -->
+  <div class="sort-row" aria-label="Sort options">
+   <span class="sort-label">SORT BY:</span>
+   <div class="sort-buttons">
+    <button class="active" data-sort="title">TITLE</button>
+    <button data-sort="handle">HANDLE</button>
+    <button data-sort="name">NAME</button>
+    <button data-sort="group">GROUP</button>
+    <button data-sort="production">PRODUCTION</button>
+    <button data-sort="publisher">PUBLISHER</button>
+   </div>
+  </div>
+
+  <p id="results-info" class="results-info"></p>
+  <div id="tracklist" aria-label="Track list"></div>
  </main>
+
  <footer class="site-footer">
- <p class="footer-cta">Submit your ringtone suggestions on Instagram ↓</p>
- <a
- href="https://www.instagram.com/staticbytex/"
- target="_blank"
- rel="noopener noreferrer"
- class="footer-link"
- >
- <img
- src="assets/staticbytex-qr-code.png"
- alt="StaticByteX Instagram QR code"
- class="qr"
- />
- </a>
- <p class="footer-tagline">Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX</p>
+  <p class="footer-cta">Submit your ringtone suggestions on Instagram ↓</p>
+
+  <a
+   href="https://www.instagram.com/staticbytex/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="footer-link"
+  >
+   <img
+    src="assets/staticbytex-qr-code.png"
+    alt="StaticByteX Instagram QR code"
+    class="qr"
+   />
+  </a>
+
+  <p class="footer-tagline">Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX</p>
  </footer>
+
  <script src="script.js"></script>
 </body>
 </html>
