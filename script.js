@@ -12,6 +12,7 @@ const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
 
+/* PLATFORM COLORS FOR FIRST LINE */
 function platformColor(platform) {
   if (platform === "C64") return "#f2f540";
   if (platform === "A500") return "#0094ff";
@@ -20,12 +21,13 @@ function platformColor(platform) {
   return "#ffffff";
 }
 
+/* LOAD DATA (UPDATED PATHS) */
 async function loadData() {
   const sources = [
-    "data/ringtones-c64.json",
-    "data/ringtones-amiga.json",
-    "data/ringtones-dos.json",
-    "data/ringtones-win.json"
+    "assets/ringtones-c64.json",
+    "assets/ringtones-amiga.json",
+    "assets/ringtones-dos.json",
+    "assets/ringtones-win.json"
   ];
 
   const results = await Promise.all(
@@ -36,6 +38,7 @@ async function loadData() {
   render();
 }
 
+/* FILTERS */
 function setFilter(f) {
   currentFilter = f;
   document
@@ -56,6 +59,7 @@ function setTypeFilter(t) {
   render();
 }
 
+/* SORT */
 function setSort(key) {
   currentSortKey = key;
   document
@@ -69,29 +73,43 @@ function setSort(key) {
 function sortValue(track) {
   const c = track.composer || {};
   switch (currentSortKey) {
-    case "title": return norm(track.title);
-    case "handle": return norm(c.handle);
-    case "name": return norm(c.name);
-    case "group": return norm(c.group);
-    case "production": return norm(track.production);
-    case "publisher": return norm(track.publisher);
-    default: return norm(track.title);
+    case "title":
+      return norm(track.title);
+    case "handle":
+      return norm(c.handle);
+    case "name":
+      return norm(c.name);
+    case "group":
+      return norm(c.group);
+    case "production":
+      return norm(track.production);
+    case "publisher":
+      return norm(track.publisher);
+    default:
+      return norm(track.title);
   }
 }
 
+/* RENDER */
 function render() {
   const container = document.getElementById("tracklist");
   container.innerHTML = "";
   renderIndex = 0;
 
-  const q = norm(document.getElementById("search").value);
-  document
-    .getElementById("search-clear")
-    .classList.toggle("hidden", !q);
+  const searchInput = document.getElementById("search");
+  const q = norm(searchInput.value);
+
+  /* show/hide clear button */
+  const clearBtn = document.getElementById("search-clear");
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !q);
+  }
 
   currentFilteredTracks = tracks.filter((t) => {
+    const platformKey = norm(t.platform); // "c64","a500","dos","win"
     const matchesPlatform =
-      currentFilter === "all" || norm(t.platform) === currentFilter;
+      currentFilter === "all" || platformKey === currentFilter;
+
     const matchesType =
       currentTypeFilter === "all" || t.type === currentTypeFilter;
 
@@ -106,28 +124,53 @@ function render() {
       t.type,
       safe(t.composer?.handle),
       safe(t.composer?.name),
-      safe(t.composer?.group)
-    ].join(" ").toLowerCase();
+      safe(t.composer?.group),
+      ...(t.tags || [])
+    ]
+      .join(" ")
+      .toLowerCase();
 
     return matchesPlatform && matchesType && blob.includes(q);
   });
 
-  currentFilteredTracks.sort((a, b) =>
-    sortValue(a).localeCompare(sortValue(b))
-  );
+  /* SORT */
+  currentFilteredTracks.sort((a, b) => {
+    const av = sortValue(a);
+    const bv = sortValue(b);
+    if (av < bv) return -1;
+    if (av > bv) return 1;
 
+    // tie-breaker by title
+    const at = norm(a.title);
+    const bt = norm(b.title);
+    if (at < bt) return -1;
+    if (at > bt) return 1;
+    return 0;
+  });
+
+  /* STATS (12–15) */
   const composerSet = new Set();
   const productionSet = new Set();
   const publisherSet = new Set();
+  const categorySet = new Set();
 
   currentFilteredTracks.forEach((t) => {
     const h = safe(t.composer?.handle);
     const n = safe(t.composer?.name);
     if (h || n) composerSet.add(`${h}|${n}`);
+
     if (t.production) productionSet.add(t.production);
     if (t.publisher) publisherSet.add(t.publisher);
+
+    if (t.category) {
+      t.category.split("|").forEach((c) => {
+        const cc = c.trim();
+        if (cc) categorySet.add(cc);
+      });
+    }
   });
 
+  /* ACCENT COLOR FOR ALL NUMBERS (16) */
   const accentColor =
     currentFilter === "c64" ? "#f2f540" :
     currentFilter === "a500" ? "#0094ff" :
@@ -135,17 +178,23 @@ function render() {
     currentFilter === "win" ? "#66c656" :
     "#ffffff";
 
-  document.getElementById("results-info").innerHTML = `
-    <span style="color:${accentColor}">${currentFilteredTracks.length}</span> tracks •
-    <span style="color:${accentColor}">${composerSet.size}</span> composers •
-    <span style="color:${accentColor}">${productionSet.size}</span> productions •
-    <span style="color:${accentColor}">${publisherSet.size}</span> publishers
-  `;
+  /* RESULTS INFO (17: no parentheses, no filter note) */
+  const resultsInfo = document.getElementById("results-info");
+  if (resultsInfo) {
+    resultsInfo.innerHTML = `
+      <span style="color:${accentColor}">${currentFilteredTracks.length}</span> tracks •
+      <span style="color:${accentColor}">${composerSet.size}</span> composers •
+      <span style="color:${accentColor}">${productionSet.size}</span> productions •
+      <span style="color:${accentColor}">${publisherSet.size}</span> publishers •
+      <span style="color:${accentColor}">${categorySet.size}</span> categories
+    `;
+  }
 
   renderNextChunk();
   setupObserver();
 }
 
+/* CHUNKED RENDERING */
 function renderNextChunk() {
   const container = document.getElementById("tracklist");
 
@@ -156,12 +205,14 @@ function renderNextChunk() {
   renderIndex += CHUNK_SIZE;
 }
 
+/* OBSERVER (lazy load) */
 function setupObserver() {
   if (observer) observer.disconnect();
 
+  const container = document.getElementById("tracklist");
   const sentinel = document.createElement("div");
   sentinel.style.height = "1px";
-  document.getElementById("tracklist").appendChild(sentinel);
+  container.appendChild(sentinel);
 
   observer = new IntersectionObserver(
     (entries) => {
@@ -175,78 +226,125 @@ function setupObserver() {
   observer.observe(sentinel);
 }
 
+/* BUILD TRACK CARD */
 function buildTrack(t) {
-  const card = document.createElement("div");
-  card.className = `track ${norm(t.platform)}`;
+  const color = platformColor(t.platform);
+  const platformKey = norm(t.platform); // c64/a500/dos/win
 
+  const card = document.createElement("div");
+  card.className = `track ${platformKey}`;
+
+  /* PLATFORM LOGO (6–7) */
   const logo = document.createElement("img");
   logo.className = "track-platform-logo";
-  logo.src =
-    t.platform === "C64" ? "assets/c64-logo.png" :
-    t.platform === "A500" ? "assets/a500-logo.png" :
-    t.platform === "DOS" ? "assets/dos-logo.png" :
-    "assets/win-logo.png";
+  if (t.platform === "C64") logo.src = "assets/c64-logo.png";
+  else if (t.platform === "A500") logo.src = "assets/a500-logo.png";
+  else if (t.platform === "DOS") logo.src = "assets/dos-logo.png";
+  else if (t.platform === "WIN") logo.src = "assets/win-logo.png";
+  else logo.src = "";
   logo.alt = `${t.platform} logo`;
-  card.appendChild(logo);
+  if (logo.src) card.appendChild(logo);
 
+  /* LINE 1: TITLE + META */
   const titleRow = document.createElement("div");
   titleRow.className = "track-title";
-  titleRow.style.color = platformColor(t.platform);
+  titleRow.style.color = color;
 
   const title = document.createElement("div");
   title.className = "track-title-main";
-  title.textContent = t.title;
+  title.textContent = safe(t.title);
 
   const meta = document.createElement("div");
   meta.className = "track-inline-meta";
-  if (t.category) meta.appendChild(inlineBox(t.category.toUpperCase()));
-  meta.appendChild(inlineBox(t.platform));
-  meta.appendChild(inlineBox(`v${t.variant}`));
+
+  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
+  meta.appendChild(inlineBox(safe(t.platform)));
+  meta.appendChild(inlineBox(`v${safe(t.variant)}`));
 
   titleRow.append(title, meta);
 
-  const comp = t.composer || {};
+  /* SAMPLING FLAG (10) */
   const hasSampling =
     t.sampling &&
     (t.sampling.title || t.sampling.artist || t.sampling.year);
 
-  const composerLine = document.createElement("div");
-  composerLine.className = "track-line";
+  const year = t.year != null ? String(t.year) : "";
 
-  let composerText =
-    comp.handle && comp.name ? `${comp.handle} (${comp.name})` :
-    comp.handle || comp.name || "";
+  /* LINE 2: COMPOSER
+     - If sampling exists -> NO year
+     - If sampling does NOT exist -> include year
+  */
+  const line2 = document.createElement("div");
+  line2.className = "track-line";
 
-  if (!hasSampling && t.year) composerText += `, ${t.year}`;
-  composerLine.textContent = composerText;
+  const comp = t.composer || {};
+  const handle = safe(comp.handle);
+  const name = safe(comp.name);
+  const group = safe(comp.group);
 
-  const prodLine = document.createElement("div");
-  prodLine.className = "track-line";
-  if (t.production || t.publisher) {
+  let composerCore = "";
+  if (handle && name) composerCore = `${handle} (${name})`;
+  else if (handle) composerCore = handle;
+  else if (name) composerCore = name;
+
+  if (group) composerCore = composerCore ? `${composerCore} – ${group}` : group;
+
+  if (!hasSampling) {
+    // show year if available
+    line2.textContent = composerCore && year ? `${composerCore}, ${year}` : composerCore || year;
+  } else {
+    // no year when sampling exists
+    line2.textContent = composerCore;
+  }
+
+  /* LINE 3: PRODUCTION (11)
+     If production and publisher are null -> omit line3
+     Else robust formatting without '(, 2022)'
+  */
+  const line3 = document.createElement("div");
+  line3.className = "track-line";
+
+  const prod = safe(t.production);
+  const pub = safe(t.publisher);
+
+  if (!prod && !pub) {
+    line3.textContent = "";
+  } else {
     const bits = [];
-    if (t.publisher) bits.push(t.publisher);
-    if (t.year) bits.push(t.year);
-    prodLine.textContent =
-      t.production
-        ? `${t.production}${bits.length ? ` (${bits.join(", ")})` : ""}`
-        : bits.join(", ");
+    if (pub) bits.push(pub);
+    if (year) bits.push(year);
+
+    if (prod) {
+      line3.textContent = bits.length ? `${prod} (${bits.join(", ")})` : prod;
+    } else {
+      line3.textContent = bits.join(", ");
+    }
   }
 
-  let sampleLine = null;
+  /* LINE 4: SAMPLING */
+  let line4 = null;
   if (hasSampling) {
-    sampleLine = document.createElement("div");
-    sampleLine.className = "track-line";
-    const inner = [t.sampling.artist, t.sampling.year]
-      .filter(Boolean)
-      .join(", ");
-    sampleLine.textContent =
-      `Contains elements from: ${t.sampling.title}${inner ? ` (${inner})` : ""}`;
+    line4 = document.createElement("div");
+    line4.className = "track-line";
+
+    const sTitle = safe(t.sampling.title);
+    const sArtist = safe(t.sampling.artist);
+    const sYear = t.sampling.year != null ? String(t.sampling.year) : "";
+
+    const inner = [sArtist, sYear].filter(Boolean).join(", ");
+    const sampleText = sTitle
+      ? (inner ? `${sTitle} (${inner})` : sTitle)
+      : inner;
+
+    line4.textContent = sampleText ? `Contains elements from: ${sampleText}` : "";
   }
 
+  /* AUDIO */
   const audio = document.createElement("audio");
   audio.controls = true;
+  audio.preload = "metadata";
 
-  if (t.file_mp3 && !isIOS) {
+  if (t.file_mp3) {
     const s = document.createElement("source");
     s.src = t.file_mp3;
     s.type = "audio/mpeg";
@@ -259,34 +357,50 @@ function buildTrack(t) {
     audio.appendChild(s);
   }
 
+  /* only one audio at a time */
   audio.addEventListener("play", () => {
     document.querySelectorAll("#tracklist audio").forEach((a) => {
       if (a !== audio) a.pause();
     });
   });
 
+  /* ACTIONS */
   const actions = document.createElement("div");
   actions.className = "track-actions";
 
   const left = document.createElement("div");
   left.className = "actions-left";
-  if (t.file_mp3 && !isIOS) left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
-  if (t.file_m4r) left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
+
+  // iOS: hide MP3 download button (prevents "opens and plays")
+  if (!isIOS && t.file_mp3) {
+    left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
+  }
+  if (t.file_m4r) {
+    left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
+  }
 
   const type = document.createElement("div");
-  type.className = `track-type ${t.type.toLowerCase()}`;
-  type.textContent = t.type;
+  type.className = `track-type ${safe(t.type).toLowerCase()}`;
+  type.textContent = safe(t.type);
 
   actions.append(left, type);
 
-  card.append(titleRow, composerLine);
-  if (prodLine.textContent) card.append(prodLine);
-  if (sampleLine) card.append(sampleLine);
+  /* ASSEMBLE */
+  card.append(titleRow);
+
+  if (line2.textContent.trim()) card.append(line2);
+
+  // only show line3 when it has content (11)
+  if (line3.textContent.trim()) card.append(line3);
+
+  if (line4 && line4.textContent.trim()) card.append(line4);
+
   card.append(audio, actions);
 
   return card;
 }
 
+/* HELPERS */
 function inlineBox(text) {
   const b = document.createElement("span");
   b.className = "inline-box";
@@ -308,24 +422,39 @@ function dlBtn(url, icon, label) {
   return a;
 }
 
+/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("search").addEventListener("input", render);
-  document.getElementById("search-clear").addEventListener("click", () => {
-    document.getElementById("search").value = "";
-    render();
-  });
+  const searchInput = document.getElementById("search");
+  const clearBtn = document.getElementById("search-clear");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", render);
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      render();
+    });
+  }
 
   document
-    .querySelectorAll(".filters-platform button")
-    .forEach((b) => b.addEventListener("click", () => setFilter(b.dataset.filter)));
+    .querySelectorAll(".filters-platform button[data-filter]")
+    .forEach((b) =>
+      b.addEventListener("click", () => setFilter(b.dataset.filter))
+    );
 
   document
-    .querySelectorAll(".filters-type button")
-    .forEach((b) => b.addEventListener("click", () => setTypeFilter(b.dataset.typeFilter)));
+    .querySelectorAll(".filters-type button[data-type-filter]")
+    .forEach((b) =>
+      b.addEventListener("click", () => setTypeFilter(b.dataset.typeFilter))
+    );
 
   document
-    .querySelectorAll(".sort-buttons button")
-    .forEach((b) => b.addEventListener("click", () => setSort(b.dataset.sort)));
+    .querySelectorAll(".sort-buttons button[data-sort]")
+    .forEach((b) =>
+      b.addEventListener("click", () => setSort(b.dataset.sort))
+    );
 
   loadData();
 });
