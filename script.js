@@ -24,10 +24,10 @@ function platformColor(platform) {
 /* LOAD DATA (UPDATED PATHS) */
 async function loadData() {
   const sources = [
-    "assets/ringtones-c64.json",
-    "assets/ringtones-amiga.json",
-    "assets/ringtones-dos.json",
-    "assets/ringtones-win.json"
+    "data/ringtones-c64.json",
+    "data/ringtones-amiga.json",
+    "data/ringtones-dos.json",
+    "data/ringtones-win.json"
   ];
 
   const results = await Promise.all(
