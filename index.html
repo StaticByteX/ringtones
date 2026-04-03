@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content / Windows</title>  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>StaticByteX | Retro Ringtones for C64 / Amiga / DOS / Windows</title>
 
   <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
   <link
@@ -28,7 +30,7 @@
       Commodore 64 • Amiga 500 • DOS • Windows
     </p>
 
-    <!-- Search -->
+    <!-- Search with clear button -->
     <div class="search-wrapper">
       <input
         type="text"
@@ -48,7 +50,7 @@
       </button>
     </div>
 
-    <!-- Filters -->
+    <!-- Platform + Type filters on same row -->
     <div class="filters-row">
       <div class="filters filters-platform" aria-label="Platform filters">
         <button class="active" data-filter="all">ALL</button>
@@ -67,7 +69,7 @@
       </div>
     </div>
 
-    <!-- Sort -->
+    <!-- Sort bar -->
     <div class="sort-row" aria-label="Sort options">
       <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
@@ -80,20 +82,23 @@
       </div>
     </div>
 
-    <!-- Results -->
     <p id="results-info" class="results-info"></p>
 
-    <!-- Track list -->
     <div id="tracklist" aria-label="Track list"></div>
   </main>
 
   <footer class="site-footer">
+    <p class="footer-text footer-text-top">
+      Submit your ringtone suggestions on Instagram ↓
+    </p>
+
+    <!-- ✅ Only the QR itself is clickable -->
     <a
       href="https://www.instagram.com/staticbytex/"
       target="_blank"
       rel="noopener noreferrer"
       class="qr-link"
-      aria-label="StaticByteX on Instagram"
+      aria-label="StaticByteX Instagram"
     >
       <img
         src="assets/staticbytex-qr-code.png"
@@ -101,6 +106,10 @@
         class="qr"
       />
     </a>
+
+    <p class="footer-text footer-text-bottom">
+      Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX
+    </p>
   </footer>
 
   <script src="script.js"></script>
