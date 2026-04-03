@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewportByteX – Retro Ringtones</title>  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="assets/staticbytex-favicon.png" />
+  <title>StaticByteX | Retro Ringtones for C64 / Amiga / DOS / Windows</title>
+
+  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -12,29 +18,29 @@
   <header class="site-header">
     <img
       src="assets/staticbytex-logo.png"
-      alt="StaticByteX"
+      alt="StaticByteX logo"
       class="logo"
     />
   </header>
 
   <main class="site-main">
-    <h1>Retro Ringtones & Notification Sounds</h1>
+    <h1>Retro Ringtones &amp; Notification Sounds</h1>
 
-    <p class="platform-line">
-      Commodore 64 • Amiga 500 • DOS/Windows PC
+    <p class="subtitle platform-line">
+      Commodore 64 • Amiga 500 • DOS • Windows
     </p>
 
-    <!-- Search -->
     <div class="search-wrapper">
       <input
         type="text"
         id="search"
         placeholder="Search title, composer, production, publisher…"
+        autocomplete="off"
+        spellcheck="false"
       />
-      <button id="search-clear" class="search-clear hidden">×</button>
+      <button id="search-clear" class="search-clear">×</button>
     </div>
 
-    <!-- FILTERS -->
     <div class="filters-row">
       <div class="filters filters-platform">
         <button class="active" data-filter="all">ALL</button>
@@ -51,7 +57,6 @@
       </div>
     </div>
 
-    <!-- SORT -->
     <div class="sort-row">
       <span class="sort-label">SORT BY:</span>
       <div class="sort-buttons">
@@ -72,12 +77,9 @@
   <footer class="site-footer">
     <img
       src="assets/staticbytex-qr-code.png"
-      alt="StaticByteX QR"
+      alt="StaticByteX Instagram QR"
       class="qr"
     />
-    <p class="subtitle">
-      Submit your ringtone ideas on Instagram
-    </p>
   </footer>
 
   <script src="script.js"></script>
