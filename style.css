@@ -1,120 +1,391 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* ================================
+   RESET & VARIABLES
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <title>StaticByteX | Retro Ringtones for C64 / Amiga / DOS / Windows</title>
+:root {
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --border: #222222;
+  --text: #ffffff;
+  --muted: #aaaaaa;
 
-  <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  --c64: #f2f540;
+  --a500: #0094ff;
+  --dos: #ff66ff;
+  --win: #66c656;
 
-<body>
-  <header class="site-header">
-    <img
-      src="assets/staticbytex-logo.png"
-      alt="StaticByteX logo"
-      class="logo"
-    />
-  </header>
+  --ringtone: #00818e;
+  --notification: #fd7801;
+}
 
-  <main class="site-main">
-    <h1>Retro Ringtones &amp; Notification Sounds</h1>
+/* ================================
+   BASE LAYOUT
+================================ */
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
 
-    <!-- (1) increased by one increment -->
-    <p class="subtitle platform-line">
-      Commodore 64 • Amiga 500 • DOS • Windows
-    </p>
+.site-header,
+.site-footer {
+  text-align: center;
+  padding: 20px;
+}
 
-    <!-- Search with clear button -->
-    <div class="search-wrapper">
-      <input
-        type="text"
-        id="search"
-        placeholder="Search title, composer, name, group, production, year, publisher..."
-        autocomplete="off"
-        spellcheck="false"
-        aria-label="Search tracks"
-      />
-      <button
-        type="button"
-        id="search-clear"
-        class="search-clear hidden"
-        aria-label="Clear search"
-      >
-        ×
-      </button>
-    </div>
+.site-main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    <!-- Platform + Type filters on same row -->
-    <div class="filters-row">
-      <div class="filters filters-platform" aria-label="Platform filters">
-        <button class="active" data-filter="all">ALL</button>
-        <button data-filter="c64">C64</button>
-        <button data-filter="a500">AMIGA</button>
-        <button data-filter="dos">DOS</button>
-        <button data-filter="win">WIN</button>
-      </div>
+.site-main > * + * {
+  margin-top: 16px;
+}
 
-      <div class="filters-sep" aria-hidden="true"></div>
+/* ================================
+   LOGOS
+================================ */
+.logo {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
-      <div class="filters filters-type" aria-label="Type filters">
-        <button class="active" data-type-filter="all">ALL TYPES</button>
-        <button data-type-filter="Ringtone">RINGTONES</button>
-        <button data-type-filter="Notification">NOTIFICATIONS</button>
-      </div>
-    </div>
+.qr {
+  width: 100%;
+  max-width: 225px;
+  height: auto;
+  display: block;
+  margin: 10px auto 0;
+}
 
-    <!-- Sort bar -->
-    <div class="sort-row" aria-label="Sort options">
-      <span class="sort-label">SORT BY:</span>
-      <div class="sort-buttons">
-        <button class="active" data-sort="title">TITLE</button>
-        <button data-sort="handle">HANDLE</button>
-        <button data-sort="name">NAME</button>
-        <button data-sort="group">GROUP</button>
-        <button data-sort="production">PRODUCTION</button>
-        <button data-sort="publisher">PUBLISHER</button>
-      </div>
-    </div>
+.qr-link {
+  display: inline-block; /* ✅ only QR is clickable */
+}
 
-    <!-- Results -->
-    <p id="results-info" class="results-info"></p>
+/* ================================
+   HEADERS
+================================ */
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
 
-    <!-- Track list -->
-    <div id="tracklist" aria-label="Track list"></div>
-  </main>
+.platform-line {
+  font-size: 19px; /* ✅ one size bigger than 18 */
+  text-align: center;
+}
 
-  <footer class="site-footer">
-    <!-- (2) decreased by one increment (handled in CSS) -->
-    <p class="footer-text footer-text-top">
-      Submit your ringtone suggestions on Instagram ↓
-    </p>
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
 
-    <a
-      href="https://www.instagram.com/staticbytex/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="qr-link"
-      aria-label="StaticByteX Instagram"
-    >
-      <img
-        src="assets/staticbytex-qr-code.png"
-        alt="StaticByteX Instagram QR code"
-        class="qr"
-      />
-    </a>
+.results-info {
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
 
-    <p class="footer-text footer-text-bottom">
-      Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX
-    </p>
-  </footer>
+/* Footer text requested: same font/color/size as platform line */
+.footer-text {
+  font-size: 19px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 10px;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.footer-text-top {
+  margin-top: 0;
+}
+
+.footer-text-bottom {
+  margin-top: 12px;
+}
+
+/* ================================
+   SEARCH
+================================ */
+.search-wrapper {
+  position: relative;
+}
+
+#search {
+  width: 100%;
+  padding: 12px 34px 12px 12px;
+  border-radius: 10px;
+  background: #101010;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #777;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ================================
+   FILTERS
+================================ */
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.filters-sep {
+  width: 1px;
+  height: 28px;
+  background: #222;
+  opacity: 0.9;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filters button {
+  background: #0e0e0e;
+  border: 1px solid #444;
+  color: #f5f5f5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.filters button.active {
+  border-color: #ffffff;
+}
+
+/* platform filter colors when active */
+.filters-platform button[data-filter="c64"].active { color: var(--c64); }
+.filters-platform button[data-filter="a500"].active { color: var(--a500); }
+.filters-platform button[data-filter="dos"].active { color: var(--dos); }
+.filters-platform button[data-filter="win"].active { color: var(--win); }
+
+/* type filter colors when active */
+.filters-type button[data-type-filter="Ringtone"].active {
+  color: var(--ringtone);
+  border-color: var(--ringtone);
+}
+
+.filters-type button[data-type-filter="Notification"].active {
+  color: var(--notification);
+}
+
+/* ================================
+   SORT ROW
+================================ */
+.sort-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* ✅ vertical centering */
+  gap: 8px;
+}
+
+/* ✅ Segoe UI & vertically centered */
+.sort-label {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center; /* ✅ vertical centering */
+  height: 28px; /* match button height visually */
+}
+
+.sort-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sort-buttons button {
+  background: #0e0e0e;
+  border: 1px solid #444;
+  color: #f5f5f5;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sort-buttons button.active {
+  border-color: #fff;
+}
+
+/* ================================
+   TRACK CARD
+================================ */
+#tracklist {
+  margin-top: 4px;
+  text-align: left;
+}
+
+.track {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.track-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.track-title-main {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.track-inline-meta {
+  display: flex;
+  gap: 6px;
+}
+
+.inline-box {
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* platform logo */
+.track-platform-logo {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  opacity: 0.85;
+}
+
+.track-line {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 6px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* actions */
+.track-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.actions-left {
+  display: flex;
+  gap: 8px;
+}
+
+/* ✅ MP3/M4R font fixed to Segoe UI */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #101010;
+  border: 1px solid #444;
+  color: #ddd;
+  text-decoration: none;
+  font-family: "Segoe UI", system-ui, sans-serif; /* ✅ */
+  font-size: 12px;
+}
+
+.download-btn img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ✅ RINGTONE/NOTIFICATION badge: Segoe UI + vertically centered */
+.track-type {
+  border: 1px solid;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-family: "Segoe UI", system-ui, sans-serif; /* ✅ */
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: inline-flex;          /* ✅ */
+  align-items: center;           /* ✅ vertical centering */
+  justify-content: center;
+  line-height: 1;                /* ✅ prevents “top aligned” look */
+  min-height: 22px;              /* ✅ stable vertical centering */
+}
+
+.track-type.ringtone {
+  color: var(--ringtone);
+  border-color: var(--ringtone);
+}
+
+.track-type.notification {
+  color: var(--notification);
+  border-color: var(--notification);
+}
+
+/* ================================
+   MOBILE
+================================ */
+@media (max-width: 700px) {
+  .filters-row {
+    flex-direction: column;
+  }
+
+  .filters-sep {
+    width: 40px;
+    height: 1px;
+  }
+}
