@@ -84,10 +84,6 @@ function sortValue(track) {
  }
 }
 
-function plural(n, one, many) {
- return n === 1 ? one : many;
-}
-
 /* RENDER */
 function render() {
  const container = document.getElementById("tracklist");
@@ -95,13 +91,11 @@ function render() {
  renderIndex = 0;
  const searchInput = document.getElementById("search");
  const q = norm(searchInput.value);
-
  /* show/hide clear button */
  const clearBtn = document.getElementById("search-clear");
  if (clearBtn) {
   clearBtn.classList.toggle("hidden", !q);
  }
-
  currentFilteredTracks = tracks.filter((t) => {
   const platformKey = norm(t.platform); // "c64","a500","dos","win"
   const matchesPlatform =
@@ -126,7 +120,6 @@ function render() {
    .toLowerCase();
   return matchesPlatform && matchesType && blob.includes(q);
  });
-
  /* SORT */
  currentFilteredTracks.sort((a, b) => {
   const av = sortValue(a);
@@ -140,7 +133,6 @@ function render() {
   if (at > bt) return 1;
   return 0;
  });
-
  /* STATS (12–15) */
  const composerSet = new Set();
  const productionSet = new Set();
@@ -160,7 +152,6 @@ function render() {
    });
   }
  });
-
  /* ACCENT COLOR FOR ALL NUMBERS (16) */
  const accentColor =
   currentFilter === "c64" ? "#f2f540" :
@@ -168,22 +159,17 @@ function render() {
   currentFilter === "dos" ? "#ff66ff" :
   currentFilter === "win" ? "#66c656" :
   "#ffffff";
-
- /* RESULTS INFO (no categories; pluralization; line break after publishers) */
+ /* RESULTS INFO (17: no parentheses, no filter note) */
  const resultsInfo = document.getElementById("results-info");
  if (resultsInfo) {
-  const tCount = currentFilteredTracks.length;
-  const cCount = composerSet.size;
-  const prCount = productionSet.size;
-  const puCount = publisherSet.size;
   resultsInfo.innerHTML = `
- <span style="color:${accentColor}">${tCount}</span> ${plural(tCount, "track", "tracks")} •
- <span style="color:${accentColor}">${cCount}</span> ${plural(cCount, "composer", "composers")} •
- <span style="color:${accentColor}">${prCount}</span> ${plural(prCount, "production", "productions")} •
- <span style="color:${accentColor}">${puCount}</span> ${plural(puCount, "publisher", "publishers")}<br>
+ <span style="color:${accentColor}">${currentFilteredTracks.length}</span> tracks •
+ <span style="color:${accentColor}">${composerSet.size}</span> composers •
+ <span style="color:${accentColor}">${productionSet.size}</span> productions •
+ <span style="color:${accentColor}">${publisherSet.size}</span> publishers<br>
+ <span style="color:${accentColor}">${categorySet.size}</span> categories
  `;
  }
-
  renderNextChunk();
  setupObserver();
 }
@@ -221,7 +207,6 @@ function buildTrack(t) {
  const platformKey = norm(t.platform); // c64/a500/dos/win
  const card = document.createElement("div");
  card.className = `track ${platformKey}`;
-
  /* PLATFORM LOGO (6–7) */
  const logo = document.createElement("img");
  logo.className = "track-platform-logo";
@@ -232,7 +217,6 @@ function buildTrack(t) {
  else logo.src = "";
  logo.alt = `${t.platform} logo`;
  if (logo.src) card.appendChild(logo);
-
  /* LINE 1: TITLE + META */
  const titleRow = document.createElement("div");
  titleRow.className = "track-title";
@@ -246,13 +230,13 @@ function buildTrack(t) {
  meta.appendChild(inlineBox(safe(t.platform)));
  meta.appendChild(inlineBox(`v${safe(t.variant)}`));
  titleRow.append(title, meta);
-
  /* SAMPLING FLAG (10) */
  const hasSampling =
   t.sampling &&
-  (t.sampling.title || t.sampling.artist || t.sampling.year);
+  (t.sampling.title ||
+   t.sampling.artist ||
+   t.sampling.year);
  const year = t.year != null ? String(t.year) : "";
-
  /* LINE 2: COMPOSER
   - If sampling exists -> NO year
   - If sampling does NOT exist -> include year
@@ -275,7 +259,6 @@ function buildTrack(t) {
   // no year when sampling exists
   line2.textContent = composerCore;
  }
-
  /* LINE 3: PRODUCTION (11)
  If production and publisher are null -> omit line3
  Else robust formatting without '(, 2022)'
@@ -296,7 +279,6 @@ function buildTrack(t) {
    line3.textContent = bits.join(", ");
   }
  }
-
  /* LINE 4: SAMPLING */
  let line4 = null;
  if (hasSampling) {
@@ -311,7 +293,6 @@ function buildTrack(t) {
    : inner;
   line4.textContent = sampleText ? `Contains elements from: ${sampleText}` : "";
  }
-
  /* AUDIO */
  const audio = document.createElement("audio");
  audio.controls = true;
@@ -328,14 +309,12 @@ function buildTrack(t) {
   s.type = "audio/mp4";
   audio.appendChild(s);
  }
-
  /* only one audio at a time */
  audio.addEventListener("play", () => {
   document.querySelectorAll("#tracklist audio").forEach((a) => {
    if (a !== audio) a.pause();
   });
  });
-
  /* ACTIONS */
  const actions = document.createElement("div");
  actions.className = "track-actions";
@@ -352,7 +331,6 @@ function buildTrack(t) {
  type.className = `track-type ${safe(t.type).toLowerCase()}`;
  type.textContent = safe(t.type);
  actions.append(left, type);
-
  /* ASSEMBLE */
  card.append(titleRow);
  if (line2.textContent.trim()) card.append(line2);
