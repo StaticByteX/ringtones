@@ -29,7 +29,7 @@ function accentColorFromFilter() {
   return "#ffffff";
 }
 
-/* LOAD DATA (correct paths) */
+/* LOAD DATA */
 async function loadData() {
   const sources = [
     "data/ringtones-c64.json",
@@ -43,7 +43,7 @@ async function loadData() {
   );
 
   tracks = results.flat();
-  render(); // ensures stats line appears immediately after load
+  render();
 }
 
 /* FILTERS */
@@ -59,9 +59,7 @@ function setTypeFilter(t) {
   currentTypeFilter = t;
   document
     .querySelectorAll(".filters-type button[data-type-filter]")
-    .forEach((b) =>
-      b.classList.toggle("active", b.dataset.typeFilter === t)
-    );
+    .forEach((b) => b.classList.toggle("active", b.dataset.typeFilter === t));
   render();
 }
 
@@ -103,7 +101,6 @@ function render() {
   const searchEl = document.getElementById("search");
   const q = norm(searchEl ? searchEl.value : "");
 
-  /* show/hide clear button */
   const clearBtn = document.getElementById("search-clear");
   if (clearBtn) clearBtn.classList.toggle("hidden", !q);
 
@@ -135,14 +132,11 @@ function render() {
     return matchesPlatform && matchesType && blob.includes(q);
   });
 
-  /* sorting */
   currentFilteredTracks.sort((a, b) => {
     const av = sortValue(a);
     const bv = sortValue(b);
     if (av < bv) return -1;
     if (av > bv) return 1;
-
-    // tie-breaker: title
     return norm(a.title).localeCompare(norm(b.title));
   });
 
@@ -163,11 +157,12 @@ function render() {
   const accent = accentColorFromFilter();
   const resultsInfo = document.getElementById("results-info");
   if (resultsInfo) {
+    /* (4) add line break after the line */
     resultsInfo.innerHTML = `
       <span style="color:${accent}">${currentFilteredTracks.length}</span> tracks •
       <span style="color:${accent}">${composerSet.size}</span> composers •
       <span style="color:${accent}">${productionSet.size}</span> productions •
-      <span style="color:${accent}">${publisherSet.size}</span> publishers
+      <span style="color:${accent}">${publisherSet.size}</span> publishers<br>
     `;
   }
 
@@ -208,7 +203,7 @@ function setupObserver() {
 
 /* BUILD TRACK CARD */
 function buildTrack(t) {
-  const platformKey = norm(t.platform); // c64/a500/dos/win
+  const platformKey = norm(t.platform);
   const color = platformColor(t.platform);
 
   const card = document.createElement("div");
@@ -248,10 +243,7 @@ function buildTrack(t) {
 
   const year = t.year != null ? String(t.year) : "";
 
-  /* line 2: composer
-     - if sampling exists -> NO year
-     - if no sampling -> include year
-  */
+  /* line 2: composer (year only if NO sampling) */
   const line2 = document.createElement("div");
   line2.className = "track-line";
 
@@ -268,18 +260,13 @@ function buildTrack(t) {
   if (group) composerCore = composerCore ? `${composerCore} – ${group}` : group;
 
   if (!hasSampling) {
-    // include year when available
     line2.textContent =
       composerCore && year ? `${composerCore}, ${year}` : composerCore || year;
   } else {
-    // sampling exists -> remove year after composer name (prevents duplication)
     line2.textContent = composerCore;
   }
 
-  /* line 3: production
-     - if production and publisher are null -> omit line 3
-     - else robust formatting (no '(, 2022)')
-  */
+  /* line 3: production (omit if production + publisher null) */
   const line3 = document.createElement("div");
   line3.className = "track-line";
 
@@ -345,7 +332,7 @@ function buildTrack(t) {
   const left = document.createElement("div");
   left.className = "actions-left";
 
-  // iOS: hide MP3 download button (prevents Safari streaming in new tab)
+  // iOS: hide MP3 download button
   if (!isIOS && t.file_mp3) {
     left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
   }
@@ -361,11 +348,9 @@ function buildTrack(t) {
 
   /* assemble */
   card.append(titleRow);
-
   if (line2.textContent.trim()) card.append(line2);
   if (line3.textContent.trim()) card.append(line3);
   if (line4 && line4.textContent.trim()) card.append(line4);
-
   card.append(audio, actions);
 
   return card;
@@ -398,7 +383,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search");
   const clearBtn = document.getElementById("search-clear");
 
-  if (searchInput) searchInput.addEventListener("input", render);
+  if (searchInput) {
+    searchInput.addEventListener("input", render);
+  }
 
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
