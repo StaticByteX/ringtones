@@ -16,10 +16,10 @@
 
   --c64: #f2f540;
   --a500: #0094ff;
-  --dos: #ff66ff;
-  --win: #66c656;
+  --dos: #ff66ff;     /* DOS = magenta (same as old PC) */
+  --win: #66c656;     /* WIN = green */
 
-  --ringtone: #00818e;
+  --ringtone: #00818e;       /* requested */
   --notification: #fd7801;
 }
 
@@ -78,7 +78,7 @@ h1 {
 }
 
 .platform-line {
-  font-size: 18px;
+  font-size: 18px; /* 1 size larger on desktop + mobile */
   text-align: center;
 }
 
@@ -139,6 +139,7 @@ h1 {
   gap: 12px;
 }
 
+/* separator between platform group and type group */
 .filters-sep {
   width: 1px;
   height: 28px;
@@ -171,11 +172,13 @@ h1 {
   border-color: #ffffff;
 }
 
+/* platform filter colors when active */
 .filters-platform button[data-filter="c64"].active { color: var(--c64); }
 .filters-platform button[data-filter="a500"].active { color: var(--a500); }
 .filters-platform button[data-filter="dos"].active { color: var(--dos); }
 .filters-platform button[data-filter="win"].active { color: var(--win); }
 
+/* type filter colors when active */
 .filters-type button[data-type-filter="Ringtone"].active {
   color: var(--ringtone);
   border-color: var(--ringtone);
@@ -250,6 +253,7 @@ h1 {
   transform: scale(1.005);
 }
 
+/* title row */
 .track-title {
   display: flex;
   flex-wrap: wrap;
@@ -277,6 +281,7 @@ h1 {
   font-weight: 400;
 }
 
+/* platform logo in card */
 .track-platform-logo {
   position: absolute;
   top: 8px;
@@ -287,17 +292,20 @@ h1 {
   pointer-events: none;
 }
 
+/* meta lines */
 .track-line {
   font-size: 13px;
   color: #bbbbbb;
   margin-top: 6px;
 }
 
+/* audio */
 audio {
   width: 100%;
   margin-top: 10px;
 }
 
+/* actions */
 .track-actions {
   display: flex;
   justify-content: space-between;
@@ -329,6 +337,7 @@ audio {
   height: 14px;
 }
 
+/* type badge */
 .track-type {
   border: 1px solid;
   padding: 3px 8px;
