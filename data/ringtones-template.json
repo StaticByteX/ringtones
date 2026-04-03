@@ -2,8 +2,8 @@
   {
     "id": "title-platform-vX",
     "title": "Track Title",
-    "variant": 1,
-    "platform": "C64|A500|PC",
+    "variant": X,
+    "platform": "C64|A500|DOS|WIN",
     "type": "Ringtone|Notification",
     "composer": { "handle": "Handle", "name": "Real Name", "group": "Group" },
     "production": "Game/Demo etc. Title",
