@@ -45,8 +45,8 @@ body {
  LOGOS
 ================================ */
 .logo {
- width: 100%;
- max-width: 360px;
+ width: 50vw;
+ max-width: none;
  height: auto;
  display: block;
  margin: 0 auto;
@@ -57,9 +57,6 @@ body {
  height: auto;
  display: block;
  margin: 10px auto 0;
-}
-.footer-link {
- display: inline-block;
 }
 /* ================================
  HEADERS
@@ -77,18 +74,9 @@ h1 {
  font-size: 12px;
  color: var(--muted);
 }
-.subtitle.platform-line {
- font-size: 13px;
-}
 .results-info {
  font-size: 14px;
  color: #ffffff;
- text-align: center;
-}
-.footer-cta,
-.footer-tagline {
- font-size: 13px;
- color: var(--muted);
  text-align: center;
 }
 /* ================================
@@ -146,8 +134,8 @@ h1 {
 }
 .filters button {
  background: #0e0e0e;
- border: 1px solid #444;
- color: #f5f5f5;
+ border: 1px solid #ffffff;
+ color: #ffffff;
  padding: 10px 12px;
  border-radius: 10px;
  cursor: pointer;
@@ -159,16 +147,17 @@ h1 {
 .filters button.active {
  border-color: #ffffff;
 }
-.filters-platform button[data-filter="c64"].active { color: var(--c64); }
-.filters-platform button[data-filter="a500"].active { color: var(--a500); }
-.filters-platform button[data-filter="dos"].active { color: var(--dos); }
-.filters-platform button[data-filter="win"].active { color: var(--win); }
+.filters-platform button[data-filter="c64"].active { color: var(--c64); border-color: var(--c64); }
+.filters-platform button[data-filter="a500"].active { color: var(--a500); border-color: var(--a500); }
+.filters-platform button[data-filter="dos"].active { color: var(--dos); border-color: var(--dos); }
+.filters-platform button[data-filter="win"].active { color: var(--win); border-color: var(--win); }
 .filters-type button[data-type-filter="Ringtone"].active {
  color: var(--ringtone);
  border-color: var(--ringtone);
 }
 .filters-type button[data-type-filter="Notification"].active {
  color: var(--notification);
+ border-color: var(--notification);
 }
 /* ================================
  SORT ROW
