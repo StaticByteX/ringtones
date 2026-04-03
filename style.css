@@ -1,35 +1,23 @@
-/* ================================
-   RESET & VARIABLES
-================================ */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --bg: #0a0a0a;
-  --panel: #111111;
-  --border: #222222;
-  --text: #ffffff;
-  --muted: #aaaaaa;
+  --panel: #111;
+  --  --muted: #aaa;  --border: #222;
 
   --c64: #f2f540;
   --a500: #0094ff;
-  --pc: #ff66ff;
+  --dos: #ff66ff;
+  --win: #66c656;
 
-  --ringtone: #48cc31;
+  --ringtone: #00818e;
   --notification: #fd7801;
 }
 
-/* ================================
-   BASE LAYOUT
-================================ */
+/* BASE */
 body {
-  font-family: "IBM Plex Mono", monospace;
+  margin: 0;
   background: var(--bg);
   color: var(--text);
-  min-height: 100vh;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .site-header,
@@ -39,221 +27,133 @@ body {
 }
 
 .site-main {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.site-main > * + * {
-  margin-top: 16px;
-}
-
-/* Logo & QR scaling */
+/* LOGOS */
 .logo {
-  max-width: 225px; /* 50% bigger on mobile than 150px */
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  max-width: 225px;
 }
 
-.qr {
-  max-width: 225px; /* 50% bigger on all devices */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px auto 0;
-}
-
-/* Desktop adjustments */
 @media (min-width: 768px) {
   .logo {
-    max-width: 360px; /* desktop cap */
+    max-width: 360px;
   }
 }
 
-/* ================================
-   HEADERS
-================================ */
+.qr {
+  width: 100%;
+  max-width: 225px;
+  margin-top: 10px;
+}
+
+/* HEADERS */
 h1 {
-  font-size: 24px;
-  font-weight: 600;
   text-align: center;
 }
 
 .platform-line {
-  font-size: 16px; /* increased by one step */
+  font-size: 18px;
   text-align: center;
-}
-
-.subtitle {
-  font-size: 12px;
   color: var(--muted);
 }
 
-.results-info {
-  font-size: 14px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.count-accent {
-  font-weight: 600;
-}
-
-/* Footer text increments */
-.submit-line {
-  font-size: 13px;
-}
-
-.footer-line {
-  font-size: 13px;
-}
-
-/* ================================
-   SEARCH
-================================ */
+/* SEARCH */
 .search-wrapper {
   position: relative;
 }
 
 #search {
   width: 100%;
-  padding: 12px 32px 12px 12px; /* room for clear button on right */
+  padding: 12px 32px 12px 12px;
   border-radius: 10px;
   background: #101010;
-  border: 1px solid #333333;
-  color: #ffffff;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  border: 1px solid #333;
+  color: white;
 }
 
 .search-clear {
   position: absolute;
-  right: 8px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  background: none;
   border: none;
-  background: transparent;
-  color: #777777;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 16px;
+  color: #888;
+  font-size: 18px;
   cursor: pointer;
-  padding: 0;
-  line-height: 1;
 }
 
-.search-clear.hidden {
+.hidden {
   display: none;
 }
 
-/* ================================
-   FILTERS
-================================ */
+/* FILTERS */
 .filters-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;  /* center on all widths */
-  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
 }
 
 .filters button {
   background: #0e0e0e;
-  border: 1px solid #444444;
-  color: #f5f5f5;
+  border: 1px solid #444;
+  color: white;
   padding: 10px 12px;
   border-radius: 10px;
-  cursor: pointer;
-
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
-/* active border */
 .filters button.active {
-  border-color: #ffffff;
+  border-color: white;
 }
 
-/* platform filter colors when active */
-.filters-platform button[data-filter="c64"].active {
-  color: var(--c64);
-}
+.filters-platform button[data-filter="c64"].active { color: var(--c64); }
+.filters-platform button[data-filter="a500"].active { color: var(--a500); }
+.filters-platform button[data-filter="dos"].active { color: var(--dos); }
+.filters-platform button[data-filter="win"].active { color: var(--win); }
 
-.filters-platform button[data-filter="a500"].active {
-  color: var(--a500);
-}
-
-.filters-platform button[data-filter="pc"].active {
-  color: var(--pc);
-}
-
-/* type filter colors when active */
 .filters-type button[data-type-filter="Ringtone"].active {
   color: var(--ringtone);
+  border-color: var(--ringtone);
 }
 
 .filters-type button[data-type-filter="Notification"].active {
   color: var(--notification);
 }
 
-/* ================================
-   SORT ROW
-================================ */
+/* SORT */
 .sort-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* center horizontally */
-  align-items: center;
+  justify-content: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .sort-label {
-  font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
   color: var(--muted);
 }
 
-.sort-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+/* RESULTS */
+.results-info {
+  text-align: center;
+  font-size: 14px;
 }
 
-.sort-buttons button {
-  background: #0e0e0e;
-  border: 1px solid #444444;
-  color: #f5f5f5;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.sort-buttons button.active {
-  border-color: #ffffff;
-}
-
-/* ================================
-   TRACK LIST & CARD
-================================ */
-#tracklist {
-  margin-top: 4px;
-  text-align: left;
-}
-
+/* TRACK */
 .track {
   position: relative;
   background: var(--panel);
@@ -264,66 +164,44 @@ h1 {
   transition: border-color 0.15s ease;
 }
 
-.track:hover {
-  transform: none; /* no enlargement */
-}
+.track.c64:hover { border-color: var(--c64); }
+.track.a500:hover { border-color: var(--a500); }
+.track.dos:hover { border-color: var(--dos); }
+.track.win:hover { border-color: var(--win); }
 
-/* platform-specific hover border colors */
-.track.c64:hover {
-  border-color: var(--c64);
-}
-
-.track.a500:hover {
-  border-color: var(--a500);
-}
-
-.track.pc:hover {
-  border-color: var(--pc);
-}
-
-/* platform logo */
+/* PLATFORM LOGO */
 .track-platform-logo {
   position: absolute;
   top: 8px;
   right: 8px;
   width: 26px;
-  height: auto;
   opacity: 0.85;
   pointer-events: none;
 }
 
-/* TITLE ROW */
+/* TITLE */
 .track-title {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   gap: 10px;
+  align-items: center;
 }
 
 .track-title-main {
   font-size: 16px;
-  font-weight: 600;
-}
-
-.track-inline-meta {
-  display: flex;
-  gap: 6px;
-  margin-left: 10px;
+  font-weight: bold;
 }
 
 .inline-box {
   border: 1px solid currentColor;
-  border-radius: 6px;
   padding: 1px 6px;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  border-radius: 6px;
   font-size: 11px;
-  font-weight: 400;
 }
 
-/* META LINES */
+/* META */
 .track-line {
   font-size: 13px;
-  color: #bbbbbb;
+  color: #bbb;
   margin-top: 6px;
 }
 
@@ -333,73 +211,18 @@ audio {
   margin-top: 10px;
 }
 
-/* ACTIONS ROW */
+/* ACTIONS */
 .track-actions {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-.actions-left {
-  display: flex;
-  gap: 8px;
-}
-
 .download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  border: 1px solid #444;
   padding: 6px 10px;
   border-radius: 8px;
-  background: #101010;
-  border: 1px solid #444444;
-  color: #dddddd;
   text-decoration: none;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 12px;
+  color: #ddd;
 }
-
-.download-btn img {
-  width: 14px;
-  height: 14px;
-}
-
-/* TYPE BADGE */
-.track-type {
-  border: 1px solid;
-  padding: 3px 8px;
-  border-radius: 8px;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.track-type.ringtone {
-  color: var(--ringtone);
-  border-color: var(--ringtone);
-}
-
-.track-type.notification {
-  color: var(--notification);
-  border-color: var(--notification);
-}
-
-/* ================================
-   MOBILE CENTERING
-================================ */
-@media (max-width: 600px) {
-  .filters-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .filters-row .filters {
-    justify-content: center;
-  }
-
-  .sort-row {
-    justify-content: center;
-  }
-}
+  --text: #fff;
