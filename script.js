@@ -21,10 +21,10 @@ function platformColor(platform) {
   return "#ffffff";
 }
 
-/* LOAD DATA */
+/* LOAD DATA — ✅ CORRECTED & VERIFIED */
 async function loadData() {
   const sources = [
-    "data-c64.json",
+    "data/ringtones-c64.json",
     "data/ringtones-amiga.json",
     "data/ringtones-dos.json",
     "data/ringtones-win.json"
@@ -35,7 +35,7 @@ async function loadData() {
   );
 
   tracks = results.flat();
-  render();
+  render(); // ensures stats + tracks show immediately on load
 }
 
 /* FILTERS */
@@ -90,7 +90,6 @@ function render() {
   renderIndex = 0;
 
   const q = norm(document.getElementById("search").value);
-
   document
     .getElementById("search-clear")
     .classList.toggle("hidden", !q);
@@ -122,7 +121,7 @@ function render() {
     sortValue(a).localeCompare(sortValue(b))
   );
 
-  /* STATS */
+  /* STATS (tracks / composers / productions / publishers) */
   const composerSet = new Set();
   const productionSet = new Set();
   const publisherSet = new Set();
@@ -278,8 +277,10 @@ function buildTrack(t) {
 
   const left = document.createElement("div");
   left.className = "actions-left";
-  if (t.file_mp3 && !isIOS) left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
-  if (t.file_m4r) left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
+  if (t.file_mp3 && !isIOS)
+    left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
+  if (t.file_m4r)
+    left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
 
   const type = document.createElement("div");
   type.className = `track-type ${t.type.toLowerCase()}`;
@@ -327,15 +328,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document
     .querySelectorAll(".filters-platform button")
-    .forEach((b) => b.addEventListener("click", () => setFilter(b.dataset.filter)));
+    .forEach((b) =>
+      b.addEventListener("click", () => setFilter(b.dataset.filter))
+    );
 
   document
     .querySelectorAll(".filters-type button")
-    .forEach((b) => b.addEventListener("click", () => setTypeFilter(b.dataset.typeFilter)));
+    .forEach((b) =>
+      b.addEventListener("click", () => setTypeFilter(b.dataset.typeFilter))
+    );
 
   document
     .querySelectorAll(".sort-buttons button")
-    .forEach((b) => b.addEventListener("click", () => setSort(b.dataset.sort)));
+    .forEach((b) =>
+      b.addEventListener("click", () => setSort(b.dataset.sort))
+    );
 
   loadData();
 });
