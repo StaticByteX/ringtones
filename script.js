@@ -1,3 +1,4 @@
+/* script.js 2026-04-04 01:49:57 */
 let tracks = [];
 let currentFilter = "all";
 let currentTypeFilter = "all";
@@ -204,6 +205,7 @@ function setupObserver() {
  const sentinel = document.createElement("div");
  sentinel.style.height = "1px";
  container.appendChild(sentinel);
+
  observer = new IntersectionObserver(
   (entries) => {
    if (!entries[0].isIntersecting) return;
@@ -237,20 +239,26 @@ function buildTrack(t) {
  const titleRow = document.createElement("div");
  titleRow.className = "track-title";
  titleRow.style.color = color;
+
  const title = document.createElement("div");
  title.className = "track-title-main";
  title.textContent = safe(t.title);
+
  const meta = document.createElement("div");
  meta.className = "track-inline-meta";
  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
  meta.appendChild(inlineBox(safe(t.platform)));
  meta.appendChild(inlineBox(`v${safe(t.variant)}`));
+
  titleRow.append(title, meta);
 
  /* SAMPLING FLAG (10) */
  const hasSampling =
   t.sampling &&
-  (t.sampling.title || t.sampling.artist || t.sampling.year);
+  (t.sampling.title ||
+   t.sampling.artist ||
+   t.sampling.year);
+
  const year = t.year != null ? String(t.year) : "";
 
  /* LINE 2: COMPOSER
@@ -263,27 +271,30 @@ function buildTrack(t) {
  const handle = safe(comp.handle);
  const name = safe(comp.name);
  const group = safe(comp.group);
+
  let composerCore = "";
  if (handle && name) composerCore = `${handle} (${name})`;
  else if (handle) composerCore = handle;
  else if (name) composerCore = name;
  if (group) composerCore = composerCore ? `${composerCore} – ${group}` : group;
+
  if (!hasSampling) {
   // show year if available
-  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : composerCore || year;
+  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : (composerCore || year);
  } else {
   // no year when sampling exists
   line2.textContent = composerCore;
  }
 
  /* LINE 3: PRODUCTION (11)
- If production and publisher are null -> omit line3
- Else robust formatting without '(, 2022)'
+  If production and publisher are null -> omit line3
+  Else robust formatting without '(, 2022)'
  */
  const line3 = document.createElement("div");
  line3.className = "track-line";
  const prod = safe(t.production);
  const pub = safe(t.publisher);
+
  if (!prod && !pub) {
   line3.textContent = "";
  } else {
@@ -316,6 +327,7 @@ function buildTrack(t) {
  const audio = document.createElement("audio");
  audio.controls = true;
  audio.preload = "metadata";
+
  if (t.file_mp3) {
   const s = document.createElement("source");
   s.src = t.file_mp3;
@@ -339,8 +351,10 @@ function buildTrack(t) {
  /* ACTIONS */
  const actions = document.createElement("div");
  actions.className = "track-actions";
+
  const left = document.createElement("div");
  left.className = "actions-left";
+
  // iOS: hide MP3 download button (prevents "opens and plays")
  if (!isIOS && t.file_mp3) {
   left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
@@ -348,9 +362,11 @@ function buildTrack(t) {
  if (t.file_m4r) {
   left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
  }
+
  const type = document.createElement("div");
  type.className = `track-type ${safe(t.type).toLowerCase()}`;
  type.textContent = safe(t.type);
+
  actions.append(left, type);
 
  /* ASSEMBLE */
@@ -360,6 +376,7 @@ function buildTrack(t) {
  if (line3.textContent.trim()) card.append(line3);
  if (line4 && line4.textContent.trim()) card.append(line4);
  card.append(audio, actions);
+
  return card;
 }
 
@@ -386,6 +403,7 @@ function dlBtn(url, icon, label) {
 document.addEventListener("DOMContentLoaded", () => {
  const searchInput = document.getElementById("search");
  const clearBtn = document.getElementById("search-clear");
+
  if (searchInput) {
   searchInput.addEventListener("input", render);
  }
@@ -395,20 +413,24 @@ document.addEventListener("DOMContentLoaded", () => {
    render();
   });
  }
+
  document
   .querySelectorAll(".filters-platform button[data-filter]")
   .forEach((b) =>
    b.addEventListener("click", () => setFilter(b.dataset.filter))
   );
+
  document
   .querySelectorAll(".filters-type button[data-type-filter]")
   .forEach((b) =>
    b.addEventListener("click", () => setTypeFilter(b.dataset.typeFilter))
   );
+
  document
   .querySelectorAll(".sort-buttons button[data-sort]")
   .forEach((b) =>
    b.addEventListener("click", () => setSort(b.dataset.sort))
   );
+
  loadData();
 });
