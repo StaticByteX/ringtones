@@ -280,7 +280,7 @@ function buildTrack(t) {
 
  if (!hasSampling) {
   // show year if available
-  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : (composerCore || year);
+  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : composerCore || year;
  } else {
   // no year when sampling exists
   line2.textContent = composerCore;
