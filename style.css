@@ -160,10 +160,12 @@ h1 {
 .filters button.active {
  border-color: #ffffff;
 }
+.filters-platform button[data-filter="all"].active { color: #ffffff; border-color: #ffffff; }
 .filters-platform button[data-filter="c64"].active { color: var(--c64); border-color: var(--c64); }
 .filters-platform button[data-filter="a500"].active { color: var(--a500); border-color: var(--a500); }
 .filters-platform button[data-filter="dos"].active { color: var(--dos); border-color: var(--dos); }
 .filters-platform button[data-filter="win"].active { color: var(--win); border-color: var(--win); }
+.filters-type button[data-type-filter="all"].active { color: #ffffff; border-color: #ffffff; }
 .filters-type button[data-type-filter="Ringtone"].active {
  color: var(--ringtone);
  border-color: var(--ringtone);
