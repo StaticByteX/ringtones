@@ -1,3 +1,4 @@
+/* style.css 2026-04-04 01:49:57  /
 /* ================================
  RESET & VARIABLES
 ================================ */
@@ -159,16 +160,17 @@ h1 {
 .filters button.active {
  border-color: #ffffff;
 }
-.filters-platform button[data-filter="c64"].active { color: var(--c64); }
-.filters-platform button[data-filter="a500"].active { color: var(--a500); }
-.filters-platform button[data-filter="dos"].active { color: var(--dos); }
-.filters-platform button[data-filter="win"].active { color: var(--win); }
+.filters-platform button[data-filter="c64"].active { color: var(--c64); border-color: var(--c64); }
+.filters-platform button[data-filter="a500"].active { color: var(--a500); border-color: var(--a500); }
+.filters-platform button[data-filter="dos"].active { color: var(--dos); border-color: var(--dos); }
+.filters-platform button[data-filter="win"].active { color: var(--win); border-color: var(--win); }
 .filters-type button[data-type-filter="Ringtone"].active {
  color: var(--ringtone);
  border-color: var(--ringtone);
 }
 .filters-type button[data-type-filter="Notification"].active {
  color: var(--notification);
+ border-color: var(--notification);
 }
 /* ================================
  SORT ROW
@@ -316,14 +318,14 @@ audio {
 ================================ */
 @media (max-width: 700px) {
  .filters-row {
- flex-direction: column;
+  flex-direction: column;
  }
  .filters-sep {
- width: 40px;
- height: 1px;
+  width: 40px;
+  height: 1px;
  }
  .filters,
  .sort-buttons {
- justify-content: center;
+  justify-content: center;
  }
 }
