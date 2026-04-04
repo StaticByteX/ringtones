@@ -327,6 +327,12 @@ audio {
  width: 14px;
  height: 14px;
 }
+.ios-hint {
+ display: block;
+ font-size: 9px;
+ opacity: 0.5;
+ margin-top: 2px;
+}
 .track-type {
  border: 1px solid;
  padding: 3px 8px;

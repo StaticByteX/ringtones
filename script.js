@@ -394,34 +394,38 @@ function dlBtn(url, icon, label) {
  const filename = url.split("/").pop() || label.toLowerCase();
  a.download = filename;
 
- a.addEventListener("click", async (e) => {
-  e.preventDefault();
-  if (isIOS) {
-   window.location.href = url;
-   return;
-  }
-  try {
-   const response = await fetch(url);
-   if (!response.ok) throw new Error("fetch failed");
-   const blob = await response.blob();
-   const blobUrl = URL.createObjectURL(blob);
-   const tmp = document.createElement("a");
-   tmp.href = blobUrl;
-   tmp.download = filename;
-   document.body.appendChild(tmp);
-   tmp.click();
-   document.body.removeChild(tmp);
-   /* revoke after enough time for the download to begin */
-   setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
-  } catch {
-   window.open(url, "_blank", "noopener,noreferrer");
-  }
- });
+ if (!isIOS) {
+  a.addEventListener("click", async (e) => {
+   e.preventDefault();
+   try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("fetch failed");
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const tmp = document.createElement("a");
+    tmp.href = blobUrl;
+    tmp.download = filename;
+    document.body.appendChild(tmp);
+    tmp.click();
+    document.body.removeChild(tmp);
+    /* revoke after enough time for the download to begin */
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+   } catch {
+    window.open(url, "_blank", "noopener,noreferrer");
+   }
+  });
+ }
 
  const img = document.createElement("img");
  img.src = icon;
  img.alt = label;
  a.append(img, label);
+ if (isIOS) {
+  const hint = document.createElement("span");
+  hint.className = "ios-hint";
+  hint.textContent = "hold to save";
+  a.appendChild(hint);
+ }
  return a;
 }
 
