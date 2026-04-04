@@ -1,4 +1,4 @@
-/* script.js 2026-04-04 01:50:10 */
+/* script.js 2026-04-04 02:50:24 */
 let tracks = [];
 let currentFilter = "all";
 let currentTypeFilter = "all";
@@ -150,7 +150,7 @@ function render() {
  currentFilteredTracks.forEach((t) => {
   const h = safe(t.composer?.handle);
   const n = safe(t.composer?.name);
-  const key = h || n;
+  const key = h + n;
   if (key) composerSet.add(key);
   if (t.production) productionSet.add(t.production);
   if (t.publisher) publisherSet.add(t.publisher);
@@ -280,7 +280,7 @@ function buildTrack(t) {
 
  if (!hasSampling) {
   // show year if available
-  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : composerCore || year;
+  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : (composerCore || year);
  } else {
   // no year when sampling exists
   line2.textContent = composerCore;
