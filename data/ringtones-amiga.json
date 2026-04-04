@@ -132,7 +132,7 @@
     "title": "Arcane",
     "variant": 11,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "Reclusive Lemming", "name": null, "group": null },
     "production": null,
     "category": "Cracktro",
@@ -364,8 +364,8 @@
     "publisher": "Kefrens",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["checknobankh","desert-dream","laxity","kefrens","a500","amiga","demoscene","tracker"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v1-laxity.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v1-laxity.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v1-laxity.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v1-laxity.m4r"
   },
   {
     "id": "checknobankh-amiga-v2",
@@ -380,8 +380,8 @@
     "publisher": "Kefrens",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["checknobankh","desert-dream","laxity","kefrens","a500","amiga","demoscene","tracker"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v2-laxity.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v2-laxity.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v2-laxity.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v2-laxity.m4r"
   },
   {
     "id": "checknobankh-amiga-v3",
@@ -396,8 +396,8 @@
     "publisher": "Kefrens",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["checknobankh","desert-dream","laxity","kefrens","a500","amiga","demoscene","tracker"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v3-laxity.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v3-laxity.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v3-laxity.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v3-laxity.m4r"
   },
   {
     "id": "checknobankh-amiga-v4",
@@ -412,8 +412,8 @@
     "publisher": "Kefrens",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["checknobankh","desert-dream","laxity","kefrens","a500","amiga","demoscene","tracker"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v4-laxity.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/desert-dream-checknobankh-a500-v4-laxity.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v4-laxity.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/checknobankh-a500-v4-laxity.m4r"
   },
   {
     "id": "checknobankh-amiga-v5",
@@ -750,54 +750,6 @@
     "tags": ["daisy-chain","rhesus-minus","trond-hasse-lie","megademo-2","cryptoburners","a500","tracker","demoscene","retro"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v4-rhesus-minus.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v4-rhesus-minus.m4r"
-  },
-  {
-    "id": "daisy-chain-amiga-v5",
-    "title": "Daisy Chain",
-    "variant": 5,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": "Rhesus Minus", "name": "Trond Hasse Lie", "group": "Cryptoburners" },
-    "production": "Megademo 2",
-    "category": "Demo",
-    "year": 1990,
-    "publisher": "Cryptoburners",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["daisy-chain","rhesus-minus","trond-hasse-lie","megademo-2","cryptoburners","a500","tracker","demoscene","retro"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v5-rhesus-minus.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v5-rhesus-minus.m4r"
-  },
-  {
-    "id": "daisy-chain-amiga-v6",
-    "title": "Daisy Chain",
-    "variant": 6,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": "Rhesus Minus", "name": "Trond Hasse Lie", "group": "Cryptoburners" },
-    "production": "Megademo 2",
-    "category": "Demo",
-    "year": 1990,
-    "publisher": "Cryptoburners",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["daisy-chain","rhesus-minus","trond-hasse-lie","megademo-2","cryptoburners","a500","tracker","demoscene","retro"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v6-rhesus-minus.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v6-rhesus-minus.m4r"
-  },
-  {
-    "id": "daisy-chain-amiga-v7",
-    "title": "Daisy Chain",
-    "variant": 7,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": "Rhesus Minus", "name": "Trond Hasse Lie", "group": "Cryptoburners" },
-    "production": "Third Dimension",
-    "category": "Demo",
-    "year": 1990,
-    "publisher": "Cryptoburners",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["daisy-chain","rhesus-minus","martin-schioeler","third-dimension","cryptoburners","a500","tracker","demoscene","retro"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v7-rhesus-minus.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/daisy-chain-amiga-v7-rhesus-minus.m4r"
   },
   {
     "id": "daisy-chain-2-amiga-v1",
@@ -1412,7 +1364,7 @@
     "title": "Dragon Jive",
     "variant": 4,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "S.L.L", "name": "Sten Lysholm Larsen", "group": "Kefrens" },
     "production": "Guardian Dragon 2",
     "category": "Demo",
@@ -1428,7 +1380,7 @@
     "title": "Dragon Jive",
     "variant": 5,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "S.L.L", "name": "Sten Lysholm Larsen", "group": "Kefrens" },
     "production": "Guardian Dragon 2",
     "category": "Demo",
@@ -1700,7 +1652,7 @@
     "title": "Global Trash 3 v2",
     "variant": 8,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": null, "name": "Jesper Kyd", "group": "Silents" },
     "production": "Hardwired",
     "category": "Demo",
@@ -1780,7 +1732,7 @@
     "title": "Guardian Dragon",
     "variant": 5,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "S.L.L", "name": "Sten Lysholm Larsen", "group": "Kefrens" },
     "production": "Guardian Dragon",
     "category": "Demo",
