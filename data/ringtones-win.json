@@ -7,7 +7,7 @@
     "type": "Ringtone",
     "composer": { "handle": "Handle", "name": "Real Name", "group": "Group" },
     "production": "Game/Demo etc. Title",
-    "category": "Game|Demo|Intro|Cracktro|Musicdisk",
+    "category": "Game|Demo",
     "year": 1911,
     "publisher": "Group",
     "sampling": { "title": null, "artist": null, "year": null },
