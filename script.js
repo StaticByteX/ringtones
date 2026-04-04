@@ -396,6 +396,10 @@ function dlBtn(url, icon, label) {
 
  a.addEventListener("click", async (e) => {
   e.preventDefault();
+  if (isIOS) {
+   window.location.href = url;
+   return;
+  }
   try {
    const response = await fetch(url);
    if (!response.ok) throw new Error("fetch failed");
