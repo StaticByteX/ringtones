@@ -1,4 +1,4 @@
-/* style.css 2026-04-04 01:57:30 */
+/* style.css 2026-04-04 02:50:24 */
 /* ================================
  RESET & VARIABLES
 ================================ */
@@ -147,8 +147,8 @@ h1 {
 }
 .filters button {
  background: #0e0e0e;
- border: 1px solid #444;
- color: #f5f5f5;
+ border: 1px solid #ffffff;
+ color: #ffffff;
  padding: 10px 12px;
  border-radius: 10px;
  cursor: pointer;
@@ -271,7 +271,38 @@ audio {
 }
 .track-actions {
  display: flex;
- justify-content: space-between;
+ justify-content: space: 1px solid; justify-content: space-between;
+ padding: 3px 8px;
+ border-radius: 8px;
+ font-family: "Segoe UI", system-ui, sans-serif;
+ font-size: 11px;
+ font-weight: 400;
+ text-transform: uppercase;
+}
+.track-type.ringtone {
+ color: var(--ringtone);
+ border-color: var(--ringtone);
+}
+.track-type.notification {
+ color: var(--notification);
+ border-color: var(--notification);
+}
+/* ================================
+ MOBILE: center all 14 boxes (5 platform + 3 type + 6 sort)
+================================ */
+@media (max-width: 700px) {
+ .filters-row {
+  flex-direction: column;
+ }
+ .filters-sep {
+  width: 40px;
+  height: 1px;
+ }
+ .filters,
+ .sort-buttons {
+  justify-content: center;
+ }
+}
  align-items: center;
  margin-top: 10px;
 }
