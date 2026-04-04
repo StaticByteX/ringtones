@@ -391,11 +391,11 @@ function dlBtn(url, icon, label) {
  const a = document.createElement("a");
  a.className = "download-btn";
  a.href = url;
- a.download = url.split("/").pop() || label.toLowerCase();
+ const filename = url.split("/").pop() || label.toLowerCase();
+ a.download = filename;
 
  a.addEventListener("click", async (e) => {
   e.preventDefault();
-  const filename = url.split("/").pop() || label.toLowerCase();
   try {
    const response = await fetch(url);
    if (!response.ok) throw new Error("fetch failed");
@@ -407,6 +407,7 @@ function dlBtn(url, icon, label) {
    document.body.appendChild(tmp);
    tmp.click();
    document.body.removeChild(tmp);
+   /* revoke after enough time for the download to begin */
    setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
   } catch {
    window.open(url, "_blank", "noopener,noreferrer");
