@@ -391,7 +391,28 @@ function dlBtn(url, icon, label) {
  const a = document.createElement("a");
  a.className = "download-btn";
  a.href = url;
- a.download = "";
+ a.download = url.split("/").pop() || label.toLowerCase();
+
+ a.addEventListener("click", async (e) => {
+  e.preventDefault();
+  const filename = url.split("/").pop() || label.toLowerCase();
+  try {
+   const response = await fetch(url);
+   if (!response.ok) throw new Error("fetch failed");
+   const blob = await response.blob();
+   const blobUrl = URL.createObjectURL(blob);
+   const tmp = document.createElement("a");
+   tmp.href = blobUrl;
+   tmp.download = filename;
+   document.body.appendChild(tmp);
+   tmp.click();
+   document.body.removeChild(tmp);
+   setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+  } catch {
+   window.open(url, "_blank", "noopener,noreferrer");
+  }
+ });
+
  const img = document.createElement("img");
  img.src = icon;
  img.alt = label;
