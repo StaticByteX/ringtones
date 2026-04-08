@@ -2721,6 +2721,38 @@
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/power-guardian-amiga-v4-sll.m4r"
   },
   {
+    "id": "quartex-intro-amiga-v1",
+    "title": "Quartex - Intro",
+    "variant": 1,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1991,
+    "publisher": null,
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["quartex","intro","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/astaroth-in-game-amiga-v1-jochen-hippel.m4r"
+  },
+  {
+    "id": "quartex-intro-amiga-v2",
+    "title": "Quartex - Intro",
+    "variant": 2,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Jochen Hippel", "group": null },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1991,
+    "publisher": null,
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["quartex","intro","jochen-hippel","mad-max","amiga","a500","amiga","future-composer","chiptune","demoscene"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/quartex-intro-v1-jochen-hippel.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/quartex-intro-v1-jochen-hippel.m4r"
+  },
+  {
     "id": "savannah-amiga-v1",
     "title": "Savannah",
     "variant": 1,
