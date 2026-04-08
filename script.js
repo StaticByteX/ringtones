@@ -182,6 +182,7 @@ function render() {
  <span style="color:${accentColor}">${cCount}</span> ${plural(cCount, "composer", "composers")} •
  <span style="color:${accentColor}">${prCount}</span> ${plural(prCount, "production", "productions")} •
  <span style="color:${accentColor}">${puCount}</span> ${plural(puCount, "publisher", "publishers")}<br>
+ <br>
  `;
  }
 
