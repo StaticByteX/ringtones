@@ -2965,7 +2965,7 @@
     "title": "Pirates!",
     "variant": 2,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": null, "name": "Ken Lagace", "group": null },
     "production": "Pirates!",
     "category": "Game",
