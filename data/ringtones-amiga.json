@@ -10,7 +10,7 @@
     "category": "Cracktro",
     "year": 1990,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane-theme","the-last-hero","zetrix","arcane","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v3-zetrix-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v3-zetrix-future-freak.m4r"
@@ -26,7 +26,7 @@
     "category": "Cracktro",
     "year": 1990,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane-theme","the-last-hero","zetrix","arcane","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v4-zetrix-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v4-zetrix-future-freak.m4r"
@@ -42,7 +42,7 @@
     "category": "Cracktro",
     "year": 1990,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane-theme","the-last-hero","zetrix","arcane","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v5-zetrix-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v5-zetrix-future-freak.m4r"
@@ -58,7 +58,7 @@
     "category": "Cracktro",
     "year": 1990,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane-theme","the-last-hero","zetrix","arcane","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v6-zetrix-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-theme-last-hero-amiga-v6-zetrix-future-freak.m4r"
@@ -74,7 +74,7 @@
     "category": "Cracktro",
     "year": 2000,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane","the-last-hero","estrayk","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-last-hero-amiga-v7-estrayk-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-last-hero-amiga-v7-estrayk-future-freak.m4r"
@@ -90,7 +90,7 @@
     "category": "Cracktro",
     "year": 2000,
     "publisher": null,
-    "sampling": { "title": "The Last Hero", "artist": "Future Freak", "year": 1988 },
+    "sampling": { "title": "Last Hero, The", "artist": "Future Freak", "year": 1988 },
     "tags": ["arcane","the-last-hero","estrayk","a500","amiga","future-composer","demoscene","cracktro","8bit","chipmusic","chiptune","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-last-hero-amiga-v8-estrayk-future-freak.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/arcane-last-hero-amiga-v8-estrayk-future-freak.m4r"
@@ -3598,6 +3598,22 @@
     "tags": ["secret-of-monkey-island","lechucks-theme","michael-land","lucasfilm-games","a500","amiga","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-lechucks-theme-amiga-v5-michael-land.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-lechucks-theme-amiga-v5-michael-land.m4r"
+  },
+  {
+    "id": "secret-of-monkey-island-lechucks-theme-amiga-v5",
+    "title": "Secret of Monkey Island, The - Mêlée Forest",
+    "variant": 5,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Michael Z. Land", "group": null },
+    "production": "Secret of Monkey Island, The",
+    "category": "Game",
+    "year": 1990,
+    "publisher": "Lucasfilm Games",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["secret-of-monkey-island","melee-forest","michael-land","lucasfilm-games","a500","amiga","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-melee-forest-amiga-v9-michael-land.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-melee-forest-amiga-v9-michael-land.m4r"
   },
   {
     "id": "secret-of-monkey-island-following-the-shop-keeper-amiga-v6",
