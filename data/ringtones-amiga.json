@@ -2287,8 +2287,7 @@
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/klisje-paa-klisje-amiga-v6-walkman.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/klisje-paa-klisje-amiga-v6-walkman.m4r"
   },
-
-{
+  {
     "id": "knulla-kuk-amiga-v1",
     "title": "Knulla Kuk !!!",
     "variant": 1,
@@ -4623,6 +4622,70 @@
     "tags": ["undersea","codex","voyage","razor-1911","a500","amiga","demo","demoscene","tracker","retro"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/undersea-amiga-v7-codex.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/undersea-amiga-v7-codex.m4r"
+  },
+  {
+    "id": "unit5-amiga-v1",
+    "title": "Unit5",
+    "variant": 1,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Diz", "name": "Dietmar Bos", "group": "Unit A" },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1988,
+    "publisher": "Unit A",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["unit5","diz","unit-a","a500","amiga","cracktro","tracker","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v1-diz.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v1-diz.m4r"
+  },
+  {
+    "id": "unit5-amiga-v2",
+    "title": "Unit5",
+    "variant": 2,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Diz", "name": "Dietmar Bos", "group": "Unit A" },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1988,
+    "publisher": "Unit A",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["unit5","diz","unit-a","a500","amiga","cracktro","tracker","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v2-diz.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v2-diz.m4r"
+  },
+  {
+    "id": "unit5-amiga-v3",
+    "title": "Unit5",
+    "variant": 3,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Diz", "name": "Dietmar Bos", "group": "Unit A" },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1988,
+    "publisher": "Unit A",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["unit5","diz","unit-a","a500","amiga","cracktro","tracker","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v3-diz.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v3-diz.m4r"
+  },
+  {
+    "id": "unit5-amiga-v4",
+    "title": "Unit5",
+    "variant": 4,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Diz", "name": "Dietmar Bos", "group": "Unit A" },
+    "production": null,
+    "category": "Cracktro",
+    "year": 1988,
+    "publisher": "Unit A",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["unit5","diz","unit-a","a500","amiga","cracktro","tracker","retro"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v4-diz.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/unit5-amiga-v4-diz.m4r"
   },
   {
     "id": "were-the-devils-amiga-v1",
