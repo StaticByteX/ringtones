@@ -1763,7 +1763,7 @@
     "title": "Generation X",
     "variant": 15,
     "platform": "A500",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "Ok3anos", "name": "Olivier Degand", "group": "Binary" },
     "production": "Generation X",
     "category": "Demo",
@@ -1773,22 +1773,6 @@
     "tags": ["generation-x","ok3anos","okeanos","binary","a500","amiga","demo","tracker","revision"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/generation-x-amiga-v15-ok3anos.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/generation-x-amiga-v15-ok3anos.m4r"
-  },
-  {
-    "id": "secret-of-monkey-island-lechucks-theme-amiga-v5",
-    "title": "Secret of Monkey Island, The - Mêlée Forest",
-    "variant": 5,
-    "platform": "A500",
-    "type": "Ringtone",
-    "composer": { "handle": null, "name": "Michael Z. Land", "group": null },
-    "production": "Secret of Monkey Island, The",
-    "category": "Game",
-    "year": 1990,
-    "publisher": "Lucasfilm Games",
-    "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["secret-of-monkey-island","melee-forest","michael-land","lucasfilm-games","a500","amiga","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-melee-forest-amiga-v5-michael-land.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/secret-of-monkey-island-melee-forest-amiga-v5-michael-land.m4r"
   },
   {
     "id": "global-trash-3-v2-amiga-v1",
