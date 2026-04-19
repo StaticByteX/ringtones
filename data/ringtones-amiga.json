@@ -1539,6 +1539,7 @@
     "id": "generation-x-amiga-v1",
     "title": "Generation X",
     "variant": 1,
+    "platform": "A500",
     "type": "Ringtone",
     "composer": { "handle": "Ok3anos", "name": "Olivier Degand", "group": "Binary" },
     "production": "Generation X",
