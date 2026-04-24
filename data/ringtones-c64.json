@@ -372,7 +372,7 @@
     "title": "Cobra",
     "variant": 5,
     "platform": "C64",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": null, "name": "Ben Daglish", "group": null },
     "production": "Cobra",
     "category": "Game",
