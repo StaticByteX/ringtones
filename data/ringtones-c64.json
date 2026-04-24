@@ -304,6 +304,86 @@
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/bulldog-c64-v3-ben-daglish-retro-music-retracked.m4r"
   },
   {
+    "id": "cobra-c64-v1",
+    "title": "Cobra",
+    "variant": 1,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Cobra",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Ocean",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cobra","ben-daglish","ocean","c64","sid","chiptune","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v1-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v1-ben-daglish.m4r"
+  },
+  {
+    "id": "cobra-c64-v2",
+    "title": "Cobra",
+    "variant": 2,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Cobra",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Ocean",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cobra","ben-daglish","ocean","c64","sid","chiptune","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v2-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v2-ben-daglish.m4r"
+  },
+  {
+    "id": "cobra-c64-v3",
+    "title": "Cobra",
+    "variant": 3,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Cobra",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Ocean",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cobra","ben-daglish","ocean","c64","sid","chiptune","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v3-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v3-ben-daglish.m4r"
+  },
+  {
+    "id": "cobra-c64-v4",
+    "title": "Cobra",
+    "variant": 4,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Cobra",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Ocean",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cobra","ben-daglish","ocean","c64","sid","chiptune","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v4-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v4-ben-daglish.m4r"
+  },
+  {
+    "id": "cobra-c64-v5",
+    "title": "Cobra",
+    "variant": 5,
+    "platform": "C64",
+    "type": "Ringtone",
+    "composer": { "handle": null, "name": "Ben Daglish", "group": null },
+    "production": "Cobra",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Ocean",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["cobra","ben-daglish","ocean","c64","sid","chiptune","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v5-ben-daglish.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/c64/cobra-c64-v5-ben-daglish.m4r"
+  },
+  {
     "id": "commando-c64-v1",
     "title": "Commando",
     "variant": 1,
@@ -604,8 +684,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["palace","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v1-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v1-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v1-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v1-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-palace-c64-v2",
@@ -620,8 +700,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["palace","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v2-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v2-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v2-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v2-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-palace-c64-v3",
@@ -636,8 +716,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["palace","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v3-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v3-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v3-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v3-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-palace-c64-v4",
@@ -652,8 +732,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["palace","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v4-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v4-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v4-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v4-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-palace-c64-v5",
@@ -668,8 +748,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["palace","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v5-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-palace-c64-v5-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v5-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-palace-c64-v5-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wastelands-c64-v1",
@@ -684,8 +764,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wastelands","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v1-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v1-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v1-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v1-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wastelands-c64-v2",
@@ -700,8 +780,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wastelands","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v2-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v2-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v2-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v2-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wastelands-c64-v3",
@@ -716,8 +796,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wastelands","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v3-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v3-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v3-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v3-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wastelands-c64-v4",
@@ -732,8 +812,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wastelands","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v4-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v4-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v4-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v4-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wastelands-c64-v5",
@@ -748,8 +828,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wastelands","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v5-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wastelands-c64-v5-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v5-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wastelands-c64-v5-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v1",
@@ -764,8 +844,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v1-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v1-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v1-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v1-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v2",
@@ -780,8 +860,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v2-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v2-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v2-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v2-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v3",
@@ -796,8 +876,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v3-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v3-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v3-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v3-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v4",
@@ -812,8 +892,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v4-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v4-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v4-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v4-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v5",
@@ -828,8 +908,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v5-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v5-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v5-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v5-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "last-ninja-wilderness-c64-v6",
@@ -844,8 +924,8 @@
     "publisher": "System 3",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["wilderness","last-ninja","ben-daglish","anthony-lees","system-3","c64","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v6-ben-daglish-anthony-lees.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/last-ninja-wilderness-c64-v6-ben-daglish-anthony-lees.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v6-ben-daglish-anthony-lees.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/last-ninja-wilderness-c64-v6-ben-daglish-anthony-lees.m4r"
   },
   {
     "id": "panther-c64-v1",
@@ -860,8 +940,8 @@
     "publisher": "Mastertronic",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["panther","david-whittaker","mastertronic","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/panther-c64-v1-david-whittaker.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/panther-c64-v1-david-whittaker.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/panther-c64-v1-david-whittaker.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/panther-c64-v1-david-whittaker.m4r"
   },
   {
     "id": "panther-c64-v2",
@@ -876,8 +956,8 @@
     "publisher": "Mastertronic",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["panther","david-whittaker","mastertronic","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/panther-c64-v2-david-whittaker.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/panther-c64-v2-david-whittaker.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/panther-c64-v2-david-whittaker.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/panther-c64-v2-david-whittaker.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v1",
@@ -892,8 +972,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v1-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v1-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v1-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v1-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v2",
@@ -908,8 +988,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v2-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v2-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v2-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v2-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v3",
@@ -924,8 +1004,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v3-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v3-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v3-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v3-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v4",
@@ -940,8 +1020,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v4-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v4-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v4-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v4-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v5",
@@ -956,8 +1036,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v5-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v5-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v5-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v5-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v6",
@@ -972,8 +1052,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v6-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v6-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v6-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v6-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v7",
@@ -988,8 +1068,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v7-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v7-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v7-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v7-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v8",
@@ -1004,8 +1084,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v8-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v8-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v8-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v8-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v9",
@@ -1020,8 +1100,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v9-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v9-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v9-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v9-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v10",
@@ -1036,8 +1116,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v10-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v10-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v10-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v10-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v11",
@@ -1052,8 +1132,8 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v11-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v11-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v11-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v11-martin-galway.m4r"
   },
   {
     "id": "rambo-first-blood-part-ii-c64-v12",
@@ -1068,7 +1148,7 @@
     "publisher": "Ocean",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["rambo-first-blood","martin-galway","ocean","c64","sid","chiptune","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v12-martin-galway.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/rambo-first-blood-part-ii-c64-v12-martin-galway.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v12-martin-galway.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/rambo-first-blood-part-ii-c64-v12-martin-galway.m4r"
   }
 ]
