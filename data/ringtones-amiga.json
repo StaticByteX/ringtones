@@ -1,5 +1,21 @@
 [
   {
+    "id": "acidrock-amiga-v1",
+    "title": "Acidrock",
+    "variant": 1,
+    "platform": "A500",
+    "type": "Ringtone",
+    "composer": { "handle": "Diablo", "name": "René Bidstrup", "group": "Budbrain" },
+    "production": "Megademo",
+    "category": "Demo",
+    "year": 1990,
+    "publisher": "Budbrain",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["acidrock","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/acidrock-amiga-v1-diablo.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/acidrock-amiga-v1-diablo.m4r"
+  },
+  {
     "id": "arcane-theme-last-hero-amiga-v3",
     "title": "Arcane Theme",
     "variant": 3,
@@ -2939,7 +2955,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/megademo-2-loader-amiga-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/megademo-2-loader-amiga-diablo.m4r"
   },
@@ -3147,7 +3163,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["perhaps-2","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["perhaps-2","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/perhaps-2-amiga-v1-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/perhaps-2-amiga-v1-diablo.m4r"
   },
@@ -5035,7 +5051,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v1-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v1-diablo.m4r"
   },
@@ -5051,7 +5067,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v2-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v2-diablo.m4r"
   },
@@ -5067,7 +5083,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v3-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v3-diablo.m4r"
   },
@@ -5083,7 +5099,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v4-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v4-diablo.m4r"
   },
@@ -5099,7 +5115,7 @@
     "year": 1990,
     "publisher": "Budbrain",
     "sampling": { "title": null, "artist": null, "year": null },
-    "tags": ["megademo-2-loader","diablo","Budbrain","megademo","a500","amiga","tracker","demoscene"],
+    "tags": ["megademo-2-loader","diablo","budbrain","megademo","a500","amiga","tracker","demoscene"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v5-diablo.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/yo-africa-amiga-v5-diablo.m4r"
   }
