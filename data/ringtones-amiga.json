@@ -5436,8 +5436,8 @@
     "publisher": "Rainbow Arts",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["x-out","loader","rainbow-arts","chris-huelsbeck","a500","amiga","demo","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/x-out-Loader-amiga-v1-chris-huelsbeck.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/x-out-Loader-amiga-v1-chris-huelsbeck.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/x-out-loader-amiga-v1-chris-huelsbeck.mp3",
+	"file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/x-out-loader-amiga-v1-chris-huelsbeck.m4r"
   },
 {
     "id": "yo-africa-amiga-v1",
