@@ -4864,7 +4864,7 @@
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/toi-tei-amiga-v4-uncle-tom.m4r"
   },
   {
-    "id": "too-amiga-v1",
+    "id": "dune-too-amiga-v1",
     "title": "Too",
     "variant": 1,
     "platform": "A500",
@@ -4876,11 +4876,11 @@
     "publisher": "Virgin Games",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["too","stephane-picq","virgin-games","dune","a500","amiga","demo","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v1-stephane-picq.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v1-stephane-picq.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v1-stephane-picq.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v1-stephane-picq.m4r"
   },
   {
-    "id": "too-amiga-v2",
+    "id": "dune-too-amiga-v2",
     "title": "Too",
     "variant": 2,
     "platform": "A500",
@@ -4892,11 +4892,11 @@
     "publisher": "Virgin Games",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["too","stephane-picq","virgin-games","dune","a500","amiga","demo","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v2-stephane-picq.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v2-stephane-picq.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v2-stephane-picq.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v2-stephane-picq.m4r"
   },
   {
-    "id": "too-amiga-v3",
+    "id": "dune-too-amiga-v3",
     "title": "Too",
     "variant": 3,
     "platform": "A500",
@@ -4908,11 +4908,11 @@
     "publisher": "Virgin Games",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["too","stephane-picq","virgin-games","dune","a500","amiga","demo","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v3-stephane-picq.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v3-stephane-picq.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v3-stephane-picq.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v3-stephane-picq.m4r"
   },
   {
-    "id": "too-amiga-v4",
+    "id": "dune-too-amiga-v4",
     "title": "Too",
     "variant": 4,
     "platform": "A500",
@@ -4924,8 +4924,8 @@
     "publisher": "Virgin Games",
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["too","stephane-picq","virgin-games","dune","a500","amiga","demo","retro","retrogaming"],
-    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v4-stephane-picq.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/too-amiga-v4-stephane-picq.m4r"
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v4-stephane-picq.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/amiga/dune-too-amiga-v4-stephane-picq.m4r"
   },
   {
     "id": "turrican-2-amiga-v1",
