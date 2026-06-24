@@ -516,7 +516,7 @@
     "title": "Scene Is Dead, The",
     "variant": 7,
     "platform": "WIN",
-    "type": "Ringtone",
+    "type": "Notification",
     "composer": { "handle": "Dubmood", "name": "Kalle Jonsson", "group": "Razor 1911" },
     "production": "Scene Is Dead, The",
     "category": "Demo",
