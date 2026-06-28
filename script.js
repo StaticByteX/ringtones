@@ -12,6 +12,38 @@ const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
 
+/* debounce: collapse rapid calls (e.g. keystrokes) into one */
+function debounce(fn, delay) {
+ let id;
+ return (...args) => {
+  clearTimeout(id);
+  id = setTimeout(() => fn(...args), delay);
+ };
+}
+
+/* precompute the lowercase search blob + platform key once per track,
+   so filtering doesn't rebuild them on every keystroke */
+function indexTrack(t) {
+ t._platformKey = norm(t.platform);
+ t._search = [
+  t.title,
+  t.production,
+  t.publisher,
+  t.year,
+  t.category,
+  t.platform,
+  t.variant,
+  t.type,
+  safe(t.composer?.handle),
+  safe(t.composer?.name),
+  safe(t.composer?.group),
+  ...(t.tags || [])
+ ]
+  .join(" ")
+  .toLowerCase();
+ return t;
+}
+
 /* PLATFORM COLORS FOR FIRST LINE */
 function platformColor(platform) {
  if (platform === "C64") return "#f2f540";
@@ -60,7 +92,8 @@ async function loadData() {
 
  tracks = results
   .filter((res) => res.status === "fulfilled")
-  .flatMap((res) => res.value);
+  .flatMap((res) => res.value)
+  .map(indexTrack);
 
  if (!tracks.length) {
   showLoadError("Couldn't load any tracks. Please try again later.");
@@ -140,28 +173,11 @@ function render() {
  }
 
  currentFilteredTracks = tracks.filter((t) => {
-  const platformKey = norm(t.platform); // "c64","a500","dos","win"
   const matchesPlatform =
-   currentFilter === "all" || platformKey === currentFilter;
+   currentFilter === "all" || t._platformKey === currentFilter;
   const matchesType =
    currentTypeFilter === "all" || t.type === currentTypeFilter;
-  const blob = [
-   t.title,
-   t.production,
-   t.publisher,
-   t.year,
-   t.category,
-   t.platform,
-   t.variant,
-   t.type,
-   safe(t.composer?.handle),
-   safe(t.composer?.name),
-   safe(t.composer?.group),
-   ...(t.tags || [])
-  ]
-   .join(" ")
-   .toLowerCase();
-  return matchesPlatform && matchesType && blob.includes(q);
+  return matchesPlatform && matchesType && t._search.includes(q);
  });
 
  /* SORT */
@@ -483,7 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
  const clearBtn = document.getElementById("search-clear");
 
  if (searchInput) {
-  searchInput.addEventListener("input", render);
+  searchInput.addEventListener("input", debounce(render, 150));
  }
  if (clearBtn) {
   clearBtn.addEventListener("click", () => {

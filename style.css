@@ -350,27 +350,3 @@ audio {
  font-weight: 400;
  text-transform: uppercase;
 }
-.track-type.ringtone {
- color: var(--ringtone);
- border-color: var(--ringtone);
-}
-.track-type.notification {
- color: var(--notification);
- border-color: var(--notification);
-}
-/* ================================
- MOBILE: center all 14 boxes (5 platform + 3 type + 6 sort)
-================================ */
-@media (max-width: 700px) {
- .filters-row {
-  flex-direction: column;
- }
- .filters-sep {
-  width: 40px;
-  height: 1px;
- }
- .filters,
- .sort-buttons {
-  justify-content: center;
- }
-}
