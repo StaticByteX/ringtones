@@ -389,10 +389,15 @@ function buildTrack(t) {
   line4.textContent = sampleText ? `Contains elements from: ${sampleText}` : "";
  }
 
- /* AUDIO */
+ /* AUDIO
+  preload="none": with hundreds of cards in the DOM, "metadata" makes the
+  browser eagerly fetch every file's header up front, saturating the ~6
+  connections-per-host limit and stalling actual playback (and memory) on
+  mobile. Loading only on play keeps the network queue empty so playback
+  starts immediately. */
  const audio = document.createElement("audio");
  audio.controls = true;
- audio.preload = "metadata";
+ audio.preload = "none";
 
  if (t.file_mp3) {
   const s = document.createElement("source");
