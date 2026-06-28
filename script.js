@@ -44,13 +44,16 @@ function indexTrack(t) {
  return t;
 }
 
-/* PLATFORM COLORS FOR FIRST LINE */
+/* PLATFORM PALETTE — single source of truth, keyed by lowercase platform */
+const DEFAULT_COLOR = "#ffffff";
+const PLATFORM_COLORS = {
+ c64: "#f2f540",
+ a500: "#0094ff",
+ dos: "#ff66ff",
+ win: "#66c656"
+};
 function platformColor(platform) {
- if (platform === "C64") return "#f2f540";
- if (platform === "A500") return "#0094ff";
- if (platform === "DOS") return "#ff66ff";
- if (platform === "WIN") return "#66c656";
- return "#ffffff";
+ return PLATFORM_COLORS[norm(platform)] || DEFAULT_COLOR;
 }
 
 /* LOAD DATA (UPDATED PATHS) */
@@ -104,33 +107,37 @@ async function loadData() {
 }
 
 /* FILTERS */
+function setActive(buttons, isActive) {
+ buttons.forEach((b) => {
+  const active = isActive(b);
+  b.classList.toggle("active", active);
+  b.setAttribute("aria-pressed", String(active));
+ });
+}
 function setFilter(f) {
  currentFilter = f;
- document
-  .querySelectorAll(".filters-platform button[data-filter]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.filter === f)
-  );
+ setActive(
+  document.querySelectorAll(".filters-platform button[data-filter]"),
+  (b) => b.dataset.filter === f
+ );
  render();
 }
 function setTypeFilter(t) {
  currentTypeFilter = t;
- document
-  .querySelectorAll(".filters-type button[data-type-filter]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.typeFilter === t)
-  );
+ setActive(
+  document.querySelectorAll(".filters-type button[data-type-filter]"),
+  (b) => b.dataset.typeFilter === t
+ );
  render();
 }
 
 /* SORT */
 function setSort(key) {
  currentSortKey = key;
- document
-  .querySelectorAll(".sort-buttons button[data-sort]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.sort === key)
-  );
+ setActive(
+  document.querySelectorAll(".sort-buttons button[data-sort]"),
+  (b) => b.dataset.sort === key
+ );
  render();
 }
 function sortValue(track) {
@@ -215,12 +222,7 @@ function render() {
  });
 
  /* ACCENT COLOR FOR ALL NUMBERS (16) */
- const accentColor =
-  currentFilter === "c64" ? "#f2f540" :
-  currentFilter === "a500" ? "#0094ff" :
-  currentFilter === "dos" ? "#ff66ff" :
-  currentFilter === "win" ? "#66c656" :
-  "#ffffff";
+ const accentColor = PLATFORM_COLORS[currentFilter] || DEFAULT_COLOR;
 
  /* RESULTS INFO (no categories; pluralization; line break after publishers) */
  const resultsInfo = document.getElementById("results-info");
