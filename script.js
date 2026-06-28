@@ -7,20 +7,66 @@ const CHUNK_SIZE = 50;
 let renderIndex = 0;
 let currentFilteredTracks = [];
 let observer = null;
+let sentinel = null;
 const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
 
-/* PLATFORM COLORS FOR FIRST LINE */
+/* debounce: collapse rapid calls (e.g. keystrokes) into one */
+function debounce(fn, delay) {
+ let id;
+ return (...args) => {
+  clearTimeout(id);
+  id = setTimeout(() => fn(...args), delay);
+ };
+}
+
+/* precompute the lowercase search blob + platform key once per track,
+   so filtering doesn't rebuild them on every keystroke */
+function indexTrack(t) {
+ t._platformKey = norm(t.platform);
+ t._search = [
+  t.title,
+  t.production,
+  t.publisher,
+  t.year,
+  t.category,
+  t.platform,
+  t.variant,
+  t.type,
+  safe(t.composer?.handle),
+  safe(t.composer?.name),
+  safe(t.composer?.group),
+  ...(t.tags || [])
+ ]
+  .join(" ")
+  .toLowerCase();
+ return t;
+}
+
+/* PLATFORM PALETTE — single source of truth, keyed by lowercase platform */
+const DEFAULT_COLOR = "#ffffff";
+const PLATFORM_COLORS = {
+ c64: "#f2f540",
+ a500: "#0094ff",
+ dos: "#ff66ff",
+ win: "#66c656"
+};
 function platformColor(platform) {
- if (platform === "C64") return "#f2f540";
- if (platform === "A500") return "#0094ff";
- if (platform === "DOS") return "#ff66ff";
- if (platform === "WIN") return "#66c656";
- return "#ffffff";
+ return PLATFORM_COLORS[norm(platform)] || DEFAULT_COLOR;
 }
 
 /* LOAD DATA (UPDATED PATHS) */
+function showLoadError(message) {
+ const container = document.getElementById("tracklist");
+ if (!container) return;
+ container.textContent = "";
+ const p = document.createElement("p");
+ p.className = "load-error";
+ p.textContent = message;
+ container.appendChild(p);
+}
+
 async function loadData() {
  const sources = [
   "data/ringtones-c64.json",
@@ -28,41 +74,70 @@ async function loadData() {
   "data/ringtones-dos.json",
   "data/ringtones-win.json"
  ];
- const results = await Promise.all(
-  sources.map((s) => fetch(s).then((r) => r.json()))
+
+ /* allSettled so a single failed/malformed source doesn't blank the page */
+ const results = await Promise.allSettled(
+  sources.map((s) =>
+   fetch(s).then((r) => {
+    if (!r.ok) throw new Error(`${s}: HTTP ${r.status}`);
+    return r.json();
+   })
+  )
  );
- tracks = results.flat();
+
+ const failed = results.filter((res) => res.status === "rejected");
+ if (failed.length) {
+  console.error(
+   "Some track sources failed to load:",
+   failed.map((f) => f.reason)
+  );
+ }
+
+ tracks = results
+  .filter((res) => res.status === "fulfilled")
+  .flatMap((res) => res.value)
+  .map(indexTrack);
+
+ if (!tracks.length) {
+  showLoadError("Couldn't load any tracks. Please try again later.");
+  return;
+ }
+
  render();
 }
 
 /* FILTERS */
+function setActive(buttons, isActive) {
+ buttons.forEach((b) => {
+  const active = isActive(b);
+  b.classList.toggle("active", active);
+  b.setAttribute("aria-pressed", String(active));
+ });
+}
 function setFilter(f) {
  currentFilter = f;
- document
-  .querySelectorAll(".filters-platform button[data-filter]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.filter === f)
-  );
+ setActive(
+  document.querySelectorAll(".filters-platform button[data-filter]"),
+  (b) => b.dataset.filter === f
+ );
  render();
 }
 function setTypeFilter(t) {
  currentTypeFilter = t;
- document
-  .querySelectorAll(".filters-type button[data-type-filter]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.typeFilter === t)
-  );
+ setActive(
+  document.querySelectorAll(".filters-type button[data-type-filter]"),
+  (b) => b.dataset.typeFilter === t
+ );
  render();
 }
 
 /* SORT */
 function setSort(key) {
  currentSortKey = key;
- document
-  .querySelectorAll(".sort-buttons button[data-sort]")
-  .forEach((b) =>
-   b.classList.toggle("active", b.dataset.sort === key)
-  );
+ setActive(
+  document.querySelectorAll(".sort-buttons button[data-sort]"),
+  (b) => b.dataset.sort === key
+ );
  render();
 }
 function sortValue(track) {
@@ -94,6 +169,7 @@ function render() {
  const container = document.getElementById("tracklist");
  container.innerHTML = "";
  renderIndex = 0;
+ sentinel = null;
  const searchInput = document.getElementById("search");
  const q = norm(searchInput.value);
 
@@ -104,28 +180,11 @@ function render() {
  }
 
  currentFilteredTracks = tracks.filter((t) => {
-  const platformKey = norm(t.platform); // "c64","a500","dos","win"
   const matchesPlatform =
-   currentFilter === "all" || platformKey === currentFilter;
+   currentFilter === "all" || t._platformKey === currentFilter;
   const matchesType =
    currentTypeFilter === "all" || t.type === currentTypeFilter;
-  const blob = [
-   t.title,
-   t.production,
-   t.publisher,
-   t.year,
-   t.category,
-   t.platform,
-   t.variant,
-   t.type,
-   safe(t.composer?.handle),
-   safe(t.composer?.name),
-   safe(t.composer?.group),
-   ...(t.tags || [])
-  ]
-   .join(" ")
-   .toLowerCase();
-  return matchesPlatform && matchesType && blob.includes(q);
+  return matchesPlatform && matchesType && t._search.includes(q);
  });
 
  /* SORT */
@@ -163,12 +222,7 @@ function render() {
  });
 
  /* ACCENT COLOR FOR ALL NUMBERS (16) */
- const accentColor =
-  currentFilter === "c64" ? "#f2f540" :
-  currentFilter === "a500" ? "#0094ff" :
-  currentFilter === "dos" ? "#ff66ff" :
-  currentFilter === "win" ? "#66c656" :
-  "#ffffff";
+ const accentColor = PLATFORM_COLORS[currentFilter] || DEFAULT_COLOR;
 
  /* RESULTS INFO (no categories; pluralization; line break after publishers) */
  const resultsInfo = document.getElementById("results-info");
@@ -197,13 +251,24 @@ function renderNextChunk() {
   .slice(renderIndex, renderIndex + CHUNK_SIZE)
   .forEach((t) => container.appendChild(buildTrack(t)));
  renderIndex += CHUNK_SIZE;
+
+ /* keep the sentinel pinned to the bottom of the list so the observer keeps
+    firing on subsequent chunks; drop it once everything has rendered */
+ if (sentinel) {
+  if (renderIndex >= currentFilteredTracks.length) {
+   sentinel.remove();
+  } else {
+   container.appendChild(sentinel);
+  }
+ }
 }
 
 /* OBSERVER (lazy load) */
 function setupObserver() {
  if (observer) observer.disconnect();
  const container = document.getElementById("tracklist");
- const sentinel = document.createElement("div");
+ if (renderIndex >= currentFilteredTracks.length) return;
+ sentinel = document.createElement("div");
  sentinel.style.height = "1px";
  container.appendChild(sentinel);
 
@@ -436,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
  const clearBtn = document.getElementById("search-clear");
 
  if (searchInput) {
-  searchInput.addEventListener("input", render);
+  searchInput.addEventListener("input", debounce(render, 150));
  }
  if (clearBtn) {
   clearBtn.addEventListener("click", () => {
