@@ -7,6 +7,7 @@ const CHUNK_SIZE = 50;
 let renderIndex = 0;
 let currentFilteredTracks = [];
 let observer = null;
+let sentinel = null;
 const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
@@ -21,6 +22,16 @@ function platformColor(platform) {
 }
 
 /* LOAD DATA (UPDATED PATHS) */
+function showLoadError(message) {
+ const container = document.getElementById("tracklist");
+ if (!container) return;
+ container.textContent = "";
+ const p = document.createElement("p");
+ p.className = "load-error";
+ p.textContent = message;
+ container.appendChild(p);
+}
+
 async function loadData() {
  const sources = [
   "data/ringtones-c64.json",
@@ -28,10 +39,34 @@ async function loadData() {
   "data/ringtones-dos.json",
   "data/ringtones-win.json"
  ];
- const results = await Promise.all(
-  sources.map((s) => fetch(s).then((r) => r.json()))
+
+ /* allSettled so a single failed/malformed source doesn't blank the page */
+ const results = await Promise.allSettled(
+  sources.map((s) =>
+   fetch(s).then((r) => {
+    if (!r.ok) throw new Error(`${s}: HTTP ${r.status}`);
+    return r.json();
+   })
+  )
  );
- tracks = results.flat();
+
+ const failed = results.filter((res) => res.status === "rejected");
+ if (failed.length) {
+  console.error(
+   "Some track sources failed to load:",
+   failed.map((f) => f.reason)
+  );
+ }
+
+ tracks = results
+  .filter((res) => res.status === "fulfilled")
+  .flatMap((res) => res.value);
+
+ if (!tracks.length) {
+  showLoadError("Couldn't load any tracks. Please try again later.");
+  return;
+ }
+
  render();
 }
 
@@ -94,6 +129,7 @@ function render() {
  const container = document.getElementById("tracklist");
  container.innerHTML = "";
  renderIndex = 0;
+ sentinel = null;
  const searchInput = document.getElementById("search");
  const q = norm(searchInput.value);
 
@@ -197,13 +233,24 @@ function renderNextChunk() {
   .slice(renderIndex, renderIndex + CHUNK_SIZE)
   .forEach((t) => container.appendChild(buildTrack(t)));
  renderIndex += CHUNK_SIZE;
+
+ /* keep the sentinel pinned to the bottom of the list so the observer keeps
+    firing on subsequent chunks; drop it once everything has rendered */
+ if (sentinel) {
+  if (renderIndex >= currentFilteredTracks.length) {
+   sentinel.remove();
+  } else {
+   container.appendChild(sentinel);
+  }
+ }
 }
 
 /* OBSERVER (lazy load) */
 function setupObserver() {
  if (observer) observer.disconnect();
  const container = document.getElementById("tracklist");
- const sentinel = document.createElement("div");
+ if (renderIndex >= currentFilteredTracks.length) return;
+ sentinel = document.createElement("div");
  sentinel.style.height = "1px";
  container.appendChild(sentinel);
 

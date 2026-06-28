@@ -218,6 +218,12 @@ h1 {
  margin-top: 4px;
  text-align: left;
 }
+.load-error {
+ text-align: center;
+ color: var(--muted);
+ font-size: 14px;
+ padding: 24px 12px;
+}
 .track {
  position: relative;
  background: var(--panel);
