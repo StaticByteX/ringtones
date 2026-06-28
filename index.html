@@ -107,6 +107,15 @@
     <p class="footer-tagline">Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX</p>
   </footer>
 
+  <!-- Single shared audio player for the whole list -->
+  <div id="player-bar" class="player-bar" aria-label="Audio player" hidden>
+    <div class="player-meta">
+      <span id="player-title" class="player-title"></span>
+      <span id="player-sub" class="player-sub"></span>
+    </div>
+    <audio id="player" class="player-audio" controls preload="none"></audio>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

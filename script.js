@@ -56,6 +56,82 @@ function platformColor(platform) {
  return PLATFORM_COLORS[norm(platform)] || DEFAULT_COLOR;
 }
 
+/* SHARED AUDIO PLAYER
+   One <audio> element in a sticky bottom bar serves the entire list, so the
+   page holds a single media widget instead of one per track (hundreds of
+   native players is what overwhelmed mobile WebKit). Each card carries a
+   lightweight play button that just points the shared player at its file. */
+const playerState = { audio: null, trackId: null };
+
+function getPlayer() {
+ if (!playerState.audio) playerState.audio = document.getElementById("player");
+ return playerState.audio;
+}
+
+/* sync every rendered play button to the shared player's state */
+function refreshPlayButtons() {
+ const audio = getPlayer();
+ const playing = !!audio && !audio.paused && !audio.ended;
+ document.querySelectorAll(".play-btn").forEach((b) => {
+  const isActive = b.dataset.trackId === playerState.trackId;
+  const isPlaying = isActive && playing;
+  b.classList.toggle("playing", isPlaying);
+  b.classList.toggle("active-track", isActive);
+  b.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
+  b.setAttribute("aria-pressed", String(isPlaying));
+ });
+}
+
+function updateNowPlaying(t) {
+ const bar = document.getElementById("player-bar");
+ if (bar) bar.hidden = false;
+ document.body.classList.add("has-player");
+ const titleEl = document.getElementById("player-title");
+ const subEl = document.getElementById("player-sub");
+ if (titleEl) {
+  titleEl.textContent = safe(t.title);
+  titleEl.style.color = platformColor(t.platform);
+ }
+ if (subEl) {
+  const c = t.composer || {};
+  const handle = safe(c.handle);
+  const name = safe(c.name);
+  const who = handle && name ? `${handle} (${name})` : handle || name;
+  subEl.textContent = [who, safe(t.platform)].filter(Boolean).join(" • ");
+ }
+}
+
+function togglePlay(t) {
+ const audio = getPlayer();
+ if (!audio) return;
+ const src = t.file_mp3 || t.file_m4r;
+ if (!src) return;
+
+ /* same track -> pause/resume; different track -> load and play */
+ if (playerState.trackId === t.id) {
+  if (audio.paused) audio.play().catch(() => {});
+  else audio.pause();
+  return;
+ }
+
+ playerState.trackId = t.id;
+ audio.src = src;
+ updateNowPlaying(t);
+ audio.play().catch(() => {});
+ refreshPlayButtons();
+}
+
+function playButton(t, color) {
+ const btn = document.createElement("button");
+ btn.type = "button";
+ btn.className = "play-btn";
+ btn.dataset.trackId = t.id || "";
+ btn.setAttribute("aria-label", "Play");
+ if (color) btn.style.color = color;
+ btn.addEventListener("click", () => togglePlay(t));
+ return btn;
+}
+
 /* LOAD DATA (UPDATED PATHS) */
 function showLoadError(message) {
  const container = document.getElementById("tracklist");
@@ -252,6 +328,9 @@ function renderNextChunk() {
   .forEach((t) => container.appendChild(buildTrack(t)));
  renderIndex += CHUNK_SIZE;
 
+ /* newly added buttons should reflect the shared player's current state */
+ refreshPlayButtons();
+
  /* keep the sentinel pinned to the bottom of the list so the observer keeps
     firing on subsequent chunks; drop it once everything has rendered */
  if (sentinel) {
@@ -293,6 +372,8 @@ function buildTrack(t) {
  /* PLATFORM LOGO (6–7) */
  const logo = document.createElement("img");
  logo.className = "track-platform-logo";
+ logo.loading = "lazy";
+ logo.decoding = "async";
  if (t.platform === "C64") logo.src = "assets/c64-logo.png";
  else if (t.platform === "A500") logo.src = "assets/a500-logo.png";
  else if (t.platform === "DOS") logo.src = "assets/dos-logo.png";
@@ -389,37 +470,17 @@ function buildTrack(t) {
   line4.textContent = sampleText ? `Contains elements from: ${sampleText}` : "";
  }
 
- /* AUDIO */
- const audio = document.createElement("audio");
- audio.controls = true;
- audio.preload = "metadata";
-
- if (t.file_mp3) {
-  const s = document.createElement("source");
-  s.src = t.file_mp3;
-  s.type = "audio/mpeg";
-  audio.appendChild(s);
- }
- if (t.file_m4r) {
-  const s = document.createElement("source");
-  s.src = t.file_m4r;
-  s.type = "audio/mp4";
-  audio.appendChild(s);
- }
-
- /* only one audio at a time */
- audio.addEventListener("play", () => {
-  document.querySelectorAll("#tracklist audio").forEach((a) => {
-   if (a !== audio) a.pause();
-  });
- });
-
  /* ACTIONS */
  const actions = document.createElement("div");
  actions.className = "track-actions";
 
  const left = document.createElement("div");
  left.className = "actions-left";
+
+ /* play button -> drives the single shared player in the sticky bar */
+ if (t.file_mp3 || t.file_m4r) {
+  left.appendChild(playButton(t, color));
+ }
 
  // iOS: hide MP3 download button (prevents "opens and plays")
  if (!isIOS && t.file_mp3) {
@@ -441,7 +502,7 @@ function buildTrack(t) {
  // only show line3 when it has content (11)
  if (line3.textContent.trim()) card.append(line3);
  if (line4 && line4.textContent.trim()) card.append(line4);
- card.append(audio, actions);
+ card.append(actions);
 
  return card;
 }
@@ -485,6 +546,8 @@ function dlBtn(url, icon, label) {
  const img = document.createElement("img");
  img.src = icon;
  img.alt = label;
+ img.loading = "lazy";
+ img.decoding = "async";
  a.append(img, label);
  if (isIOS) {
   const hint = document.createElement("span");
@@ -499,6 +562,15 @@ function dlBtn(url, icon, label) {
 document.addEventListener("DOMContentLoaded", () => {
  const searchInput = document.getElementById("search");
  const clearBtn = document.getElementById("search-clear");
+
+ /* keep card buttons in sync when the shared player changes state,
+    including when the user drives it from the bar's own controls */
+ const player = getPlayer();
+ if (player) {
+  ["play", "pause", "ended"].forEach((ev) =>
+   player.addEventListener(ev, refreshPlayButtons)
+  );
+ }
 
  if (searchInput) {
   searchInput.addEventListener("input", debounce(render, 150));
