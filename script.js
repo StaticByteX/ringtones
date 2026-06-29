@@ -482,12 +482,15 @@ function buildTrack(t) {
   left.appendChild(playButton(t, color));
  }
 
- // iOS: hide MP3 download button (prevents "opens and plays")
+ // iOS: hide the Android (MP3) button — only the iPhone format applies there
  if (!isIOS && t.file_mp3) {
-  left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "MP3"));
+  left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "Android"));
  }
  if (t.file_m4r) {
-  left.appendChild(dlBtn(t.file_m4r, "assets/apple-favicon.png", "M4R"));
+  left.appendChild(
+   dlBtn(t.file_m4r, "assets/apple-favicon.png", "iPhone", { iosRingtone: true })
+  );
+  if (isIOS) left.appendChild(iosHelpButton());
  }
 
  const type = document.createElement("div");
@@ -514,14 +517,81 @@ function inlineBox(text) {
  b.textContent = text;
  return b;
 }
-function dlBtn(url, icon, label) {
+/* iOS RINGTONE HELP
+   iPhones can't set a ringtone straight from the browser (Apple blocks it),
+   so the iPhone download is paired with a short GarageBand walkthrough shown
+   once per session (sessionStorage) and reachable any time via the ⓘ button. */
+const IOS_HELP_KEY = "sbx_ios_help_shown";
+function iosHelpShown() {
+ try {
+  return sessionStorage.getItem(IOS_HELP_KEY) === "1";
+ } catch {
+  return false;
+ }
+}
+function markIosHelpShown() {
+ try {
+  sessionStorage.setItem(IOS_HELP_KEY, "1");
+ } catch {
+  /* private mode etc. — just skip persistence */
+ }
+}
+function openIosHelp(url, filename) {
+ const modal = document.getElementById("ios-help");
+ if (!modal) {
+  if (url) window.open(url, "_blank", "noopener");
+  return;
+ }
+ const dl = document.getElementById("ios-help-download");
+ if (dl) {
+  if (url) {
+   dl.href = url;
+   if (filename) dl.setAttribute("download", filename);
+   dl.hidden = false;
+  } else {
+   /* opened from the generic ⓘ button, not a specific track */
+   dl.hidden = true;
+  }
+ }
+ modal.hidden = false;
+ document.body.classList.add("modal-open");
+ const close = modal.querySelector(".modal-close");
+ if (close) close.focus();
+}
+function closeIosHelp() {
+ const modal = document.getElementById("ios-help");
+ if (modal) modal.hidden = true;
+ document.body.classList.remove("modal-open");
+}
+function iosHelpButton() {
+ const b = document.createElement("button");
+ b.type = "button";
+ b.className = "help-btn";
+ b.setAttribute("aria-label", "How to set as iPhone ringtone");
+ b.addEventListener("click", () => openIosHelp());
+ return b;
+}
+
+function dlBtn(url, icon, label, opts = {}) {
  const a = document.createElement("a");
  a.className = "download-btn";
  a.href = url;
  const filename = url.split("/").pop() || label.toLowerCase();
  a.download = filename;
 
- if (!isIOS) {
+ if (opts.iosRingtone && isIOS) {
+  /* iPhone download on iOS: first time per session, surface the ringtone
+     walkthrough (with the download inside it); afterwards let the link open
+     the file so the user can Save to Files. */
+  a.addEventListener("click", (e) => {
+   if (!iosHelpShown()) {
+    e.preventDefault();
+    markIosHelpShown();
+    openIosHelp(url, filename);
+   }
+  });
+ } else if (!isIOS) {
+  /* desktop / Android: force a real save via blob */
   a.addEventListener("click", async (e) => {
    e.preventDefault();
    try {
@@ -545,16 +615,10 @@ function dlBtn(url, icon, label) {
 
  const img = document.createElement("img");
  img.src = icon;
- img.alt = label;
+ img.alt = "";
  img.loading = "lazy";
  img.decoding = "async";
- a.append(img, label);
- if (isIOS) {
-  const hint = document.createElement("span");
-  hint.className = "ios-hint";
-  hint.textContent = "hold to save";
-  a.appendChild(hint);
- }
+ a.append(img, document.createTextNode(label));
  return a;
 }
 
@@ -570,6 +634,17 @@ document.addEventListener("DOMContentLoaded", () => {
   ["play", "pause", "ended"].forEach((ev) =>
    player.addEventListener(ev, refreshPlayButtons)
   );
+ }
+
+ /* iOS ringtone help modal: close via ×, backdrop, or Esc */
+ const iosHelp = document.getElementById("ios-help");
+ if (iosHelp) {
+  iosHelp
+   .querySelectorAll("[data-close]")
+   .forEach((el) => el.addEventListener("click", closeIosHelp));
+  document.addEventListener("keydown", (e) => {
+   if (e.key === "Escape" && !iosHelp.hidden) closeIosHelp();
+  });
  }
 
  if (searchInput) {

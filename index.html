@@ -107,6 +107,42 @@
     <p class="footer-tagline">Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX</p>
   </footer>
 
+  <!-- iPhone ringtone how-to (shown once per session, or via the ⓘ button) -->
+  <div
+    id="ios-help"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ios-help-title"
+    hidden
+  >
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="document">
+      <button type="button" class="modal-close" data-close aria-label="Close">×</button>
+      <h2 id="ios-help-title" class="modal-title">Set it as your iPhone ringtone</h2>
+      <p class="modal-intro">
+        iPhone won't let a website set a ringtone directly, but it's quick with
+        the free GarageBand app:
+      </p>
+      <ol class="modal-steps">
+        <li>Tap <strong>Download ringtone</strong> below, then <strong>Save to Files</strong>.</li>
+        <li>Open the free <strong>GarageBand</strong> app.</li>
+        <li>Open the loops browser → <strong>Files</strong>, pick your <code>.m4r</code>, and drag it onto a track.</li>
+        <li>Tap <strong>My Songs</strong>, then long-press the file → <strong>Share → Ringtone</strong>.</li>
+        <li><strong>Settings → Sounds &amp; Haptics → Ringtone</strong> → choose it. 🎉</li>
+      </ol>
+      <a
+        id="ios-help-download"
+        class="modal-download"
+        href="#"
+        target="_blank"
+        rel="noopener"
+        >Download ringtone</a
+      >
+      <button type="button" class="modal-got-it" data-close>Got it</button>
+    </div>
+  </div>
+
   <!-- Single shared audio player for the whole list -->
   <div id="player-bar" class="player-bar" aria-label="Audio player" hidden>
     <div class="player-meta">
