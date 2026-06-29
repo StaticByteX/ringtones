@@ -536,24 +536,42 @@ function markIosHelpShown() {
   /* private mode etc. — just skip persistence */
  }
 }
+/* download a file as a real save rather than navigating to it (navigating to
+   the audio URL just makes the browser play it). Tries a blob download first;
+   if that's blocked (e.g. CORS), falls back to opening the URL — which still
+   saves when the file is served with Content-Disposition: attachment. */
+async function saveFile(url, filename) {
+ try {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("fetch failed");
+  const blob = await response.blob();
+  const blobUrl = URL.createObjectURL(blob);
+  const tmp = document.createElement("a");
+  tmp.href = blobUrl;
+  tmp.download = filename;
+  document.body.appendChild(tmp);
+  tmp.click();
+  document.body.removeChild(tmp);
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+ } catch {
+  window.open(url, "_blank", "noopener,noreferrer");
+ }
+}
+
+let pendingDownload = null;
+let modalOpenedAt = 0;
+
 function openIosHelp(url, filename) {
+ pendingDownload = url ? { url, filename } : null;
  const modal = document.getElementById("ios-help");
  if (!modal) {
-  if (url) window.open(url, "_blank", "noopener");
+  if (url) saveFile(url, filename);
   return;
  }
  const dl = document.getElementById("ios-help-download");
- if (dl) {
-  if (url) {
-   dl.href = url;
-   if (filename) dl.setAttribute("download", filename);
-   dl.hidden = false;
-  } else {
-   /* opened from the generic ⓘ button, not a specific track */
-   dl.hidden = true;
-  }
- }
+ if (dl) dl.hidden = !url; // hide the download when opened from the generic ⓘ
  modal.hidden = false;
+ modalOpenedAt = Date.now();
  document.body.classList.add("modal-open");
  const close = modal.querySelector(".modal-close");
  if (close) close.focus();
@@ -579,39 +597,19 @@ function dlBtn(url, icon, label, opts = {}) {
  const filename = url.split("/").pop() || label.toLowerCase();
  a.download = filename;
 
- if (opts.iosRingtone && isIOS) {
-  /* iPhone download on iOS: first time per session, surface the ringtone
-     walkthrough (with the download inside it); afterwards let the link open
-     the file so the user can Save to Files. */
-  a.addEventListener("click", (e) => {
-   if (!iosHelpShown()) {
-    e.preventDefault();
-    markIosHelpShown();
-    openIosHelp(url, filename);
-   }
-  });
- } else if (!isIOS) {
-  /* desktop / Android: force a real save via blob */
-  a.addEventListener("click", async (e) => {
-   e.preventDefault();
-   try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("fetch failed");
-    const blob = await response.blob();
-    const blobUrl = URL.createObjectURL(blob);
-    const tmp = document.createElement("a");
-    tmp.href = blobUrl;
-    tmp.download = filename;
-    document.body.appendChild(tmp);
-    tmp.click();
-    document.body.removeChild(tmp);
-    /* revoke after enough time for the download to begin */
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
-   } catch {
-    window.open(url, "_blank", "noopener,noreferrer");
-   }
-  });
- }
+ /* Always handle the tap ourselves — never navigate straight to the audio
+    file, or iOS Safari just plays it (and leaves the page). On iOS the first
+    iPhone download per session opens the ringtone walkthrough; otherwise we
+    trigger a real save. */
+ a.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (opts.iosRingtone && isIOS && !iosHelpShown()) {
+   markIosHelpShown();
+   openIosHelp(url, filename);
+  } else {
+   saveFile(url, filename);
+  }
+ });
 
  const img = document.createElement("img");
  img.src = icon;
@@ -636,12 +634,26 @@ document.addEventListener("DOMContentLoaded", () => {
   );
  }
 
- /* iOS ringtone help modal: close via ×, backdrop, or Esc */
+ /* iOS ringtone help modal: close via ×, backdrop, Esc; download via blob.
+    The 350ms guard ignores the "ghost click" iOS can deliver right after the
+    modal opens (which previously closed it or triggered playback). */
  const iosHelp = document.getElementById("ios-help");
  if (iosHelp) {
-  iosHelp
-   .querySelectorAll("[data-close]")
-   .forEach((el) => el.addEventListener("click", closeIosHelp));
+  iosHelp.querySelectorAll("[data-close]").forEach((el) =>
+   el.addEventListener("click", () => {
+    if (Date.now() - modalOpenedAt < 350) return;
+    closeIosHelp();
+   })
+  );
+  const dlLink = document.getElementById("ios-help-download");
+  if (dlLink) {
+   dlLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (Date.now() - modalOpenedAt < 350) return;
+    if (pendingDownload) saveFile(pendingDownload.url, pendingDownload.filename);
+    closeIosHelp();
+   });
+  }
   document.addEventListener("keydown", (e) => {
    if (e.key === "Escape" && !iosHelp.hidden) closeIosHelp();
   });
