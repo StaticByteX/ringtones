@@ -536,14 +536,14 @@ function markIosHelpShown() {
   /* private mode etc. — just skip persistence */
  }
 }
-/* download a file as a real save rather than navigating to it (navigating to
-   the audio URL just makes the browser play it). Tries a blob download first;
-   if that's blocked (e.g. CORS), falls back to opening the URL — which still
-   saves when the file is served with Content-Disposition: attachment. */
+/* download a file as a real save by fetching it and saving the blob. We never
+   navigate to / open the audio URL itself, because iOS Safari just plays it
+   (and would spawn a second tab). Requires the bucket's CORS policy to allow
+   this origin — which it now does. */
 async function saveFile(url, filename) {
  try {
   const response = await fetch(url);
-  if (!response.ok) throw new Error("fetch failed");
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const blob = await response.blob();
   const blobUrl = URL.createObjectURL(blob);
   const tmp = document.createElement("a");
@@ -553,9 +553,20 @@ async function saveFile(url, filename) {
   tmp.click();
   document.body.removeChild(tmp);
   setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
- } catch {
-  window.open(url, "_blank", "noopener,noreferrer");
+ } catch (err) {
+  console.error("Ringtone download failed:", err);
  }
+}
+
+/* collapse rapid duplicate triggers: iOS can deliver a second "ghost" click
+   for a single tap, which previously slipped through to a second download /
+   playback. One gesture should cause at most one download. */
+let downloadActionAt = 0;
+function claimDownloadAction() {
+ const now = Date.now();
+ if (now - downloadActionAt < 450) return false; // covers the ~250-350ms ghost
+ downloadActionAt = now;
+ return true;
 }
 
 let pendingDownload = null;
@@ -603,12 +614,17 @@ function dlBtn(url, icon, label, opts = {}) {
     trigger a real save. */
  a.addEventListener("click", (e) => {
   e.preventDefault();
+  /* iOS, first time this session: show the walkthrough (download lives in it) */
   if (opts.iosRingtone && isIOS && !iosHelpShown()) {
    markIosHelpShown();
    openIosHelp(url, filename);
-  } else {
-   saveFile(url, filename);
+   return;
   }
+  /* ignore an iOS "ghost" click that lands while the walkthrough is open */
+  const modal = document.getElementById("ios-help");
+  if (modal && !modal.hidden) return;
+  if (!claimDownloadAction()) return;
+  saveFile(url, filename);
  });
 
  const img = document.createElement("img");
@@ -649,7 +665,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dlLink) {
    dlLink.addEventListener("click", (e) => {
     e.preventDefault();
-    if (Date.now() - modalOpenedAt < 350) return;
+    if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
+    if (!claimDownloadAction()) return;
     if (pendingDownload) saveFile(pendingDownload.url, pendingDownload.filename);
     closeIosHelp();
    });
