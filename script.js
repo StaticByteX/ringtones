@@ -490,7 +490,7 @@ function buildTrack(t) {
   left.appendChild(
    dlBtn(t.file_m4r, "assets/apple-favicon.png", "iPhone", { iosRingtone: true })
   );
-  if (isIOS) left.appendChild(iosHelpButton());
+  if (isIOS) left.appendChild(iosHelpButton(t));
  }
 
  const type = document.createElement("div");
@@ -592,12 +592,15 @@ function closeIosHelp() {
  if (modal) modal.hidden = true;
  document.body.classList.remove("modal-open");
 }
-function iosHelpButton() {
+function iosHelpButton(t) {
  const b = document.createElement("button");
  b.type = "button";
  b.className = "help-btn";
  b.setAttribute("aria-label", "How to set as iPhone ringtone");
- b.addEventListener("click", () => openIosHelp());
+ const url = t && t.file_m4r ? t.file_m4r : "";
+ const filename = url.split("/").pop() || "ringtone.m4r";
+ /* the ⓘ belongs to this card, so its walkthrough offers this track's file */
+ b.addEventListener("click", () => openIosHelp(url, filename));
  return b;
 }
 
@@ -614,9 +617,10 @@ function dlBtn(url, icon, label, opts = {}) {
     trigger a real save. */
  a.addEventListener("click", (e) => {
   e.preventDefault();
-  /* iOS, first time this session: show the walkthrough (download lives in it) */
+  /* iOS, until the user acknowledges with "Got it": show the walkthrough
+     (the download lives inside it). Only "Got it" marks it seen — closing via
+     × or tapping outside just dismisses it, so it offers again next time. */
   if (opts.iosRingtone && isIOS && !iosHelpShown()) {
-   markIosHelpShown();
    openIosHelp(url, filename);
    return;
   }
@@ -668,6 +672,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
     if (!claimDownloadAction()) return;
     if (pendingDownload) saveFile(pendingDownload.url, pendingDownload.filename);
+    closeIosHelp();
+   });
+  }
+  /* only "Got it" acknowledges the guide for the session; × / backdrop don't */
+  const gotIt = document.getElementById("ios-help-gotit");
+  if (gotIt) {
+   gotIt.addEventListener("click", () => {
+    if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
+    markIosHelpShown();
     closeIosHelp();
    });
   }
