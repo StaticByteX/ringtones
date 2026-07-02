@@ -670,6 +670,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
     if (!claimDownloadAction()) return;
     if (pendingDownload) saveFile(pendingDownload.url, pendingDownload.filename);
+    /* downloading counts as acknowledgement too, so later iPhone taps go
+       straight to the download instead of re-opening the guide */
+    markIosHelpShown();
     closeIosHelp();
    });
   }
