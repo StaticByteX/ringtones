@@ -481,13 +481,17 @@ body.has-player {
 }
 .modal-download {
  display: block;
+ width: 100%;
  text-align: center;
  padding: 11px 14px;
  border-radius: 10px;
  background: var(--a500);
+ border: none;
  color: #001018;
  font-weight: 600;
+ font-size: 14px;
  text-decoration: none;
+ cursor: pointer;
  font-family: "Segoe UI", system-ui, sans-serif;
 }
 .modal-download[hidden] {
@@ -562,6 +566,7 @@ body.modal-open {
  text-decoration: none;
  font-family: "Segoe UI", system-ui, sans-serif;
  font-size: 12px;
+ cursor: pointer;
 }
 .download-btn img {
  width: 14px;

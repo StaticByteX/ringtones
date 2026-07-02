@@ -605,18 +605,16 @@ function iosHelpButton(t) {
 }
 
 function dlBtn(url, icon, label, opts = {}) {
- const a = document.createElement("a");
- a.className = "download-btn";
- a.href = url;
+ /* a <button>, not an <a>: some iOS browsers (notably Firefox) navigate to an
+    anchor's href even after preventDefault, which just plays the audio file. A
+    button has no link to follow, so the only possible action is our save. */
+ const b = document.createElement("button");
+ b.type = "button";
+ b.className = "download-btn";
+ b.setAttribute("aria-label", `Download for ${label}`);
  const filename = url.split("/").pop() || label.toLowerCase();
- a.download = filename;
 
- /* Always handle the tap ourselves — never navigate straight to the audio
-    file, or iOS Safari just plays it (and leaves the page). On iOS the first
-    iPhone download per session opens the ringtone walkthrough; otherwise we
-    trigger a real save. */
- a.addEventListener("click", (e) => {
-  e.preventDefault();
+ b.addEventListener("click", () => {
   /* iOS, until the user acknowledges with "Got it": show the walkthrough
      (the download lives inside it). Only "Got it" marks it seen — closing via
      × or tapping outside just dismisses it, so it offers again next time. */
@@ -636,8 +634,8 @@ function dlBtn(url, icon, label, opts = {}) {
  img.alt = "";
  img.loading = "lazy";
  img.decoding = "async";
- a.append(img, document.createTextNode(label));
- return a;
+ b.append(img, document.createTextNode(label));
+ return b;
 }
 
 /* INIT */
