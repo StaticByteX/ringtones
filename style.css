@@ -66,6 +66,7 @@ body {
  align-items: center;
  gap: 8px;
  min-width: 0;
+ text-decoration: none;
 }
 .qr {
  width: 150px;
@@ -73,10 +74,13 @@ body {
  height: auto;
  display: block;
 }
-.qr-item figcaption {
+.qr-label {
  font-family: "Segoe UI", system-ui, sans-serif;
  font-size: 13px;
  color: var(--muted);
+}
+.qr-item:hover .qr-label {
+ color: var(--text);
 }
 /* ================================
  HEADERS
