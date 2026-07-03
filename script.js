@@ -391,27 +391,30 @@ function buildTrack(t) {
  title.className = "track-title-main";
  title.textContent = safe(t.title);
 
+ const year = t.year != null ? String(t.year) : "";
+
+ /* chips: category · platform · variant · year (year is universal, so it
+    lives here rather than being repeated inside the text lines) */
  const meta = document.createElement("div");
  meta.className = "track-inline-meta";
  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
  meta.appendChild(inlineBox(safe(t.platform)));
  meta.appendChild(inlineBox(`v${safe(t.variant)}`));
+ if (year) meta.appendChild(inlineBox(year));
 
  titleRow.append(title, meta);
 
- /* SAMPLING FLAG (10) */
+ /* SAMPLING FLAG */
  const hasSampling =
   t.sampling &&
-  (t.sampling.title ||
-   t.sampling.artist ||
-   t.sampling.year);
-
- const year = t.year != null ? String(t.year) : "";
+  (t.sampling.title || t.sampling.artist || t.sampling.year);
 
  /* LINE 2: COMPOSER
   - If sampling exists -> NO year
   - If sampling does NOT exist -> include year
  */
+ /* LINE 2: ARTIST — Handle (Real Name) · Group.
+    Parentheses are used for exactly one thing: the real name after a handle. */
  const line2 = document.createElement("div");
  line2.className = "track-line";
  const comp = t.composer || {};
@@ -419,55 +422,41 @@ function buildTrack(t) {
  const name = safe(comp.name);
  const group = safe(comp.group);
 
- let composerCore = "";
- if (handle && name) composerCore = `${handle} (${name})`;
- else if (handle) composerCore = handle;
- else if (name) composerCore = name;
- if (group) composerCore = composerCore ? `${composerCore} – ${group}` : group;
+ let artist = "";
+ if (handle && name) artist = `${handle} (${name})`;
+ else if (handle) artist = handle;
+ else if (name) artist = name;
+ if (group) artist = artist ? `${artist} · ${group}` : group;
+ line2.textContent = artist;
 
- if (!hasSampling) {
-  // show year if available
-  line2.textContent = composerCore && year ? `${composerCore}, ${year}` : (composerCore || year);
- } else {
-  // no year when sampling exists
-  line2.textContent = composerCore;
- }
-
- /* LINE 3: PRODUCTION (11)
-  If production and publisher are null -> omit line3
-  Else robust formatting without '(, 2022)'
- */
+ /* LINE 3: PROVENANCE — production · publisher, de-duplicated. Skip the
+    production when it just repeats the title, and the publisher when it
+    equals the composer's group (true for ~half the library). Year is a chip. */
  const line3 = document.createElement("div");
  line3.className = "track-line";
  const prod = safe(t.production);
  const pub = safe(t.publisher);
+ const provParts = [];
+ if (prod && norm(prod) !== norm(t.title)) provParts.push(prod);
+ if (pub && norm(pub) !== norm(group)) provParts.push(pub);
+ line3.textContent = provParts.join(" · ");
 
- if (!prod && !pub) {
-  line3.textContent = "";
- } else {
-  const bits = [];
-  if (pub) bits.push(pub);
-  if (year) bits.push(year);
-  if (prod) {
-   line3.textContent = bits.length ? `${prod} (${bits.join(", ")})` : prod;
-  } else {
-   line3.textContent = bits.join(", ");
-  }
- }
-
- /* LINE 4: SAMPLING */
+ /* LINE 4: SOURCE — "Based on <title · artist · year>" */
  let line4 = null;
  if (hasSampling) {
   line4 = document.createElement("div");
   line4.className = "track-line";
-  const sTitle = safe(t.sampling.title);
-  const sArtist = safe(t.sampling.artist);
-  const sYear = t.sampling.year != null ? String(t.sampling.year) : "";
-  const inner = [sArtist, sYear].filter(Boolean).join(", ");
-  const sampleText = sTitle
-   ? (inner ? `${sTitle} (${inner})` : sTitle)
-   : inner;
-  line4.textContent = sampleText ? `Contains elements from: ${sampleText}` : "";
+  const sParts = [
+   safe(t.sampling.title),
+   safe(t.sampling.artist),
+   t.sampling.year != null ? String(t.sampling.year) : ""
+  ].filter(Boolean);
+  if (sParts.length) {
+   const lead = document.createElement("span");
+   lead.className = "based-on";
+   lead.textContent = "Based on ";
+   line4.append(lead, document.createTextNode(sParts.join(" · ")));
+  }
  }
 
  /* ACTIONS */
