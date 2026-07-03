@@ -393,14 +393,13 @@ function buildTrack(t) {
 
  const year = t.year != null ? String(t.year) : "";
 
- /* chips: category · platform · variant · year (year is universal, so it
-    lives here rather than being repeated inside the text lines) */
+ /* chips: category · platform · variant (year now lives on the provenance
+    line so it's consistently visible in the description text) */
  const meta = document.createElement("div");
  meta.className = "track-inline-meta";
  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
  meta.appendChild(inlineBox(safe(t.platform)));
  meta.appendChild(inlineBox(`v${safe(t.variant)}`));
- if (year) meta.appendChild(inlineBox(year));
 
  titleRow.append(title, meta);
 
@@ -429,9 +428,10 @@ function buildTrack(t) {
  if (group) artist = artist ? `${artist} · ${group}` : group;
  line2.textContent = artist;
 
- /* LINE 3: PROVENANCE — production · publisher, de-duplicated. Skip the
-    production when it just repeats the title, and the publisher when it
-    equals the composer's group (true for ~half the library). Year is a chip. */
+ /* LINE 3: PROVENANCE — production · publisher · year, de-duplicated. Skip the
+    production when it just repeats the title, and the publisher when it equals
+    the composer's group (true for ~half the library). The production year is
+    always appended so every track shows it consistently. */
  const line3 = document.createElement("div");
  line3.className = "track-line";
  const prod = safe(t.production);
@@ -439,6 +439,7 @@ function buildTrack(t) {
  const provParts = [];
  if (prod && norm(prod) !== norm(t.title)) provParts.push(prod);
  if (pub && norm(pub) !== norm(group)) provParts.push(pub);
+ if (year) provParts.push(year);
  line3.textContent = provParts.join(" · ");
 
  /* LINE 4: SOURCE — "Based on <title · artist · year>" */

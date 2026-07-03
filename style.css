@@ -34,6 +34,12 @@ body {
  text-align: center;
  padding: 20px;
 }
+/* match the header's content box to the track list, so the logo can be sized
+   as a fraction of the songbox width */
+.site-header {
+ max-width: 700px;
+ margin: 0 auto;
+}
 .site-main {
  max-width: 700px;
  margin: 0 auto;
@@ -46,8 +52,8 @@ body {
  LOGOS
 ================================ */
 .logo {
- width: 100%;
- max-width: 360px;
+ /* always 2/3 of the songbox width (e.g. 440px when the box is 660px) */
+ width: 66.6667%;
  height: auto;
  display: block;
  margin: 0 auto;
