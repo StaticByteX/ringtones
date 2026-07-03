@@ -52,15 +52,31 @@ body {
  display: block;
  margin: 0 auto;
 }
+.qr-row {
+ display: flex;
+ flex-wrap: nowrap;
+ justify-content: center;
+ align-items: flex-start;
+ gap: clamp(10px, 4vw, 28px);
+ margin: 0 auto 18px;
+}
+.qr-item {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 8px;
+ min-width: 0;
+}
 .qr {
- width: 100%;
- max-width: 225px;
+ width: 150px;
+ max-width: 27vw;
  height: auto;
  display: block;
- margin: 10px auto 0;
 }
-.footer-link {
- display: inline-block;
+.qr-item figcaption {
+ font-family: "Segoe UI", system-ui, sans-serif;
+ font-size: 13px;
+ color: var(--muted);
 }
 /* ================================
  HEADERS
@@ -86,7 +102,6 @@ h1 {
  color: #ffffff;
  text-align: center;
 }
-.footer-cta,
 .footer-tagline {
  font-size: 13px;
  color: var(--muted);

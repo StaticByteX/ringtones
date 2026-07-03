@@ -16,7 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
   <header class="site-header">
@@ -88,23 +88,39 @@
   </main>
 
   <footer class="site-footer">
-    <p class="footer-cta">Submit your ringtone suggestions on Instagram ↓</p>
-    <br>
-    <a
-      href="https://www.instagram.com/staticbytex/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="footer-link"
-    >
-      <img
-        src="assets/staticbytex-qr-code.png"
-        alt="StaticByteX Instagram QR code"
-        class="qr"
-      />
-    </a>
-    <br>
-    <br>
-    <p class="footer-tagline">Retro ringtones • C64/A500/PC • 100% free • Always • StaticByteX</p>
+    <div class="qr-row">
+      <figure class="qr-item">
+        <img
+          src="assets/staticbytex-qr-code-instagram.png"
+          alt="StaticByteX Instagram QR code"
+          class="qr"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Instagram</figcaption>
+      </figure>
+      <figure class="qr-item">
+        <img
+          src="assets/staticbytex-qr-code-youtube.png"
+          alt="StaticByteX YouTube QR code"
+          class="qr"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>YouTube</figcaption>
+      </figure>
+      <figure class="qr-item">
+        <img
+          src="assets/staticbytex-qr-code-github.png"
+          alt="StaticByteX website QR code"
+          class="qr"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Website</figcaption>
+      </figure>
+    </div>
+    <p class="footer-tagline">Retro ringtones • C64/AMIGA/DOS/WIN • 100% free • Always • StaticByteX</p>
   </footer>
 
   <!-- iPhone ringtone how-to (shown once per session, or via the ⓘ button) -->
