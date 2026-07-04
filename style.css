@@ -37,11 +37,14 @@ body {
 /* match the header's content box to the track list, so the logo can be sized
    as a fraction of the songbox width */
 .site-header {
- max-width: 700px;
+ max-width: 760px;
  margin: 0 auto;
 }
 .site-main {
- max-width: 700px;
+ /* wide enough that the longest description line (the Intellivision crack
+    line, ~666px of text) fits on one line: 666 + card padding/border + main
+    padding, with a little slack */
+ max-width: 760px;
  margin: 0 auto;
  padding: 20px;
 }
