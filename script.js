@@ -526,6 +526,11 @@ function markIosHelpShown() {
   /* private mode etc. — just skip persistence */
  }
 }
+/* Firefox on iOS ignores the anchor download attribute for blob URLs: it
+   saves under the blob's UUID with no extension, which GarageBand can't use.
+   Detect it so we can hand the file to the share sheet instead. */
+const isFxIOS = isIOS && /FxiOS/i.test(navigator.userAgent);
+
 /* download a file as a real save by fetching it and saving the blob. We never
    navigate to / open the audio URL itself, because iOS Safari just plays it
    (and would spawn a second tab). Requires the bucket's CORS policy to allow
@@ -535,6 +540,24 @@ async function saveFile(url, filename) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const blob = await response.blob();
+
+  /* Firefox iOS: use the native share sheet, which keeps the exact filename
+     and .m4r extension ("Save to Files" there = a correct download). */
+  if (isFxIOS && navigator.canShare) {
+   const file = new File([blob], filename, {
+    type: blob.type || "audio/mp4"
+   });
+   if (navigator.canShare({ files: [file] })) {
+    try {
+     await navigator.share({ files: [file] });
+     return;
+    } catch (err) {
+     if (err && err.name === "AbortError") return; // user closed the sheet
+     /* otherwise fall through to the anchor fallback below */
+    }
+   }
+  }
+
   const blobUrl = URL.createObjectURL(blob);
   const tmp = document.createElement("a");
   tmp.href = blobUrl;
