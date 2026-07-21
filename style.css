@@ -83,13 +83,8 @@ body {
  height: auto;
  display: block;
 }
-.qr-label {
- font-family: "Segoe UI", system-ui, sans-serif;
- font-size: 13px;
- color: var(--muted);
-}
-.qr-item:hover .qr-label {
- color: var(--text);
+.qr-item:hover .qr {
+ opacity: 0.85;
 }
 /* ================================
  HEADERS
