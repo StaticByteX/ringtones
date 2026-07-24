@@ -1,9 +1,10 @@
-<!-- index.html 2026-04-04 02:50:24 -->
+<!-- index.html — StaticByteX -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
   <title>StaticByteX — Retro Ringtones for C64 / Amiga / DOS / Windows</title>
   <meta
     name="description"
@@ -12,11 +13,12 @@
   <link rel="icon" type="image/png" href="assets/staticbytex-favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev" />
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <header class="site-header">
@@ -24,6 +26,9 @@
       src="assets/staticbytex-logo.png"
       alt="StaticByteX logo"
       class="logo"
+      width="960"
+      height="263"
+      fetchpriority="high"
     />
   </header>
 
@@ -83,7 +88,7 @@
       </div>
     </div>
 
-    <p id="results-info" class="results-info"></p>
+    <p id="results-info" class="results-info" aria-live="polite"></p>
     <div id="tracklist" aria-label="Track list"></div>
   </main>
 
@@ -99,6 +104,8 @@
           src="assets/staticbytex-qr-code-instagram.png"
           alt="StaticByteX Instagram QR code"
           class="qr"
+          width="1000"
+          height="1000"
           loading="lazy"
           decoding="async"
         />
@@ -113,6 +120,8 @@
           src="assets/staticbytex-qr-code-youtube.png"
           alt="StaticByteX YouTube QR code"
           class="qr"
+          width="1000"
+          height="1000"
           loading="lazy"
           decoding="async"
         />
@@ -127,6 +136,8 @@
           src="assets/staticbytex-qr-code-github.png"
           alt="StaticByteX website QR code"
           class="qr"
+          width="1000"
+          height="1000"
           loading="lazy"
           decoding="async"
         />
@@ -176,6 +187,6 @@
     <audio id="player" class="player-audio" controls preload="none"></audio>
   </div>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

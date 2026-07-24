@@ -1,4 +1,4 @@
-/* script.js 2026-04-04 02:50:24 */
+/* script.js — StaticByteX */
 let tracks = [];
 let currentFilter = "all";
 let currentTypeFilter = "all";
@@ -12,7 +12,7 @@ const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
 
-/* debounce: collapse rapid calls (e.g. keystrokes) into one */
+/* collapse rapid calls (e.g. keystrokes) into one */
 function debounce(fn, delay) {
  let id;
  return (...args) => {
@@ -21,10 +21,19 @@ function debounce(fn, delay) {
  };
 }
 
-/* precompute the lowercase search blob + platform key once per track,
-   so filtering doesn't rebuild them on every keystroke */
+/* precompute search blob, sort keys, and composer key once per track */
 function indexTrack(t) {
+ const c = t.composer || {};
  t._platformKey = norm(t.platform);
+ t._composerKey = safe(c.handle) + safe(c.name);
+ t._sort = {
+  title: norm(t.title),
+  handle: norm(c.handle),
+  name: norm(c.name),
+  group: norm(c.group),
+  production: norm(t.production),
+  publisher: norm(t.publisher)
+ };
  t._search = [
   t.title,
   t.production,
@@ -34,9 +43,9 @@ function indexTrack(t) {
   t.platform,
   t.variant,
   t.type,
-  safe(t.composer?.handle),
-  safe(t.composer?.name),
-  safe(t.composer?.group),
+  safe(c.handle),
+  safe(c.name),
+  safe(c.group),
   ...(t.tags || [])
  ]
   .join(" ")
@@ -44,7 +53,7 @@ function indexTrack(t) {
  return t;
 }
 
-/* PLATFORM PALETTE — single source of truth, keyed by lowercase platform */
+/* platform palette — single source of truth */
 const DEFAULT_COLOR = "#ffffff";
 const PLATFORM_COLORS = {
  c64: "#f2f540",
@@ -56,11 +65,7 @@ function platformColor(platform) {
  return PLATFORM_COLORS[norm(platform)] || DEFAULT_COLOR;
 }
 
-/* SHARED AUDIO PLAYER
-   One <audio> element in a sticky bottom bar serves the entire list, so the
-   page holds a single media widget instead of one per track (hundreds of
-   native players is what overwhelmed mobile WebKit). Each card carries a
-   lightweight play button that just points the shared player at its file. */
+/* SHARED AUDIO PLAYER — one <audio> in the sticky bar serves the whole list */
 const playerState = { audio: null, trackId: null };
 
 function getPlayer() {
@@ -68,12 +73,15 @@ function getPlayer() {
  return playerState.audio;
 }
 
-/* sync every rendered play button to the shared player's state */
+/* sync only the buttons whose state can differ: marked ones + current track */
 function refreshPlayButtons() {
  const audio = getPlayer();
  const playing = !!audio && !audio.paused && !audio.ended;
- document.querySelectorAll(".play-btn").forEach((b) => {
-  const isActive = b.dataset.trackId === playerState.trackId;
+ const id = playerState.trackId;
+ let sel = ".play-btn.playing, .play-btn.active-track";
+ if (id) sel += `, .play-btn[data-track-id="${CSS.escape(id)}"]`;
+ document.querySelectorAll(sel).forEach((b) => {
+  const isActive = b.dataset.trackId === id;
   const isPlaying = isActive && playing;
   b.classList.toggle("playing", isPlaying);
   b.classList.toggle("active-track", isActive);
@@ -101,13 +109,13 @@ function updateNowPlaying(t) {
  }
 }
 
+/* same track -> pause/resume; different track -> load and play */
 function togglePlay(t) {
  const audio = getPlayer();
  if (!audio) return;
  const src = t.file_mp3 || t.file_m4r;
  if (!src) return;
 
- /* same track -> pause/resume; different track -> load and play */
  if (playerState.trackId === t.id) {
   if (audio.paused) audio.play().catch(() => {});
   else audio.pause();
@@ -127,20 +135,20 @@ function playButton(t, color) {
  btn.className = "play-btn";
  btn.dataset.trackId = t.id || "";
  btn.setAttribute("aria-label", "Play");
+ btn.setAttribute("aria-pressed", "false");
  if (color) btn.style.color = color;
  btn.addEventListener("click", () => togglePlay(t));
  return btn;
 }
 
-/* LOAD DATA (UPDATED PATHS) */
-function showLoadError(message) {
+/* DATA LOADING */
+function showEmptyMessage(message) {
  const container = document.getElementById("tracklist");
  if (!container) return;
- container.textContent = "";
  const p = document.createElement("p");
  p.className = "load-error";
  p.textContent = message;
- container.appendChild(p);
+ container.replaceChildren(p);
 }
 
 async function loadData() {
@@ -151,7 +159,7 @@ async function loadData() {
   "data/ringtones-win.json"
  ];
 
- /* allSettled so a single failed/malformed source doesn't blank the page */
+ /* allSettled: one failed source must not blank the whole page */
  const results = await Promise.allSettled(
   sources.map((s) =>
    fetch(s).then((r) => {
@@ -163,10 +171,7 @@ async function loadData() {
 
  const failed = results.filter((res) => res.status === "rejected");
  if (failed.length) {
-  console.error(
-   "Some track sources failed to load:",
-   failed.map((f) => f.reason)
-  );
+  console.error("Some track sources failed:", failed.map((f) => f.reason));
  }
 
  tracks = results
@@ -175,14 +180,14 @@ async function loadData() {
   .map(indexTrack);
 
  if (!tracks.length) {
-  showLoadError("Couldn't load any tracks. Please try again later.");
+  showEmptyMessage("Couldn't load any tracks. Please try again later.");
   return;
  }
 
  render();
 }
 
-/* FILTERS */
+/* FILTERS & SORT */
 function setActive(buttons, isActive) {
  buttons.forEach((b) => {
   const active = isActive(b);
@@ -206,8 +211,6 @@ function setTypeFilter(t) {
  );
  render();
 }
-
-/* SORT */
 function setSort(key) {
  currentSortKey = key;
  setActive(
@@ -215,25 +218,6 @@ function setSort(key) {
   (b) => b.dataset.sort === key
  );
  render();
-}
-function sortValue(track) {
- const c = track.composer || {};
- switch (currentSortKey) {
- case "title":
-  return norm(track.title);
- case "handle":
-  return norm(c.handle);
- case "name":
-  return norm(c.name);
- case "group":
-  return norm(c.group);
- case "production":
-  return norm(track.production);
- case "publisher":
-  return norm(track.publisher);
- default:
-  return norm(track.title);
- }
 }
 
 function plural(n, one, many) {
@@ -243,17 +227,14 @@ function plural(n, one, many) {
 /* RENDER */
 function render() {
  const container = document.getElementById("tracklist");
- container.innerHTML = "";
+ container.replaceChildren();
  renderIndex = 0;
  sentinel = null;
  const searchInput = document.getElementById("search");
  const q = norm(searchInput.value);
 
- /* show/hide clear button */
  const clearBtn = document.getElementById("search-clear");
- if (clearBtn) {
-  clearBtn.classList.toggle("hidden", !q);
- }
+ if (clearBtn) clearBtn.classList.toggle("hidden", !q);
 
  currentFilteredTracks = tracks.filter((t) => {
   const matchesPlatform =
@@ -263,44 +244,32 @@ function render() {
   return matchesPlatform && matchesType && t._search.includes(q);
  });
 
- /* SORT */
+ /* sort on precomputed keys; tie-break by title */
+ const key = currentSortKey;
  currentFilteredTracks.sort((a, b) => {
-  const av = sortValue(a);
-  const bv = sortValue(b);
+  const av = a._sort[key] ?? a._sort.title;
+  const bv = b._sort[key] ?? b._sort.title;
   if (av < bv) return -1;
   if (av > bv) return 1;
-  // tie-breaker by title
-  const at = norm(a.title);
-  const bt = norm(b.title);
+  const at = a._sort.title;
+  const bt = b._sort.title;
   if (at < bt) return -1;
   if (at > bt) return 1;
   return 0;
  });
 
- /* STATS (12–15) */
+ /* stats */
  const composerSet = new Set();
  const productionSet = new Set();
  const publisherSet = new Set();
- const categorySet = new Set();
  currentFilteredTracks.forEach((t) => {
-  const h = safe(t.composer?.handle);
-  const n = safe(t.composer?.name);
-  const key = h + n;
-  if (key) composerSet.add(key);
+  if (t._composerKey) composerSet.add(t._composerKey);
   if (t.production) productionSet.add(t.production);
   if (t.publisher) publisherSet.add(t.publisher);
-  if (t.category) {
-   t.category.split("\n").forEach((c) => {
-    const cc = c.trim();
-    if (cc) categorySet.add(cc);
-   });
-  }
  });
 
- /* ACCENT COLOR FOR ALL NUMBERS (16) */
  const accentColor = PLATFORM_COLORS[currentFilter] || DEFAULT_COLOR;
 
- /* RESULTS INFO (no categories; pluralization; line break after publishers) */
  const resultsInfo = document.getElementById("results-info");
  if (resultsInfo) {
   const tCount = currentFilteredTracks.length;
@@ -316,23 +285,29 @@ function render() {
  `;
  }
 
+ if (!currentFilteredTracks.length) {
+  showEmptyMessage("No tracks match your search — try different words or filters.");
+  return;
+ }
+
  renderNextChunk();
  setupObserver();
 }
 
-/* CHUNKED RENDERING */
+/* CHUNKED RENDERING — batch each chunk through a fragment (one reflow) */
 function renderNextChunk() {
  const container = document.getElementById("tracklist");
+ const frag = document.createDocumentFragment();
  currentFilteredTracks
   .slice(renderIndex, renderIndex + CHUNK_SIZE)
-  .forEach((t) => container.appendChild(buildTrack(t)));
+  .forEach((t) => frag.appendChild(buildTrack(t)));
+ container.appendChild(frag);
  renderIndex += CHUNK_SIZE;
 
- /* newly added buttons should reflect the shared player's current state */
+ /* new buttons must reflect the shared player's state */
  refreshPlayButtons();
 
- /* keep the sentinel pinned to the bottom of the list so the observer keeps
-    firing on subsequent chunks; drop it once everything has rendered */
+ /* keep the sentinel below the newest cards; drop it when done */
  if (sentinel) {
   if (renderIndex >= currentFilteredTracks.length) {
    sentinel.remove();
@@ -342,7 +317,7 @@ function renderNextChunk() {
  }
 }
 
-/* OBSERVER (lazy load) */
+/* lazy-load further chunks as the sentinel nears the viewport */
 function setupObserver() {
  if (observer) observer.disconnect();
  const container = document.getElementById("tracklist");
@@ -362,27 +337,31 @@ function setupObserver() {
  observer.observe(sentinel);
 }
 
-/* BUILD TRACK CARD */
+/* TRACK CARD */
+const PLATFORM_LOGOS = {
+ C64: "assets/c64-logo.png",
+ A500: "assets/a500-logo.png",
+ DOS: "assets/dos-logo.png",
+ WIN: "assets/win-logo.png"
+};
+
 function buildTrack(t) {
  const color = platformColor(t.platform);
- const platformKey = norm(t.platform); // c64/a500/dos/win
  const card = document.createElement("div");
- card.className = `track ${platformKey}`;
+ card.className = `track ${t._platformKey}`;
 
- /* PLATFORM LOGO (6–7) */
- const logo = document.createElement("img");
- logo.className = "track-platform-logo";
- logo.loading = "lazy";
- logo.decoding = "async";
- if (t.platform === "C64") logo.src = "assets/c64-logo.png";
- else if (t.platform === "A500") logo.src = "assets/a500-logo.png";
- else if (t.platform === "DOS") logo.src = "assets/dos-logo.png";
- else if (t.platform === "WIN") logo.src = "assets/win-logo.png";
- else logo.src = "";
- logo.alt = `${t.platform} logo`;
- if (logo.src) card.appendChild(logo);
+ const logoSrc = PLATFORM_LOGOS[t.platform];
+ if (logoSrc) {
+  const logo = document.createElement("img");
+  logo.className = "track-platform-logo";
+  logo.loading = "lazy";
+  logo.decoding = "async";
+  logo.src = logoSrc;
+  logo.alt = `${t.platform} logo`;
+  card.appendChild(logo);
+ }
 
- /* LINE 1: TITLE + META */
+ /* line 1: title + chips (category · platform · variant) */
  const titleRow = document.createElement("div");
  titleRow.className = "track-title";
  titleRow.style.color = color;
@@ -393,8 +372,6 @@ function buildTrack(t) {
 
  const year = t.year != null ? String(t.year) : "";
 
- /* chips: category · platform · variant (year now lives on the provenance
-    line so it's consistently visible in the description text) */
  const meta = document.createElement("div");
  meta.className = "track-inline-meta";
  if (t.category) meta.appendChild(inlineBox(safe(t.category).toUpperCase()));
@@ -403,17 +380,10 @@ function buildTrack(t) {
 
  titleRow.append(title, meta);
 
- /* SAMPLING FLAG */
  const hasSampling =
-  t.sampling &&
-  (t.sampling.title || t.sampling.artist || t.sampling.year);
+  t.sampling && (t.sampling.title || t.sampling.artist || t.sampling.year);
 
- /* LINE 2: COMPOSER
-  - If sampling exists -> NO year
-  - If sampling does NOT exist -> include year
- */
- /* LINE 2: ARTIST — Handle (Real Name) · Group.
-    Parentheses are used for exactly one thing: the real name after a handle. */
+ /* line 2: artist — parentheses mean one thing: real name after a handle */
  const line2 = document.createElement("div");
  line2.className = "track-line";
  const comp = t.composer || {};
@@ -428,21 +398,18 @@ function buildTrack(t) {
  if (group) artist = artist ? `${artist} · ${group}` : group;
  line2.textContent = artist;
 
- /* LINE 3: PROVENANCE — production · publisher · year, de-duplicated. Skip the
-    production when it just repeats the title, and the publisher when it equals
-    the composer's group (true for ~half the library). The production year is
-    always appended so every track shows it consistently. */
+ /* line 3: production · publisher · year, de-duplicated against title/group */
  const line3 = document.createElement("div");
  line3.className = "track-line";
  const prod = safe(t.production);
  const pub = safe(t.publisher);
  const provParts = [];
- if (prod && norm(prod) !== norm(t.title)) provParts.push(prod);
+ if (prod && norm(prod) !== t._sort.title) provParts.push(prod);
  if (pub && norm(pub) !== norm(group)) provParts.push(pub);
  if (year) provParts.push(year);
  line3.textContent = provParts.join(" · ");
 
- /* LINE 4: SOURCE — "Based on <title · artist · year>" */
+ /* line 4: "Based on <title · artist · year>" */
  let line4 = null;
  if (hasSampling) {
   line4 = document.createElement("div");
@@ -460,19 +427,16 @@ function buildTrack(t) {
   }
  }
 
- /* ACTIONS */
+ /* actions: play, downloads (iOS hides Android), type badge */
  const actions = document.createElement("div");
  actions.className = "track-actions";
 
  const left = document.createElement("div");
  left.className = "actions-left";
 
- /* play button -> drives the single shared player in the sticky bar */
  if (t.file_mp3 || t.file_m4r) {
   left.appendChild(playButton(t, color));
  }
-
- // iOS: hide the Android (MP3) button — only the iPhone format applies there
  if (!isIOS && t.file_mp3) {
   left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "Android"));
  }
@@ -489,10 +453,8 @@ function buildTrack(t) {
 
  actions.append(left, type);
 
- /* ASSEMBLE */
  card.append(titleRow);
  if (line2.textContent.trim()) card.append(line2);
- // only show line3 when it has content (11)
  if (line3.textContent.trim()) card.append(line3);
  if (line4 && line4.textContent.trim()) card.append(line4);
  card.append(actions);
@@ -507,10 +469,8 @@ function inlineBox(text) {
  b.textContent = text;
  return b;
 }
-/* iOS RINGTONE HELP
-   iPhones can't set a ringtone straight from the browser (Apple blocks it),
-   so the iPhone download is paired with a short GarageBand walkthrough shown
-   once per session (sessionStorage) and reachable any time via the ⓘ button. */
+
+/* iOS RINGTONE HELP — walkthrough shown until acknowledged, recallable via ⓘ */
 const IOS_HELP_KEY = "sbx_ios_help_shown";
 function iosHelpShown() {
  try {
@@ -523,37 +483,29 @@ function markIosHelpShown() {
  try {
   sessionStorage.setItem(IOS_HELP_KEY, "1");
  } catch {
-  /* private mode etc. — just skip persistence */
+  /* private mode — skip persistence */
  }
 }
-/* Firefox on iOS ignores the anchor download attribute for blob URLs: it
-   saves under the blob's UUID with no extension, which GarageBand can't use.
-   Detect it so we can hand the file to the share sheet instead. */
+
+/* Firefox iOS mangles blob-download filenames; it gets the share sheet instead */
 const isFxIOS = isIOS && /FxiOS/i.test(navigator.userAgent);
 
-/* download a file as a real save by fetching it and saving the blob. We never
-   navigate to / open the audio URL itself, because iOS Safari just plays it
-   (and would spawn a second tab). Requires the bucket's CORS policy to allow
-   this origin — which it now does. */
+/* save via blob — never navigate to the audio URL (iOS would just play it) */
 async function saveFile(url, filename) {
  try {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const blob = await response.blob();
 
-  /* Firefox iOS: use the native share sheet, which keeps the exact filename
-     and .m4r extension ("Save to Files" there = a correct download). */
+  /* Firefox iOS: share sheet keeps the exact filename + .m4r extension */
   if (isFxIOS && navigator.canShare) {
-   const file = new File([blob], filename, {
-    type: blob.type || "audio/mp4"
-   });
+   const file = new File([blob], filename, { type: blob.type || "audio/mp4" });
    if (navigator.canShare({ files: [file] })) {
     try {
      await navigator.share({ files: [file] });
      return;
     } catch (err) {
-     if (err && err.name === "AbortError") return; // user closed the sheet
-     /* otherwise fall through to the anchor fallback below */
+     if (err && err.name === "AbortError") return; /* user closed the sheet */
     }
    }
   }
@@ -571,13 +523,11 @@ async function saveFile(url, filename) {
  }
 }
 
-/* collapse rapid duplicate triggers: iOS can deliver a second "ghost" click
-   for a single tap, which previously slipped through to a second download /
-   playback. One gesture should cause at most one download. */
+/* one gesture = at most one download (iOS can deliver ghost clicks) */
 let downloadActionAt = 0;
 function claimDownloadAction() {
  const now = Date.now();
- if (now - downloadActionAt < 450) return false; // covers the ~250-350ms ghost
+ if (now - downloadActionAt < 450) return false;
  downloadActionAt = now;
  return true;
 }
@@ -593,7 +543,7 @@ function openIosHelp(url, filename) {
   return;
  }
  const dl = document.getElementById("ios-help-download");
- if (dl) dl.hidden = !url; // hide the download when opened from the generic ⓘ
+ if (dl) dl.hidden = !url; /* generic ⓘ has no file to offer */
  modal.hidden = false;
  modalOpenedAt = Date.now();
  document.body.classList.add("modal-open");
@@ -612,15 +562,12 @@ function iosHelpButton(t) {
  b.setAttribute("aria-label", "How to set as iPhone ringtone");
  const url = t && t.file_m4r ? t.file_m4r : "";
  const filename = url.split("/").pop() || "ringtone.m4r";
- /* the ⓘ belongs to this card, so its walkthrough offers this track's file */
  b.addEventListener("click", () => openIosHelp(url, filename));
  return b;
 }
 
+/* download control is a <button> — Firefox iOS follows anchor hrefs regardless */
 function dlBtn(url, icon, label, opts = {}) {
- /* a <button>, not an <a>: some iOS browsers (notably Firefox) navigate to an
-    anchor's href even after preventDefault, which just plays the audio file. A
-    button has no link to follow, so the only possible action is our save. */
  const b = document.createElement("button");
  b.type = "button";
  b.className = "download-btn";
@@ -628,16 +575,13 @@ function dlBtn(url, icon, label, opts = {}) {
  const filename = url.split("/").pop() || label.toLowerCase();
 
  b.addEventListener("click", () => {
-  /* iOS, until the user acknowledges with "Got it": show the walkthrough
-     (the download lives inside it). Only "Got it" marks it seen — closing via
-     × or tapping outside just dismisses it, so it offers again next time. */
+  /* iOS first tap per session opens the walkthrough (download lives inside) */
   if (opts.iosRingtone && isIOS && !iosHelpShown()) {
    openIosHelp(url, filename);
    return;
   }
-  /* ignore an iOS "ghost" click that lands while the walkthrough is open */
   const modal = document.getElementById("ios-help");
-  if (modal && !modal.hidden) return;
+  if (modal && !modal.hidden) return; /* ghost click while modal is open */
   if (!claimDownloadAction()) return;
   saveFile(url, filename);
  });
@@ -656,8 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
  const searchInput = document.getElementById("search");
  const clearBtn = document.getElementById("search-clear");
 
- /* keep card buttons in sync when the shared player changes state,
-    including when the user drives it from the bar's own controls */
+ /* mirror the shared player's state onto the card buttons */
  const player = getPlayer();
  if (player) {
   ["play", "pause", "ended"].forEach((ev) =>
@@ -665,9 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
  }
 
- /* iOS ringtone help modal: close via ×, backdrop, Esc; download via blob.
-    The 350ms guard ignores the "ghost click" iOS can deliver right after the
-    modal opens (which previously closed it or triggered playback). */
+ /* iOS help modal — 350ms guard swallows the ghost click after opening */
  const iosHelp = document.getElementById("ios-help");
  if (iosHelp) {
   iosHelp.querySelectorAll("[data-close]").forEach((el) =>
@@ -680,20 +621,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dlLink) {
    dlLink.addEventListener("click", (e) => {
     e.preventDefault();
-    if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
+    if (Date.now() - modalOpenedAt < 350) return;
     if (!claimDownloadAction()) return;
     if (pendingDownload) saveFile(pendingDownload.url, pendingDownload.filename);
-    /* downloading counts as acknowledgement too, so later iPhone taps go
-       straight to the download instead of re-opening the guide */
-    markIosHelpShown();
+    markIosHelpShown(); /* downloading acknowledges the guide too */
     closeIosHelp();
    });
   }
-  /* only "Got it" acknowledges the guide for the session; × / backdrop don't */
   const gotIt = document.getElementById("ios-help-gotit");
   if (gotIt) {
    gotIt.addEventListener("click", () => {
-    if (Date.now() - modalOpenedAt < 350) return; // ignore ghost click
+    if (Date.now() - modalOpenedAt < 350) return;
     markIosHelpShown();
     closeIosHelp();
    });
@@ -730,6 +668,7 @@ document.addEventListener("DOMContentLoaded", () => {
   .forEach((b) =>
    b.addEventListener("click", () => setSort(b.dataset.sort))
   );
-
- loadData();
 });
+
+/* start fetching data immediately — the script sits at the end of <body> */
+loadData();

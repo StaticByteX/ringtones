@@ -1,4 +1,4 @@
-/* style.css 2026-04-04 02:50:24 */
+/* style.css — StaticByteX */
 /* ================================
  RESET & VARIABLES
 ================================ */
@@ -34,16 +34,13 @@ body {
  text-align: center;
  padding: 20px;
 }
-/* match the header's content box to the track list, so the logo can be sized
-   as a fraction of the songbox width */
+/* header shares the track list's content width so the logo can scale to it */
 .site-header {
  max-width: 760px;
  margin: 0 auto;
 }
 .site-main {
- /* wide enough that the longest description line (the Intellivision crack
-    line, ~666px of text) fits on one line: 666 + card padding/border + main
-    padding, with a little slack */
+ /* 760px fits the longest description line (~666px of text) on one line */
  max-width: 760px;
  margin: 0 auto;
  padding: 20px;
@@ -55,7 +52,7 @@ body {
  LOGOS
 ================================ */
 .logo {
- /* always 2/3 of the songbox width (e.g. 440px when the box is 660px) */
+ /* always 2/3 of the songbox width */
  width: 66.6667%;
  height: auto;
  display: block;
@@ -254,9 +251,7 @@ h1 {
  border-radius: 10px;
  padding: 14px;
  margin-bottom: 16px;
- /* let the browser skip layout/paint for off-screen cards (huge win on
-    mobile with hundreds of cards); the intrinsic size keeps the scrollbar
-    stable. Ignored gracefully on browsers that don't support it. */
+ /* skip layout/paint for off-screen cards; intrinsic size steadies the scrollbar */
  content-visibility: auto;
  contain-intrinsic-size: auto 130px;
 }
@@ -328,8 +323,7 @@ h1 {
  border-color: currentColor;
  box-shadow: 0 0 0 1px currentColor inset;
 }
-/* play = triangle; pause = two bars, drawn in CSS so there is no font/emoji
-   dependency across iOS/desktop */
+/* play triangle / pause bars drawn in CSS — no font or emoji dependency */
 .play-btn::before,
 .play-btn::after {
  content: "";
@@ -405,7 +399,7 @@ h1 {
  min-width: 0;
  height: 36px;
 }
-/* reserve space so the fixed bar never hides the last cards */
+/* reserve space so the fixed player bar never covers the last cards */
 body.has-player {
  padding-bottom: 84px;
 }
@@ -516,7 +510,6 @@ body.has-player {
  color: #001018;
  font-weight: 600;
  font-size: 14px;
- text-decoration: none;
  cursor: pointer;
  font-family: "Segoe UI", system-ui, sans-serif;
 }
@@ -560,7 +553,7 @@ body.modal-open {
  border-color: var(--notification);
 }
 /* ================================
- MOBILE: center all 14 boxes (5 platform + 3 type + 6 sort)
+ MOBILE
 ================================ */
 @media (max-width: 700px) {
  .filters-row {
@@ -589,7 +582,6 @@ body.modal-open {
  background: #101010;
  border: 1px solid #444;
  color: #ddd;
- text-decoration: none;
  font-family: "Segoe UI", system-ui, sans-serif;
  font-size: 12px;
  cursor: pointer;
