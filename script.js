@@ -11,6 +11,7 @@ let sentinel = null;
 const safe = (v) => (v === null || v === undefined ? "" : String(v));
 const norm = (v) => safe(v).toLowerCase();
 const isIOS = /iP(hone|ad|od)/i.test(navigator.userAgent);
+const isAndroid = /Android/i.test(navigator.userAgent);
 
 /* collapse rapid calls (e.g. keystrokes) into one */
 function debounce(fn, delay) {
@@ -437,10 +438,11 @@ function buildTrack(t) {
  if (t.file_mp3 || t.file_m4r) {
   left.appendChild(playButton(t, color));
  }
+ /* phones get only their own format; desktop gets both */
  if (!isIOS && t.file_mp3) {
   left.appendChild(dlBtn(t.file_mp3, "assets/android-favicon.png", "Android"));
  }
- if (t.file_m4r) {
+ if (!isAndroid && t.file_m4r) {
   left.appendChild(
    dlBtn(t.file_m4r, "assets/apple-favicon.png", "iPhone", { iosRingtone: true })
   );
