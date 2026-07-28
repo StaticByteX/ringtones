@@ -23,6 +23,11 @@
 /* ================================
  BASE LAYOUT
 ================================ */
+html {
+ /* keep authored font sizes in both orientations (stops iOS landscape text inflation) */
+ -webkit-text-size-adjust: 100%;
+ text-size-adjust: 100%;
+}
 body {
  font-family: "IBM Plex Mono", monospace;
  background: var(--bg);
