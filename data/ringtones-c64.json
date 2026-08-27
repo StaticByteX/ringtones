@@ -2161,7 +2161,7 @@
   },
   {
     "id": "world-games-c64-v7",
-    "title": "World Games (Subtune 4)",
+    "title": "World Games - The Lumberjack Song (Subtune 6)",
     "variant": 7,
     "platform": "C64",
     "type": "Ringtone",
@@ -2177,7 +2177,7 @@
   },
   {
     "id": "world-games-c64-v8",
-    "title": "World Games (Subtune 7)",
+    "title": "World Games (Subtune 4)",
     "variant": 8,
     "platform": "C64",
     "type": "Ringtone",
@@ -2193,7 +2193,7 @@
   },
   {
     "id": "world-games-c64-v9",
-    "title": "World Games - Piobaireachd of Donald Dhu (Subtune 8)",
+    "title": "World Games (Subtune 7)",
     "variant": 9,
     "platform": "C64",
     "type": "Ringtone",
@@ -2209,7 +2209,7 @@
   },
   {
     "id": "world-games-c64-v10",
-    "title": "World Games (Subtune 10)",
+    "title": "World Games - Piobaireachd of Donald Dhu (Subtune 8)",
     "variant": 10,
     "platform": "C64",
     "type": "Ringtone",
@@ -2221,14 +2221,14 @@
     "sampling": { "title": null, "artist": null, "year": null },
     "tags": ["world-games","steve-mage","epyx","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v10-steve-mage.mp3",
-    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v10-steve-mage.m4r"
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v110-steve-mage.m4r"
   },
   {
     "id": "world-games-c64-v11",
     "title": "World Games (Subtune 10)",
     "variant": 11,
     "platform": "C64",
-    "type": "Notification",
+    "type": "Ringtone",
     "composer": { "handle": null, "name": "Steve Mage", "group": null },
     "production": "World Games",
     "category": "Game",
@@ -2238,5 +2238,21 @@
     "tags": ["world-games","steve-mage","epyx","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
     "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v11-steve-mage.mp3",
     "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v11-steve-mage.m4r"
+  },
+  {
+    "id": "world-games-c64-v12",
+    "title": "World Games (Subtune 10)",
+    "variant": 12,
+    "platform": "C64",
+    "type": "Notification",
+    "composer": { "handle": null, "name": "Steve Mage", "group": null },
+    "production": "World Games",
+    "category": "Game",
+    "year": 1986,
+    "publisher": "Epyx",
+    "sampling": { "title": null, "artist": null, "year": null },
+    "tags": ["world-games","steve-mage","epyx","c64","8bit","chipmusic","chiptune","sidmusic","retro","retrogaming"],
+    "file_mp3": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v12-steve-mage.mp3",
+    "file_m4r": "https://pub-2f9f25becbc54446ac3fbb32b505d9fb.r2.dev/c64/world-games-c64-v12-steve-mage.m4r"
   }
 ]
